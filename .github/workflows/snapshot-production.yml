@@ -56,15 +56,31 @@ jobs:
           grep -Fq '@import url("/polish.core-10bc39ea.css")' polish.css
           grep -Fq "fetch('/api/pusula?'" client.js
 
-          if grep -R -n -E 'https://pusula-nsosyal-(demo|ui-helper|filepath-test|chunk-js|chunk-store|ui-v3-[^/[:space:]"'"']*)\.vercel\.app' \
-            index.html client.js polish.js polish.css polish.core-06a9d80c.js polish.core-10bc39ea.css; then
-            echo 'ERROR: old/test Vercel project dependency found'
+          runtime_files=(index.html client.js polish.js polish.css polish.core-06a9d80c.js polish.core-10bc39ea.css)
+          forbidden=(
+            'pusula-nsosyal-demo'
+            'pusula-nsosyal-ui-helper'
+            'pusula-filepath-test'
+            'pusula-chunk-js'
+            'pusula-chunk-store'
+            'schema-probe-theme'
+            'schema-probe-do-not-use'
+          )
+          for name in "${forbidden[@]}"; do
+            if grep -F -n "$name" "${runtime_files[@]}"; then
+              echo "ERROR: forbidden old/test project dependency found: $name"
+              exit 1
+            fi
+          done
+          if grep -F -n 'https://pusula-nsosyal-ui-v3-' "${runtime_files[@]}"; then
+            echo 'ERROR: runtime contains a hard-coded ui-v3 deployment URL'
             exit 1
           fi
 
           node --check client.js
           node --check polish.js
           node --check polish.core-06a9d80c.js
+          node --check lucide.min.js
           node --check api/pusula.js
 
       - name: Record immutable backup manifest and hashes
