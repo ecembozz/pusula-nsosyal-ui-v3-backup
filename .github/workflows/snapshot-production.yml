@@ -1,0 +1,151 @@
+name: Snapshot verified Vercel production
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/snapshot-production.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    env:
+      BASE_URL: https://pusula-nsosyal-ui-v3-2gmgagp5x-ecemboz123456-4318s-projects.vercel.app
+      DEPLOYMENT_ID: dpl_AFKijVadXC5PiK6oXY7kXJgSudki
+      PROJECT_ID: prj_LNNe7Y60gNsOrPl0agatqwkRo0o2
+    steps:
+      - name: Checkout backup repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download exact production runtime files
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --location --retry 3 "$BASE_URL/" -o index.html
+          curl --fail --silent --show-error --location --retry 3 "$BASE_URL/client.js" -o client.js
+          curl --fail --silent --show-error --location --retry 3 "$BASE_URL/polish.js" -o polish.js
+          curl --fail --silent --show-error --location --retry 3 "$BASE_URL/polish.core-06a9d80c.js" -o polish.core-06a9d80c.js
+          curl --fail --silent --show-error --location --retry 3 "$BASE_URL/polish.css" -o polish.css
+          curl --fail --silent --show-error --location --retry 3 "$BASE_URL/polish.core-10bc39ea.css" -o polish.core-10bc39ea.css
+          curl --fail --silent --show-error --location --retry 3 "$BASE_URL/lucide.min.js" -o lucide.min.js
+
+      - name: Verify snapshot is the independent production
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s index.html
+          test -s client.js
+          test -s polish.js
+          test -s polish.core-06a9d80c.js
+          test -s polish.css
+          test -s polish.core-10bc39ea.css
+          test -s lucide.min.js
+          test -s api/pusula.js
+          test -s vercel.json
+
+          grep -Fq 'src="/client.js"' index.html
+          grep -Fq 'src="/polish.js"' index.html
+          grep -Fq 'href="/polish.css"' index.html
+          grep -Fq 'src="/lucide.min.js"' index.html
+          grep -Fq "const UP='/polish.core-06a9d80c.js'" polish.js
+          grep -Fq '@import url("/polish.core-10bc39ea.css")' polish.css
+          grep -Fq "fetch('/api/pusula?'" client.js
+
+          if grep -R -n -E 'https://pusula-nsosyal-(demo|ui-helper|filepath-test|chunk-js|chunk-store|ui-v3-[^/[:space:]"'"']*)\.vercel\.app' \
+            index.html client.js polish.js polish.css polish.core-06a9d80c.js polish.core-10bc39ea.css; then
+            echo 'ERROR: old/test Vercel project dependency found'
+            exit 1
+          fi
+
+          node --check client.js
+          node --check polish.js
+          node --check polish.core-06a9d80c.js
+          node --check api/pusula.js
+
+      - name: Record immutable backup manifest and hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            index.html \
+            client.js \
+            polish.js \
+            polish.core-06a9d80c.js \
+            polish.css \
+            polish.core-10bc39ea.css \
+            lucide.min.js \
+            api/pusula.js \
+            vercel.json > SHA256SUMS.txt
+
+          cat > BACKUP_MANIFEST.md <<EOF
+          # Production Backup Manifest
+
+          This commit is a recovery snapshot of the verified working PUSULA production deployment.
+
+          - Snapshot date: 2026-09-13
+          - Vercel project: \`pusula-nsosyal-ui-v3\`
+          - Vercel project ID: \`$PROJECT_ID\`
+          - Production deployment ID: \`$DEPLOYMENT_ID\`
+          - Immutable deployment URL: \`$BASE_URL\`
+          - Public alias: \`https://pusula-nsosyal-ui-v3.vercel.app/\`
+
+          ## Included runtime/source files
+
+          - \`index.html\`
+          - \`client.js\`
+          - \`polish.js\`
+          - \`polish.core-06a9d80c.js\`
+          - \`polish.css\`
+          - \`polish.core-10bc39ea.css\`
+          - \`lucide.min.js\`
+          - \`api/pusula.js\`
+          - \`vercel.json\`
+          - \`SHA256SUMS.txt\`
+
+          ## Verification performed before commit
+
+          - All production runtime assets were downloaded directly from the immutable Vercel deployment URL.
+          - Runtime references are local to the same project: \`/client.js\`, \`/polish.js\`, \`/polish.css\`, \`/lucide.min.js\`, and local \`polish.core-*\` assets.
+          - \`client.js\` calls only the same-origin \`/api/pusula\` endpoint.
+          - No dependency on the deleted \`pusula-nsosyal-demo\` project or the old helper/test Vercel projects is permitted by the snapshot verification step.
+          - JavaScript source syntax checks must pass before this snapshot can be committed.
+          - Secrets, \`.env*\`, and local \`.vercel/\` state are intentionally excluded.
+
+          ## External data dependency
+
+          The API intentionally reads the PUSULA dataset from \`asimonmsz-design/pusula\` at \`kod/veri/etiketli_havuz.json\`. That is application data, not a Vercel project dependency.
+
+          ## Recovery rule
+
+          Treat this commit as a known-good source snapshot. Restore to a preview deployment first and verify visually/API-wise before replacing production. Do not connect this backup repository to automatic production deployment unless explicitly intended.
+          EOF
+
+          cat > SNAPSHOT_SOURCE.txt <<EOF
+          Vercel project: pusula-nsosyal-ui-v3
+          Vercel project ID: $PROJECT_ID
+          Production deployment ID: $DEPLOYMENT_ID
+          Immutable deployment URL: $BASE_URL
+          Snapshot date: 2026-09-13
+          EOF
+
+      - name: Commit snapshot to backup repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            index.html client.js polish.js polish.core-06a9d80c.js \
+            polish.css polish.core-10bc39ea.css lucide.min.js \
+            api/pusula.js vercel.json SHA256SUMS.txt BACKUP_MANIFEST.md SNAPSHOT_SOURCE.txt
+          if git diff --cached --quiet; then
+            echo 'Snapshot already matches repository; no commit needed.'
+            exit 0
+          fi
+          git commit -m "backup: snapshot verified production $DEPLOYMENT_ID [snapshot]"
+          git push origin HEAD:main
