@@ -1,0 +1,5 @@
+Vercel project: pusula-nsosyal-ui-v3
+Vercel project ID: prj_LNNe7Y60gNsOrPl0agatqwkRo0o2
+Production deployment ID: dpl_AFKijVadXC5PiK6oXY7kXJgSudki
+Immutable deployment URL: https://pusula-nsosyal-ui-v3-2gmgagp5x-ecemboz123456-4318s-projects.vercel.app
+Snapshot date: 2026-09-13

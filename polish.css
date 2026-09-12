@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap");
+@import url("/polish.core-10bc39ea.css");
+
+:root{
+  --font-final:"DM Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --cta-shadow:0 5px 12px rgba(0,0,0,.24),0 1px 0 rgba(255,255,255,.07) inset;
+  --cta-shadow-hover:0 7px 16px rgba(0,0,0,.28),0 1px 0 rgba(255,255,255,.08) inset;
+}
+html[data-theme="light"]{
+  --cta-shadow:0 6px 16px rgba(30,49,71,.17),0 1px 0 rgba(255,255,255,.72) inset;
+  --cta-shadow-hover:0 8px 20px rgba(30,49,71,.20),0 1px 0 rgba(255,255,255,.78) inset;
+}
+html,body,button,input,textarea{font-family:var(--font-final)!important;font-synthesis:none!important}
+html,body{letter-spacing:-.008em!important;text-rendering:optimizeLegibility!important;-webkit-font-smoothing:antialiased!important;-moz-osx-font-smoothing:grayscale!important}
+.navBtn,.rightHead button,.trend,.post,.modal,.juryCard,.techShell{font-family:var(--font-final)!important}
+
+.navIcon,.navBtn:hover .navIcon,.navBtn.active .navIcon,.navBtn.active:hover .navIcon{background:transparent!important;box-shadow:none!important;border:0!important}
+.navBtn.active .navIcon{color:var(--brand,#209be5)!important}
+.navBtn .lucide{shape-rendering:geometricPrecision!important}
+.navBtn.active .navIcon .lucide{stroke-width:2.05!important}
+
+.rightHead{display:grid!important;grid-template-columns:minmax(0,1fr) max-content!important;align-items:center!important;column-gap:12px!important}
+.rightHead h3{min-width:0!important;margin:0!important}
+.rightHead button{display:inline-flex!important;align-items:center!important;justify-content:flex-end!important;flex-wrap:nowrap!important;gap:3px!important;width:max-content!important;min-width:max-content!important;max-width:none!important;white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important;line-height:1.15!important;font-family:var(--font-final)!important;font-weight:500!important;letter-spacing:-.012em!important}
+.rightHead button span{white-space:nowrap!important}
+.rightHead button .lucide,.rightHead button svg{display:block!important;width:14px!important;height:14px!important;flex:0 0 14px!important;margin:0!important}
+@media(max-width:1200px){.rightHead{padding-left:14px!important;padding-right:14px!important;column-gap:8px!important}.rightHead button{font-size:10.5px!important}}
+
+.navBtn{font-weight:500!important}.navBtn.active{font-weight:600!important}.rightHead h3,.name,.pusulaTitle{font-weight:600!important}.trend b{font-weight:600!important;letter-spacing:-.01em!important}.trend small,.rightHead button,.handle,.time{font-weight:400!important}
+
+.pusulaBar,.pusulaBar.compact{background:linear-gradient(115deg,#1cc9d7 0%,#2da9ff 52%,#4b5cff 100%)!important;border:0!important;box-shadow:none!important}
+.pusulaBar .pusulaTitle,.pusulaBar .pusulaSub,.pusulaBar .betaChip,.pusulaBar .pusulaCta,.pusulaBar .dismiss,.pusulaBar .statusChip{color:#fff!important}
+.pusulaBar .pusulaSub{opacity:.82!important}.pusulaBar .betaChip{background:rgba(255,255,255,.14)!important;border:0!important}
+.pusulaBar .pusulaCta{background:rgba(14,43,78,.18)!important;border:0!important;box-shadow:none!important}.pusulaBar .pusulaCta:hover{background:rgba(14,43,78,.28)!important}
+.pusulaBar .dismiss{background:transparent!important;opacity:.78!important}.pusulaBar .dismiss:hover{background:rgba(255,255,255,.10)!important;opacity:1!important}
+.pusulaBar .compassIcon{background:rgba(255,255,255,.16)!important;color:#fff!important;box-shadow:none!important}.pusulaBar .statusChip{background:rgba(255,255,255,.14)!important;border:0!important}.pusulaBar .progressTrack{background:rgba(255,255,255,.20)!important}.pusulaBar .progressTrack i{background:#fff!important;opacity:.9!important}
+
+.navBtn.active .navIcon{background:transparent!important;border:0!important;box-shadow:none!important}
+html:not([data-theme]) .navBtn.active{background:#292e38!important;color:#fff!important}
+html[data-theme="dark"] .navBtn.active{background:#292e38!important}
+html[data-theme="light"] .navBtn.active{background:#e9eef3!important;color:var(--text-primary,#1f2937)!important}
+html[data-theme="light"] .navBtn.active:hover{background:#e5f1f7!important}
+
+/* CTA depth: neutral shadow only, never a cyan/blue glow. */
+.composeLeft{box-shadow:var(--cta-shadow)!important}
+.composeLeft:hover{box-shadow:var(--cta-shadow-hover)!important}
+.sendBtn{box-shadow:none!important}
+.sendBtn.ready{box-shadow:var(--cta-shadow)!important}
+.sendBtn.ready:hover{box-shadow:var(--cta-shadow-hover)!important}
