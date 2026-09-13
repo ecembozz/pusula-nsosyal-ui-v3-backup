@@ -1,0 +1,56 @@
+name: Build Blind Annotation Packet
+
+on:
+  push:
+    branches:
+      - semantic-v2
+    paths:
+      - "scripts/build_blind_annotation_packet.py"
+      - "data/gold_eval/candidate_hard_cases.jsonl"
+      - "data/gold_eval/candidate_news_cases.jsonl"
+      - ".github/workflows/build-blind-annotation-packet.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build blind JSONL packet
+        run: python scripts/build_blind_annotation_packet.py --output data/gold_eval/annotator_b_packet.jsonl
+      - name: Build spreadsheet-friendly CSV packet
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          src=Path('data/gold_eval/annotator_b_packet.jsonl')
+          out=Path('data/gold_eval/annotator_b_packet.csv')
+          rows=[json.loads(x) for x in src.read_text(encoding='utf-8').splitlines() if x.strip()]
+          fields=['id','text','ogretici','eglendirici','haber','sosyal','clickbait','dominant_intent','annotation_confidence','notes']
+          with out.open('w',encoding='utf-8-sig',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields)
+              w.writeheader()
+              for r in rows:
+                  w.writerow({
+                      'id':r['id'],'text':r['text'],
+                      'ogretici':'','eglendirici':'','haber':'','sosyal':'',
+                      'clickbait':'','dominant_intent':'','annotation_confidence':'','notes':''
+                  })
+          print('wrote',len(rows),'rows to',out)
+          PY
+      - name: Commit packets
+        run: |
+          if git diff --quiet -- data/gold_eval/annotator_b_packet.jsonl data/gold_eval/annotator_b_packet.csv; then
+            echo "Packets already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/gold_eval/annotator_b_packet.jsonl data/gold_eval/annotator_b_packet.csv
+          git commit -m "semantic-v2: refresh blind annotator-B packet [skip ci]"
+          git push origin HEAD:semantic-v2
