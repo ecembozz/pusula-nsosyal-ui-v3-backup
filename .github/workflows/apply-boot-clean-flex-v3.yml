@@ -2,19 +2,21 @@ name: Apply boot clean flex v3
 
 on:
   push:
-    branches: [boot-clean-flex-v3]
+    branches:
+      - boot-clean-flex-v3
 
 permissions:
   contents: write
 
 jobs:
   patch:
-    if: ${{ !contains(github.event.head_commit.message, '[boot-clean-flex-applied]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: boot-clean-flex-v3
+          fetch-depth: 0
+
       - name: Patch boot and post layout
         shell: bash
         run: |
@@ -27,85 +29,81 @@ jobs:
                   raise SystemExit(f'{label}: expected 1 match, found {n}')
               return s.replace(old,new,1)
 
-          # 1) Make theme + scroll DOM stable before first paint and stop the legacy seed render.
-          p=Path('index.html')
-          s=p.read_text(encoding='utf-8')
-          s=one(
-              s,
-              '<meta name="color-scheme" content="dark"/>\n<title>PUSULA X NSosyal</title>',
-              '<meta name="color-scheme" content="light dark"/>\n<script>(function(){var t="light";try{t=localStorage.getItem("pusula-theme")||"light"}catch(e){}t=t==="dark"?"dark":"light";document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t})();</script>\n<title>PUSULA X NSosyal</title>',
-              'early theme init'
-          )
-          s=one(
-              s,
-              '<div class="pusulaSub" id="pusulaSub">Bu oturumda ne aradığını seç; akış o amaca göre yeniden sıralansın.</div>',
-              '<div class="pusulaSub" id="pusulaSub">PUSULA kapalı · GitHub\'daki 2000 gönderi klasik sıralamada.</div>',
-              'initial pusula copy'
-          )
-          s=one(
-              s,
-              '</button></div></div><section class="compose" id="composeSection">',
-              '</button></div></div><div id="feedBody" class="feedBody"><section class="compose" id="composeSection">',
-              'static feedBody open'
-          )
-          s=one(
-              s,
-              '<div id="posts"></div></main><aside class="right">',
-              '<div id="posts"></div></div></main><aside class="right">',
-              'static feedBody close'
-          )
-          s=one(
-              s,
-              'render();</script><script src="/client.js"></script>',
-              '/* legacy seed render intentionally skipped; client.js owns the first feed render */</script><script src="/client.js"></script>',
-              'legacy seed render'
-          )
-          p.write_text(s,encoding='utf-8')
+          css_path=Path('polish.css')
+          current_css=css_path.read_text(encoding='utf-8')
+          if '/* POST_INNER_FLEX_V3 */' in current_css:
+              print('Patch already applied; no file mutations needed.')
+          else:
+              p=Path('index.html')
+              s=p.read_text(encoding='utf-8')
+              s=one(
+                  s,
+                  '<meta name="color-scheme" content="dark"/>\n<title>PUSULA X NSosyal</title>',
+                  '<meta name="color-scheme" content="light dark"/>\n<script>(function(){var t="light";try{t=localStorage.getItem("pusula-theme")||"light"}catch(e){}t=t==="dark"?"dark":"light";document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t})();</script>\n<title>PUSULA X NSosyal</title>',
+                  'early theme init'
+              )
+              s=one(
+                  s,
+                  '<div class="pusulaSub" id="pusulaSub">Bu oturumda ne aradığını seç; akış o amaca göre yeniden sıralansın.</div>',
+                  '<div class="pusulaSub" id="pusulaSub">PUSULA kapalı · GitHub\'daki 2000 gönderi klasik sıralamada.</div>',
+                  'initial pusula copy'
+              )
+              s=one(
+                  s,
+                  '</button></div></div><section class="compose" id="composeSection">',
+                  '</button></div></div><div id="feedBody" class="feedBody"><section class="compose" id="composeSection">',
+                  'static feedBody open'
+              )
+              s=one(
+                  s,
+                  '<div id="posts"></div></main><aside class="right">',
+                  '<div id="posts"></div></div></main><aside class="right">',
+                  'static feedBody close'
+              )
+              s=one(
+                  s,
+                  'render();</script><script src="/client.js"></script>',
+                  '/* legacy seed render intentionally skipped; client.js owns the first feed render */</script><script src="/client.js"></script>',
+                  'legacy seed render'
+              )
+              p.write_text(s,encoding='utf-8')
 
-          # 2) Client owns feed rendering. Keep old content during later refetches, but do not paint a loading feed on first boot.
-          p=Path('client.js')
-          s=p.read_text(encoding='utf-8')
-          s=one(
-              s,
-              'async function LF(m){G.l=true;render();try{',
-              'async function LF(m){G.l=true;if(G.f.length)render();try{',
-              'initial loading render'
-          )
-          a=s.index('function pc(p){')
-          b=s.index('\nfunction render(){',a)
-          seg=s[a:b]
-          seg=one(
-              seg,
-              'return `<article class="post"><div class="avatar',
-              'return `<article class="post"><div class="postInner"><div class="avatar',
-              'postInner open'
-          )
-          old='</div></div></article>`}'
-          pos=seg.rfind(old)
-          if pos < 0:
-              raise SystemExit('postInner close: suffix not found')
-          seg=seg[:pos]+'</div></div></div></article>`}'+seg[pos+len(old):]
-          s=s[:a]+seg+s[b:]
-          p.write_text(s,encoding='utf-8')
+              p=Path('client.js')
+              s=p.read_text(encoding='utf-8')
+              s=one(
+                  s,
+                  'async function LF(m){G.l=true;render();try{',
+                  'async function LF(m){G.l=true;if(G.f.length)render();try{',
+                  'initial loading render'
+              )
+              a=s.index('function pc(p){')
+              b=s.index('\nfunction render(){',a)
+              seg=s[a:b]
+              seg=one(
+                  seg,
+                  'return `<article class="post"><div class="avatar',
+                  'return `<article class="post"><div class="postInner"><div class="avatar',
+                  'postInner open'
+              )
+              old='</div></div></article>`}'
+              pos=seg.rfind(old)
+              if pos < 0:
+                  raise SystemExit('postInner close: suffix not found')
+              seg=seg[:pos]+'</div></div></div></article>`}'+seg[pos+len(old):]
+              s=s[:a]+seg+s[b:]
+              p.write_text(s,encoding='utf-8')
 
-          # 3) Remove the previous runtime flex shim; layout now lives in the real DOM + CSS.
-          p=Path('polish.js')
-          s=p.read_text(encoding='utf-8')
-          a=s.find('  function ensurePostFlex(){')
-          b=s.find('  function settleHome(){',a)
-          if a < 0 or b < 0:
-              raise SystemExit('runtime flex shim markers not found')
-          s=s[:a]+s[b:]
-          s=one(s,'    ensurePostFlex();\n','', 'ensurePostFlex call')
-          p.write_text(s,encoding='utf-8')
+              p=Path('polish.js')
+              s=p.read_text(encoding='utf-8')
+              a=s.find('  function ensurePostFlex(){')
+              b=s.find('  function settleHome(){',a)
+              if a < 0 or b < 0:
+                  raise SystemExit('runtime flex shim markers not found')
+              s=s[:a]+s[b:]
+              s=one(s,'    ensurePostFlex();\n','', 'ensurePostFlex call')
+              p.write_text(s,encoding='utf-8')
 
-          # 4) Real centered flex wrapper. Full-width row keeps hover/divider; inner content flexes naturally.
-          p=Path('polish.css')
-          s=p.read_text(encoding='utf-8')
-          marker='/* POST_INNER_FLEX_V3 */'
-          if marker in s:
-              raise SystemExit('POST_INNER_FLEX_V3 already exists')
-          s += r'''
+              s=current_css + r'''
 
 /* POST_INNER_FLEX_V3
    Full-width post row + a real centered flex content wrapper. */
@@ -146,9 +144,8 @@ jobs:
   }
 }
 '''
-          p.write_text(s,encoding='utf-8')
-
-          print('Patched index.html, client.js, polish.js, polish.css')
+              css_path.write_text(s,encoding='utf-8')
+              print('Patched index.html, client.js, polish.js, polish.css')
           PY
 
       - name: Verify invariants
@@ -176,9 +173,13 @@ jobs:
           node --check client.js
           node --check polish.js
 
-      - name: Commit patched files
+      - name: Commit patched files when changed
         shell: bash
         run: |
+          if git diff --quiet -- index.html client.js polish.js polish.css; then
+            echo "No app changes to commit."
+            exit 0
+          fi
           git config user.name "Ecem Boz"
           git config user.email "ecem.boz6@gmail.com"
           git add index.html client.js polish.js polish.css
