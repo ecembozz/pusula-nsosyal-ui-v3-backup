@@ -1,0 +1,38 @@
+name: Semantic V2 Tests
+
+on:
+  push:
+    branches:
+      - semantic-v2
+    paths:
+      - "core/**"
+      - "tests/**"
+      - "experiments/**"
+      - "scripts/**"
+      - "data/**"
+      - ".github/workflows/semantic-v2-tests.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "core/**"
+      - "tests/**"
+      - "experiments/**"
+      - "scripts/**"
+      - "data/**"
+
+permissions:
+  contents: read
+
+jobs:
+  python-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile core
+        run: python -m compileall -q core tests
+      - name: Unit tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
