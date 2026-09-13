@@ -1,5 +1,5 @@
 {
-  "schema_version": "raw-v2.1",
+  "schema_version": "raw-v2.2-diversified",
   "record_count": 320,
   "unique_text_count": 320,
   "topic_distribution": {
@@ -15,15 +15,16 @@
     "teknoloji_ai": 32
   },
   "style_distribution": {
-    "casual_lower": 80,
-    "emoji_end": 80,
-    "plain": 80,
+    "casual_lower": 74,
+    "emoji_end": 76,
+    "manual_diversity_rewrite": 14,
+    "plain": 76,
     "question": 80
   },
   "text_length_chars": {
     "min": 49,
-    "median": 83.5,
-    "mean": 84.52,
+    "median": 85.0,
+    "mean": 85.89,
     "max": 127
   },
   "privacy": {
@@ -33,5 +34,6 @@
     "phone_numbers": 0,
     "urls": 0,
     "tckn_like_11_digit_sequences": 0
-  }
+  },
+  "diversity_rewrites": 14
 }
