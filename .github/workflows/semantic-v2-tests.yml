@@ -33,8 +33,10 @@ jobs:
         with:
           python-version: "3.12"
       - name: Compile core and experiments
-        run: python -m compileall -q core tests experiments
+        run: python -m compileall -q core tests experiments scripts
       - name: Unit tests
         run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: Dataset near-duplicate audit
+        run: python scripts/audit_dataset_similarity.py --output /tmp/dataset_similarity_audit.json
       - name: Draft gold baseline benchmark
         run: python experiments/benchmark_labelers.py --json-out /tmp/heuristic_draft48.json
