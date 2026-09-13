@@ -1,0 +1,49 @@
+name: Dataset V2 Build
+
+on:
+  push:
+    branches: [dataset-v2-build]
+    paths:
+      - 'scripts/build_dataset_v2.py'
+      - '.github/workflows/dataset-v2-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dataset-v2-build
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build and validate corpus
+        run: python scripts/build_dataset_v2.py
+      - name: Sanity checks
+        run: |
+          test "$(wc -l < data/v2_realistic/raw_posts.jsonl)" -eq 320
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/v2_realistic/corpus_stats.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d['record_count']==320
+          assert d['unique_text_count']==320
+          assert set(d['topic_distribution'].values())=={32}
+          print(d)
+          PY
+      - name: Commit generated corpus
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/v2_realistic/raw_posts.jsonl data/v2_realistic/corpus_stats.json data/v2_realistic/SOURCE_NOTES.md
+          if git diff --cached --quiet; then
+            echo 'No generated changes'
+          else
+            git commit -m 'semantic-v2: generate 320-post realistic corpus [skip ci]'
+            git push origin HEAD:dataset-v2-build
+          fi
