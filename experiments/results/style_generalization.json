@@ -1,0 +1,619 @@
+{
+  "status": "development_only_single_annotator_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "embedding_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "base_train_n": 96,
+  "hard_eval_n": 48,
+  "base_train_distribution": {
+    "sosyal": 54,
+    "ogretici": 15,
+    "eglendirici": 11,
+    "haber": 16
+  },
+  "hard_eval_distribution": {
+    "sosyal": 15,
+    "ogretici": 12,
+    "eglendirici": 13,
+    "haber": 8
+  },
+  "scenarios": {
+    "base_only": {
+      "ridge": {
+        "dominant_accuracy": 0.3125,
+        "macro_f1": 0.11904761904761904,
+        "intent_mae": 0.24180531814383963,
+        "mean_cosine_similarity": 0.809847005659436,
+        "clickbait_mae": 0.004583340076108774,
+        "pred_distribution": {
+          "sosyal": 48
+        },
+        "selective_ood": {
+          "ood_threshold": 0.886530876159668,
+          "ood_rate": 0.25,
+          "id_accuracy": 0.3055555555555556,
+          "ood_accuracy": 0.3333333333333333,
+          "mean_nearest_train_cosine": 0.8928897976875305,
+          "accuracy_at_50pct_coverage": 0.4166666666666667,
+          "accuracy_at_75pct_coverage": 0.3611111111111111
+        },
+        "per_class": {
+          "ogretici": {
+            "n": 12,
+            "accuracy": 0.0,
+            "intent_mae": 0.2293218137944738
+          },
+          "eglendirici": {
+            "n": 13,
+            "accuracy": 0.0,
+            "intent_mae": 0.2500398600101471
+          },
+          "haber": {
+            "n": 8,
+            "accuracy": 0.0,
+            "intent_mae": 0.3777569173835218
+          },
+          "sosyal": {
+            "n": 15,
+            "accuracy": 1.0,
+            "intent_mae": 0.17214799907803538
+          }
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.18009873549143474
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.2434314882258574
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.4,
+            "intent_mae": 0.19097067886590952
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.1386152238647143
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.22742221241195995
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.2517383747672041
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.2500754829744498
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.3777569173835218
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.1788794603943825
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.2547552914917469
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.17215910032391546
+          }
+        }
+      },
+      "semantic_knn": {
+        "dominant_accuracy": 0.4583333333333333,
+        "macro_f1": 0.38667582417582413,
+        "intent_mae": 0.210844307686836,
+        "mean_cosine_similarity": 0.8305119458797062,
+        "clickbait_mae": 0.004583333499390259,
+        "pred_distribution": {
+          "sosyal": 41,
+          "ogretici": 1,
+          "haber": 6
+        },
+        "selective_ood": {
+          "ood_threshold": 0.886530876159668,
+          "ood_rate": 0.25,
+          "id_accuracy": 0.4166666666666667,
+          "ood_accuracy": 0.5833333333333334,
+          "mean_nearest_train_cosine": 0.8928897976875305,
+          "accuracy_at_50pct_coverage": 0.4583333333333333,
+          "accuracy_at_75pct_coverage": 0.4166666666666667
+        },
+        "per_class": {
+          "ogretici": {
+            "n": 12,
+            "accuracy": 0.08333333333333333,
+            "intent_mae": 0.19733902827397973
+          },
+          "eglendirici": {
+            "n": 13,
+            "accuracy": 0.0,
+            "intent_mae": 0.25767739342262774
+          },
+          "haber": {
+            "n": 8,
+            "accuracy": 0.75,
+            "intent_mae": 0.2269501493593356
+          },
+          "sosyal": {
+            "n": 15,
+            "accuracy": 1.0,
+            "intent_mae": 0.17247007468743508
+          }
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.1810343608514743
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.224966902908217
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.4,
+            "intent_mae": 0.18321711689015557
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.1508567935553521
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.21033263422799883
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.24265276389149926
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.26268856959189557
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.75,
+            "intent_mae": 0.2269501493593356
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.18357301342553406
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.22225485581550664
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.2051018152694172
+          }
+        }
+      },
+      "pca_mlp": {
+        "dominant_accuracy": 0.3541666666666667,
+        "macro_f1": 0.3153846153846154,
+        "intent_mae": 0.23854566260706633,
+        "mean_cosine_similarity": 0.8066231411425187,
+        "clickbait_mae": 0.03671343059589466,
+        "pred_distribution": {
+          "sosyal": 37,
+          "ogretici": 3,
+          "eglendirici": 4,
+          "haber": 4
+        },
+        "selective_ood": {
+          "ood_threshold": 0.886530876159668,
+          "ood_rate": 0.25,
+          "id_accuracy": 0.3055555555555556,
+          "ood_accuracy": 0.5,
+          "mean_nearest_train_cosine": 0.8928897976875305,
+          "accuracy_at_50pct_coverage": 0.4583333333333333,
+          "accuracy_at_75pct_coverage": 0.4444444444444444
+        },
+        "per_class": {
+          "ogretici": {
+            "n": 12,
+            "accuracy": 0.08333333333333333,
+            "intent_mae": 0.24877116478979588
+          },
+          "eglendirici": {
+            "n": 13,
+            "accuracy": 0.0,
+            "intent_mae": 0.2525870910057655
+          },
+          "haber": {
+            "n": 8,
+            "accuracy": 0.5,
+            "intent_mae": 0.26883648419752715
+          },
+          "sosyal": {
+            "n": 15,
+            "accuracy": 0.8,
+            "intent_mae": 0.20204091806709767
+          }
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.26428854480385783
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.23083651430904864
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.2,
+            "intent_mae": 0.2370490303337574
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.1708771077046792
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.21277999718983967
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.24108857059230407
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.268454041381677
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.5,
+            "intent_mae": 0.26883648419752715
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.2009411043971777
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.22539885479956862
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.2932864575088024
+          }
+        }
+      }
+    },
+    "half_target_adaptation": {
+      "ridge": {
+        "dominant_accuracy": 0.3125,
+        "macro_f1": 0.11904761904761904,
+        "intent_mae": 0.24062429433688517,
+        "mean_cosine_similarity": 0.8184725913402516,
+        "clickbait_mae": 0.0047008527295353516,
+        "pred_distribution": {
+          "sosyal": 48
+        },
+        "selective_ood": {
+          "ood_rate": 0.125,
+          "id_accuracy": 0.30952380952380953,
+          "ood_accuracy": 0.3333333333333333,
+          "mean_nearest_train_cosine": 0.894626268496116,
+          "accuracy_at_50pct_coverage": 0.4166666666666667,
+          "accuracy_at_75pct_coverage": 0.3611111111111111
+        },
+        "per_class": {
+          "ogretici": {
+            "n": 12,
+            "accuracy": 0.0,
+            "intent_mae": 0.22526287847508988
+          },
+          "eglendirici": {
+            "n": 13,
+            "accuracy": 0.0,
+            "intent_mae": 0.24622005393871893
+          },
+          "haber": {
+            "n": 8,
+            "accuracy": 0.0,
+            "intent_mae": 0.37501107808202505
+          },
+          "sosyal": {
+            "n": 15,
+            "accuracy": 1.0,
+            "intent_mae": 0.17639081737399104
+          }
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.18688587064544362
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.2395991753041744
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.4,
+            "intent_mae": 0.19276291081309313
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.13785271550218264
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.2271861737718185
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.25056250048180423
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.24087945486108464
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.37501107808202505
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.17677860379219057
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.25665312200784685
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.17115371401111282
+          }
+        }
+      },
+      "semantic_knn": {
+        "dominant_accuracy": 0.4166666666666667,
+        "macro_f1": 0.35291375291375293,
+        "intent_mae": 0.1962751651587351,
+        "mean_cosine_similarity": 0.8514022120014904,
+        "clickbait_mae": 0.004727655026888911,
+        "pred_distribution": {
+          "sosyal": 40,
+          "ogretici": 3,
+          "haber": 5
+        },
+        "selective_ood": {
+          "ood_rate": 0.125,
+          "id_accuracy": 0.38095238095238093,
+          "ood_accuracy": 0.6666666666666666,
+          "mean_nearest_train_cosine": 0.894626268496116,
+          "accuracy_at_50pct_coverage": 0.5,
+          "accuracy_at_75pct_coverage": 0.4444444444444444
+        },
+        "per_class": {
+          "ogretici": {
+            "n": 12,
+            "accuracy": 0.08333333333333333,
+            "intent_mae": 0.19101720975225622
+          },
+          "eglendirici": {
+            "n": 13,
+            "accuracy": 0.0,
+            "intent_mae": 0.24196080572092804
+          },
+          "haber": {
+            "n": 8,
+            "accuracy": 0.625,
+            "intent_mae": 0.23534015052390764
+          },
+          "sosyal": {
+            "n": 15,
+            "accuracy": 0.9333333333333333,
+            "intent_mae": 0.1400526488019256
+          }
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.16551761543280955
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.2137583677659731
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.4,
+            "intent_mae": 0.18670048953270393
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.10467108237660906
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.1789092572795136
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.2244770162139955
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.2219511719045029
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.625,
+            "intent_mae": 0.23534015052390764
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.11853413266873088
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.17075681800417442
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.1945629227623458
+          }
+        }
+      },
+      "pca_mlp": {
+        "dominant_accuracy": 0.4375,
+        "macro_f1": 0.3606083459024636,
+        "intent_mae": 0.213290076921694,
+        "mean_cosine_similarity": 0.8201245151022185,
+        "clickbait_mae": 0.03399587962776423,
+        "pred_distribution": {
+          "sosyal": 39,
+          "eglendirici": 4,
+          "haber": 5
+        },
+        "selective_ood": {
+          "ood_rate": 0.125,
+          "id_accuracy": 0.38095238095238093,
+          "ood_accuracy": 0.8333333333333334,
+          "mean_nearest_train_cosine": 0.894626268496116,
+          "accuracy_at_50pct_coverage": 0.5,
+          "accuracy_at_75pct_coverage": 0.4444444444444444
+        },
+        "per_class": {
+          "ogretici": {
+            "n": 12,
+            "accuracy": 0.0,
+            "intent_mae": 0.2759054049352805
+          },
+          "eglendirici": {
+            "n": 13,
+            "accuracy": 0.07692307692307693,
+            "intent_mae": 0.21507581621981586
+          },
+          "haber": {
+            "n": 8,
+            "accuracy": 0.625,
+            "intent_mae": 0.2231164357624948
+          },
+          "sosyal": {
+            "n": 15,
+            "accuracy": 1.0,
+            "intent_mae": 0.1564094490706921
+          }
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.17761503999431927
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.27652251978715264
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.4,
+            "intent_mae": 0.20160876706242564
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.16529088472326597
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.1875271601478259
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.4166666666666667,
+            "intent_mae": 0.20421861882011094
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.22612487029284237
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.625,
+            "intent_mae": 0.2231164357624948
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.2055226680636406
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.1665341529995203
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.18735835641622542
+          }
+        }
+      }
+    }
+  }
+}
