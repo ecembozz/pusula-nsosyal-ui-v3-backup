@@ -1,0 +1,3557 @@
+{
+  "status": "development_only_error_analysis",
+  "model": "intfloat/multilingual-e5-base",
+  "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "hidden_size": 768,
+  "n_train": 136,
+  "n_hard": 48,
+  "accuracy": 0.6875,
+  "confusion_matrix": {
+    "ogretici": {
+      "ogretici": 4,
+      "eglendirici": 1,
+      "haber": 1,
+      "sosyal": 6
+    },
+    "eglendirici": {
+      "ogretici": 1,
+      "eglendirici": 10,
+      "haber": 0,
+      "sosyal": 2
+    },
+    "haber": {
+      "ogretici": 1,
+      "eglendirici": 0,
+      "haber": 7,
+      "sosyal": 0
+    },
+    "sosyal": {
+      "ogretici": 1,
+      "eglendirici": 2,
+      "haber": 0,
+      "sosyal": 12
+    }
+  },
+  "challenge_accuracy": {
+    "attitude_change": {
+      "n": 3,
+      "accuracy": 0.6666666666666666
+    },
+    "budget": {
+      "n": 6,
+      "accuracy": 0.3333333333333333
+    },
+    "culture": {
+      "n": 5,
+      "accuracy": 0.6
+    },
+    "daily": {
+      "n": 3,
+      "accuracy": 0.6666666666666666
+    },
+    "gaming": {
+      "n": 6,
+      "accuracy": 0.6666666666666666
+    },
+    "humor": {
+      "n": 12,
+      "accuracy": 0.75
+    },
+    "irony": {
+      "n": 6,
+      "accuracy": 0.6666666666666666
+    },
+    "news": {
+      "n": 8,
+      "accuracy": 0.875
+    },
+    "reflection": {
+      "n": 5,
+      "accuracy": 0.6
+    },
+    "social": {
+      "n": 4,
+      "accuracy": 1.0
+    },
+    "sports": {
+      "n": 3,
+      "accuracy": 0.3333333333333333
+    }
+  },
+  "errors": [
+    {
+      "id": "goldcand_002",
+      "text": "Bugün kayıt için üç farklı sayfa gezdim; sonunda resmi duyurudaki iki satır bütün karmaşayı çözdü.",
+      "gold": "ogretici",
+      "pred": "haber",
+      "correct": false,
+      "margin": 0.06671270728111267,
+      "probs": {
+        "ogretici": 0.18051201105117798,
+        "eglendirici": 0.30035829544067383,
+        "haber": 0.3670710027217865,
+        "sosyal": 0.1520586460828781
+      },
+      "challenge": [
+        "informative_personal",
+        "context"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_102",
+          "dominant": "haber",
+          "style_bucket": "clickbait",
+          "cosine": 0.8690704703330994,
+          "text": "SON DAKİKA diye paylaşılmış ama duyuru dün yayımlanmış: kayıt sisteminin bakım saati değiştirildi."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8616068363189697,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_048",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.8604586720466614,
+          "text": "Bütçe uygulaması harcamaları yüzüme vurunca uygulamayı kapattım; problem başarıyla çözüldü."
+        },
+        {
+          "id": "balanced_067",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8570873737335205,
+          "text": "SONUNA KADAR OKU 😱 bugün başıma gelen şeye inanamayacaksın… otobüsü kaçırdım, hepsi bu."
+        },
+        {
+          "id": "balanced_034",
+          "dominant": "ogretici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8556170463562012,
+          "text": "Bu 3 adımı bilmeden Git kullanmayın! Başlık abartılı ama özü basit: status, branch, commit sırasını kontrol edin."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_007",
+      "text": "AI her şeyi çözecek diyorlar, bugün kodu düzelteyim derken çalışan kısmı da bozdu :) yine de tekrar eden işlerde iyi.",
+      "gold": "eglendirici",
+      "pred": "ogretici",
+      "correct": false,
+      "margin": 0.05586788058280945,
+      "probs": {
+        "ogretici": 0.32519054412841797,
+        "eglendirici": 0.2633656859397888,
+        "haber": 0.14212113618850708,
+        "sosyal": 0.2693226635456085
+      },
+      "challenge": [
+        "irony",
+        "balanced_opinion"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8967028856277466,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        },
+        {
+          "id": "balanced_006",
+          "dominant": "ogretici",
+          "style_bucket": "humorous_tip",
+          "cosine": 0.8871676921844482,
+          "text": "“son bir değişiklik yapıp çıkarım” mühendislikte meşhur son söz 😅 çalışan sürümü etiketleyip sonra kurcalamak hayat kurtarıyor."
+        },
+        {
+          "id": "balanced_022",
+          "dominant": "ogretici",
+          "style_bucket": "humorous_tip",
+          "cosine": 0.8861517310142517,
+          "text": "“cache’i temizledim düzeldi” güzel ama neden düzeldiğini bir yere yazmazsan aynı hata sana DLC olarak geri geliyor."
+        },
+        {
+          "id": "balanced_125",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8842710256576538,
+          "text": "Yeni işi öğrenmek yorucu ama her gün küçük bir şeyi daha rahat yapabildiğimi fark etmek güzel."
+        },
+        {
+          "id": "balanced_061",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8771814107894897,
+          "text": "Ders kaydı sistemi açıldı ve bütün üniversite aynı anda F5’e bastı gibi hissediyorum 🫡"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_009",
+      "text": "Yeni yapay zekâ özelliğini açtım, ilk baktığım yer model değil gizlilik ayarları oldu. yaşlanıyor muyum ne 😅",
+      "gold": "sosyal",
+      "pred": "ogretici",
+      "correct": false,
+      "margin": 0.04193893074989319,
+      "probs": {
+        "ogretici": 0.338689386844635,
+        "eglendirici": 0.25339826941490173,
+        "haber": 0.11116194725036621,
+        "sosyal": 0.2967504560947418
+      },
+      "challenge": [
+        "tech_social",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_113",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.8813494443893433,
+          "text": "Eski playlisti açtım ve bir anda 2023’e ışınlandım 🥲"
+        },
+        {
+          "id": "balanced_045",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8809887766838074,
+          "text": "Takım toplantısında herkes kamerayı açınca internetim kişisel olarak alındı sanırım 😂"
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8767694234848022,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_039",
+          "dominant": "eglendirici",
+          "style_bucket": "typo",
+          "cosine": 0.8722543716430664,
+          "text": "bugun kahveyi içmeden toplantıya girdim, karakter gelisimim beklenenden hızlı oldu"
+        },
+        {
+          "id": "balanced_053",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8722462058067322,
+          "text": "Kahve bitti, görev çubuğumdaki performans simgesi de sarıya döndü ☕😂"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_015",
+      "text": "Uçuş öncesi checklist sıkıcı geliyordu, bugün bir gevşek bağlantıyı yakaladı. fikrimi geri alıyorum.",
+      "gold": "ogretici",
+      "pred": "eglendirici",
+      "correct": false,
+      "margin": 0.034708172082901,
+      "probs": {
+        "ogretici": 0.24165987968444824,
+        "eglendirici": 0.3210969865322113,
+        "haber": 0.15085439383983612,
+        "sosyal": 0.2863888144493103
+      },
+      "challenge": [
+        "technical",
+        "attitude_change"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8875212669372559,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_131",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8770321011543274,
+          "text": "bugün otobüsü kacırdım sonra yürüyeyim dedim, iyi ki kacırmışım biraz hava aldım"
+        },
+        {
+          "id": "balanced_022",
+          "dominant": "ogretici",
+          "style_bucket": "humorous_tip",
+          "cosine": 0.876645565032959,
+          "text": "“cache’i temizledim düzeldi” güzel ama neden düzeldiğini bir yere yazmazsan aynı hata sana DLC olarak geri geliyor."
+        },
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8764785528182983,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        },
+        {
+          "id": "balanced_066",
+          "dominant": "eglendirici",
+          "style_bucket": "short",
+          "cosine": 0.8762373924255371,
+          "text": "Deadline yaklaşıyor. Ben de uzaktan bakıyorum."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_017",
+      "text": "Pozisyonu canlı izleyince net faul dedim, tekrarını görünce o kadar da emin olamadım. kamera açısı acayip şey.",
+      "gold": "sosyal",
+      "pred": "eglendirici",
+      "correct": false,
+      "margin": 0.2192154973745346,
+      "probs": {
+        "ogretici": 0.23658554255962372,
+        "eglendirici": 0.4558010399341583,
+        "haber": 0.09239105135202408,
+        "sosyal": 0.21522237360477448
+      },
+      "challenge": [
+        "uncertainty",
+        "sports"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_064",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.8745439052581787,
+          "text": "“Bu bug kullanıcıda olmaz” dedik; kullanıcı beş dakika sonra canlı yayında yaptı."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8735215663909912,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_067",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8716681599617004,
+          "text": "SONUNA KADAR OKU 😱 bugün başıma gelen şeye inanamayacaksın… otobüsü kaçırdım, hepsi bu."
+        },
+        {
+          "id": "balanced_051",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8711713552474976,
+          "text": "Sunum provasında cümleyi unuttum, slayttaki görselle göz göze gelip yardım istedim."
+        },
+        {
+          "id": "balanced_068",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8686355352401733,
+          "text": "Bu videonun sonu ŞAKA GİBİ! diye başladım, finalde sadece kedim kamerayı devirdi 😂"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_019",
+      "text": "Skor güzel, oyun için aynı şeyi söyleyemeyeceğim. sonuçla performansı aynı şey saymak bana garip geliyor.",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.03042912483215332,
+      "probs": {
+        "ogretici": 0.26654577255249023,
+        "eglendirici": 0.31492796540260315,
+        "haber": 0.07316913455724716,
+        "sosyal": 0.34535709023475647
+      },
+      "challenge": [
+        "analysis",
+        "sports"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_133",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8823646903038025,
+          "text": "Yeni oyunu çok sevdim ama asıl güzel taraf arkadaşlarla tekrar aynı anda çevrim içi olmamız oldu."
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8709325790405273,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        },
+        {
+          "id": "balanced_051",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8684107661247253,
+          "text": "Sunum provasında cümleyi unuttum, slayttaki görselle göz göze gelip yardım istedim."
+        },
+        {
+          "id": "balanced_117",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8682551383972168,
+          "text": "Maçı kaybettik ama arkadaşlarla izlemek yine de geceyi güzel yaptı."
+        },
+        {
+          "id": "balanced_120",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8678662776947021,
+          "text": "sınav bitti ama beynim hâlâ soruları arka planda renderlıyo gibi"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_023",
+      "text": "Açık hava konseri güzel de eve dönüş planını konserden önce yapmak gerekiyormuş, bunu biraz geç öğrendik 😅",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.15431737899780273,
+      "probs": {
+        "ogretici": 0.2382245659828186,
+        "eglendirici": 0.21482151746749878,
+        "haber": 0.15441195666790009,
+        "sosyal": 0.39254194498062134
+      },
+      "challenge": [
+        "culture",
+        "practical_advice"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_118",
+          "dominant": "sosyal",
+          "style_bucket": "short",
+          "cosine": 0.8817646503448486,
+          "text": "Bugün eve dönmek iyi geldi."
+        },
+        {
+          "id": "balanced_114",
+          "dominant": "sosyal",
+          "style_bucket": "question",
+          "cosine": 0.878906786441803,
+          "text": "Tek başına konsere gitmek ilk başta garip geliyor mu? bir kez deneyince baya sevmiştim."
+        },
+        {
+          "id": "balanced_108",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8725219368934631,
+          "text": "“Erken çıkacağım” diye buluşmaya gittim, kapanışa kadar oturdum; planlama yeteneğim yine zirvede."
+        },
+        {
+          "id": "balanced_104",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8685402870178223,
+          "text": "ilk staj günü düşündüğüm kadar korkunç değilmiş, eve gelince gereksiz stres yaptığımı fark ettim"
+        },
+        {
+          "id": "balanced_105",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.8674433827400208,
+          "text": "Kahve içmeye çıktık, üç saat sonra hâlâ aynı masadaydık ☕🙂"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_025",
+      "text": "Kitap fuarına 'bir bakıp çıkarım' diye girdim, çantayla çıktım. bütçe planı başka bahara.",
+      "gold": "eglendirici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.08274441957473755,
+      "probs": {
+        "ogretici": 0.13183683156967163,
+        "eglendirici": 0.3350796103477478,
+        "haber": 0.11525958776473999,
+        "sosyal": 0.41782402992248535
+      },
+      "challenge": [
+        "culture",
+        "budget",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_108",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.9013019800186157,
+          "text": "“Erken çıkacağım” diye buluşmaya gittim, kapanışa kadar oturdum; planlama yeteneğim yine zirvede."
+        },
+        {
+          "id": "balanced_116",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8824143409729004,
+          "text": "Bütçe yapmaya başladım; artık paramın nereye gittiğini biliyorum ve bu bilgi hiç rahatlatıcı değil :)"
+        },
+        {
+          "id": "balanced_048",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.8813722729682922,
+          "text": "Bütçe uygulaması harcamaları yüzüme vurunca uygulamayı kapattım; problem başarıyla çözüldü."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8778651356697083,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_123",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8773711919784546,
+          "text": "kampuste boş ders vardı kütüphaneye gidecektim, arkadaşları görünce plan direkt iptal"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_026",
+      "text": "Bu ay harcamaları yazınca küçük küçük aldıklarımın toplamı moral bozdu. büyük alışveriş değil, görünmeyenler yoruyor.",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.37104906141757965,
+      "probs": {
+        "ogretici": 0.1901521533727646,
+        "eglendirici": 0.17091968655586243,
+        "haber": 0.07772696763277054,
+        "sosyal": 0.5612012147903442
+      },
+      "challenge": [
+        "budget",
+        "reflection"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_116",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8936704397201538,
+          "text": "Bütçe yapmaya başladım; artık paramın nereye gittiğini biliyorum ve bu bilgi hiç rahatlatıcı değil :)"
+        },
+        {
+          "id": "balanced_125",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.88206946849823,
+          "text": "Yeni işi öğrenmek yorucu ama her gün küçük bir şeyi daha rahat yapabildiğimi fark etmek güzel."
+        },
+        {
+          "id": "balanced_127",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8798202872276306,
+          "text": "Bir süredir ertelediğim işi bitirdim; işten çok kafamda büyüttüğüm kısmı yorucuymuş."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.876528263092041,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_107",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8748340606689453,
+          "text": "bugun hic enerjim yoktu ama kısa bi yürüyüş baya toparladı"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_027",
+      "text": "Market fiyatlarını geçen ayla kıyaslamak için fiş saklamaya başladım. beklemediğim kadar faydalı oldu.",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.1222754716873169,
+      "probs": {
+        "ogretici": 0.2477911114692688,
+        "eglendirici": 0.2716001868247986,
+        "haber": 0.08673299103975296,
+        "sosyal": 0.3938756585121155
+      },
+      "challenge": [
+        "budget",
+        "informative_personal"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8805383443832397,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        },
+        {
+          "id": "balanced_116",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8740129470825195,
+          "text": "Bütçe yapmaya başladım; artık paramın nereye gittiğini biliyorum ve bu bilgi hiç rahatlatıcı değil :)"
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8711704015731812,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_002",
+          "dominant": "ogretici",
+          "style_bucket": "casual",
+          "cosine": 0.870281457901001,
+          "text": "ben git’te branch değişmeden önce `git status` bakmayı alışkanlık yaptım, yarım kalmış dosyayı yanlış branch’e taşımayı baya azaltıyor."
+        },
+        {
+          "id": "balanced_104",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8677858114242554,
+          "text": "ilk staj günü düşündüğüm kadar korkunç değilmiş, eve gelince gereksiz stres yaptığımı fark ettim"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_030",
+      "text": "Abonelikleri tek tek görünce ucuz, topluca görünce başka bir hikâye. iki tanesini sonunda kapattım.",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.16049456596374512,
+      "probs": {
+        "ogretici": 0.18570557236671448,
+        "eglendirici": 0.27437824010849,
+        "haber": 0.10504341870546341,
+        "sosyal": 0.4348728060722351
+      },
+      "challenge": [
+        "budget",
+        "personal_action"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8917787075042725,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_067",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8855879306793213,
+          "text": "SONUNA KADAR OKU 😱 bugün başıma gelen şeye inanamayacaksın… otobüsü kaçırdım, hepsi bu."
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8837699890136719,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        },
+        {
+          "id": "balanced_048",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.882776141166687,
+          "text": "Bütçe uygulaması harcamaları yüzüme vurunca uygulamayı kapattım; problem başarıyla çözüldü."
+        },
+        {
+          "id": "balanced_124",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.880954384803772,
+          "text": "“Sadece bir bölüm izlerim” dedim; dizinin bana başka planları varmış."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_033",
+      "text": "Boss'u üçüncü denemede kestim diye seviniyordum, arkadaşım ilk denemede geçti. bu bilgiye ihtiyacım yoktu.",
+      "gold": "eglendirici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.04094073176383972,
+      "probs": {
+        "ogretici": 0.21985332667827606,
+        "eglendirici": 0.337938517332077,
+        "haber": 0.06332897394895554,
+        "sosyal": 0.37887924909591675
+      },
+      "challenge": [
+        "gaming",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_111",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8769949674606323,
+          "text": "Bir projeyi teslim edince sevincimden çok boşluk hissi geliyor; haftalardır ne yapacağımı o belirliyormuş."
+        },
+        {
+          "id": "balanced_104",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8769172430038452,
+          "text": "ilk staj günü düşündüğüm kadar korkunç değilmiş, eve gelince gereksiz stres yaptığımı fark ettim"
+        },
+        {
+          "id": "balanced_052",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8753271102905273,
+          "text": "ranked girmicem diye oyunu açtım sadece menüye bakacaktım… evet 4 maç oynadım"
+        },
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8751468062400818,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8748133778572083,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_034",
+      "text": "Oyunun grafikleri normal ama ses tasarımı kulaklıkla bambaşka hissettiriyor. fragmanda hiç dikkat etmemiştim.",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.025251418352127075,
+      "probs": {
+        "ogretici": 0.28768396377563477,
+        "eglendirici": 0.2739226520061493,
+        "haber": 0.1254580169916153,
+        "sosyal": 0.31293538212776184
+      },
+      "challenge": [
+        "gaming",
+        "review"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8786452412605286,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_051",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8751678466796875,
+          "text": "Sunum provasında cümleyi unuttum, slayttaki görselle göz göze gelip yardım istedim."
+        },
+        {
+          "id": "balanced_052",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8728371262550354,
+          "text": "ranked girmicem diye oyunu açtım sadece menüye bakacaktım… evet 4 maç oynadım"
+        },
+        {
+          "id": "balanced_120",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.870461642742157,
+          "text": "sınav bitti ama beynim hâlâ soruları arka planda renderlıyo gibi"
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8699960708618164,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_040",
+      "text": "Sabah internet gitti diye bütün plan bozuldu sandım; offline yapabileceğim üç işi bitirdim. biraz da bahaneymiş galiba.",
+      "gold": "sosyal",
+      "pred": "eglendirici",
+      "correct": false,
+      "margin": 0.08751881122589111,
+      "probs": {
+        "ogretici": 0.15980930626392365,
+        "eglendirici": 0.39537110924720764,
+        "haber": 0.13696719706058502,
+        "sosyal": 0.30785229802131653
+      },
+      "challenge": [
+        "daily",
+        "reflection",
+        "irony"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_127",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8834704160690308,
+          "text": "Bir süredir ertelediğim işi bitirdim; işten çok kafamda büyüttüğüm kısmı yorucuymuş."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8821011781692505,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8803335428237915,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        },
+        {
+          "id": "balanced_067",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.876480221748352,
+          "text": "SONUNA KADAR OKU 😱 bugün başıma gelen şeye inanamayacaksın… otobüsü kaçırdım, hepsi bu."
+        },
+        {
+          "id": "balanced_047",
+          "dominant": "eglendirici",
+          "style_bucket": "typo",
+          "cosine": 0.8722054958343506,
+          "text": "uyuyacam dedim sonra reels acıldı, sabah olmus bunun teknik açıklaması nedir"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_047",
+      "text": "Yeni yapay zekâ düzenlemesiyle ilgili ilk özetler dolaşıyor; metni okumadan sadece başlıklardan sonuç çıkarmak erken olabilir.",
+      "gold": "haber",
+      "pred": "ogretici",
+      "correct": false,
+      "margin": 0.04577198624610901,
+      "probs": {
+        "ogretici": 0.3959967792034149,
+        "eglendirici": 0.15212295949459076,
+        "haber": 0.3502247929573059,
+        "sosyal": 0.101655513048172
+      },
+      "challenge": [
+        "news",
+        "caution"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_009",
+          "dominant": "ogretici",
+          "style_bucket": "plain",
+          "cosine": 0.8709900379180908,
+          "text": "Sunumda metni küçültmek yerine cümleyi kısaltın; 24 punto altına indikçe jüri uzaktan okumakta zorlanıyor."
+        },
+        {
+          "id": "balanced_070",
+          "dominant": "haber",
+          "style_bucket": "casual",
+          "cosine": 0.8619304895401001,
+          "text": "yeni tarayıcı sürümü bugün dağıtıma çıktı; güncelleme notlarında güvenlik ve sekme yönetimi değişiklikleri var."
+        },
+        {
+          "id": "balanced_074",
+          "dominant": "haber",
+          "style_bucket": "irony",
+          "cosine": 0.8567159175872803,
+          "text": "“Küçük güncelleme” diye duyuruldu ama sürüm notları roman gibi; yine de resmi olarak bugün yayında."
+        },
+        {
+          "id": "balanced_026",
+          "dominant": "ogretici",
+          "style_bucket": "casual",
+          "cosine": 0.8562277555465698,
+          "text": "notionda her şeyi ayrı database yapmak yerine gerçekten filtreleyeceğin alanları ayırmak daha sade kalıyo."
+        },
+        {
+          "id": "balanced_029",
+          "dominant": "ogretici",
+          "style_bucket": "typo",
+          "cosine": 0.8528980016708374,
+          "text": "veri setinde aynı cümlenin kelimesini degistirip 100 kere koymak veri artırma değil, modelin ezberini artırma olabiliyo."
+        }
+      ]
+    }
+  ],
+  "all_rows": [
+    {
+      "id": "goldcand_001",
+      "text": "YKS yerleştirme sonucu geldi, sevindim ama bölümün ders planını görünce biraz da korktum açıkçası 😅",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.27912282943725586,
+      "probs": {
+        "ogretici": 0.1966090351343155,
+        "eglendirici": 0.21812355518341064,
+        "haber": 0.08802099525928497,
+        "sosyal": 0.4972463846206665
+      },
+      "challenge": [
+        "mixed_intent",
+        "emotion"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_061",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.9089540243148804,
+          "text": "Ders kaydı sistemi açıldı ve bütün üniversite aynı anda F5’e bastı gibi hissediyorum 🫡"
+        },
+        {
+          "id": "balanced_109",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8983460664749146,
+          "text": "Ders planı biraz gözümü korkuttu ama aynı zamanda bölüm için daha çok heyecanlandım; garip bir karışım."
+        },
+        {
+          "id": "balanced_104",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8981286287307739,
+          "text": "ilk staj günü düşündüğüm kadar korkunç değilmiş, eve gelince gereksiz stres yaptığımı fark ettim"
+        },
+        {
+          "id": "balanced_015",
+          "dominant": "ogretici",
+          "style_bucket": "mixed",
+          "cosine": 0.8956702947616577,
+          "text": "YKS tercihinde yalnız taban puana değil, geçen yılki sıralama aralığına ve bölümün ders planına birlikte bakmak daha anlamlı."
+        },
+        {
+          "id": "balanced_113",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.891777515411377,
+          "text": "Eski playlisti açtım ve bir anda 2023’e ışınlandım 🥲"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_002",
+      "text": "Bugün kayıt için üç farklı sayfa gezdim; sonunda resmi duyurudaki iki satır bütün karmaşayı çözdü.",
+      "gold": "ogretici",
+      "pred": "haber",
+      "correct": false,
+      "margin": 0.06671270728111267,
+      "probs": {
+        "ogretici": 0.18051201105117798,
+        "eglendirici": 0.30035829544067383,
+        "haber": 0.3670710027217865,
+        "sosyal": 0.1520586460828781
+      },
+      "challenge": [
+        "informative_personal",
+        "context"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_102",
+          "dominant": "haber",
+          "style_bucket": "clickbait",
+          "cosine": 0.8690704703330994,
+          "text": "SON DAKİKA diye paylaşılmış ama duyuru dün yayımlanmış: kayıt sisteminin bakım saati değiştirildi."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8616068363189697,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_048",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.8604586720466614,
+          "text": "Bütçe uygulaması harcamaları yüzüme vurunca uygulamayı kapattım; problem başarıyla çözüldü."
+        },
+        {
+          "id": "balanced_067",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8570873737335205,
+          "text": "SONUNA KADAR OKU 😱 bugün başıma gelen şeye inanamayacaksın… otobüsü kaçırdım, hepsi bu."
+        },
+        {
+          "id": "balanced_034",
+          "dominant": "ogretici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8556170463562012,
+          "text": "Bu 3 adımı bilmeden Git kullanmayın! Başlık abartılı ama özü basit: status, branch, commit sırasını kontrol edin."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_003",
+      "text": "Hazırlık muafiyetine çalışıyorum diye başladım, iki saat sonra İngilizce meme sayfalarında buldum kendimi. verimlilik 10/10",
+      "gold": "eglendirici",
+      "pred": "eglendirici",
+      "correct": true,
+      "margin": 0.03183826804161072,
+      "probs": {
+        "ogretici": 0.1820318102836609,
+        "eglendirici": 0.3810090720653534,
+        "haber": 0.08778833597898483,
+        "sosyal": 0.3491708040237427
+      },
+      "challenge": [
+        "irony",
+        "mixed_intent"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_039",
+          "dominant": "eglendirici",
+          "style_bucket": "typo",
+          "cosine": 0.888670027256012,
+          "text": "bugun kahveyi içmeden toplantıya girdim, karakter gelisimim beklenenden hızlı oldu"
+        },
+        {
+          "id": "balanced_044",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8836616277694702,
+          "text": "arkadaş ‘10 dk’ya geliyorum’ dedi, ben artık bunu saat dilimi bilgisi olarak kabul ediyorum"
+        },
+        {
+          "id": "balanced_104",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8804053664207458,
+          "text": "ilk staj günü düşündüğüm kadar korkunç değilmiş, eve gelince gereksiz stres yaptığımı fark ettim"
+        },
+        {
+          "id": "balanced_045",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8789892792701721,
+          "text": "Takım toplantısında herkes kamerayı açınca internetim kişisel olarak alındı sanırım 😂"
+        },
+        {
+          "id": "balanced_052",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8783324360847473,
+          "text": "ranked girmicem diye oyunu açtım sadece menüye bakacaktım… evet 4 maç oynadım"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_004",
+      "text": "Bölüm seçerken sadece taban puana bakmayın derim; ders içeriklerini okuyunca fikrim baya değişti.",
+      "gold": "ogretici",
+      "pred": "ogretici",
+      "correct": true,
+      "margin": 0.06001874804496765,
+      "probs": {
+        "ogretici": 0.3604332506656647,
+        "eglendirici": 0.24395626783370972,
+        "haber": 0.09519603103399277,
+        "sosyal": 0.300414502620697
+      },
+      "challenge": [
+        "advice",
+        "education"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_124",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.9005950689315796,
+          "text": "“Sadece bir bölüm izlerim” dedim; dizinin bana başka planları varmış."
+        },
+        {
+          "id": "balanced_015",
+          "dominant": "ogretici",
+          "style_bucket": "mixed",
+          "cosine": 0.8971522450447083,
+          "text": "YKS tercihinde yalnız taban puana değil, geçen yılki sıralama aralığına ve bölümün ders planına birlikte bakmak daha anlamlı."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8909765481948853,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_109",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8869643211364746,
+          "text": "Ders planı biraz gözümü korkuttu ama aynı zamanda bölüm için daha çok heyecanlandım; garip bir karışım."
+        },
+        {
+          "id": "balanced_051",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8863058090209961,
+          "text": "Sunum provasında cümleyi unuttum, slayttaki görselle göz göze gelip yardım istedim."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_005",
+      "text": "Üniversiteye başlıyorum ama en çok hangi otobüse bineceğimi düşünüyorum, akademik hedefler sonra 😭",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.15076202154159546,
+      "probs": {
+        "ogretici": 0.1960008293390274,
+        "eglendirici": 0.2769674062728882,
+        "haber": 0.09930233657360077,
+        "sosyal": 0.42772942781448364
+      },
+      "challenge": [
+        "humor",
+        "social"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_061",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8844645023345947,
+          "text": "Ders kaydı sistemi açıldı ve bütün üniversite aynı anda F5’e bastı gibi hissediyorum 🫡"
+        },
+        {
+          "id": "balanced_043",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8772554993629456,
+          "text": "Otobüs tam durağa koşarken gidince insan birkaç saniye boyunca hayat seçimlerini sorguluyor."
+        },
+        {
+          "id": "balanced_113",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.8715925216674805,
+          "text": "Eski playlisti açtım ve bir anda 2023’e ışınlandım 🥲"
+        },
+        {
+          "id": "balanced_136",
+          "dominant": "sosyal",
+          "style_bucket": "clickbait",
+          "cosine": 0.8702524304389954,
+          "text": "İnanamayacağınız bir şey oldu… uzun zamandır görmediğim arkadaşımla aynı otobüste karşılaştım."
+        },
+        {
+          "id": "balanced_116",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8652945756912231,
+          "text": "Bütçe yapmaya başladım; artık paramın nereye gittiğini biliyorum ve bu bilgi hiç rahatlatıcı değil :)"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_006",
+      "text": "Küçük dil modeli telefonda şaşırtıcı hızlı çalıştı ama bir soruda çok emin şekilde yanlış cevap verdi. hız güzel, kontrol şart.",
+      "gold": "ogretici",
+      "pred": "ogretici",
+      "correct": true,
+      "margin": 0.20714238286018372,
+      "probs": {
+        "ogretici": 0.4260786771774292,
+        "eglendirici": 0.21893629431724548,
+        "haber": 0.13925206661224365,
+        "sosyal": 0.21573294699192047
+      },
+      "challenge": [
+        "technology",
+        "nuance"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_030",
+          "dominant": "ogretici",
+          "style_bucket": "humorous_tip",
+          "cosine": 0.8663208484649658,
+          "text": "Model “%99 doğru” diyorsa ilk sorum artık başarı değil: test setine eğitim örneği sızdı mı? 😅"
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8660666942596436,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8635880947113037,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_029",
+          "dominant": "ogretici",
+          "style_bucket": "typo",
+          "cosine": 0.8620398044586182,
+          "text": "veri setinde aynı cümlenin kelimesini degistirip 100 kere koymak veri artırma değil, modelin ezberini artırma olabiliyo."
+        },
+        {
+          "id": "balanced_017",
+          "dominant": "ogretici",
+          "style_bucket": "plain",
+          "cosine": 0.8544191122055054,
+          "text": "Pil ölçümünde voltaj doğru ama yüzde yanlışsa kapasite ve hücre sayısı parametrelerini ayrıca kontrol edin; tek kalibrasyon yetmeyebilir."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_007",
+      "text": "AI her şeyi çözecek diyorlar, bugün kodu düzelteyim derken çalışan kısmı da bozdu :) yine de tekrar eden işlerde iyi.",
+      "gold": "eglendirici",
+      "pred": "ogretici",
+      "correct": false,
+      "margin": 0.05586788058280945,
+      "probs": {
+        "ogretici": 0.32519054412841797,
+        "eglendirici": 0.2633656859397888,
+        "haber": 0.14212113618850708,
+        "sosyal": 0.2693226635456085
+      },
+      "challenge": [
+        "irony",
+        "balanced_opinion"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8967028856277466,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        },
+        {
+          "id": "balanced_006",
+          "dominant": "ogretici",
+          "style_bucket": "humorous_tip",
+          "cosine": 0.8871676921844482,
+          "text": "“son bir değişiklik yapıp çıkarım” mühendislikte meşhur son söz 😅 çalışan sürümü etiketleyip sonra kurcalamak hayat kurtarıyor."
+        },
+        {
+          "id": "balanced_022",
+          "dominant": "ogretici",
+          "style_bucket": "humorous_tip",
+          "cosine": 0.8861517310142517,
+          "text": "“cache’i temizledim düzeldi” güzel ama neden düzeldiğini bir yere yazmazsan aynı hata sana DLC olarak geri geliyor."
+        },
+        {
+          "id": "balanced_125",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8842710256576538,
+          "text": "Yeni işi öğrenmek yorucu ama her gün küçük bir şeyi daha rahat yapabildiğimi fark etmek güzel."
+        },
+        {
+          "id": "balanced_061",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8771814107894897,
+          "text": "Ders kaydı sistemi açıldı ve bütün üniversite aynı anda F5’e bastı gibi hissediyorum 🫡"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_008",
+      "text": "Bir makaleyi özetlettim, ana fikir doğruydu ama kritik bir istisnayı atlamış. özet okumak başka, kaynağı okumak başka.",
+      "gold": "ogretici",
+      "pred": "ogretici",
+      "correct": true,
+      "margin": 0.1460340917110443,
+      "probs": {
+        "ogretici": 0.40770870447158813,
+        "eglendirici": 0.23320138454437256,
+        "haber": 0.09741535037755966,
+        "sosyal": 0.2616746127605438
+      },
+      "challenge": [
+        "informative",
+        "caution"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_051",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8782147169113159,
+          "text": "Sunum provasında cümleyi unuttum, slayttaki görselle göz göze gelip yardım istedim."
+        },
+        {
+          "id": "balanced_009",
+          "dominant": "ogretici",
+          "style_bucket": "plain",
+          "cosine": 0.8780573010444641,
+          "text": "Sunumda metni küçültmek yerine cümleyi kısaltın; 24 punto altına indikçe jüri uzaktan okumakta zorlanıyor."
+        },
+        {
+          "id": "balanced_124",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8663939237594604,
+          "text": "“Sadece bir bölüm izlerim” dedim; dizinin bana başka planları varmış."
+        },
+        {
+          "id": "balanced_127",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8657135963439941,
+          "text": "Bir süredir ertelediğim işi bitirdim; işten çok kafamda büyüttüğüm kısmı yorucuymuş."
+        },
+        {
+          "id": "balanced_026",
+          "dominant": "ogretici",
+          "style_bucket": "casual",
+          "cosine": 0.8636717796325684,
+          "text": "notionda her şeyi ayrı database yapmak yerine gerçekten filtreleyeceğin alanları ayırmak daha sade kalıyo."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_009",
+      "text": "Yeni yapay zekâ özelliğini açtım, ilk baktığım yer model değil gizlilik ayarları oldu. yaşlanıyor muyum ne 😅",
+      "gold": "sosyal",
+      "pred": "ogretici",
+      "correct": false,
+      "margin": 0.04193893074989319,
+      "probs": {
+        "ogretici": 0.338689386844635,
+        "eglendirici": 0.25339826941490173,
+        "haber": 0.11116194725036621,
+        "sosyal": 0.2967504560947418
+      },
+      "challenge": [
+        "tech_social",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_113",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.8813494443893433,
+          "text": "Eski playlisti açtım ve bir anda 2023’e ışınlandım 🥲"
+        },
+        {
+          "id": "balanced_045",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8809887766838074,
+          "text": "Takım toplantısında herkes kamerayı açınca internetim kişisel olarak alındı sanırım 😂"
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8767694234848022,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_039",
+          "dominant": "eglendirici",
+          "style_bucket": "typo",
+          "cosine": 0.8722543716430664,
+          "text": "bugun kahveyi içmeden toplantıya girdim, karakter gelisimim beklenenden hızlı oldu"
+        },
+        {
+          "id": "balanced_053",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8722462058067322,
+          "text": "Kahve bitti, görev çubuğumdaki performans simgesi de sarıya döndü ☕😂"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_010",
+      "text": "Kod tamamlayıcı bugün 15 dakika kazandırdı, sonra ürettiği tek satırlık bug 40 dakikamı aldı. hesabı siz yapın.",
+      "gold": "eglendirici",
+      "pred": "eglendirici",
+      "correct": true,
+      "margin": 0.020145326852798462,
+      "probs": {
+        "ogretici": 0.2976987659931183,
+        "eglendirici": 0.31784409284591675,
+        "haber": 0.18716320395469666,
+        "sosyal": 0.1972939670085907
+      },
+      "challenge": [
+        "irony",
+        "technology"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8825099468231201,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        },
+        {
+          "id": "balanced_064",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.8816412687301636,
+          "text": "“Bu bug kullanıcıda olmaz” dedik; kullanıcı beş dakika sonra canlı yayında yaptı."
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8747625946998596,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        },
+        {
+          "id": "balanced_048",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.8708149790763855,
+          "text": "Bütçe uygulaması harcamaları yüzüme vurunca uygulamayı kapattım; problem başarıyla çözüldü."
+        },
+        {
+          "id": "balanced_006",
+          "dominant": "ogretici",
+          "style_bucket": "humorous_tip",
+          "cosine": 0.8697847127914429,
+          "text": "“son bir değişiklik yapıp çıkarım” mühendislikte meşhur son söz 😅 çalışan sürümü etiketleyip sonra kurcalamak hayat kurtarıyor."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_011",
+      "text": "TEKNOFEST için son testte her şey çalıştı. tabii ekipçe 'bir daha dokunmayalım' dedikten 5 dakika sonra bir ayar daha değiştirdik.",
+      "gold": "eglendirici",
+      "pred": "eglendirici",
+      "correct": true,
+      "margin": 0.08444061875343323,
+      "probs": {
+        "ogretici": 0.26463285088539124,
+        "eglendirici": 0.34907346963882446,
+        "haber": 0.1877429187297821,
+        "sosyal": 0.19855080544948578
+      },
+      "challenge": [
+        "maker",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_041",
+          "dominant": "eglendirici",
+          "style_bucket": "mixed",
+          "cosine": 0.9016746878623962,
+          "text": "Finale üç gün kala ‘artık özellik eklemiyoruz’ dedik; beş dakika sonra yeni özellik fikri konuşuyorduk."
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8859285116195679,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        },
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8833531141281128,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        },
+        {
+          "id": "balanced_064",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.881339967250824,
+          "text": "“Bu bug kullanıcıda olmaz” dedik; kullanıcı beş dakika sonra canlı yayında yaptı."
+        },
+        {
+          "id": "balanced_061",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8738155961036682,
+          "text": "Ders kaydı sistemi açıldı ve bütün üniversite aynı anda F5’e bastı gibi hissediyorum 🫡"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_012",
+      "text": "Sensör kalibrasyonu sonunda düzeldi; sorun yazılım değil masanın hafif eğik olmasıymış. bazen en basit ihtimali en son düşünüyorsun.",
+      "gold": "ogretici",
+      "pred": "ogretici",
+      "correct": true,
+      "margin": 0.3009858578443527,
+      "probs": {
+        "ogretici": 0.4946480691432953,
+        "eglendirici": 0.19366221129894257,
+        "haber": 0.17127050459384918,
+        "sosyal": 0.14041922986507416
+      },
+      "challenge": [
+        "technical_lesson",
+        "personal"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_011",
+          "dominant": "ogretici",
+          "style_bucket": "emoji",
+          "cosine": 0.8815760016441345,
+          "text": "Drone pusula kalibrasyonunu metal masanın yanında yapmak ölçümü bozabilir; açık alanda tekrar etmek daha güvenli. 🧭"
+        },
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8807312250137329,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        },
+        {
+          "id": "balanced_102",
+          "dominant": "haber",
+          "style_bucket": "clickbait",
+          "cosine": 0.8791196346282959,
+          "text": "SON DAKİKA diye paylaşılmış ama duyuru dün yayımlanmış: kayıt sisteminin bakım saati değiştirildi."
+        },
+        {
+          "id": "balanced_017",
+          "dominant": "ogretici",
+          "style_bucket": "plain",
+          "cosine": 0.8724284172058105,
+          "text": "Pil ölçümünde voltaj doğru ama yüzde yanlışsa kapasite ve hücre sayısı parametrelerini ayrıca kontrol edin; tek kalibrasyon yetmeyebilir."
+        },
+        {
+          "id": "balanced_030",
+          "dominant": "ogretici",
+          "style_bucket": "humorous_tip",
+          "cosine": 0.8706530332565308,
+          "text": "Model “%99 doğru” diyorsa ilk sorum artık başarı değil: test setine eğitim örneği sızdı mı? 😅"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_013",
+      "text": "Sunum provasında 8 dakika konuşmuşuz, final süresi 5 dakika. üç slaytı sevgiyle uğurladık 🥲",
+      "gold": "eglendirici",
+      "pred": "eglendirici",
+      "correct": true,
+      "margin": 0.04951241612434387,
+      "probs": {
+        "ogretici": 0.14902642369270325,
+        "eglendirici": 0.3799561560153961,
+        "haber": 0.14057371020317078,
+        "sosyal": 0.33044373989105225
+      },
+      "challenge": [
+        "event",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_105",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.8798954486846924,
+          "text": "Kahve içmeye çıktık, üç saat sonra hâlâ aynı masadaydık ☕🙂"
+        },
+        {
+          "id": "balanced_051",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8730123043060303,
+          "text": "Sunum provasında cümleyi unuttum, slayttaki görselle göz göze gelip yardım istedim."
+        },
+        {
+          "id": "balanced_041",
+          "dominant": "eglendirici",
+          "style_bucket": "mixed",
+          "cosine": 0.8714233040809631,
+          "text": "Finale üç gün kala ‘artık özellik eklemiyoruz’ dedik; beş dakika sonra yeni özellik fikri konuşuyorduk."
+        },
+        {
+          "id": "balanced_112",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8665811419487,
+          "text": "grup projesinde sonunda herkes aynı anda müsaitti, bunu ayrıca kutlamamız lazım bence"
+        },
+        {
+          "id": "balanced_121",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.8643561601638794,
+          "text": "Annemle yarım saat telefonda konuştum, moral seviyesi +40 📞"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_014",
+      "text": "Takımda herkes farklı çözüm önerince tartışma uzadı ama en iyi fikir de o tartışmadan çıktı. yorucu ama değerdi.",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.23913417756557465,
+      "probs": {
+        "ogretici": 0.19313167035579681,
+        "eglendirici": 0.22937817871570587,
+        "haber": 0.1089778020977974,
+        "sosyal": 0.4685123562812805
+      },
+      "challenge": [
+        "social",
+        "reflection"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_117",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8793662786483765,
+          "text": "Maçı kaybettik ama arkadaşlarla izlemek yine de geceyi güzel yaptı."
+        },
+        {
+          "id": "balanced_134",
+          "dominant": "sosyal",
+          "style_bucket": "short",
+          "cosine": 0.8759427070617676,
+          "text": "Biraz sohbet iyi geldi."
+        },
+        {
+          "id": "balanced_112",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8737894296646118,
+          "text": "grup projesinde sonunda herkes aynı anda müsaitti, bunu ayrıca kutlamamız lazım bence"
+        },
+        {
+          "id": "balanced_133",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8728911280632019,
+          "text": "Yeni oyunu çok sevdim ama asıl güzel taraf arkadaşlarla tekrar aynı anda çevrim içi olmamız oldu."
+        },
+        {
+          "id": "balanced_127",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8677676916122437,
+          "text": "Bir süredir ertelediğim işi bitirdim; işten çok kafamda büyüttüğüm kısmı yorucuymuş."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_015",
+      "text": "Uçuş öncesi checklist sıkıcı geliyordu, bugün bir gevşek bağlantıyı yakaladı. fikrimi geri alıyorum.",
+      "gold": "ogretici",
+      "pred": "eglendirici",
+      "correct": false,
+      "margin": 0.034708172082901,
+      "probs": {
+        "ogretici": 0.24165987968444824,
+        "eglendirici": 0.3210969865322113,
+        "haber": 0.15085439383983612,
+        "sosyal": 0.2863888144493103
+      },
+      "challenge": [
+        "technical",
+        "attitude_change"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8875212669372559,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_131",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8770321011543274,
+          "text": "bugün otobüsü kacırdım sonra yürüyeyim dedim, iyi ki kacırmışım biraz hava aldım"
+        },
+        {
+          "id": "balanced_022",
+          "dominant": "ogretici",
+          "style_bucket": "humorous_tip",
+          "cosine": 0.876645565032959,
+          "text": "“cache’i temizledim düzeldi” güzel ama neden düzeldiğini bir yere yazmazsan aynı hata sana DLC olarak geri geliyor."
+        },
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8764785528182983,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        },
+        {
+          "id": "balanced_066",
+          "dominant": "eglendirici",
+          "style_bucket": "short",
+          "cosine": 0.8762373924255371,
+          "text": "Deadline yaklaşıyor. Ben de uzaktan bakıyorum."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_016",
+      "text": "Milli maç için 'sadece ilk yarıyı izlerim' dedim. uzatmaları ayakta izliyordum, planlama yine mükemmel.",
+      "gold": "eglendirici",
+      "pred": "eglendirici",
+      "correct": true,
+      "margin": 0.12517192959785461,
+      "probs": {
+        "ogretici": 0.1415627896785736,
+        "eglendirici": 0.4383772909641266,
+        "haber": 0.10685455799102783,
+        "sosyal": 0.313205361366272
+      },
+      "challenge": [
+        "sports",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_049",
+          "dominant": "eglendirici",
+          "style_bucket": "mixed",
+          "cosine": 0.8894202709197998,
+          "text": "Maçı sakin izleyeceğim dedim, 12. dakikada televizyona taktik anlatıyordum."
+        },
+        {
+          "id": "balanced_124",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8861857652664185,
+          "text": "“Sadece bir bölüm izlerim” dedim; dizinin bana başka planları varmış."
+        },
+        {
+          "id": "balanced_108",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.886091947555542,
+          "text": "“Erken çıkacağım” diye buluşmaya gittim, kapanışa kadar oturdum; planlama yeteneğim yine zirvede."
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8724650144577026,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8718327879905701,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_017",
+      "text": "Pozisyonu canlı izleyince net faul dedim, tekrarını görünce o kadar da emin olamadım. kamera açısı acayip şey.",
+      "gold": "sosyal",
+      "pred": "eglendirici",
+      "correct": false,
+      "margin": 0.2192154973745346,
+      "probs": {
+        "ogretici": 0.23658554255962372,
+        "eglendirici": 0.4558010399341583,
+        "haber": 0.09239105135202408,
+        "sosyal": 0.21522237360477448
+      },
+      "challenge": [
+        "uncertainty",
+        "sports"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_064",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.8745439052581787,
+          "text": "“Bu bug kullanıcıda olmaz” dedik; kullanıcı beş dakika sonra canlı yayında yaptı."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8735215663909912,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_067",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8716681599617004,
+          "text": "SONUNA KADAR OKU 😱 bugün başıma gelen şeye inanamayacaksın… otobüsü kaçırdım, hepsi bu."
+        },
+        {
+          "id": "balanced_051",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8711713552474976,
+          "text": "Sunum provasında cümleyi unuttum, slayttaki görselle göz göze gelip yardım istedim."
+        },
+        {
+          "id": "balanced_068",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8686355352401733,
+          "text": "Bu videonun sonu ŞAKA GİBİ! diye başladım, finalde sadece kedim kamerayı devirdi 😂"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_018",
+      "text": "Maç kötü değildi bence ama sosyal medyayı okuyunca sanki başka bir karşılaşma izlemişim gibi hissediyorum.",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.3000035285949707,
+      "probs": {
+        "ogretici": 0.13534174859523773,
+        "eglendirici": 0.24173712730407715,
+        "haber": 0.08118042349815369,
+        "sosyal": 0.5417406558990479
+      },
+      "challenge": [
+        "opinion",
+        "social_context"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8822513818740845,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_117",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8752559423446655,
+          "text": "Maçı kaybettik ama arkadaşlarla izlemek yine de geceyi güzel yaptı."
+        },
+        {
+          "id": "balanced_133",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8697735071182251,
+          "text": "Yeni oyunu çok sevdim ama asıl güzel taraf arkadaşlarla tekrar aynı anda çevrim içi olmamız oldu."
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8672736287117004,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        },
+        {
+          "id": "balanced_124",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.864984393119812,
+          "text": "“Sadece bir bölüm izlerim” dedim; dizinin bana başka planları varmış."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_019",
+      "text": "Skor güzel, oyun için aynı şeyi söyleyemeyeceğim. sonuçla performansı aynı şey saymak bana garip geliyor.",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.03042912483215332,
+      "probs": {
+        "ogretici": 0.26654577255249023,
+        "eglendirici": 0.31492796540260315,
+        "haber": 0.07316913455724716,
+        "sosyal": 0.34535709023475647
+      },
+      "challenge": [
+        "analysis",
+        "sports"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_133",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8823646903038025,
+          "text": "Yeni oyunu çok sevdim ama asıl güzel taraf arkadaşlarla tekrar aynı anda çevrim içi olmamız oldu."
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8709325790405273,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        },
+        {
+          "id": "balanced_051",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8684107661247253,
+          "text": "Sunum provasında cümleyi unuttum, slayttaki görselle göz göze gelip yardım istedim."
+        },
+        {
+          "id": "balanced_117",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8682551383972168,
+          "text": "Maçı kaybettik ama arkadaşlarla izlemek yine de geceyi güzel yaptı."
+        },
+        {
+          "id": "balanced_120",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8678662776947021,
+          "text": "sınav bitti ama beynim hâlâ soruları arka planda renderlıyo gibi"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_020",
+      "text": "Arkadaş grubunda maç tahmini yaptık, futboldan en az anlayan kişi tek bilen çıktı. istatistik bilimi şu an üzgün.",
+      "gold": "eglendirici",
+      "pred": "eglendirici",
+      "correct": true,
+      "margin": 0.05757617950439453,
+      "probs": {
+        "ogretici": 0.26536455750465393,
+        "eglendirici": 0.34336113929748535,
+        "haber": 0.1054893359541893,
+        "sosyal": 0.2857849597930908
+      },
+      "challenge": [
+        "humor",
+        "sports_social"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_135",
+          "dominant": "sosyal",
+          "style_bucket": "clickbait",
+          "cosine": 0.8733687400817871,
+          "text": "Bunu okuyunca bana hak vereceksiniz!!! bugün arkadaşım kahvemi yanlış aldı ve günümün dramı buydu 😭"
+        },
+        {
+          "id": "balanced_045",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8723202347755432,
+          "text": "Takım toplantısında herkes kamerayı açınca internetim kişisel olarak alındı sanırım 😂"
+        },
+        {
+          "id": "balanced_052",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8716510534286499,
+          "text": "ranked girmicem diye oyunu açtım sadece menüye bakacaktım… evet 4 maç oynadım"
+        },
+        {
+          "id": "balanced_123",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8679335713386536,
+          "text": "kampuste boş ders vardı kütüphaneye gidecektim, arkadaşları görünce plan direkt iptal"
+        },
+        {
+          "id": "balanced_044",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8675726652145386,
+          "text": "arkadaş ‘10 dk’ya geliyorum’ dedi, ben artık bunu saat dilimi bilgisi olarak kabul ediyorum"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_021",
+      "text": "Şehirdeki festivale sırf arkadaşım istedi diye gittim, günün sonunda benden çok ben program bakıyordum.",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.35451024770736694,
+      "probs": {
+        "ogretici": 0.06651339679956436,
+        "eglendirici": 0.25505876541137695,
+        "haber": 0.06885882467031479,
+        "sosyal": 0.6095690131187439
+      },
+      "challenge": [
+        "culture",
+        "attitude_change"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_108",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8873956203460693,
+          "text": "“Erken çıkacağım” diye buluşmaya gittim, kapanışa kadar oturdum; planlama yeteneğim yine zirvede."
+        },
+        {
+          "id": "balanced_124",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8809781670570374,
+          "text": "“Sadece bir bölüm izlerim” dedim; dizinin bana başka planları varmış."
+        },
+        {
+          "id": "balanced_081",
+          "dominant": "haber",
+          "style_bucket": "typo",
+          "cosine": 0.8724907636642456,
+          "text": "şehir festivalinin saatleri degisti, belediye yeni programı az önce yayınladı"
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8705125451087952,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_103",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8704323768615723,
+          "text": "Bugün uzun zamandır görmediğim bir arkadaşımla karşılaştım, on dakikalık sohbet bütün günün modunu değiştirdi."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_022",
+      "text": "Sergide bir işi beş dakika izledim, ne anlatmak istediğini hâlâ bilmiyorum ama aklımdan da çıkmıyor.",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.1410677134990692,
+      "probs": {
+        "ogretici": 0.1344352662563324,
+        "eglendirici": 0.32831883430480957,
+        "haber": 0.06785934418439865,
+        "sosyal": 0.4693865478038788
+      },
+      "challenge": [
+        "ambiguous",
+        "culture"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_111",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8803884983062744,
+          "text": "Bir projeyi teslim edince sevincimden çok boşluk hissi geliyor; haftalardır ne yapacağımı o belirliyormuş."
+        },
+        {
+          "id": "balanced_120",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8787519931793213,
+          "text": "sınav bitti ama beynim hâlâ soruları arka planda renderlıyo gibi"
+        },
+        {
+          "id": "balanced_051",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8771822452545166,
+          "text": "Sunum provasında cümleyi unuttum, slayttaki görselle göz göze gelip yardım istedim."
+        },
+        {
+          "id": "balanced_119",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8770718574523926,
+          "text": "Yeni biriyle tanışırken ilk beş dakika çok yorucu geliyor, sonra bir anda sohbet akmaya başlıyor."
+        },
+        {
+          "id": "balanced_136",
+          "dominant": "sosyal",
+          "style_bucket": "clickbait",
+          "cosine": 0.8746058940887451,
+          "text": "İnanamayacağınız bir şey oldu… uzun zamandır görmediğim arkadaşımla aynı otobüste karşılaştım."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_023",
+      "text": "Açık hava konseri güzel de eve dönüş planını konserden önce yapmak gerekiyormuş, bunu biraz geç öğrendik 😅",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.15431737899780273,
+      "probs": {
+        "ogretici": 0.2382245659828186,
+        "eglendirici": 0.21482151746749878,
+        "haber": 0.15441195666790009,
+        "sosyal": 0.39254194498062134
+      },
+      "challenge": [
+        "culture",
+        "practical_advice"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_118",
+          "dominant": "sosyal",
+          "style_bucket": "short",
+          "cosine": 0.8817646503448486,
+          "text": "Bugün eve dönmek iyi geldi."
+        },
+        {
+          "id": "balanced_114",
+          "dominant": "sosyal",
+          "style_bucket": "question",
+          "cosine": 0.878906786441803,
+          "text": "Tek başına konsere gitmek ilk başta garip geliyor mu? bir kez deneyince baya sevmiştim."
+        },
+        {
+          "id": "balanced_108",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8725219368934631,
+          "text": "“Erken çıkacağım” diye buluşmaya gittim, kapanışa kadar oturdum; planlama yeteneğim yine zirvede."
+        },
+        {
+          "id": "balanced_104",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8685402870178223,
+          "text": "ilk staj günü düşündüğüm kadar korkunç değilmiş, eve gelince gereksiz stres yaptığımı fark ettim"
+        },
+        {
+          "id": "balanced_105",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.8674433827400208,
+          "text": "Kahve içmeye çıktık, üç saat sonra hâlâ aynı masadaydık ☕🙂"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_024",
+      "text": "Filmi çok sevdim diyemem ama çıkınca yarım saat üzerine konuştuysak bir şeyleri doğru yapmış demektir.",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.252250999212265,
+      "probs": {
+        "ogretici": 0.15526866912841797,
+        "eglendirici": 0.2548786699771881,
+        "haber": 0.08272301405668259,
+        "sosyal": 0.5071296691894531
+      },
+      "challenge": [
+        "nuance",
+        "culture_social"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_134",
+          "dominant": "sosyal",
+          "style_bucket": "short",
+          "cosine": 0.8826484680175781,
+          "text": "Biraz sohbet iyi geldi."
+        },
+        {
+          "id": "balanced_103",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.876152515411377,
+          "text": "Bugün uzun zamandır görmediğim bir arkadaşımla karşılaştım, on dakikalık sohbet bütün günün modunu değiştirdi."
+        },
+        {
+          "id": "balanced_121",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.8740618824958801,
+          "text": "Annemle yarım saat telefonda konuştum, moral seviyesi +40 📞"
+        },
+        {
+          "id": "balanced_044",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8720473051071167,
+          "text": "arkadaş ‘10 dk’ya geliyorum’ dedi, ben artık bunu saat dilimi bilgisi olarak kabul ediyorum"
+        },
+        {
+          "id": "balanced_110",
+          "dominant": "sosyal",
+          "style_bucket": "short",
+          "cosine": 0.868040144443512,
+          "text": "Bugün biraz sessizlik iyi geldi."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_025",
+      "text": "Kitap fuarına 'bir bakıp çıkarım' diye girdim, çantayla çıktım. bütçe planı başka bahara.",
+      "gold": "eglendirici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.08274441957473755,
+      "probs": {
+        "ogretici": 0.13183683156967163,
+        "eglendirici": 0.3350796103477478,
+        "haber": 0.11525958776473999,
+        "sosyal": 0.41782402992248535
+      },
+      "challenge": [
+        "culture",
+        "budget",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_108",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.9013019800186157,
+          "text": "“Erken çıkacağım” diye buluşmaya gittim, kapanışa kadar oturdum; planlama yeteneğim yine zirvede."
+        },
+        {
+          "id": "balanced_116",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8824143409729004,
+          "text": "Bütçe yapmaya başladım; artık paramın nereye gittiğini biliyorum ve bu bilgi hiç rahatlatıcı değil :)"
+        },
+        {
+          "id": "balanced_048",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.8813722729682922,
+          "text": "Bütçe uygulaması harcamaları yüzüme vurunca uygulamayı kapattım; problem başarıyla çözüldü."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8778651356697083,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_123",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8773711919784546,
+          "text": "kampuste boş ders vardı kütüphaneye gidecektim, arkadaşları görünce plan direkt iptal"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_026",
+      "text": "Bu ay harcamaları yazınca küçük küçük aldıklarımın toplamı moral bozdu. büyük alışveriş değil, görünmeyenler yoruyor.",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.37104906141757965,
+      "probs": {
+        "ogretici": 0.1901521533727646,
+        "eglendirici": 0.17091968655586243,
+        "haber": 0.07772696763277054,
+        "sosyal": 0.5612012147903442
+      },
+      "challenge": [
+        "budget",
+        "reflection"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_116",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8936704397201538,
+          "text": "Bütçe yapmaya başladım; artık paramın nereye gittiğini biliyorum ve bu bilgi hiç rahatlatıcı değil :)"
+        },
+        {
+          "id": "balanced_125",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.88206946849823,
+          "text": "Yeni işi öğrenmek yorucu ama her gün küçük bir şeyi daha rahat yapabildiğimi fark etmek güzel."
+        },
+        {
+          "id": "balanced_127",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8798202872276306,
+          "text": "Bir süredir ertelediğim işi bitirdim; işten çok kafamda büyüttüğüm kısmı yorucuymuş."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.876528263092041,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_107",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8748340606689453,
+          "text": "bugun hic enerjim yoktu ama kısa bi yürüyüş baya toparladı"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_027",
+      "text": "Market fiyatlarını geçen ayla kıyaslamak için fiş saklamaya başladım. beklemediğim kadar faydalı oldu.",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.1222754716873169,
+      "probs": {
+        "ogretici": 0.2477911114692688,
+        "eglendirici": 0.2716001868247986,
+        "haber": 0.08673299103975296,
+        "sosyal": 0.3938756585121155
+      },
+      "challenge": [
+        "budget",
+        "informative_personal"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8805383443832397,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        },
+        {
+          "id": "balanced_116",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8740129470825195,
+          "text": "Bütçe yapmaya başladım; artık paramın nereye gittiğini biliyorum ve bu bilgi hiç rahatlatıcı değil :)"
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8711704015731812,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_002",
+          "dominant": "ogretici",
+          "style_bucket": "casual",
+          "cosine": 0.870281457901001,
+          "text": "ben git’te branch değişmeden önce `git status` bakmayı alışkanlık yaptım, yarım kalmış dosyayı yanlış branch’e taşımayı baya azaltıyor."
+        },
+        {
+          "id": "balanced_104",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8677858114242554,
+          "text": "ilk staj günü düşündüğüm kadar korkunç değilmiş, eve gelince gereksiz stres yaptığımı fark ettim"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_028",
+      "text": "İndirim var diye ihtiyacım olmayan şeyi almak tasarruf sayılmıyormuş, bugün finans dünyasına katkım bu kadar.",
+      "gold": "eglendirici",
+      "pred": "eglendirici",
+      "correct": true,
+      "margin": 0.08090004324913025,
+      "probs": {
+        "ogretici": 0.20598042011260986,
+        "eglendirici": 0.38691723346710205,
+        "haber": 0.1010851338505745,
+        "sosyal": 0.3060171902179718
+      },
+      "challenge": [
+        "irony",
+        "budget"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_067",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8646857738494873,
+          "text": "SONUNA KADAR OKU 😱 bugün başıma gelen şeye inanamayacaksın… otobüsü kaçırdım, hepsi bu."
+        },
+        {
+          "id": "balanced_107",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.863349437713623,
+          "text": "bugun hic enerjim yoktu ama kısa bi yürüyüş baya toparladı"
+        },
+        {
+          "id": "balanced_131",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8565343618392944,
+          "text": "bugün otobüsü kacırdım sonra yürüyeyim dedim, iyi ki kacırmışım biraz hava aldım"
+        },
+        {
+          "id": "balanced_048",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.8563829660415649,
+          "text": "Bütçe uygulaması harcamaları yüzüme vurunca uygulamayı kapattım; problem başarıyla çözüldü."
+        },
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8559572696685791,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_029",
+      "text": "Evde kahve yapınca para kalıyor mu bilmiyorum çünkü bu kez ekipman bakmaya başladım. sistem beni yendi.",
+      "gold": "eglendirici",
+      "pred": "eglendirici",
+      "correct": true,
+      "margin": 0.04707875847816467,
+      "probs": {
+        "ogretici": 0.23086832463741302,
+        "eglendirici": 0.3713493049144745,
+        "haber": 0.07351180911064148,
+        "sosyal": 0.3242705464363098
+      },
+      "challenge": [
+        "humor",
+        "budget"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_135",
+          "dominant": "sosyal",
+          "style_bucket": "clickbait",
+          "cosine": 0.8854489326477051,
+          "text": "Bunu okuyunca bana hak vereceksiniz!!! bugün arkadaşım kahvemi yanlış aldı ve günümün dramı buydu 😭"
+        },
+        {
+          "id": "balanced_116",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8833545446395874,
+          "text": "Bütçe yapmaya başladım; artık paramın nereye gittiğini biliyorum ve bu bilgi hiç rahatlatıcı değil :)"
+        },
+        {
+          "id": "balanced_053",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8770183324813843,
+          "text": "Kahve bitti, görev çubuğumdaki performans simgesi de sarıya döndü ☕😂"
+        },
+        {
+          "id": "balanced_105",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.8747984766960144,
+          "text": "Kahve içmeye çıktık, üç saat sonra hâlâ aynı masadaydık ☕🙂"
+        },
+        {
+          "id": "balanced_005",
+          "dominant": "ogretici",
+          "style_bucket": "typo",
+          "cosine": 0.871378481388092,
+          "text": "python venv acmadan paket kurunca sonra niye her proje birbirine giriyo diye bakıyoruz :') önce ortamı ayırın."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_030",
+      "text": "Abonelikleri tek tek görünce ucuz, topluca görünce başka bir hikâye. iki tanesini sonunda kapattım.",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.16049456596374512,
+      "probs": {
+        "ogretici": 0.18570557236671448,
+        "eglendirici": 0.27437824010849,
+        "haber": 0.10504341870546341,
+        "sosyal": 0.4348728060722351
+      },
+      "challenge": [
+        "budget",
+        "personal_action"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8917787075042725,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_067",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8855879306793213,
+          "text": "SONUNA KADAR OKU 😱 bugün başıma gelen şeye inanamayacaksın… otobüsü kaçırdım, hepsi bu."
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8837699890136719,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        },
+        {
+          "id": "balanced_048",
+          "dominant": "eglendirici",
+          "style_bucket": "irony",
+          "cosine": 0.882776141166687,
+          "text": "Bütçe uygulaması harcamaları yüzüme vurunca uygulamayı kapattım; problem başarıyla çözüldü."
+        },
+        {
+          "id": "balanced_124",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.880954384803772,
+          "text": "“Sadece bir bölüm izlerim” dedim; dizinin bana başka planları varmış."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_031",
+      "text": "Yeni yamadan sonra oyun daha dengeli olmuş diyorlar, benim karakter hâlâ yere bakıyor olabilir tamamen yetenek meselesi 😭",
+      "gold": "eglendirici",
+      "pred": "eglendirici",
+      "correct": true,
+      "margin": 0.00013372302055358887,
+      "probs": {
+        "ogretici": 0.2191939800977707,
+        "eglendirici": 0.3414653241634369,
+        "haber": 0.09800902754068375,
+        "sosyal": 0.3413316011428833
+      },
+      "challenge": [
+        "gaming",
+        "self_deprecating_humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_039",
+          "dominant": "eglendirici",
+          "style_bucket": "typo",
+          "cosine": 0.8825764656066895,
+          "text": "bugun kahveyi içmeden toplantıya girdim, karakter gelisimim beklenenden hızlı oldu"
+        },
+        {
+          "id": "balanced_053",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8816169500350952,
+          "text": "Kahve bitti, görev çubuğumdaki performans simgesi de sarıya döndü ☕😂"
+        },
+        {
+          "id": "balanced_052",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8799752593040466,
+          "text": "ranked girmicem diye oyunu açtım sadece menüye bakacaktım… evet 4 maç oynadım"
+        },
+        {
+          "id": "balanced_022",
+          "dominant": "ogretici",
+          "style_bucket": "humorous_tip",
+          "cosine": 0.8760656118392944,
+          "text": "“cache’i temizledim düzeldi” güzel ama neden düzeldiğini bir yere yazmazsan aynı hata sana DLC olarak geri geliyor."
+        },
+        {
+          "id": "balanced_120",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8735568523406982,
+          "text": "sınav bitti ama beynim hâlâ soruları arka planda renderlıyo gibi"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_032",
+      "text": "Co-op oyunda görevi geçemedik ama iki saat boyunca çok eğlendik. başarı metriğini değiştirmek lazım bazen.",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.05673682689666748,
+      "probs": {
+        "ogretici": 0.23858575522899628,
+        "eglendirici": 0.28766271471977234,
+        "haber": 0.12935197353363037,
+        "sosyal": 0.3443995416164398
+      },
+      "challenge": [
+        "gaming",
+        "social",
+        "reflection"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_133",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.892408013343811,
+          "text": "Yeni oyunu çok sevdim ama asıl güzel taraf arkadaşlarla tekrar aynı anda çevrim içi olmamız oldu."
+        },
+        {
+          "id": "balanced_117",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8779857158660889,
+          "text": "Maçı kaybettik ama arkadaşlarla izlemek yine de geceyi güzel yaptı."
+        },
+        {
+          "id": "balanced_052",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8695213198661804,
+          "text": "ranked girmicem diye oyunu açtım sadece menüye bakacaktım… evet 4 maç oynadım"
+        },
+        {
+          "id": "balanced_059",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8672198057174683,
+          "text": "Kampüste boş dersim vardı, üretken olayım dedim; iki saat arkadaşlarla hayat planladık."
+        },
+        {
+          "id": "balanced_105",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.8670977354049683,
+          "text": "Kahve içmeye çıktık, üç saat sonra hâlâ aynı masadaydık ☕🙂"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_033",
+      "text": "Boss'u üçüncü denemede kestim diye seviniyordum, arkadaşım ilk denemede geçti. bu bilgiye ihtiyacım yoktu.",
+      "gold": "eglendirici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.04094073176383972,
+      "probs": {
+        "ogretici": 0.21985332667827606,
+        "eglendirici": 0.337938517332077,
+        "haber": 0.06332897394895554,
+        "sosyal": 0.37887924909591675
+      },
+      "challenge": [
+        "gaming",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_111",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8769949674606323,
+          "text": "Bir projeyi teslim edince sevincimden çok boşluk hissi geliyor; haftalardır ne yapacağımı o belirliyormuş."
+        },
+        {
+          "id": "balanced_104",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8769172430038452,
+          "text": "ilk staj günü düşündüğüm kadar korkunç değilmiş, eve gelince gereksiz stres yaptığımı fark ettim"
+        },
+        {
+          "id": "balanced_052",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8753271102905273,
+          "text": "ranked girmicem diye oyunu açtım sadece menüye bakacaktım… evet 4 maç oynadım"
+        },
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8751468062400818,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8748133778572083,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_034",
+      "text": "Oyunun grafikleri normal ama ses tasarımı kulaklıkla bambaşka hissettiriyor. fragmanda hiç dikkat etmemiştim.",
+      "gold": "ogretici",
+      "pred": "sosyal",
+      "correct": false,
+      "margin": 0.025251418352127075,
+      "probs": {
+        "ogretici": 0.28768396377563477,
+        "eglendirici": 0.2739226520061493,
+        "haber": 0.1254580169916153,
+        "sosyal": 0.31293538212776184
+      },
+      "challenge": [
+        "gaming",
+        "review"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8786452412605286,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_051",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8751678466796875,
+          "text": "Sunum provasında cümleyi unuttum, slayttaki görselle göz göze gelip yardım istedim."
+        },
+        {
+          "id": "balanced_052",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8728371262550354,
+          "text": "ranked girmicem diye oyunu açtım sadece menüye bakacaktım… evet 4 maç oynadım"
+        },
+        {
+          "id": "balanced_120",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.870461642742157,
+          "text": "sınav bitti ama beynim hâlâ soruları arka planda renderlıyo gibi"
+        },
+        {
+          "id": "balanced_132",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8699960708618164,
+          "text": "Telefonu daha az kullanacağım diye ekran süresi istatistiklerine on dakika baktım; başlangıç etkileyici."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_035",
+      "text": "Ranked girmeden önce 'sinirlenmeyeceğim' diye kendime söz vermem zaten nasıl bir akşam olacağını anlatıyor.",
+      "gold": "eglendirici",
+      "pred": "eglendirici",
+      "correct": true,
+      "margin": 0.04263174533843994,
+      "probs": {
+        "ogretici": 0.16895048320293427,
+        "eglendirici": 0.399245947599411,
+        "haber": 0.07518938928842545,
+        "sosyal": 0.35661420226097107
+      },
+      "challenge": [
+        "gaming",
+        "irony"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_052",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8988018035888672,
+          "text": "ranked girmicem diye oyunu açtım sadece menüye bakacaktım… evet 4 maç oynadım"
+        },
+        {
+          "id": "balanced_108",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8926446437835693,
+          "text": "“Erken çıkacağım” diye buluşmaya gittim, kapanışa kadar oturdum; planlama yeteneğim yine zirvede."
+        },
+        {
+          "id": "balanced_035",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8896809816360474,
+          "text": "Alarmı ertelemeyeceğim diye gece karar veren ben ile sabah alarmı kapatan ben kesinlikle aynı kişi değil."
+        },
+        {
+          "id": "balanced_044",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8798439502716064,
+          "text": "arkadaş ‘10 dk’ya geliyorum’ dedi, ben artık bunu saat dilimi bilgisi olarak kabul ediyorum"
+        },
+        {
+          "id": "balanced_104",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8793813586235046,
+          "text": "ilk staj günü düşündüğüm kadar korkunç değilmiş, eve gelince gereksiz stres yaptığımı fark ettim"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_036",
+      "text": "Otobüs geç geldi diye söyleniyordum, kulaklığı takıp yürüyünce günün en sakin 20 dakikası oldu.",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.10916781425476074,
+      "probs": {
+        "ogretici": 0.08127360790967941,
+        "eglendirici": 0.36117106676101685,
+        "haber": 0.08721645176410675,
+        "sosyal": 0.4703388810157776
+      },
+      "challenge": [
+        "daily",
+        "attitude_change"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_131",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.9132429361343384,
+          "text": "bugün otobüsü kacırdım sonra yürüyeyim dedim, iyi ki kacırmışım biraz hava aldım"
+        },
+        {
+          "id": "balanced_107",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.9013986587524414,
+          "text": "bugun hic enerjim yoktu ama kısa bi yürüyüş baya toparladı"
+        },
+        {
+          "id": "balanced_067",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.8990613222122192,
+          "text": "SONUNA KADAR OKU 😱 bugün başıma gelen şeye inanamayacaksın… otobüsü kaçırdım, hepsi bu."
+        },
+        {
+          "id": "balanced_043",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8946583271026611,
+          "text": "Otobüs tam durağa koşarken gidince insan birkaç saniye boyunca hayat seçimlerini sorguluyor."
+        },
+        {
+          "id": "balanced_136",
+          "dominant": "sosyal",
+          "style_bucket": "clickbait",
+          "cosine": 0.8896116018295288,
+          "text": "İnanamayacağınız bir şey oldu… uzun zamandır görmediğim arkadaşımla aynı otobüste karşılaştım."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_037",
+      "text": "Bugün hiçbir büyük iş yapmadım ama masayı topladım, maillere döndüm, yürüyüş yaptım. garip şekilde üretken hissediyorum.",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.35881486535072327,
+      "probs": {
+        "ogretici": 0.080086350440979,
+        "eglendirici": 0.24934259057044983,
+        "haber": 0.06241355836391449,
+        "sosyal": 0.6081574559211731
+      },
+      "challenge": [
+        "daily",
+        "reflection"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_107",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.9128174781799316,
+          "text": "bugun hic enerjim yoktu ama kısa bi yürüyüş baya toparladı"
+        },
+        {
+          "id": "balanced_118",
+          "dominant": "sosyal",
+          "style_bucket": "short",
+          "cosine": 0.8888266086578369,
+          "text": "Bugün eve dönmek iyi geldi."
+        },
+        {
+          "id": "balanced_127",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8879486322402954,
+          "text": "Bir süredir ertelediğim işi bitirdim; işten çok kafamda büyüttüğüm kısmı yorucuymuş."
+        },
+        {
+          "id": "balanced_131",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.882850170135498,
+          "text": "bugün otobüsü kacırdım sonra yürüyeyim dedim, iyi ki kacırmışım biraz hava aldım"
+        },
+        {
+          "id": "balanced_111",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8804434537887573,
+          "text": "Bir projeyi teslim edince sevincimden çok boşluk hissi geliyor; haftalardır ne yapacağımı o belirliyormuş."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_038",
+      "text": "Arkadaşla kahve içmeye çıktık, kahve 15 dakika sohbet 3 saat sürdü. plan teknik olarak başarıyla tamamlandı.",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.2343783974647522,
+      "probs": {
+        "ogretici": 0.12507960200309753,
+        "eglendirici": 0.2768484950065613,
+        "haber": 0.08684506267309189,
+        "sosyal": 0.5112268924713135
+      },
+      "challenge": [
+        "social",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_105",
+          "dominant": "sosyal",
+          "style_bucket": "emoji",
+          "cosine": 0.9074571132659912,
+          "text": "Kahve içmeye çıktık, üç saat sonra hâlâ aynı masadaydık ☕🙂"
+        },
+        {
+          "id": "balanced_103",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.9006350040435791,
+          "text": "Bugün uzun zamandır görmediğim bir arkadaşımla karşılaştım, on dakikalık sohbet bütün günün modunu değiştirdi."
+        },
+        {
+          "id": "balanced_039",
+          "dominant": "eglendirici",
+          "style_bucket": "typo",
+          "cosine": 0.9004491567611694,
+          "text": "bugun kahveyi içmeden toplantıya girdim, karakter gelisimim beklenenden hızlı oldu"
+        },
+        {
+          "id": "balanced_044",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8880770802497864,
+          "text": "arkadaş ‘10 dk’ya geliyorum’ dedi, ben artık bunu saat dilimi bilgisi olarak kabul ediyorum"
+        },
+        {
+          "id": "balanced_108",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8807852864265442,
+          "text": "“Erken çıkacağım” diye buluşmaya gittim, kapanışa kadar oturdum; planlama yeteneğim yine zirvede."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_039",
+      "text": "Grup projesinde herkes aynı anda müsait olunca tarihî bir an yaşandı. 25 dakikada bir haftalık işi planladık.",
+      "gold": "sosyal",
+      "pred": "sosyal",
+      "correct": true,
+      "margin": 0.09392806887626648,
+      "probs": {
+        "ogretici": 0.15642502903938293,
+        "eglendirici": 0.28783276677131653,
+        "haber": 0.17398136854171753,
+        "sosyal": 0.381760835647583
+      },
+      "challenge": [
+        "work_social",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_112",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.9163070917129517,
+          "text": "grup projesinde sonunda herkes aynı anda müsaitti, bunu ayrıca kutlamamız lazım bence"
+        },
+        {
+          "id": "balanced_059",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8816362619400024,
+          "text": "Kampüste boş dersim vardı, üretken olayım dedim; iki saat arkadaşlarla hayat planladık."
+        },
+        {
+          "id": "balanced_128",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8687425851821899,
+          "text": "arkadaş grubunda herkes başka şehirde olunca ortak saat bulmak boss fight gibi"
+        },
+        {
+          "id": "balanced_108",
+          "dominant": "sosyal",
+          "style_bucket": "irony",
+          "cosine": 0.8676050305366516,
+          "text": "“Erken çıkacağım” diye buluşmaya gittim, kapanışa kadar oturdum; planlama yeteneğim yine zirvede."
+        },
+        {
+          "id": "balanced_111",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.866763710975647,
+          "text": "Bir projeyi teslim edince sevincimden çok boşluk hissi geliyor; haftalardır ne yapacağımı o belirliyormuş."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_040",
+      "text": "Sabah internet gitti diye bütün plan bozuldu sandım; offline yapabileceğim üç işi bitirdim. biraz da bahaneymiş galiba.",
+      "gold": "sosyal",
+      "pred": "eglendirici",
+      "correct": false,
+      "margin": 0.08751881122589111,
+      "probs": {
+        "ogretici": 0.15980930626392365,
+        "eglendirici": 0.39537110924720764,
+        "haber": 0.13696719706058502,
+        "sosyal": 0.30785229802131653
+      },
+      "challenge": [
+        "daily",
+        "reflection",
+        "irony"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_127",
+          "dominant": "sosyal",
+          "style_bucket": "plain",
+          "cosine": 0.8834704160690308,
+          "text": "Bir süredir ertelediğim işi bitirdim; işten çok kafamda büyüttüğüm kısmı yorucuymuş."
+        },
+        {
+          "id": "balanced_115",
+          "dominant": "sosyal",
+          "style_bucket": "typo",
+          "cosine": 0.8821011781692505,
+          "text": "bu ara telefona cok baktığımı fark ettim, bildirimleri kapatınca kafam biraz sakinledi"
+        },
+        {
+          "id": "balanced_036",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.8803335428237915,
+          "text": "kod çalıştı. neden çalıştığını bilmiyorum. dokunmuyorum. mühendislik tamamdır jdjd"
+        },
+        {
+          "id": "balanced_067",
+          "dominant": "eglendirici",
+          "style_bucket": "clickbait",
+          "cosine": 0.876480221748352,
+          "text": "SONUNA KADAR OKU 😱 bugün başıma gelen şeye inanamayacaksın… otobüsü kaçırdım, hepsi bu."
+        },
+        {
+          "id": "balanced_047",
+          "dominant": "eglendirici",
+          "style_bucket": "typo",
+          "cosine": 0.8722054958343506,
+          "text": "uyuyacam dedim sonra reels acıldı, sabah olmus bunun teknik açıklaması nedir"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_041",
+      "text": "Üniversite kayıt takvimi güncellendi; çoğu başlık sadece tarihi yazmış ama belge listesinde de küçük bir değişiklik var.",
+      "gold": "haber",
+      "pred": "haber",
+      "correct": true,
+      "margin": 0.44978928565979004,
+      "probs": {
+        "ogretici": 0.18316447734832764,
+        "eglendirici": 0.09394193440675735,
+        "haber": 0.6329537630081177,
+        "sosyal": 0.08993986248970032
+      },
+      "challenge": [
+        "news",
+        "detail"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_069",
+          "dominant": "haber",
+          "style_bucket": "plain",
+          "cosine": 0.8922070264816284,
+          "text": "Üniversite kayıt takvimi yayımlandı; çevrim içi işlemler pazartesi başlayacak ve gerekli belgeler kılavuzda listeleniyor."
+        },
+        {
+          "id": "balanced_102",
+          "dominant": "haber",
+          "style_bucket": "clickbait",
+          "cosine": 0.8799529671669006,
+          "text": "SON DAKİKA diye paylaşılmış ama duyuru dün yayımlanmış: kayıt sisteminin bakım saati değiştirildi."
+        },
+        {
+          "id": "balanced_093",
+          "dominant": "haber",
+          "style_bucket": "plain",
+          "cosine": 0.8761495351791382,
+          "text": "Kulüp etkinlik takvimi yenilendi; atölye başvuruları ve kontenjan bilgileri sisteme eklendi."
+        },
+        {
+          "id": "balanced_074",
+          "dominant": "haber",
+          "style_bucket": "irony",
+          "cosine": 0.8651268482208252,
+          "text": "“Küçük güncelleme” diye duyuruldu ama sürüm notları roman gibi; yine de resmi olarak bugün yayında."
+        },
+        {
+          "id": "balanced_083",
+          "dominant": "haber",
+          "style_bucket": "mixed",
+          "cosine": 0.8640557527542114,
+          "text": "Yeni öğrenci ulaşım tarifesi duyuruldu; ücret değişikliğiyle birlikte kart yenileme koşulları da güncellendi."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_042",
+      "text": "Milli takım kadrosu açıklandı. sürpriz isim konuşuluyor ama bence asıl mesele orta sahadaki eksik seçenekler.",
+      "gold": "haber",
+      "pred": "haber",
+      "correct": true,
+      "margin": 0.06944289803504944,
+      "probs": {
+        "ogretici": 0.23833604156970978,
+        "eglendirici": 0.25184130668640137,
+        "haber": 0.3212842047214508,
+        "sosyal": 0.18853843212127686
+      },
+      "challenge": [
+        "news",
+        "opinion"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_075",
+          "dominant": "haber",
+          "style_bucket": "mixed",
+          "cosine": 0.8968452215194702,
+          "text": "Milli takım aday kadrosu açıklandı; listede ilk kez çağrılan genç oyuncular da bulunuyor."
+        },
+        {
+          "id": "balanced_045",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.8464194536209106,
+          "text": "Takım toplantısında herkes kamerayı açınca internetim kişisel olarak alındı sanırım 😂"
+        },
+        {
+          "id": "balanced_052",
+          "dominant": "eglendirici",
+          "style_bucket": "casual",
+          "cosine": 0.842207670211792,
+          "text": "ranked girmicem diye oyunu açtım sadece menüye bakacaktım… evet 4 maç oynadım"
+        },
+        {
+          "id": "balanced_066",
+          "dominant": "eglendirici",
+          "style_bucket": "short",
+          "cosine": 0.8395859599113464,
+          "text": "Deadline yaklaşıyor. Ben de uzaktan bakıyorum."
+        },
+        {
+          "id": "balanced_061",
+          "dominant": "eglendirici",
+          "style_bucket": "emoji",
+          "cosine": 0.837419867515564,
+          "text": "Ders kaydı sistemi açıldı ve bütün üniversite aynı anda F5’e bastı gibi hissediyorum 🫡"
+        }
+      ]
+    },
+    {
+      "id": "goldcand_043",
+      "text": "TEKNOFEST başvuru takviminde yeni tarih duyuruldu; ekipçe takvimi bir daha kontrol etmek iyi fikir olabilir.",
+      "gold": "haber",
+      "pred": "haber",
+      "correct": true,
+      "margin": 0.3233950436115265,
+      "probs": {
+        "ogretici": 0.21700426936149597,
+        "eglendirici": 0.13679727911949158,
+        "haber": 0.5403993129730225,
+        "sosyal": 0.10579908639192581
+      },
+      "challenge": [
+        "news",
+        "practical_advice"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_091",
+          "dominant": "haber",
+          "style_bucket": "mixed",
+          "cosine": 0.897315502166748,
+          "text": "Teknoloji yarışmasının başvuru süresi uzatıldı; yeni son tarih ve güncel şartname aynı sayfada yayımlandı."
+        },
+        {
+          "id": "balanced_093",
+          "dominant": "haber",
+          "style_bucket": "plain",
+          "cosine": 0.8838216066360474,
+          "text": "Kulüp etkinlik takvimi yenilendi; atölye başvuruları ve kontenjan bilgileri sisteme eklendi."
+        },
+        {
+          "id": "balanced_098",
+          "dominant": "haber",
+          "style_bucket": "irony",
+          "cosine": 0.8767299652099609,
+          "text": "“Ufak gecikme” denilen lansman bir hafta ertelendi; yeni tarih resmi sayfada paylaşıldı."
+        },
+        {
+          "id": "balanced_080",
+          "dominant": "haber",
+          "style_bucket": "question",
+          "cosine": 0.8698172569274902,
+          "text": "Ek yerleştirme sonuçları açıklandı; kayıt süreci için son gün de aynı duyuruda paylaşılmış, kontrol ettiniz mi?"
+        },
+        {
+          "id": "balanced_102",
+          "dominant": "haber",
+          "style_bucket": "clickbait",
+          "cosine": 0.8691277503967285,
+          "text": "SON DAKİKA diye paylaşılmış ama duyuru dün yayımlanmış: kayıt sisteminin bakım saati değiştirildi."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_044",
+      "text": "Şehir içi ulaşım tarifesi değişmiş. zam başlığı herkesin önünde ama aktarma süresindeki değişiklik daha çok kişiyi etkileyebilir.",
+      "gold": "haber",
+      "pred": "haber",
+      "correct": true,
+      "margin": 0.09663131833076477,
+      "probs": {
+        "ogretici": 0.2725819945335388,
+        "eglendirici": 0.1361318677663803,
+        "haber": 0.3692133128643036,
+        "sosyal": 0.22207285463809967
+      },
+      "challenge": [
+        "news",
+        "analysis"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_083",
+          "dominant": "haber",
+          "style_bucket": "mixed",
+          "cosine": 0.8856680393218994,
+          "text": "Yeni öğrenci ulaşım tarifesi duyuruldu; ücret değişikliğiyle birlikte kart yenileme koşulları da güncellendi."
+        },
+        {
+          "id": "balanced_072",
+          "dominant": "haber",
+          "style_bucket": "question",
+          "cosine": 0.8725523948669434,
+          "text": "Toplu taşıma sefer saatleri pazar günü bakım nedeniyle değişecek; yeni çizelge yayımlandı, plan yapanlar gördü mü?"
+        },
+        {
+          "id": "balanced_094",
+          "dominant": "haber",
+          "style_bucket": "casual",
+          "cosine": 0.8557306528091431,
+          "text": "yerel ulaşım uygulamasına yeni hatlar eklenmiş, güncelleme bu sabah mağazalara geldi."
+        },
+        {
+          "id": "balanced_102",
+          "dominant": "haber",
+          "style_bucket": "clickbait",
+          "cosine": 0.8553378582000732,
+          "text": "SON DAKİKA diye paylaşılmış ama duyuru dün yayımlanmış: kayıt sisteminin bakım saati değiştirildi."
+        },
+        {
+          "id": "balanced_043",
+          "dominant": "eglendirici",
+          "style_bucket": "plain",
+          "cosine": 0.8529157638549805,
+          "text": "Otobüs tam durağa koşarken gidince insan birkaç saniye boyunca hayat seçimlerini sorguluyor."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_045",
+      "text": "Oyuna büyük güncelleme geldi; yama notlarında denge değişikliği var ama sosyal medyada herkes yeni haritayı konuşuyor.",
+      "gold": "haber",
+      "pred": "haber",
+      "correct": true,
+      "margin": 0.20926092565059662,
+      "probs": {
+        "ogretici": 0.1731310784816742,
+        "eglendirici": 0.22283552587032318,
+        "haber": 0.4320964515209198,
+        "sosyal": 0.1719369739294052
+      },
+      "challenge": [
+        "news",
+        "gaming"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_073",
+          "dominant": "haber",
+          "style_bucket": "typo",
+          "cosine": 0.8806673884391785,
+          "text": "oyunun yeni yaması yayınlandı, eşleştirme hatası ve iki performans sorunu düzeltilmiş"
+        },
+        {
+          "id": "balanced_074",
+          "dominant": "haber",
+          "style_bucket": "irony",
+          "cosine": 0.8771873712539673,
+          "text": "“Küçük güncelleme” diye duyuruldu ama sürüm notları roman gibi; yine de resmi olarak bugün yayında."
+        },
+        {
+          "id": "balanced_094",
+          "dominant": "haber",
+          "style_bucket": "casual",
+          "cosine": 0.8759468793869019,
+          "text": "yerel ulaşım uygulamasına yeni hatlar eklenmiş, güncelleme bu sabah mağazalara geldi."
+        },
+        {
+          "id": "balanced_070",
+          "dominant": "haber",
+          "style_bucket": "casual",
+          "cosine": 0.8679088354110718,
+          "text": "yeni tarayıcı sürümü bugün dağıtıma çıktı; güncelleme notlarında güvenlik ve sekme yönetimi değişiklikleri var."
+        },
+        {
+          "id": "balanced_133",
+          "dominant": "sosyal",
+          "style_bucket": "mixed",
+          "cosine": 0.8649716377258301,
+          "text": "Yeni oyunu çok sevdim ama asıl güzel taraf arkadaşlarla tekrar aynı anda çevrim içi olmamız oldu."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_046",
+      "text": "Festival programı açıklandı. iki etkinlik aynı saate konmuş, seçim yapmak programı görmekten daha zor olacak gibi.",
+      "gold": "haber",
+      "pred": "haber",
+      "correct": true,
+      "margin": 0.24545836448669434,
+      "probs": {
+        "ogretici": 0.2125001847743988,
+        "eglendirici": 0.16583473980426788,
+        "haber": 0.45795854926109314,
+        "sosyal": 0.16370657086372375
+      },
+      "challenge": [
+        "news",
+        "culture",
+        "humor"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_081",
+          "dominant": "haber",
+          "style_bucket": "typo",
+          "cosine": 0.8980011343955994,
+          "text": "şehir festivalinin saatleri degisti, belediye yeni programı az önce yayınladı"
+        },
+        {
+          "id": "balanced_071",
+          "dominant": "haber",
+          "style_bucket": "emoji",
+          "cosine": 0.8862144947052002,
+          "text": "Festival programı açıklandı 🎵 hafta sonu üç sahnede konser ve söyleşi yapılacak."
+        },
+        {
+          "id": "balanced_097",
+          "dominant": "haber",
+          "style_bucket": "typo",
+          "cosine": 0.8827579021453857,
+          "text": "turnuva fikstürü güncellendi, iki macın saati yayın çakışması yüzünden kaydırılmış"
+        },
+        {
+          "id": "balanced_009",
+          "dominant": "ogretici",
+          "style_bucket": "plain",
+          "cosine": 0.8662374019622803,
+          "text": "Sunumda metni küçültmek yerine cümleyi kısaltın; 24 punto altına indikçe jüri uzaktan okumakta zorlanıyor."
+        },
+        {
+          "id": "balanced_102",
+          "dominant": "haber",
+          "style_bucket": "clickbait",
+          "cosine": 0.8617912530899048,
+          "text": "SON DAKİKA diye paylaşılmış ama duyuru dün yayımlanmış: kayıt sisteminin bakım saati değiştirildi."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_047",
+      "text": "Yeni yapay zekâ düzenlemesiyle ilgili ilk özetler dolaşıyor; metni okumadan sadece başlıklardan sonuç çıkarmak erken olabilir.",
+      "gold": "haber",
+      "pred": "ogretici",
+      "correct": false,
+      "margin": 0.04577198624610901,
+      "probs": {
+        "ogretici": 0.3959967792034149,
+        "eglendirici": 0.15212295949459076,
+        "haber": 0.3502247929573059,
+        "sosyal": 0.101655513048172
+      },
+      "challenge": [
+        "news",
+        "caution"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_009",
+          "dominant": "ogretici",
+          "style_bucket": "plain",
+          "cosine": 0.8709900379180908,
+          "text": "Sunumda metni küçültmek yerine cümleyi kısaltın; 24 punto altına indikçe jüri uzaktan okumakta zorlanıyor."
+        },
+        {
+          "id": "balanced_070",
+          "dominant": "haber",
+          "style_bucket": "casual",
+          "cosine": 0.8619304895401001,
+          "text": "yeni tarayıcı sürümü bugün dağıtıma çıktı; güncelleme notlarında güvenlik ve sekme yönetimi değişiklikleri var."
+        },
+        {
+          "id": "balanced_074",
+          "dominant": "haber",
+          "style_bucket": "irony",
+          "cosine": 0.8567159175872803,
+          "text": "“Küçük güncelleme” diye duyuruldu ama sürüm notları roman gibi; yine de resmi olarak bugün yayında."
+        },
+        {
+          "id": "balanced_026",
+          "dominant": "ogretici",
+          "style_bucket": "casual",
+          "cosine": 0.8562277555465698,
+          "text": "notionda her şeyi ayrı database yapmak yerine gerçekten filtreleyeceğin alanları ayırmak daha sade kalıyo."
+        },
+        {
+          "id": "balanced_029",
+          "dominant": "ogretici",
+          "style_bucket": "typo",
+          "cosine": 0.8528980016708374,
+          "text": "veri setinde aynı cümlenin kelimesini degistirip 100 kere koymak veri artırma değil, modelin ezberini artırma olabiliyo."
+        }
+      ]
+    },
+    {
+      "id": "goldcand_048",
+      "text": "Sınav sonuç ekranı erişime açıldı; herkes puanı konuşuyor ama tercih kılavuzundaki değişiklikleri de kontrol etmek lazım.",
+      "gold": "haber",
+      "pred": "haber",
+      "correct": true,
+      "margin": 0.07382458448410034,
+      "probs": {
+        "ogretici": 0.3216118812561035,
+        "eglendirici": 0.18137232959270477,
+        "haber": 0.39543646574020386,
+        "sosyal": 0.10157936811447144
+      },
+      "challenge": [
+        "news",
+        "education",
+        "advice"
+      ],
+      "nearest_training": [
+        {
+          "id": "balanced_015",
+          "dominant": "ogretici",
+          "style_bucket": "mixed",
+          "cosine": 0.8774660229682922,
+          "text": "YKS tercihinde yalnız taban puana değil, geçen yılki sıralama aralığına ve bölümün ders planına birlikte bakmak daha anlamlı."
+        },
+        {
+          "id": "balanced_080",
+          "dominant": "haber",
+          "style_bucket": "question",
+          "cosine": 0.8770020008087158,
+          "text": "Ek yerleştirme sonuçları açıklandı; kayıt süreci için son gün de aynı duyuruda paylaşılmış, kontrol ettiniz mi?"
+        },
+        {
+          "id": "balanced_096",
+          "dominant": "haber",
+          "style_bucket": "question",
+          "cosine": 0.8728517293930054,
+          "text": "Sınav salonları açıklandı; bina bilgisi öğrenci sisteminde görünüyor, giriş belgesini kontrol eden var mı?"
+        },
+        {
+          "id": "balanced_120",
+          "dominant": "sosyal",
+          "style_bucket": "casual",
+          "cosine": 0.8633450865745544,
+          "text": "sınav bitti ama beynim hâlâ soruları arka planda renderlıyo gibi"
+        },
+        {
+          "id": "balanced_102",
+          "dominant": "haber",
+          "style_bucket": "clickbait",
+          "cosine": 0.8629442453384399,
+          "text": "SON DAKİKA diye paylaşılmış ama duyuru dün yayımlanmış: kayıt sisteminin bakım saati değiştirildi."
+        }
+      ]
+    }
+  ]
+}
