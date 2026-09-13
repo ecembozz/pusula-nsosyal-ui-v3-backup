@@ -80,3 +80,178 @@ html[data-theme="dark"]{background:#1b1e24!important}
 html.theme-switching,html.theme-switching body,html.theme-switching .shell,html.theme-switching .main,html.theme-switching .feedBody{background-color:var(--bg)!important}
 html.theme-switching .feedTop{background:var(--panel)!important;backdrop-filter:none!important}
 html.theme-switching *,html.theme-switching *::before,html.theme-switching *::after{transition:none!important;animation:none!important}
+
+/* READING_COMFORT_V1
+   Looser, calmer typography hierarchy without changing the product layout. */
+html,body{
+  font-size:15px!important;
+  line-height:1.45!important;
+  letter-spacing:-.002em!important;
+  font-optical-sizing:auto!important;
+  font-kerning:normal!important;
+}
+.navBtn{
+  font-size:15.5px!important;
+  line-height:1.25!important;
+  font-weight:500!important;
+  letter-spacing:0!important;
+}
+.navBtn.active{font-weight:600!important}
+.tab{
+  font-size:15px!important;
+  line-height:1.25!important;
+  font-weight:500!important;
+  letter-spacing:0!important;
+}
+.tab.active{font-weight:600!important}
+.composer{
+  font-size:15.5px!important;
+  line-height:1.55!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+}
+.post{
+  padding-top:22px!important;
+  padding-bottom:22px!important;
+}
+.head{gap:6px!important}
+.name{
+  font-size:14.5px!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+  letter-spacing:-.002em!important;
+}
+.handle,.time{
+  font-size:12.5px!important;
+  line-height:1.4!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+}
+.postText{
+  max-width:68ch!important;
+  margin-top:6px!important;
+  margin-bottom:11px!important;
+  font-size:15.75px!important;
+  line-height:1.68!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+}
+.postActions{margin-top:8px!important}
+.postActions .act{
+  font-size:12.5px!important;
+  line-height:1.35!important;
+  font-weight:400!important;
+}
+.pusulaTitle{
+  font-size:14.5px!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+  letter-spacing:-.002em!important;
+}
+.pusulaSub{
+  font-size:12.5px!important;
+  line-height:1.5!important;
+  letter-spacing:0!important;
+}
+.pusulaCta,.statusChip{
+  font-size:12px!important;
+  font-weight:500!important;
+  letter-spacing:0!important;
+}
+.composeLeft,.sendBtn{
+  font-size:13px!important;
+  font-weight:600!important;
+  letter-spacing:0!important;
+}
+.rightHead{
+  padding-top:16px!important;
+  padding-bottom:10px!important;
+}
+.rightHead h3{
+  font-size:15.5px!important;
+  line-height:1.3!important;
+  font-weight:600!important;
+  letter-spacing:-.003em!important;
+}
+.rightHead button{
+  font-size:11.5px!important;
+  line-height:1.35!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+}
+.trend{
+  padding-top:12px!important;
+  padding-bottom:12px!important;
+}
+.trend b{
+  font-size:13.5px!important;
+  line-height:1.35!important;
+  font-weight:500!important;
+  letter-spacing:0!important;
+}
+.trend small{
+  font-size:11.5px!important;
+  line-height:1.45!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+}
+.search input{
+  font-size:14.5px!important;
+  line-height:1.4!important;
+  letter-spacing:0!important;
+}
+.modal h2{
+  font-size:19px!important;
+  line-height:1.3!important;
+  font-weight:600!important;
+  letter-spacing:-.005em!important;
+}
+.modal p{
+  font-size:12.5px!important;
+  line-height:1.65!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+}
+.intentCard b{
+  font-size:12.5px!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+}
+.intentCard span{
+  font-size:10.75px!important;
+  line-height:1.5!important;
+}
+.techHead h2{
+  font-size:20px!important;
+  line-height:1.3!important;
+  font-weight:600!important;
+  letter-spacing:-.004em!important;
+}
+.techHead p{
+  font-size:12px!important;
+  line-height:1.5!important;
+}
+.techCard h3{
+  font-size:13.5px!important;
+  line-height:1.4!important;
+  font-weight:600!important;
+}
+.techCard .sub,.techFootnote,.judgeNote{
+  line-height:1.55!important;
+  letter-spacing:0!important;
+}
+.techTab{
+  font-size:12.5px!important;
+  line-height:1.35!important;
+  font-weight:500!important;
+  letter-spacing:0!important;
+}
+.metric,.calcLine,.limit,.expTable{
+  line-height:1.45!important;
+}
+@media(max-width:720px){
+  html,body{font-size:14.5px!important}
+  .post{padding-top:18px!important;padding-bottom:18px!important}
+  .postText{font-size:15.25px!important;line-height:1.62!important;max-width:none!important}
+  .rightHead h3{font-size:15px!important}
+}
