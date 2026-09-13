@@ -1,0 +1,3357 @@
+{
+  "status": "development_only_single_annotator_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "embedding_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "n": 48,
+  "gold_distribution": {
+    "sosyal": 15,
+    "ogretici": 12,
+    "eglendirici": 13,
+    "haber": 8
+  },
+  "evaluation": "4-fold stratified out-of-fold cross-validation",
+  "models": {
+    "ridge": {
+      "dominant_accuracy": 0.3125,
+      "macro_f1": 0.11904761904761904,
+      "intent_mae": 0.24986184899384778,
+      "mean_cosine_similarity": 0.8202672209582463,
+      "clickbait_mae": 0.005253075618917744,
+      "pred_distribution": {
+        "sosyal": 48
+      },
+      "confidence_ood": {
+        "mean_confidence": 0.5653542054958189,
+        "ood_rate": 0.125,
+        "id_accuracy": 0.3333333333333333,
+        "ood_accuracy": 0.16666666666666666,
+        "accuracy_at_50pct_coverage": 0.4166666666666667,
+        "confidence_threshold_50pct": 0.5664281403476541,
+        "accuracy_at_75pct_coverage": 0.3888888888888889,
+        "confidence_threshold_75pct": 0.5582570268349214
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8762211799621582,
+          "val_ids": [
+            "goldcand_006",
+            "goldcand_009",
+            "goldcand_016",
+            "goldcand_019",
+            "goldcand_021",
+            "goldcand_022",
+            "goldcand_025",
+            "goldcand_027",
+            "goldcand_028",
+            "goldcand_039",
+            "goldcand_041",
+            "goldcand_042"
+          ]
+        },
+        {
+          "fold": 2,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8736449480056763,
+          "val_ids": [
+            "goldcand_011",
+            "goldcand_013",
+            "goldcand_015",
+            "goldcand_017",
+            "goldcand_023",
+            "goldcand_026",
+            "goldcand_031",
+            "goldcand_032",
+            "goldcand_036",
+            "goldcand_040",
+            "goldcand_044",
+            "goldcand_045"
+          ]
+        },
+        {
+          "fold": 3,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8746840953826904,
+          "val_ids": [
+            "goldcand_001",
+            "goldcand_005",
+            "goldcand_008",
+            "goldcand_010",
+            "goldcand_012",
+            "goldcand_018",
+            "goldcand_020",
+            "goldcand_029",
+            "goldcand_034",
+            "goldcand_037",
+            "goldcand_043",
+            "goldcand_048"
+          ]
+        },
+        {
+          "fold": 4,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8727818727493286,
+          "val_ids": [
+            "goldcand_002",
+            "goldcand_003",
+            "goldcand_004",
+            "goldcand_007",
+            "goldcand_014",
+            "goldcand_024",
+            "goldcand_030",
+            "goldcand_033",
+            "goldcand_035",
+            "goldcand_038",
+            "goldcand_046",
+            "goldcand_047"
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "id": "goldcand_001",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8978382349014282,
+          "ood": false,
+          "gold_vector": [
+            0.05,
+            0.2,
+            0.15,
+            0.9
+          ],
+          "pred_vector": [
+            0.4030233919620514,
+            0.3887184262275696,
+            0.18651685118675232,
+            0.5446929931640625
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014772264286875725
+        },
+        {
+          "id": "goldcand_002",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8837502002716064,
+          "ood": false,
+          "gold_vector": [
+            0.55,
+            0.05,
+            0.15,
+            0.45
+          ],
+          "pred_vector": [
+            0.42231836915016174,
+            0.36388930678367615,
+            0.19453996419906616,
+            0.5490028858184814
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014164364896714687
+        },
+        {
+          "id": "goldcand_003",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8880330920219421,
+          "ood": false,
+          "gold_vector": [
+            0.05,
+            0.9,
+            0.0,
+            0.65
+          ],
+          "pred_vector": [
+            0.41524600982666016,
+            0.36988794803619385,
+            0.18645328283309937,
+            0.5558638572692871
+          ],
+          "gold_clickbait": 0.03,
+          "pred_clickbait": 0.014208595268428326
+        },
+        {
+          "id": "goldcand_004",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8978382349014282,
+          "ood": false,
+          "gold_vector": [
+            0.9,
+            0.05,
+            0.05,
+            0.35
+          ],
+          "pred_vector": [
+            0.41926804184913635,
+            0.36263924837112427,
+            0.19500769674777985,
+            0.5497936010360718
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014156816527247429
+        },
+        {
+          "id": "goldcand_005",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8707431554794312,
+          "ood": true,
+          "gold_vector": [
+            0.05,
+            0.72,
+            0.02,
+            0.88
+          ],
+          "pred_vector": [
+            0.4019632935523987,
+            0.3894680440425873,
+            0.18781352043151855,
+            0.5455098748207092
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.01476183719933033
+        },
+        {
+          "id": "goldcand_006",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8835099935531616,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.1,
+            0.1,
+            0.32
+          ],
+          "pred_vector": [
+            0.4133906960487366,
+            0.377370148897171,
+            0.1828566938638687,
+            0.558355450630188
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014135276898741722
+        },
+        {
+          "id": "goldcand_007",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8904585838317871,
+          "ood": false,
+          "gold_vector": [
+            0.45,
+            0.82,
+            0.05,
+            0.5
+          ],
+          "pred_vector": [
+            0.42115816473960876,
+            0.3671194911003113,
+            0.19190213084220886,
+            0.550775408744812
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.01418989896774292
+        },
+        {
+          "id": "goldcand_008",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.9007960557937622,
+          "ood": false,
+          "gold_vector": [
+            0.88,
+            0.05,
+            0.05,
+            0.25
+          ],
+          "pred_vector": [
+            0.40631839632987976,
+            0.38094764947891235,
+            0.1870162934064865,
+            0.5445501208305359
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014654640108346939
+        },
+        {
+          "id": "goldcand_009",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8871095776557922,
+          "ood": false,
+          "gold_vector": [
+            0.35,
+            0.58,
+            0.15,
+            0.6
+          ],
+          "pred_vector": [
+            0.4116266369819641,
+            0.3790610730648041,
+            0.18418823182582855,
+            0.5561373829841614
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014196470379829407
+        },
+        {
+          "id": "goldcand_010",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8724666833877563,
+          "ood": true,
+          "gold_vector": [
+            0.35,
+            0.85,
+            0.03,
+            0.55
+          ],
+          "pred_vector": [
+            0.40036195516586304,
+            0.392414927482605,
+            0.1871768832206726,
+            0.5462154150009155
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014836972579360008
+        },
+        {
+          "id": "goldcand_011",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8904585838317871,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.78,
+            0.1,
+            0.68
+          ],
+          "pred_vector": [
+            0.3918260931968689,
+            0.38221076130867004,
+            0.18706220388412476,
+            0.5529712438583374
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.015285622328519821
+        },
+        {
+          "id": "goldcand_012",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.887154221534729,
+          "ood": false,
+          "gold_vector": [
+            0.9,
+            0.15,
+            0.03,
+            0.35
+          ],
+          "pred_vector": [
+            0.40424641966819763,
+            0.38426825404167175,
+            0.18962068855762482,
+            0.5440225005149841
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014706962741911411
+        },
+        {
+          "id": "goldcand_013",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8954869508743286,
+          "ood": false,
+          "gold_vector": [
+            0.38,
+            0.8,
+            0.03,
+            0.62
+          ],
+          "pred_vector": [
+            0.3797451853752136,
+            0.3858471214771271,
+            0.1801072210073471,
+            0.5623988509178162
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.015371962450444698
+        },
+        {
+          "id": "goldcand_014",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.883922815322876,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.08,
+            0.02,
+            0.88
+          ],
+          "pred_vector": [
+            0.42040908336639404,
+            0.3631226122379303,
+            0.19370132684707642,
+            0.5505080819129944
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.01410655863583088
+        },
+        {
+          "id": "goldcand_015",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8837500810623169,
+          "ood": false,
+          "gold_vector": [
+            0.92,
+            0.04,
+            0.03,
+            0.35
+          ],
+          "pred_vector": [
+            0.3916996121406555,
+            0.38029396533966064,
+            0.1834108531475067,
+            0.5526817440986633
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.015292407013475895
+        },
+        {
+          "id": "goldcand_016",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8759751915931702,
+          "ood": true,
+          "gold_vector": [
+            0.03,
+            0.88,
+            0.12,
+            0.68
+          ],
+          "pred_vector": [
+            0.40942397713661194,
+            0.3766331374645233,
+            0.17890498042106628,
+            0.5616719126701355
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0141526460647583
+        },
+        {
+          "id": "goldcand_017",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8796855211257935,
+          "ood": false,
+          "gold_vector": [
+            0.38,
+            0.08,
+            0.1,
+            0.52
+          ],
+          "pred_vector": [
+            0.39017194509506226,
+            0.3783800005912781,
+            0.18077588081359863,
+            0.553145706653595
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.015235346741974354
+        },
+        {
+          "id": "goldcand_018",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8824567794799805,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.05,
+            0.1,
+            0.78
+          ],
+          "pred_vector": [
+            0.40060490369796753,
+            0.38448581099510193,
+            0.18574537336826324,
+            0.5463026165962219
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014629011042416096
+        },
+        {
+          "id": "goldcand_019",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8799622058868408,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.05,
+            0.12,
+            0.45
+          ],
+          "pred_vector": [
+            0.4062393307685852,
+            0.3803098797798157,
+            0.18020136654376984,
+            0.5606238842010498
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014160851947963238
+        },
+        {
+          "id": "goldcand_020",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8748235702514648,
+          "ood": false,
+          "gold_vector": [
+            0.05,
+            0.92,
+            0.03,
+            0.88
+          ],
+          "pred_vector": [
+            0.40250319242477417,
+            0.38493412733078003,
+            0.1937921792268753,
+            0.544036865234375
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014680178835988045
+        },
+        {
+          "id": "goldcand_021",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8831679821014404,
+          "ood": false,
+          "gold_vector": [
+            0.08,
+            0.22,
+            0.05,
+            0.78
+          ],
+          "pred_vector": [
+            0.4070844352245331,
+            0.37968334555625916,
+            0.17914174497127533,
+            0.5613340139389038
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014157205820083618
+        },
+        {
+          "id": "goldcand_022",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8965564966201782,
+          "ood": false,
+          "gold_vector": [
+            0.1,
+            0.15,
+            0.02,
+            0.65
+          ],
+          "pred_vector": [
+            0.407198429107666,
+            0.3800937831401825,
+            0.1774352788925171,
+            0.5622551441192627
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.01419033482670784
+        },
+        {
+          "id": "goldcand_023",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8820489645004272,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.38,
+            0.03,
+            0.58
+          ],
+          "pred_vector": [
+            0.38543519377708435,
+            0.38429635763168335,
+            0.18559373915195465,
+            0.5561460256576538
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.015315737575292587
+        },
+        {
+          "id": "goldcand_024",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8965564966201782,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.08,
+            0.03,
+            0.8
+          ],
+          "pred_vector": [
+            0.4156510531902313,
+            0.36923813819885254,
+            0.18276149034500122,
+            0.5562673211097717
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014172104187309742
+        },
+        {
+          "id": "goldcand_025",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8828366994857788,
+          "ood": false,
+          "gold_vector": [
+            0.15,
+            0.84,
+            0.03,
+            0.62
+          ],
+          "pred_vector": [
+            0.4117487072944641,
+            0.3775012493133545,
+            0.17963458597660065,
+            0.5591986775398254
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014166082255542278
+        },
+        {
+          "id": "goldcand_026",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.894591212272644,
+          "ood": false,
+          "gold_vector": [
+            0.6,
+            0.05,
+            0.02,
+            0.55
+          ],
+          "pred_vector": [
+            0.3908657133579254,
+            0.3807474970817566,
+            0.179965078830719,
+            0.5547523498535156
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.015276805497705936
+        },
+        {
+          "id": "goldcand_027",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.894591212272644,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.03,
+            0.02,
+            0.42
+          ],
+          "pred_vector": [
+            0.4133507311344147,
+            0.3761225938796997,
+            0.181978240609169,
+            0.5580053329467773
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014166247099637985
+        },
+        {
+          "id": "goldcand_028",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8861974477767944,
+          "ood": false,
+          "gold_vector": [
+            0.68,
+            0.82,
+            0.02,
+            0.42
+          ],
+          "pred_vector": [
+            0.410238653421402,
+            0.3786754310131073,
+            0.1791081726551056,
+            0.5593923330307007
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.01417331863194704
+        },
+        {
+          "id": "goldcand_029",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8807103037834167,
+          "ood": false,
+          "gold_vector": [
+            0.1,
+            0.88,
+            0.02,
+            0.58
+          ],
+          "pred_vector": [
+            0.4016683101654053,
+            0.3911196291446686,
+            0.18270248174667358,
+            0.5469151735305786
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014776824042201042
+        },
+        {
+          "id": "goldcand_030",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.9007960557937622,
+          "ood": false,
+          "gold_vector": [
+            0.68,
+            0.03,
+            0.02,
+            0.42
+          ],
+          "pred_vector": [
+            0.41919851303100586,
+            0.36629655957221985,
+            0.18605557084083557,
+            0.5520873069763184
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014144638553261757
+        },
+        {
+          "id": "goldcand_031",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.879947304725647,
+          "ood": false,
+          "gold_vector": [
+            0.18,
+            0.88,
+            0.2,
+            0.58
+          ],
+          "pred_vector": [
+            0.38796061277389526,
+            0.38095077872276306,
+            0.18543489277362823,
+            0.5545566082000732
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.015243805944919586
+        },
+        {
+          "id": "goldcand_032",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8826779127120972,
+          "ood": false,
+          "gold_vector": [
+            0.25,
+            0.65,
+            0.02,
+            0.82
+          ],
+          "pred_vector": [
+            0.38636571168899536,
+            0.383018434047699,
+            0.18595442175865173,
+            0.5559321045875549
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.015298807993531227
+        },
+        {
+          "id": "goldcand_033",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.895979642868042,
+          "ood": false,
+          "gold_vector": [
+            0.03,
+            0.92,
+            0.01,
+            0.68
+          ],
+          "pred_vector": [
+            0.41653573513031006,
+            0.3693868815898895,
+            0.1841498166322708,
+            0.5549573302268982
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014174280688166618
+        },
+        {
+          "id": "goldcand_034",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8773901462554932,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.28,
+            0.03,
+            0.48
+          ],
+          "pred_vector": [
+            0.4020549952983856,
+            0.38371193408966064,
+            0.18895533680915833,
+            0.5435652732849121
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014668675139546394
+        },
+        {
+          "id": "goldcand_035",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8799622058868408,
+          "ood": false,
+          "gold_vector": [
+            0.03,
+            0.92,
+            0.01,
+            0.62
+          ],
+          "pred_vector": [
+            0.4170701503753662,
+            0.36711519956588745,
+            0.18844972550868988,
+            0.5533866882324219
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014139565639197826
+        },
+        {
+          "id": "goldcand_036",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8807297945022583,
+          "ood": false,
+          "gold_vector": [
+            0.28,
+            0.18,
+            0.02,
+            0.78
+          ],
+          "pred_vector": [
+            0.3838146924972534,
+            0.38491982221603394,
+            0.17961181700229645,
+            0.5590959191322327
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.015321007929742336
+        },
+        {
+          "id": "goldcand_037",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8880330324172974,
+          "ood": false,
+          "gold_vector": [
+            0.32,
+            0.05,
+            0.02,
+            0.8
+          ],
+          "pred_vector": [
+            0.39974167943000793,
+            0.3922937214374542,
+            0.1771436482667923,
+            0.5512733459472656
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014797337353229523
+        },
+        {
+          "id": "goldcand_038",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8900430202484131,
+          "ood": false,
+          "gold_vector": [
+            0.02,
+            0.82,
+            0.01,
+            0.96
+          ],
+          "pred_vector": [
+            0.4147215485572815,
+            0.3748711347579956,
+            0.18649405241012573,
+            0.5567612051963806
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014250139705836773
+        },
+        {
+          "id": "goldcand_039",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8864226341247559,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.78,
+            0.02,
+            0.92
+          ],
+          "pred_vector": [
+            0.40775957703590393,
+            0.3837040066719055,
+            0.18414604663848877,
+            0.5616415143013
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014205154962837696
+        },
+        {
+          "id": "goldcand_040",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.895979642868042,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.48,
+            0.02,
+            0.72
+          ],
+          "pred_vector": [
+            0.3873547911643982,
+            0.3847317397594452,
+            0.17793728411197662,
+            0.5566890835762024
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0153193399310112
+        },
+        {
+          "id": "goldcand_041",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8701778650283813,
+          "ood": true,
+          "gold_vector": [
+            0.72,
+            0.03,
+            0.88,
+            0.15
+          ],
+          "pred_vector": [
+            0.419585645198822,
+            0.3701363801956177,
+            0.1984999030828476,
+            0.5481160283088684
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014119504019618034
+        },
+        {
+          "id": "goldcand_042",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8748235702514648,
+          "ood": true,
+          "gold_vector": [
+            0.28,
+            0.05,
+            0.82,
+            0.42
+          ],
+          "pred_vector": [
+            0.4121195375919342,
+            0.3755820691585541,
+            0.1903388649225235,
+            0.5559751391410828
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014126669615507126
+        },
+        {
+          "id": "goldcand_043",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8897513151168823,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.03,
+            0.86,
+            0.22
+          ],
+          "pred_vector": [
+            0.40529799461364746,
+            0.38523176312446594,
+            0.19940675795078278,
+            0.5398256182670593
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014755472540855408
+        },
+        {
+          "id": "goldcand_044",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8568835854530334,
+          "ood": true,
+          "gold_vector": [
+            0.68,
+            0.02,
+            0.88,
+            0.18
+          ],
+          "pred_vector": [
+            0.39775627851486206,
+            0.3745211362838745,
+            0.1972738653421402,
+            0.5471694469451904
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.015222330577671528
+        },
+        {
+          "id": "goldcand_045",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.876623272895813,
+          "ood": false,
+          "gold_vector": [
+            0.28,
+            0.12,
+            0.86,
+            0.2
+          ],
+          "pred_vector": [
+            0.3937036991119385,
+            0.378434419631958,
+            0.19331061840057373,
+            0.5497788190841675
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.015273621305823326
+        },
+        {
+          "id": "goldcand_046",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8831679821014404,
+          "ood": false,
+          "gold_vector": [
+            0.18,
+            0.28,
+            0.84,
+            0.2
+          ],
+          "pred_vector": [
+            0.41894423961639404,
+            0.3651760518550873,
+            0.1960943341255188,
+            0.5513191819190979
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014121105894446373
+        },
+        {
+          "id": "goldcand_047",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8789697885513306,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.02,
+            0.9,
+            0.15
+          ],
+          "pred_vector": [
+            0.424635648727417,
+            0.3611499071121216,
+            0.20074984431266785,
+            0.5453193783760071
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014138997532427311
+        },
+        {
+          "id": "goldcand_048",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8808009624481201,
+          "ood": false,
+          "gold_vector": [
+            0.82,
+            0.02,
+            0.88,
+            0.18
+          ],
+          "pred_vector": [
+            0.4071798026561737,
+            0.38248392939567566,
+            0.2000287026166916,
+            0.5380765199661255
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014743361622095108
+        }
+      ]
+    },
+    "semantic_knn": {
+      "dominant_accuracy": 0.4166666666666667,
+      "macro_f1": 0.3477124183006536,
+      "intent_mae": 0.19630502371675704,
+      "mean_cosine_similarity": 0.8676199885225068,
+      "clickbait_mae": 0.00480797158605213,
+      "pred_distribution": {
+        "sosyal": 30,
+        "ogretici": 13,
+        "eglendirici": 4,
+        "haber": 1
+      },
+      "confidence_ood": {
+        "mean_confidence": 0.5681652682838209,
+        "ood_rate": 0.125,
+        "id_accuracy": 0.42857142857142855,
+        "ood_accuracy": 0.3333333333333333,
+        "accuracy_at_50pct_coverage": 0.375,
+        "confidence_threshold_50pct": 0.5627890327122659,
+        "accuracy_at_75pct_coverage": 0.3888888888888889,
+        "confidence_threshold_75pct": 0.537201049648145
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8762211799621582,
+          "val_ids": [
+            "goldcand_006",
+            "goldcand_009",
+            "goldcand_016",
+            "goldcand_019",
+            "goldcand_021",
+            "goldcand_022",
+            "goldcand_025",
+            "goldcand_027",
+            "goldcand_028",
+            "goldcand_039",
+            "goldcand_041",
+            "goldcand_042"
+          ]
+        },
+        {
+          "fold": 2,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8736449480056763,
+          "val_ids": [
+            "goldcand_011",
+            "goldcand_013",
+            "goldcand_015",
+            "goldcand_017",
+            "goldcand_023",
+            "goldcand_026",
+            "goldcand_031",
+            "goldcand_032",
+            "goldcand_036",
+            "goldcand_040",
+            "goldcand_044",
+            "goldcand_045"
+          ]
+        },
+        {
+          "fold": 3,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8746840953826904,
+          "val_ids": [
+            "goldcand_001",
+            "goldcand_005",
+            "goldcand_008",
+            "goldcand_010",
+            "goldcand_012",
+            "goldcand_018",
+            "goldcand_020",
+            "goldcand_029",
+            "goldcand_034",
+            "goldcand_037",
+            "goldcand_043",
+            "goldcand_048"
+          ]
+        },
+        {
+          "fold": 4,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8727818727493286,
+          "val_ids": [
+            "goldcand_002",
+            "goldcand_003",
+            "goldcand_004",
+            "goldcand_007",
+            "goldcand_014",
+            "goldcand_024",
+            "goldcand_030",
+            "goldcand_033",
+            "goldcand_035",
+            "goldcand_038",
+            "goldcand_046",
+            "goldcand_047"
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "id": "goldcand_001",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8978382349014282,
+          "ood": false,
+          "gold_vector": [
+            0.05,
+            0.2,
+            0.15,
+            0.9
+          ],
+          "pred_vector": [
+            0.43855598912849564,
+            0.5480915343683277,
+            0.04929651423168138,
+            0.5649540965470792
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.01770156222287369
+        },
+        {
+          "id": "goldcand_002",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.8837502002716064,
+          "ood": false,
+          "gold_vector": [
+            0.55,
+            0.05,
+            0.15,
+            0.45
+          ],
+          "pred_vector": [
+            0.6745531114649563,
+            0.2844881476580421,
+            0.19523121432679033,
+            0.40668308355799815
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.013809510165106653
+        },
+        {
+          "id": "goldcand_003",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8880330920219421,
+          "ood": false,
+          "gold_vector": [
+            0.05,
+            0.9,
+            0.0,
+            0.65
+          ],
+          "pred_vector": [
+            0.202890595478482,
+            0.2439440596698323,
+            0.0456655840046431,
+            0.7911721099683539
+          ],
+          "gold_clickbait": 0.03,
+          "pred_clickbait": 0.011974275304629965
+        },
+        {
+          "id": "goldcand_004",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8978382349014282,
+          "ood": false,
+          "gold_vector": [
+            0.9,
+            0.05,
+            0.05,
+            0.35
+          ],
+          "pred_vector": [
+            0.484134515896958,
+            0.15679932227411733,
+            0.23370408218638458,
+            0.5692472306594782
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.012213738762191772
+        },
+        {
+          "id": "goldcand_005",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8707431554794312,
+          "ood": true,
+          "gold_vector": [
+            0.05,
+            0.72,
+            0.02,
+            0.88
+          ],
+          "pred_vector": [
+            0.41126138244432414,
+            0.4780319105733618,
+            0.022131056599130217,
+            0.5976469308593834
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.015870771957293722
+        },
+        {
+          "id": "goldcand_006",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.8835099935531616,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.1,
+            0.1,
+            0.32
+          ],
+          "pred_vector": [
+            0.5601864892781546,
+            0.22998664087280538,
+            0.21159178489256839,
+            0.4694250459168521
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.011977323058423289
+        },
+        {
+          "id": "goldcand_007",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8904585838317871,
+          "ood": false,
+          "gold_vector": [
+            0.45,
+            0.82,
+            0.05,
+            0.5
+          ],
+          "pred_vector": [
+            0.3148013560635431,
+            0.5696855194420766,
+            0.11495855618736697,
+            0.6070508851891957
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.020000000478749783
+        },
+        {
+          "id": "goldcand_008",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.9007960557937622,
+          "ood": false,
+          "gold_vector": [
+            0.88,
+            0.05,
+            0.05,
+            0.25
+          ],
+          "pred_vector": [
+            0.5498261877012843,
+            0.281047751166861,
+            0.028158729250735797,
+            0.5871924084058464
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.011898945432984911
+        },
+        {
+          "id": "goldcand_009",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8871095776557922,
+          "ood": false,
+          "gold_vector": [
+            0.35,
+            0.58,
+            0.15,
+            0.6
+          ],
+          "pred_vector": [
+            0.2774611232393448,
+            0.4232321667741568,
+            0.2668276705426043,
+            0.5722477582256859
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.01610858157234079
+        },
+        {
+          "id": "goldcand_010",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8724666833877563,
+          "ood": true,
+          "gold_vector": [
+            0.35,
+            0.85,
+            0.03,
+            0.55
+          ],
+          "pred_vector": [
+            0.2817199887022928,
+            0.6378383967647879,
+            0.07110311496048029,
+            0.6332876235176399
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0220343759835389
+        },
+        {
+          "id": "goldcand_011",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8904585838317871,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.78,
+            0.1,
+            0.68
+          ],
+          "pred_vector": [
+            0.5105622641346031,
+            0.3817163500880516,
+            0.20875409980552959,
+            0.5108594987386983
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.013949541686013422
+        },
+        {
+          "id": "goldcand_012",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.887154221534729,
+          "ood": false,
+          "gold_vector": [
+            0.9,
+            0.15,
+            0.03,
+            0.35
+          ],
+          "pred_vector": [
+            0.4364510123925274,
+            0.46535184307943817,
+            0.10028878797346887,
+            0.5241068213075208
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.017979164631046752
+        },
+        {
+          "id": "goldcand_013",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8954869508743286,
+          "ood": false,
+          "gold_vector": [
+            0.38,
+            0.8,
+            0.03,
+            0.62
+          ],
+          "pred_vector": [
+            0.09162672164420507,
+            0.4333851145946623,
+            0.03984244557911009,
+            0.7984319311156384
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.017824215028482734
+        },
+        {
+          "id": "goldcand_014",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.883922815322876,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.08,
+            0.02,
+            0.88
+          ],
+          "pred_vector": [
+            0.4531916985731513,
+            0.22145556274309558,
+            0.2174014391168832,
+            0.5226885512760284
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.01376358538448555
+        },
+        {
+          "id": "goldcand_015",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.8837500810623169,
+          "ood": false,
+          "gold_vector": [
+            0.92,
+            0.04,
+            0.03,
+            0.35
+          ],
+          "pred_vector": [
+            0.607115526306389,
+            0.21636211116834145,
+            0.0571471889407515,
+            0.4305635059602729
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014067719867644669
+        },
+        {
+          "id": "goldcand_016",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8759751915931702,
+          "ood": true,
+          "gold_vector": [
+            0.03,
+            0.88,
+            0.12,
+            0.68
+          ],
+          "pred_vector": [
+            0.34929223787367386,
+            0.23107926783251426,
+            0.05599821671744612,
+            0.6010611333278871
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.013977390493124638
+        },
+        {
+          "id": "goldcand_017",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8796855211257935,
+          "ood": false,
+          "gold_vector": [
+            0.38,
+            0.08,
+            0.1,
+            0.52
+          ],
+          "pred_vector": [
+            0.48153169331539214,
+            0.33853055304470603,
+            0.08995708314813224,
+            0.5521180675650943
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.013964665732257114
+        },
+        {
+          "id": "goldcand_018",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.8824567794799805,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.05,
+            0.1,
+            0.78
+          ],
+          "pred_vector": [
+            0.5855188703167622,
+            0.1379714489156382,
+            0.06203019032670575,
+            0.49152221018643394
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.01
+        },
+        {
+          "id": "goldcand_019",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8799622058868408,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.05,
+            0.12,
+            0.45
+          ],
+          "pred_vector": [
+            0.2553051631484516,
+            0.4486471166003329,
+            0.08720185480746456,
+            0.5973180631968293
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014073735189161708
+        },
+        {
+          "id": "goldcand_020",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8748235702514648,
+          "ood": false,
+          "gold_vector": [
+            0.05,
+            0.92,
+            0.03,
+            0.88
+          ],
+          "pred_vector": [
+            0.3808860878398886,
+            0.38091513254298115,
+            0.23131665512216168,
+            0.5751928568079713
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.01382520991395548
+        },
+        {
+          "id": "goldcand_021",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8831679821014404,
+          "ood": false,
+          "gold_vector": [
+            0.08,
+            0.22,
+            0.05,
+            0.78
+          ],
+          "pred_vector": [
+            0.28409418325637553,
+            0.27742053246281523,
+            0.1948432939351823,
+            0.5719160924669583
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.012030709971344464
+        },
+        {
+          "id": "goldcand_022",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8965564966201782,
+          "ood": false,
+          "gold_vector": [
+            0.1,
+            0.15,
+            0.02,
+            0.65
+          ],
+          "pred_vector": [
+            0.1694056575101583,
+            0.38954592839147145,
+            0.03178556520551261,
+            0.7440764497550278
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.015772105486570535
+        },
+        {
+          "id": "goldcand_023",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8820489645004272,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.38,
+            0.03,
+            0.58
+          ],
+          "pred_vector": [
+            0.1012599057408329,
+            0.4748213817706836,
+            0.2058638652119908,
+            0.6454978239435186
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.01606288274169974
+        },
+        {
+          "id": "goldcand_024",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8965564966201782,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.08,
+            0.03,
+            0.8
+          ],
+          "pred_vector": [
+            0.3296128379670175,
+            0.41210677622959246,
+            0.046173594176568314,
+            0.5982281963520625
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014009251826501761
+        },
+        {
+          "id": "goldcand_025",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.8828366994857788,
+          "ood": false,
+          "gold_vector": [
+            0.15,
+            0.84,
+            0.03,
+            0.62
+          ],
+          "pred_vector": [
+            0.7116071923148239,
+            0.12753194364481266,
+            0.03220413255212105,
+            0.45309784675530673
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.010000000234000519
+        },
+        {
+          "id": "goldcand_026",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.894591212272644,
+          "ood": false,
+          "gold_vector": [
+            0.6,
+            0.05,
+            0.02,
+            0.55
+          ],
+          "pred_vector": [
+            0.5360651817400324,
+            0.349210409276993,
+            0.021881383579976998,
+            0.5278371676719761
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.013946232980780352
+        },
+        {
+          "id": "goldcand_027",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.894591212272644,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.03,
+            0.02,
+            0.42
+          ],
+          "pred_vector": [
+            0.42985662081747056,
+            0.444143823239277,
+            0.016055387758475252,
+            0.5762165112295681
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.01581689294631417
+        },
+        {
+          "id": "goldcand_028",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8861974477767944,
+          "ood": false,
+          "gold_vector": [
+            0.68,
+            0.82,
+            0.02,
+            0.42
+          ],
+          "pred_vector": [
+            0.3076614160710366,
+            0.47127922331332933,
+            0.018012050759804554,
+            0.6643867277837989
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.01398887306288377
+        },
+        {
+          "id": "goldcand_029",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8807103037834167,
+          "ood": false,
+          "gold_vector": [
+            0.1,
+            0.88,
+            0.02,
+            0.58
+          ],
+          "pred_vector": [
+            0.3176151008885698,
+            0.7234321885355474,
+            0.04238564893050531,
+            0.6714976789380049
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.01800259652308777
+        },
+        {
+          "id": "goldcand_030",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.9007960557937622,
+          "ood": false,
+          "gold_vector": [
+            0.68,
+            0.03,
+            0.02,
+            0.42
+          ],
+          "pred_vector": [
+            0.6123090500640479,
+            0.2882191713345561,
+            0.0305113655620099,
+            0.4943782159990336
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.011886302122393963
+        },
+        {
+          "id": "goldcand_031",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.879947304725647,
+          "ood": false,
+          "gold_vector": [
+            0.18,
+            0.88,
+            0.2,
+            0.58
+          ],
+          "pred_vector": [
+            0.39736237651361167,
+            0.3561409912597706,
+            0.09072017607867072,
+            0.5601338928448918
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014022637654423593
+        },
+        {
+          "id": "goldcand_032",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8826779127120972,
+          "ood": false,
+          "gold_vector": [
+            0.25,
+            0.65,
+            0.02,
+            0.82
+          ],
+          "pred_vector": [
+            0.1338404893329551,
+            0.583481937425773,
+            0.17297805839107208,
+            0.7109986387917896
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.018252081840780473
+        },
+        {
+          "id": "goldcand_033",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.895979642868042,
+          "ood": false,
+          "gold_vector": [
+            0.03,
+            0.92,
+            0.01,
+            0.68
+          ],
+          "pred_vector": [
+            0.37824578503192385,
+            0.4286976801166726,
+            0.07132972414427412,
+            0.6885188404074183
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.015868208199577162
+        },
+        {
+          "id": "goldcand_034",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8773901462554932,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.28,
+            0.03,
+            0.48
+          ],
+          "pred_vector": [
+            0.39385139053592855,
+            0.39547331512724143,
+            0.09683608694955423,
+            0.5156834877259057
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.013996159721463876
+        },
+        {
+          "id": "goldcand_035",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.8799622058868408,
+          "ood": false,
+          "gold_vector": [
+            0.03,
+            0.92,
+            0.01,
+            0.62
+          ],
+          "pred_vector": [
+            0.5829450775972815,
+            0.29470625007302564,
+            0.07046270437522044,
+            0.5363800791924583
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.013896900955660423
+        },
+        {
+          "id": "goldcand_036",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8807297945022583,
+          "ood": false,
+          "gold_vector": [
+            0.28,
+            0.18,
+            0.02,
+            0.78
+          ],
+          "pred_vector": [
+            0.15065191351952814,
+            0.3762270281948623,
+            0.018001474383696026,
+            0.7560252543374284
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.015977514789053338
+        },
+        {
+          "id": "goldcand_037",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8880330324172974,
+          "ood": false,
+          "gold_vector": [
+            0.32,
+            0.05,
+            0.02,
+            0.8
+          ],
+          "pred_vector": [
+            0.30157463155984726,
+            0.662242248115433,
+            0.013839657616213513,
+            0.6501105946694591
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.01813334729159329
+        },
+        {
+          "id": "goldcand_038",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8900430202484131,
+          "ood": false,
+          "gold_vector": [
+            0.02,
+            0.82,
+            0.01,
+            0.96
+          ],
+          "pred_vector": [
+            0.26276368886899265,
+            0.7893545907664244,
+            0.02402337764575992,
+            0.703255757444263
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.017967773019067452
+        },
+        {
+          "id": "goldcand_039",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8864226341247559,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.78,
+            0.02,
+            0.92
+          ],
+          "pred_vector": [
+            0.1918601202158728,
+            0.5129619221732205,
+            0.03526056043970763,
+            0.8130273989671731
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.014197145471843047
+        },
+        {
+          "id": "goldcand_040",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.895979642868042,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.48,
+            0.02,
+            0.72
+          ],
+          "pred_vector": [
+            0.4829142874477629,
+            0.23480886970220072,
+            0.04799401273389867,
+            0.5229548870342122
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014058992727330431
+        },
+        {
+          "id": "goldcand_041",
+          "gold_dominant": "haber",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.8701778650283813,
+          "ood": true,
+          "gold_vector": [
+            0.72,
+            0.03,
+            0.88,
+            0.15
+          ],
+          "pred_vector": [
+            0.7651669966054351,
+            0.034377168430525344,
+            0.5567635644553721,
+            0.273209574307144
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.012072471508911527
+        },
+        {
+          "id": "goldcand_042",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8748235702514648,
+          "ood": true,
+          "gold_vector": [
+            0.28,
+            0.05,
+            0.82,
+            0.42
+          ],
+          "pred_vector": [
+            0.37054367861495374,
+            0.41695242086505324,
+            0.22477443413246867,
+            0.590451887505542
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.01407742454761255
+        },
+        {
+          "id": "goldcand_043",
+          "gold_dominant": "haber",
+          "pred_dominant": "haber",
+          "nearest_train_cosine": 0.8897513151168823,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.03,
+            0.86,
+            0.22
+          ],
+          "pred_vector": [
+            0.45691811167652724,
+            0.4009070701986268,
+            0.5365762483917216,
+            0.35238739662254265
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.016210237172512555
+        },
+        {
+          "id": "goldcand_044",
+          "gold_dominant": "haber",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.8568835854530334,
+          "ood": true,
+          "gold_vector": [
+            0.68,
+            0.02,
+            0.88,
+            0.18
+          ],
+          "pred_vector": [
+            0.6639205801381738,
+            0.19559771844843457,
+            0.5617137603129384,
+            0.3318417791252479
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.01391858289119469
+        },
+        {
+          "id": "goldcand_045",
+          "gold_dominant": "haber",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.876623272895813,
+          "ood": false,
+          "gold_vector": [
+            0.28,
+            0.12,
+            0.86,
+            0.2
+          ],
+          "pred_vector": [
+            0.48539670751280367,
+            0.33796491710658466,
+            0.40062037224521385,
+            0.42896992303756903
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.013852320217428923
+        },
+        {
+          "id": "goldcand_046",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8831679821014404,
+          "ood": false,
+          "gold_vector": [
+            0.18,
+            0.28,
+            0.84,
+            0.2
+          ],
+          "pred_vector": [
+            0.39026841204589685,
+            0.29094648177457344,
+            0.18398168349975144,
+            0.6196618765627605
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.009999999371906073
+        },
+        {
+          "id": "goldcand_047",
+          "gold_dominant": "haber",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.8789697885513306,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.02,
+            0.9,
+            0.15
+          ],
+          "pred_vector": [
+            0.6963674812660469,
+            0.22049211091122176,
+            0.3744906349543816,
+            0.36403026919615344
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.014087109655109897
+        },
+        {
+          "id": "goldcand_048",
+          "gold_dominant": "haber",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.8808009624481201,
+          "ood": false,
+          "gold_vector": [
+            0.82,
+            0.02,
+            0.88,
+            0.18
+          ],
+          "pred_vector": [
+            0.5863186951813026,
+            0.20544763352841092,
+            0.3981558270378455,
+            0.3351916553968851
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.01573354314236176
+        }
+      ]
+    },
+    "pca_mlp": {
+      "dominant_accuracy": 0.3958333333333333,
+      "macro_f1": 0.35511363636363635,
+      "intent_mae": 0.2346155335583414,
+      "mean_cosine_similarity": 0.8200272487869866,
+      "clickbait_mae": 0.04558683534463246,
+      "pred_distribution": {
+        "sosyal": 33,
+        "eglendirici": 11,
+        "haber": 3,
+        "ogretici": 1
+      },
+      "confidence_ood": {
+        "mean_confidence": 0.5843346556944943,
+        "ood_rate": 0.125,
+        "id_accuracy": 0.40476190476190477,
+        "ood_accuracy": 0.3333333333333333,
+        "accuracy_at_50pct_coverage": 0.3333333333333333,
+        "confidence_threshold_50pct": 0.5718551364811983,
+        "accuracy_at_75pct_coverage": 0.3611111111111111,
+        "confidence_threshold_75pct": 0.5432933848012577
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8762211799621582,
+          "val_ids": [
+            "goldcand_006",
+            "goldcand_009",
+            "goldcand_016",
+            "goldcand_019",
+            "goldcand_021",
+            "goldcand_022",
+            "goldcand_025",
+            "goldcand_027",
+            "goldcand_028",
+            "goldcand_039",
+            "goldcand_041",
+            "goldcand_042"
+          ]
+        },
+        {
+          "fold": 2,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8736449480056763,
+          "val_ids": [
+            "goldcand_011",
+            "goldcand_013",
+            "goldcand_015",
+            "goldcand_017",
+            "goldcand_023",
+            "goldcand_026",
+            "goldcand_031",
+            "goldcand_032",
+            "goldcand_036",
+            "goldcand_040",
+            "goldcand_044",
+            "goldcand_045"
+          ]
+        },
+        {
+          "fold": 3,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8746840953826904,
+          "val_ids": [
+            "goldcand_001",
+            "goldcand_005",
+            "goldcand_008",
+            "goldcand_010",
+            "goldcand_012",
+            "goldcand_018",
+            "goldcand_020",
+            "goldcand_029",
+            "goldcand_034",
+            "goldcand_037",
+            "goldcand_043",
+            "goldcand_048"
+          ]
+        },
+        {
+          "fold": 4,
+          "n_train": 36,
+          "n_val": 12,
+          "ood_threshold": 0.8727818727493286,
+          "val_ids": [
+            "goldcand_002",
+            "goldcand_003",
+            "goldcand_004",
+            "goldcand_007",
+            "goldcand_014",
+            "goldcand_024",
+            "goldcand_030",
+            "goldcand_033",
+            "goldcand_035",
+            "goldcand_038",
+            "goldcand_046",
+            "goldcand_047"
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "id": "goldcand_001",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8978382349014282,
+          "ood": false,
+          "gold_vector": [
+            0.05,
+            0.2,
+            0.15,
+            0.9
+          ],
+          "pred_vector": [
+            0.08669111132621765,
+            0.49632370471954346,
+            0.18977105617523193,
+            0.5138746500015259
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.16808973252773285
+        },
+        {
+          "id": "goldcand_002",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8837502002716064,
+          "ood": false,
+          "gold_vector": [
+            0.55,
+            0.05,
+            0.15,
+            0.45
+          ],
+          "pred_vector": [
+            0.22573700547218323,
+            0.3005937933921814,
+            0.3027115762233734,
+            0.5062701106071472
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.20830415189266205
+        },
+        {
+          "id": "goldcand_003",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8880330920219421,
+          "ood": false,
+          "gold_vector": [
+            0.05,
+            0.9,
+            0.0,
+            0.65
+          ],
+          "pred_vector": [
+            0.0,
+            0.25105029344558716,
+            0.24801227450370789,
+            0.48771196603775024
+          ],
+          "gold_clickbait": 0.03,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_004",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8978382349014282,
+          "ood": false,
+          "gold_vector": [
+            0.9,
+            0.05,
+            0.05,
+            0.35
+          ],
+          "pred_vector": [
+            0.32926252484321594,
+            0.3532722592353821,
+            0.24076002836227417,
+            0.4207912087440491
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.22353418171405792
+        },
+        {
+          "id": "goldcand_005",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8707431554794312,
+          "ood": true,
+          "gold_vector": [
+            0.05,
+            0.72,
+            0.02,
+            0.88
+          ],
+          "pred_vector": [
+            0.0,
+            0.3744094669818878,
+            0.16117939352989197,
+            0.27264004945755005
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_006",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8835099935531616,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.1,
+            0.1,
+            0.32
+          ],
+          "pred_vector": [
+            0.18997395038604736,
+            0.3060283660888672,
+            0.16664353013038635,
+            0.8260142803192139
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_007",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8904585838317871,
+          "ood": false,
+          "gold_vector": [
+            0.45,
+            0.82,
+            0.05,
+            0.5
+          ],
+          "pred_vector": [
+            0.08671987056732178,
+            0.6407141089439392,
+            0.16450968384742737,
+            0.4941050410270691
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_008",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.9007960557937622,
+          "ood": false,
+          "gold_vector": [
+            0.88,
+            0.05,
+            0.05,
+            0.25
+          ],
+          "pred_vector": [
+            0.4867161214351654,
+            0.08446884155273438,
+            0.22245997190475464,
+            0.6197505593299866
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_009",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8871095776557922,
+          "ood": false,
+          "gold_vector": [
+            0.35,
+            0.58,
+            0.15,
+            0.6
+          ],
+          "pred_vector": [
+            0.2512478530406952,
+            0.18158622086048126,
+            0.2358955591917038,
+            0.41046231985092163
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_010",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8724666833877563,
+          "ood": true,
+          "gold_vector": [
+            0.35,
+            0.85,
+            0.03,
+            0.55
+          ],
+          "pred_vector": [
+            0.18179380893707275,
+            0.37713247537612915,
+            0.42634886503219604,
+            0.5477478504180908
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_011",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8904585838317871,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.78,
+            0.1,
+            0.68
+          ],
+          "pred_vector": [
+            0.0,
+            0.2713947594165802,
+            0.21033692359924316,
+            0.2658880949020386
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_012",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.887154221534729,
+          "ood": false,
+          "gold_vector": [
+            0.9,
+            0.15,
+            0.03,
+            0.35
+          ],
+          "pred_vector": [
+            0.1560467779636383,
+            0.3640437424182892,
+            0.27462825179100037,
+            0.5203686356544495
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_013",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8954869508743286,
+          "ood": false,
+          "gold_vector": [
+            0.38,
+            0.8,
+            0.03,
+            0.62
+          ],
+          "pred_vector": [
+            0.0,
+            0.312873899936676,
+            0.0,
+            0.8386508226394653
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_014",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.883922815322876,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.08,
+            0.02,
+            0.88
+          ],
+          "pred_vector": [
+            0.44052639603614807,
+            0.06664714217185974,
+            0.3017643392086029,
+            0.4529428780078888
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.007887393236160278
+        },
+        {
+          "id": "goldcand_015",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8837500810623169,
+          "ood": false,
+          "gold_vector": [
+            0.92,
+            0.04,
+            0.03,
+            0.35
+          ],
+          "pred_vector": [
+            0.3165877163410187,
+            0.5197914242744446,
+            0.25812986493110657,
+            0.48043137788772583
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.025615692138671875
+        },
+        {
+          "id": "goldcand_016",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8759751915931702,
+          "ood": true,
+          "gold_vector": [
+            0.03,
+            0.88,
+            0.12,
+            0.68
+          ],
+          "pred_vector": [
+            0.0,
+            0.17114263772964478,
+            0.11303026974201202,
+            0.571175754070282
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_017",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8796855211257935,
+          "ood": false,
+          "gold_vector": [
+            0.38,
+            0.08,
+            0.1,
+            0.52
+          ],
+          "pred_vector": [
+            0.20361262559890747,
+            0.4990377426147461,
+            0.0,
+            0.31794145703315735
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.12884072959423065
+        },
+        {
+          "id": "goldcand_018",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8824567794799805,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.05,
+            0.1,
+            0.78
+          ],
+          "pred_vector": [
+            0.21786430478096008,
+            0.08988755941390991,
+            0.0,
+            0.5803220868110657
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_019",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8799622058868408,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.05,
+            0.12,
+            0.45
+          ],
+          "pred_vector": [
+            0.04702568054199219,
+            0.2212292104959488,
+            0.11931993067264557,
+            0.5425586700439453
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_020",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8748235702514648,
+          "ood": false,
+          "gold_vector": [
+            0.05,
+            0.92,
+            0.03,
+            0.88
+          ],
+          "pred_vector": [
+            0.11494234204292297,
+            0.42969489097595215,
+            0.11152487248182297,
+            0.35807591676712036
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_021",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8831679821014404,
+          "ood": false,
+          "gold_vector": [
+            0.08,
+            0.22,
+            0.05,
+            0.78
+          ],
+          "pred_vector": [
+            0.3559063971042633,
+            0.5325037240982056,
+            0.5755248069763184,
+            0.5887653827667236
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.04062138497829437
+        },
+        {
+          "id": "goldcand_022",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8965564966201782,
+          "ood": false,
+          "gold_vector": [
+            0.1,
+            0.15,
+            0.02,
+            0.65
+          ],
+          "pred_vector": [
+            0.0,
+            0.3503789007663727,
+            0.0867898166179657,
+            0.567568838596344
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0631064623594284
+        },
+        {
+          "id": "goldcand_023",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8820489645004272,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.38,
+            0.03,
+            0.58
+          ],
+          "pred_vector": [
+            0.0,
+            0.5238547325134277,
+            0.5118744969367981,
+            0.617254912853241
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_024",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8965564966201782,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.08,
+            0.03,
+            0.8
+          ],
+          "pred_vector": [
+            0.3426724374294281,
+            0.3022509217262268,
+            0.14611713588237762,
+            0.619012713432312
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_025",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8828366994857788,
+          "ood": false,
+          "gold_vector": [
+            0.15,
+            0.84,
+            0.03,
+            0.62
+          ],
+          "pred_vector": [
+            0.0,
+            0.2759106159210205,
+            0.05195780098438263,
+            0.4039645493030548
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_026",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.894591212272644,
+          "ood": false,
+          "gold_vector": [
+            0.6,
+            0.05,
+            0.02,
+            0.55
+          ],
+          "pred_vector": [
+            0.17374202609062195,
+            0.2660028040409088,
+            0.21925970911979675,
+            0.51955646276474
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_027",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.894591212272644,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.03,
+            0.02,
+            0.42
+          ],
+          "pred_vector": [
+            0.19694840908050537,
+            0.3564281761646271,
+            0.0,
+            0.5885584354400635
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.10070286691188812
+        },
+        {
+          "id": "goldcand_028",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8861974477767944,
+          "ood": false,
+          "gold_vector": [
+            0.68,
+            0.82,
+            0.02,
+            0.42
+          ],
+          "pred_vector": [
+            0.2999770939350128,
+            0.4247477948665619,
+            0.043323978781700134,
+            0.47522875666618347
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_029",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8807103037834167,
+          "ood": false,
+          "gold_vector": [
+            0.1,
+            0.88,
+            0.02,
+            0.58
+          ],
+          "pred_vector": [
+            0.23248639702796936,
+            0.5865961313247681,
+            0.14978796243667603,
+            0.42411550879478455
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_030",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.9007960557937622,
+          "ood": false,
+          "gold_vector": [
+            0.68,
+            0.03,
+            0.02,
+            0.42
+          ],
+          "pred_vector": [
+            0.36852678656578064,
+            0.36690419912338257,
+            0.0,
+            0.5010352730751038
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.06136241555213928
+        },
+        {
+          "id": "goldcand_031",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.879947304725647,
+          "ood": false,
+          "gold_vector": [
+            0.18,
+            0.88,
+            0.2,
+            0.58
+          ],
+          "pred_vector": [
+            0.23459216952323914,
+            0.22599893808364868,
+            0.26217108964920044,
+            0.5997827053070068
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_032",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8826779127120972,
+          "ood": false,
+          "gold_vector": [
+            0.25,
+            0.65,
+            0.02,
+            0.82
+          ],
+          "pred_vector": [
+            0.0,
+            0.3836531341075897,
+            0.0,
+            0.5715566277503967
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_033",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.895979642868042,
+          "ood": false,
+          "gold_vector": [
+            0.03,
+            0.92,
+            0.01,
+            0.68
+          ],
+          "pred_vector": [
+            0.0,
+            0.6698766946792603,
+            0.08572447299957275,
+            0.58894944190979
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.07989199459552765
+        },
+        {
+          "id": "goldcand_034",
+          "gold_dominant": "ogretici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8773901462554932,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.28,
+            0.03,
+            0.48
+          ],
+          "pred_vector": [
+            0.13592174649238586,
+            0.1975046843290329,
+            0.09803492575883865,
+            0.36385875940322876
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_035",
+          "gold_dominant": "eglendirici",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8799622058868408,
+          "ood": false,
+          "gold_vector": [
+            0.03,
+            0.92,
+            0.01,
+            0.62
+          ],
+          "pred_vector": [
+            0.003819406032562256,
+            0.41334888339042664,
+            0.0,
+            0.6491721868515015
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_036",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8807297945022583,
+          "ood": false,
+          "gold_vector": [
+            0.28,
+            0.18,
+            0.02,
+            0.78
+          ],
+          "pred_vector": [
+            0.0,
+            0.532471776008606,
+            0.01196221262216568,
+            0.6362029314041138
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.11139307916164398
+        },
+        {
+          "id": "goldcand_037",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8880330324172974,
+          "ood": false,
+          "gold_vector": [
+            0.32,
+            0.05,
+            0.02,
+            0.8
+          ],
+          "pred_vector": [
+            0.21560385823249817,
+            0.313193678855896,
+            0.23354533314704895,
+            0.6857470870018005
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_038",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8900430202484131,
+          "ood": false,
+          "gold_vector": [
+            0.02,
+            0.82,
+            0.01,
+            0.96
+          ],
+          "pred_vector": [
+            0.0633704662322998,
+            0.5717778205871582,
+            0.0,
+            0.2687739431858063
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.16454271972179413
+        },
+        {
+          "id": "goldcand_039",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8864226341247559,
+          "ood": false,
+          "gold_vector": [
+            0.22,
+            0.78,
+            0.02,
+            0.92
+          ],
+          "pred_vector": [
+            0.09717708826065063,
+            0.7219470739364624,
+            0.17471574246883392,
+            0.8634254932403564
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.013465866446495056
+        },
+        {
+          "id": "goldcand_040",
+          "gold_dominant": "sosyal",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.895979642868042,
+          "ood": false,
+          "gold_vector": [
+            0.48,
+            0.48,
+            0.02,
+            0.72
+          ],
+          "pred_vector": [
+            0.3116897642612457,
+            0.6420725584030151,
+            0.0,
+            0.5178652405738831
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.11305132508277893
+        },
+        {
+          "id": "goldcand_041",
+          "gold_dominant": "haber",
+          "pred_dominant": "haber",
+          "nearest_train_cosine": 0.8701778650283813,
+          "ood": true,
+          "gold_vector": [
+            0.72,
+            0.03,
+            0.88,
+            0.15
+          ],
+          "pred_vector": [
+            0.20801317691802979,
+            0.0,
+            0.8430290222167969,
+            0.2353796511888504
+          ],
+          "gold_clickbait": 0.02,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_042",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8748235702514648,
+          "ood": true,
+          "gold_vector": [
+            0.28,
+            0.05,
+            0.82,
+            0.42
+          ],
+          "pred_vector": [
+            0.0,
+            0.31684190034866333,
+            0.21659742295742035,
+            0.6641094088554382
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_043",
+          "gold_dominant": "haber",
+          "pred_dominant": "haber",
+          "nearest_train_cosine": 0.8897513151168823,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.03,
+            0.86,
+            0.22
+          ],
+          "pred_vector": [
+            0.17527005076408386,
+            0.3955710530281067,
+            0.5713239312171936,
+            0.43521004915237427
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.14885421097278595
+        },
+        {
+          "id": "goldcand_044",
+          "gold_dominant": "haber",
+          "pred_dominant": "haber",
+          "nearest_train_cosine": 0.8568835854530334,
+          "ood": true,
+          "gold_vector": [
+            0.68,
+            0.02,
+            0.88,
+            0.18
+          ],
+          "pred_vector": [
+            0.4608782231807709,
+            0.504509449005127,
+            0.6735885739326477,
+            0.49566030502319336
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.1334889978170395
+        },
+        {
+          "id": "goldcand_045",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.876623272895813,
+          "ood": false,
+          "gold_vector": [
+            0.28,
+            0.12,
+            0.86,
+            0.2
+          ],
+          "pred_vector": [
+            0.26375994086265564,
+            0.26433953642845154,
+            0.27294275164604187,
+            0.340656578540802
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_046",
+          "gold_dominant": "haber",
+          "pred_dominant": "sosyal",
+          "nearest_train_cosine": 0.8831679821014404,
+          "ood": false,
+          "gold_vector": [
+            0.18,
+            0.28,
+            0.84,
+            0.2
+          ],
+          "pred_vector": [
+            0.243406742811203,
+            0.11412718892097473,
+            0.2621222138404846,
+            0.788538932800293
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        },
+        {
+          "id": "goldcand_047",
+          "gold_dominant": "haber",
+          "pred_dominant": "ogretici",
+          "nearest_train_cosine": 0.8789697885513306,
+          "ood": false,
+          "gold_vector": [
+            0.78,
+            0.02,
+            0.9,
+            0.15
+          ],
+          "pred_vector": [
+            0.6689180135726929,
+            0.2612517774105072,
+            0.04307481646537781,
+            0.17835433781147003
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.13812141120433807
+        },
+        {
+          "id": "goldcand_048",
+          "gold_dominant": "haber",
+          "pred_dominant": "eglendirici",
+          "nearest_train_cosine": 0.8808009624481201,
+          "ood": false,
+          "gold_vector": [
+            0.82,
+            0.02,
+            0.88,
+            0.18
+          ],
+          "pred_vector": [
+            0.3421538174152374,
+            0.34234392642974854,
+            0.3364754319190979,
+            0.2626044750213623
+          ],
+          "gold_clickbait": 0.01,
+          "pred_clickbait": 0.0
+        }
+      ]
+    }
+  }
+}
