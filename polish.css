@@ -326,3 +326,13 @@ html[data-theme="dark"] .navBtn.active:hover{background:#303741!important}
   }
   .post>.avatar{width:38px!important;height:38px!important}
 }
+
+
+/* POST_INNER_FLEX_V3 */
+/* Full-width post row + a real centered flex content wrapper. */
+.post{display:block!important;padding:0!important;}
+.postInner{width:min(840px,calc(100% - 56px))!important;margin:0 auto!important;padding:20px 0!important;display:flex!important;align-items:flex-start!important;gap:14px!important;min-width:0!important;}
+.postInner>.avatar{flex:0 0 41px!important;width:41px!important;height:41px!important;}
+.postInner>.postMain{flex:1 1 auto!important;min-width:0!important;}
+.postText{max-width:72ch!important;}
+@media(max-width:720px){.postInner{width:auto!important;margin:0!important;padding:18px 16px!important;gap:12px!important}.postInner>.avatar{flex-basis:38px!important;width:38px!important;height:38px!important}}
