@@ -36,9 +36,23 @@
     if(!anyActive)home.classList.add('active');
   }
   let wrapped=false;
+  let themeWrapped=false;
+  function wrapTheme(){
+    if(themeWrapped||typeof window.toggleTheme!=='function')return;
+    const upstreamToggle=window.toggleTheme;
+    window.toggleTheme=function(){
+      const root=document.documentElement;
+      root.classList.add('theme-switching');
+      const result=upstreamToggle.apply(this,arguments);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.remove('theme-switching')})});
+      return result;
+    };
+    themeWrapped=true;
+  }
   function finish(){
     settleHome();
     normalize();
+    wrapTheme();
     if(!wrapped && typeof window.openPage==='function'){
       const upstreamOpenPage=window.openPage;
       window.openPage=function(p,b){const r=upstreamOpenPage(p,b);normalize();return r;};
