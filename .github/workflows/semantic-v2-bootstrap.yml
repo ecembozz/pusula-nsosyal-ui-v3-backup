@@ -1,0 +1,87 @@
+name: Semantic V2 Bootstrap Upstream
+
+on:
+  push:
+    branches:
+      - semantic-v2
+    paths:
+      - .github/workflows/semantic-v2-bootstrap.yml
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Semantic V2
+        uses: actions/checkout@v4
+        with:
+          ref: semantic-v2
+          fetch-depth: 0
+
+      - name: Fetch pinned upstream
+        shell: bash
+        run: |
+          set -euo pipefail
+          UPSTREAM_SHA="78cdd15dd14adbed7e722a13b99171d84956f665"
+          git clone --quiet https://github.com/asimonmsz-design/pusula.git /tmp/pusula-upstream
+          git -C /tmp/pusula-upstream checkout --quiet "$UPSTREAM_SHA"
+          test "$(git -C /tmp/pusula-upstream rev-parse HEAD)" = "$UPSTREAM_SHA"
+
+      - name: Copy immutable upstream snapshot and V1 baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          UPSTREAM_SHA="78cdd15dd14adbed7e722a13b99171d84956f665"
+
+          mkdir -p research/upstream_snapshot/kod/veri
+          mkdir -p data/v1_synthetic
+
+          cp /tmp/pusula-upstream/kod/*.py research/upstream_snapshot/kod/
+          cp /tmp/pusula-upstream/kod/veri/*.json research/upstream_snapshot/kod/veri/
+          cp /tmp/pusula-upstream/kod/veri/deney_sonuclari.txt research/upstream_snapshot/kod/veri/
+
+          cp /tmp/pusula-upstream/kod/veri/icerik_havuzu.json data/v1_synthetic/icerik_havuzu.json
+          cp /tmp/pusula-upstream/kod/veri/etiketli_havuz.json data/v1_synthetic/etiketli_havuz.json
+          cp /tmp/pusula-upstream/kod/veri/deney_sonuclari.txt data/v1_synthetic/deney_sonuclari.txt
+
+          printf '%s\n' "$UPSTREAM_SHA" > research/upstream_snapshot/UPSTREAM_COMMIT.txt
+          (
+            cd research/upstream_snapshot
+            find . -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS.txt
+          )
+
+      - name: Verify snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f research/upstream_snapshot/kod/niyet_etiketle.py
+          test -f research/upstream_snapshot/kod/siralama.py
+          test -f research/upstream_snapshot/kod/icerik_uret.py
+          test -f data/v1_synthetic/icerik_havuzu.json
+          test -f data/v1_synthetic/etiketli_havuz.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          raw = json.loads(Path('data/v1_synthetic/icerik_havuzu.json').read_text(encoding='utf-8'))
+          labeled = json.loads(Path('data/v1_synthetic/etiketli_havuz.json').read_text(encoding='utf-8'))
+          assert len(raw) == 2000, len(raw)
+          assert len(labeled) == 2000, len(labeled)
+          assert all('tahmin_niyet' in row for row in labeled)
+          print('V1 baseline verified:', len(raw), len(labeled))
+          PY
+
+      - name: Commit snapshot to semantic-v2 only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/upstream_snapshot data/v1_synthetic
+          if git diff --cached --quiet; then
+            echo "No snapshot changes to commit."
+            exit 0
+          fi
+          git commit -m "semantic-v2: import pinned upstream core and V1 baseline [skip ci]"
+          git push origin HEAD:semantic-v2
