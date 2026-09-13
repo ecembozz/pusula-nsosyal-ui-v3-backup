@@ -1,0 +1,990 @@
+{
+  "status": "development_only_not_final_gold",
+  "model_name": "intfloat/multilingual-e5-small",
+  "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "seed": 42,
+  "train_total_n": 136,
+  "train_distribution": {
+    "ogretici": 34,
+    "eglendirici": 34,
+    "haber": 34,
+    "sosyal": 34
+  },
+  "style_distribution": {
+    "plain": 16,
+    "casual": 16,
+    "emoji": 16,
+    "question": 16,
+    "typo": 16,
+    "humorous_tip": 4,
+    "mixed": 16,
+    "short": 16,
+    "clickbait": 8,
+    "irony": 12
+  },
+  "train_split_n": 112,
+  "internal_val_n": 24,
+  "hard_n": 48,
+  "hard_distribution": {
+    "sosyal": 15,
+    "ogretici": 12,
+    "eglendirici": 13,
+    "haber": 8
+  },
+  "hard_set_role": "architecture-development-only; never used for gradients or early stopping",
+  "variants": {
+    "frozen_encoder_multitask": {
+      "variant": "frozen_encoder_multitask",
+      "transformer_layers": 12,
+      "unfreeze_last_n": 0,
+      "trainable_params": 76617,
+      "total_params": 117730377,
+      "trainable_fraction": 0.0006507836121173722,
+      "best_epoch": 14,
+      "best_internal_selection_score": 0.7478252315030985,
+      "internal_validation": {
+        "dominant_accuracy": 0.7916666666666666,
+        "macro_f1": 0.7867965367965368,
+        "intent_mae": 0.2869374752044678,
+        "mean_cosine_similarity": 0.7575423121452332,
+        "clickbait_mae": 0.3494793176651001,
+        "pred_distribution": {
+          "sosyal": 8,
+          "eglendirici": 3,
+          "haber": 8,
+          "ogretici": 5
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.8333333333333334,
+          "eglendirici": 0.5,
+          "haber": 0.8333333333333334,
+          "sosyal": 1.0
+        },
+        "accuracy_at_50pct_coverage": 0.9166666666666666,
+        "accuracy_at_75pct_coverage": 0.8333333333333334
+      },
+      "hard_style_development": {
+        "dominant_accuracy": 0.375,
+        "macro_f1": 0.37497348886532345,
+        "intent_mae": 0.25827187299728394,
+        "mean_cosine_similarity": 0.8165647387504578,
+        "clickbait_mae": 0.3449641168117523,
+        "pred_distribution": {
+          "eglendirici": 7,
+          "haber": 4,
+          "sosyal": 26,
+          "ogretici": 11
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.25,
+          "eglendirici": 0.23076923076923078,
+          "haber": 0.375,
+          "sosyal": 0.6
+        },
+        "accuracy_at_50pct_coverage": 0.4166666666666667,
+        "accuracy_at_75pct_coverage": 0.4166666666666667,
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.2293824404478073
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.2539670765399933
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.2,
+            "intent_mae": 0.22327303886413574
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.17922072112560272
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.24991655349731445
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.4166666666666667,
+            "intent_mae": 0.27732470631599426
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.24899403750896454
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.375,
+            "intent_mae": 0.3614029288291931
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.4,
+            "intent_mae": 0.20471589267253876
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 0.5,
+            "intent_mae": 0.2907430827617645
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.18497036397457123
+          }
+        },
+        "ood": {
+          "threshold_p10_train_nearest_cosine": 0.8688514828681946,
+          "mean_hard_nearest_train_cosine": 0.8902128338813782,
+          "ood_rate": 0.041666666666666664,
+          "id_accuracy": 0.391304347826087,
+          "ood_accuracy": 0.0
+        }
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.7818599683897836,
+          "val_selection_score": 0.5759199091072741,
+          "val": {
+            "dominant_accuracy": 0.25,
+            "macro_f1": 0.10344827586206896,
+            "intent_mae": 0.3469642400741577,
+            "mean_cosine_similarity": 0.7259283065795898,
+            "clickbait_mae": 0.46347904205322266,
+            "pred_distribution": {
+              "sosyal": 23,
+              "haber": 1
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.0,
+              "eglendirici": 0.0,
+              "haber": 0.0,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.3333333333333333,
+            "accuracy_at_75pct_coverage": 0.2777777777777778
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.7719812052590507,
+          "val_selection_score": 0.610997380024857,
+          "val": {
+            "dominant_accuracy": 0.3333333333333333,
+            "macro_f1": 0.23805555555555555,
+            "intent_mae": 0.33540090918540955,
+            "mean_cosine_similarity": 0.7350590825080872,
+            "clickbait_mae": 0.4452640116214752,
+            "pred_distribution": {
+              "sosyal": 19,
+              "haber": 3,
+              "ogretici": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.16666666666666666,
+              "eglendirici": 0.0,
+              "haber": 0.16666666666666666,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.3333333333333333,
+            "accuracy_at_75pct_coverage": 0.3888888888888889
+          }
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.7596479313714164,
+          "val_selection_score": 0.6405945387635777,
+          "val": {
+            "dominant_accuracy": 0.4166666666666667,
+            "macro_f1": 0.34634387351778656,
+            "intent_mae": 0.32266855239868164,
+            "mean_cosine_similarity": 0.7427994608879089,
+            "clickbait_mae": 0.42840418219566345,
+            "pred_distribution": {
+              "sosyal": 17,
+              "haber": 5,
+              "ogretici": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.3333333333333333,
+              "eglendirici": 0.0,
+              "haber": 0.3333333333333333,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.5,
+            "accuracy_at_75pct_coverage": 0.5
+          }
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.7491173914500645,
+          "val_selection_score": 0.669732956991608,
+          "val": {
+            "dominant_accuracy": 0.5,
+            "macro_f1": 0.4614661654135338,
+            "intent_mae": 0.31151148676872253,
+            "mean_cosine_similarity": 0.7477083206176758,
+            "clickbait_mae": 0.41365763545036316,
+            "pred_distribution": {
+              "sosyal": 13,
+              "haber": 8,
+              "ogretici": 2,
+              "eglendirici": 1
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.3333333333333333,
+              "eglendirici": 0.16666666666666666,
+              "haber": 0.5,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.75,
+            "accuracy_at_75pct_coverage": 0.5555555555555556
+          }
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.7433883888380868,
+          "val_selection_score": 0.6981586171757608,
+          "val": {
+            "dominant_accuracy": 0.625,
+            "macro_f1": 0.5818452380952381,
+            "intent_mae": 0.30238714814186096,
+            "mean_cosine_similarity": 0.7502779364585876,
+            "clickbait_mae": 0.40048840641975403,
+            "pred_distribution": {
+              "sosyal": 10,
+              "haber": 10,
+              "ogretici": 3,
+              "eglendirici": 1
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.5,
+              "eglendirici": 0.16666666666666666,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.75,
+            "accuracy_at_75pct_coverage": 0.6666666666666666
+          }
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.7378023947988238,
+          "val_selection_score": 0.7010680167447954,
+          "val": {
+            "dominant_accuracy": 0.625,
+            "macro_f1": 0.5818452380952381,
+            "intent_mae": 0.2957569360733032,
+            "mean_cosine_similarity": 0.7515864372253418,
+            "clickbait_mae": 0.38901591300964355,
+            "pred_distribution": {
+              "sosyal": 10,
+              "haber": 10,
+              "ogretici": 3,
+              "eglendirici": 1
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.5,
+              "eglendirici": 0.16666666666666666,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.6666666666666666
+          }
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.7348174708230155,
+          "val_selection_score": 0.7248828195532162,
+          "val": {
+            "dominant_accuracy": 0.7083333333333334,
+            "macro_f1": 0.6916666666666667,
+            "intent_mae": 0.29218873381614685,
+            "mean_cosine_similarity": 0.7529234290122986,
+            "clickbait_mae": 0.3794955909252167,
+            "pred_distribution": {
+              "sosyal": 9,
+              "haber": 9,
+              "ogretici": 4,
+              "eglendirici": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.6666666666666666,
+              "eglendirici": 0.3333333333333333,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.7777777777777778
+          }
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.7313984121595111,
+          "val_selection_score": 0.7451301434145862,
+          "val": {
+            "dominant_accuracy": 0.7916666666666666,
+            "macro_f1": 0.7867965367965368,
+            "intent_mae": 0.2902114689350128,
+            "mean_cosine_similarity": 0.7540996670722961,
+            "clickbait_mae": 0.3713018596172333,
+            "pred_distribution": {
+              "sosyal": 8,
+              "eglendirici": 3,
+              "haber": 8,
+              "ogretici": 5
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.8333333333333334,
+              "eglendirici": 0.5,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.7777777777777778
+          }
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.7299901417323521,
+          "val_selection_score": 0.7460904845105105,
+          "val": {
+            "dominant_accuracy": 0.7916666666666666,
+            "macro_f1": 0.7867965367965368,
+            "intent_mae": 0.2887590825557709,
+            "mean_cosine_similarity": 0.755104124546051,
+            "clickbait_mae": 0.3644850552082062,
+            "pred_distribution": {
+              "sosyal": 8,
+              "eglendirici": 3,
+              "haber": 8,
+              "ogretici": 5
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.8333333333333334,
+              "eglendirici": 0.5,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.8333333333333334
+          }
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.7279986824308123,
+          "val_selection_score": 0.7468054124222689,
+          "val": {
+            "dominant_accuracy": 0.7916666666666666,
+            "macro_f1": 0.7867965367965368,
+            "intent_mae": 0.28780272603034973,
+            "mean_cosine_similarity": 0.7559490203857422,
+            "clickbait_mae": 0.3590713441371918,
+            "pred_distribution": {
+              "sosyal": 8,
+              "eglendirici": 3,
+              "haber": 8,
+              "ogretici": 5
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.8333333333333334,
+              "eglendirici": 0.5,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.9166666666666666,
+            "accuracy_at_75pct_coverage": 0.8333333333333334
+          }
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.7263746091297695,
+          "val_selection_score": 0.7472524368272715,
+          "val": {
+            "dominant_accuracy": 0.7916666666666666,
+            "macro_f1": 0.7867965367965368,
+            "intent_mae": 0.2873469591140747,
+            "mean_cosine_similarity": 0.7565879225730896,
+            "clickbait_mae": 0.3549703061580658,
+            "pred_distribution": {
+              "sosyal": 8,
+              "eglendirici": 3,
+              "haber": 8,
+              "ogretici": 5
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.8333333333333334,
+              "eglendirici": 0.5,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.8333333333333334
+          }
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.7249942762511117,
+          "val_selection_score": 0.7475678109632425,
+          "val": {
+            "dominant_accuracy": 0.7916666666666666,
+            "macro_f1": 0.7867965367965368,
+            "intent_mae": 0.2870819568634033,
+            "mean_cosine_similarity": 0.7570826411247253,
+            "clickbait_mae": 0.35206618905067444,
+            "pred_distribution": {
+              "sosyal": 8,
+              "eglendirici": 3,
+              "haber": 8,
+              "ogretici": 5
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.8333333333333334,
+              "eglendirici": 0.5,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.8333333333333334
+          }
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.7253610151154655,
+          "val_selection_score": 0.747760269890874,
+          "val": {
+            "dominant_accuracy": 0.7916666666666666,
+            "macro_f1": 0.7867965367965368,
+            "intent_mae": 0.286930114030838,
+            "mean_cosine_similarity": 0.7573922276496887,
+            "clickbait_mae": 0.3502979278564453,
+            "pred_distribution": {
+              "sosyal": 8,
+              "eglendirici": 3,
+              "haber": 8,
+              "ogretici": 5
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.8333333333333334,
+              "eglendirici": 0.5,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.9166666666666666,
+            "accuracy_at_75pct_coverage": 0.8333333333333334
+          }
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.7238715887069702,
+          "val_selection_score": 0.7478252315030985,
+          "val": {
+            "dominant_accuracy": 0.7916666666666666,
+            "macro_f1": 0.7867965367965368,
+            "intent_mae": 0.2869374752044678,
+            "mean_cosine_similarity": 0.7575423121452332,
+            "clickbait_mae": 0.3494793176651001,
+            "pred_distribution": {
+              "sosyal": 8,
+              "eglendirici": 3,
+              "haber": 8,
+              "ogretici": 5
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.8333333333333334,
+              "eglendirici": 0.5,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.9166666666666666,
+            "accuracy_at_75pct_coverage": 0.8333333333333334
+          }
+        }
+      ]
+    },
+    "unfreeze_last_1_multitask": {
+      "variant": "unfreeze_last_1_multitask",
+      "transformer_layers": 12,
+      "unfreeze_last_n": 1,
+      "trainable_params": 1851081,
+      "total_params": 117730377,
+      "trainable_fraction": 0.015723053362854685,
+      "best_epoch": 14,
+      "best_internal_selection_score": 0.7354194998173487,
+      "internal_validation": {
+        "dominant_accuracy": 0.75,
+        "macro_f1": 0.7452380952380953,
+        "intent_mae": 0.29359686374664307,
+        "mean_cosine_similarity": 0.7536239624023438,
+        "clickbait_mae": 0.3768169581890106,
+        "pred_distribution": {
+          "sosyal": 9,
+          "eglendirici": 3,
+          "haber": 8,
+          "ogretici": 4
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.6666666666666666,
+          "eglendirici": 0.5,
+          "haber": 0.8333333333333334,
+          "sosyal": 1.0
+        },
+        "accuracy_at_50pct_coverage": 0.8333333333333334,
+        "accuracy_at_75pct_coverage": 0.8333333333333334
+      },
+      "hard_style_development": {
+        "dominant_accuracy": 0.4166666666666667,
+        "macro_f1": 0.40364227086183313,
+        "intent_mae": 0.2639317214488983,
+        "mean_cosine_similarity": 0.8135890364646912,
+        "clickbait_mae": 0.37460601329803467,
+        "pred_distribution": {
+          "sosyal": 28,
+          "haber": 4,
+          "ogretici": 12,
+          "eglendirici": 4
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.25,
+          "eglendirici": 0.23076923076923078,
+          "haber": 0.375,
+          "sosyal": 0.7333333333333333
+        },
+        "accuracy_at_50pct_coverage": 0.4583333333333333,
+        "accuracy_at_75pct_coverage": 0.4722222222222222,
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.24060817062854767
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.26110199093818665
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.4,
+            "intent_mae": 0.22769232094287872
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.18308162689208984
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.254160612821579
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.4166666666666667,
+            "intent_mae": 0.27759265899658203
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.25059744715690613
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.375,
+            "intent_mae": 0.3677789568901062
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.4,
+            "intent_mae": 0.2074202597141266
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 0.75,
+            "intent_mae": 0.2909521460533142
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.19455933570861816
+          }
+        },
+        "ood": {
+          "threshold_p10_train_nearest_cosine": 0.8624036312103271,
+          "mean_hard_nearest_train_cosine": 0.8849034309387207,
+          "ood_rate": 0.041666666666666664,
+          "id_accuracy": 0.43478260869565216,
+          "ood_accuracy": 0.0
+        }
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.7821985312870571,
+          "val_selection_score": 0.5755576459424837,
+          "val": {
+            "dominant_accuracy": 0.25,
+            "macro_f1": 0.10714285714285714,
+            "intent_mae": 0.34841009974479675,
+            "mean_cosine_similarity": 0.7246057987213135,
+            "clickbait_mae": 0.46555599570274353,
+            "pred_distribution": {
+              "sosyal": 22,
+              "haber": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.0,
+              "eglendirici": 0.0,
+              "haber": 0.0,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.3333333333333333,
+            "accuracy_at_75pct_coverage": 0.2777777777777778
+          }
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.7747934630938939,
+          "val_selection_score": 0.6182533230355808,
+          "val": {
+            "dominant_accuracy": 0.375,
+            "macro_f1": 0.2914285714285714,
+            "intent_mae": 0.34035417437553406,
+            "mean_cosine_similarity": 0.7313145995140076,
+            "clickbait_mae": 0.451761931180954,
+            "pred_distribution": {
+              "sosyal": 19,
+              "haber": 4,
+              "ogretici": 1
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.16666666666666666,
+              "eglendirici": 0.0,
+              "haber": 0.3333333333333333,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.3333333333333333,
+            "accuracy_at_75pct_coverage": 0.3888888888888889
+          }
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.7652976087161473,
+          "val_selection_score": 0.634659405233282,
+          "val": {
+            "dominant_accuracy": 0.4166666666666667,
+            "macro_f1": 0.34469696969696967,
+            "intent_mae": 0.3317907154560089,
+            "mean_cosine_similarity": 0.7374372482299805,
+            "clickbait_mae": 0.4388871192932129,
+            "pred_distribution": {
+              "sosyal": 16,
+              "haber": 6,
+              "ogretici": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.3333333333333333,
+              "eglendirici": 0.0,
+              "haber": 0.3333333333333333,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.5,
+            "accuracy_at_75pct_coverage": 0.4444444444444444
+          }
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.7564248612948826,
+          "val_selection_score": 0.6475243130953688,
+          "val": {
+            "dominant_accuracy": 0.4583333333333333,
+            "macro_f1": 0.3828947368421053,
+            "intent_mae": 0.32319459319114685,
+            "mean_cosine_similarity": 0.7423632740974426,
+            "clickbait_mae": 0.4275074005126953,
+            "pred_distribution": {
+              "sosyal": 13,
+              "haber": 9,
+              "ogretici": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.3333333333333333,
+              "eglendirici": 0.0,
+              "haber": 0.5,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.6666666666666666,
+            "accuracy_at_75pct_coverage": 0.5
+          }
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.7507415499005999,
+          "val_selection_score": 0.6584956710537275,
+          "val": {
+            "dominant_accuracy": 0.5,
+            "macro_f1": 0.41666666666666663,
+            "intent_mae": 0.31574156880378723,
+            "mean_cosine_similarity": 0.7459375262260437,
+            "clickbait_mae": 0.4172549247741699,
+            "pred_distribution": {
+              "sosyal": 12,
+              "haber": 10,
+              "ogretici": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.3333333333333333,
+              "eglendirici": 0.0,
+              "haber": 0.6666666666666666,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.6666666666666666,
+            "accuracy_at_75pct_coverage": 0.5555555555555556
+          }
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.7447210720607212,
+          "val_selection_score": 0.6616648270320473,
+          "val": {
+            "dominant_accuracy": 0.5,
+            "macro_f1": 0.41622807017543856,
+            "intent_mae": 0.309551864862442,
+            "mean_cosine_similarity": 0.748360812664032,
+            "clickbait_mae": 0.40826237201690674,
+            "pred_distribution": {
+              "sosyal": 13,
+              "haber": 9,
+              "ogretici": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.3333333333333333,
+              "eglendirici": 0.0,
+              "haber": 0.6666666666666666,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.6111111111111112
+          }
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.7410304120608738,
+          "val_selection_score": 0.6971414445411591,
+          "val": {
+            "dominant_accuracy": 0.625,
+            "macro_f1": 0.5818452380952381,
+            "intent_mae": 0.30476105213165283,
+            "mean_cosine_similarity": 0.7498639225959778,
+            "clickbait_mae": 0.4007415771484375,
+            "pred_distribution": {
+              "sosyal": 10,
+              "haber": 10,
+              "ogretici": 3,
+              "eglendirici": 1
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.5,
+              "eglendirici": 0.16666666666666666,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.6666666666666666
+          }
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.7376209497451782,
+          "val_selection_score": 0.720890168150266,
+          "val": {
+            "dominant_accuracy": 0.7083333333333334,
+            "macro_f1": 0.6916666666666667,
+            "intent_mae": 0.3010576367378235,
+            "mean_cosine_similarity": 0.7509489059448242,
+            "clickbait_mae": 0.39422890543937683,
+            "pred_distribution": {
+              "sosyal": 9,
+              "haber": 9,
+              "ogretici": 4,
+              "eglendirici": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.6666666666666666,
+              "eglendirici": 0.3333333333333333,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.7777777777777778
+          }
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.7362194401877267,
+          "val_selection_score": 0.7223172151048978,
+          "val": {
+            "dominant_accuracy": 0.7083333333333334,
+            "macro_f1": 0.6916666666666667,
+            "intent_mae": 0.2980749309062958,
+            "mean_cosine_similarity": 0.7518002390861511,
+            "clickbait_mae": 0.3888009488582611,
+            "pred_distribution": {
+              "sosyal": 9,
+              "haber": 9,
+              "ogretici": 4,
+              "eglendirici": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.6666666666666666,
+              "eglendirici": 0.3333333333333333,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.7777777777777778
+          }
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.7341859766415187,
+          "val_selection_score": 0.7232065186330251,
+          "val": {
+            "dominant_accuracy": 0.7083333333333334,
+            "macro_f1": 0.6910714285714286,
+            "intent_mae": 0.29603445529937744,
+            "mean_cosine_similarity": 0.7524539828300476,
+            "clickbait_mae": 0.38447269797325134,
+            "pred_distribution": {
+              "sosyal": 10,
+              "haber": 8,
+              "ogretici": 4,
+              "eglendirici": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.6666666666666666,
+              "eglendirici": 0.3333333333333333,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.8333333333333334
+          }
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.732421875,
+          "val_selection_score": 0.7238497257658414,
+          "val": {
+            "dominant_accuracy": 0.7083333333333334,
+            "macro_f1": 0.6910714285714286,
+            "intent_mae": 0.2948046624660492,
+            "mean_cosine_similarity": 0.7529268264770508,
+            "clickbait_mae": 0.38119521737098694,
+            "pred_distribution": {
+              "sosyal": 10,
+              "haber": 8,
+              "ogretici": 4,
+              "eglendirici": 2
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.6666666666666666,
+              "eglendirici": 0.3333333333333333,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.8333333333333334
+          }
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.7312100444521222,
+          "val_selection_score": 0.7350959076909792,
+          "val": {
+            "dominant_accuracy": 0.75,
+            "macro_f1": 0.7452380952380953,
+            "intent_mae": 0.2940904200077057,
+            "mean_cosine_similarity": 0.753288745880127,
+            "clickbait_mae": 0.3788779079914093,
+            "pred_distribution": {
+              "sosyal": 9,
+              "eglendirici": 3,
+              "haber": 8,
+              "ogretici": 4
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.6666666666666666,
+              "eglendirici": 0.5,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.8333333333333334
+          }
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.7313653656414577,
+          "val_selection_score": 0.7353340550689471,
+          "val": {
+            "dominant_accuracy": 0.75,
+            "macro_f1": 0.7452380952380953,
+            "intent_mae": 0.2937014400959015,
+            "mean_cosine_similarity": 0.7535154223442078,
+            "clickbait_mae": 0.37746891379356384,
+            "pred_distribution": {
+              "sosyal": 9,
+              "eglendirici": 3,
+              "haber": 8,
+              "ogretici": 4
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.6666666666666666,
+              "eglendirici": 0.5,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.8333333333333334
+          }
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.729972073010036,
+          "val_selection_score": 0.7354194998173487,
+          "val": {
+            "dominant_accuracy": 0.75,
+            "macro_f1": 0.7452380952380953,
+            "intent_mae": 0.29359686374664307,
+            "mean_cosine_similarity": 0.7536239624023438,
+            "clickbait_mae": 0.3768169581890106,
+            "pred_distribution": {
+              "sosyal": 9,
+              "eglendirici": 3,
+              "haber": 8,
+              "ogretici": 4
+            },
+            "per_class_accuracy": {
+              "ogretici": 0.6666666666666666,
+              "eglendirici": 0.5,
+              "haber": 0.8333333333333334,
+              "sosyal": 1.0
+            },
+            "accuracy_at_50pct_coverage": 0.8333333333333334,
+            "accuracy_at_75pct_coverage": 0.8333333333333334
+          }
+        }
+      ]
+    }
+  }
+}
