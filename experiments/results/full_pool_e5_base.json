@@ -1,0 +1,300 @@
+{
+  "status": "development_benchmark_external_generated_ground_truth_not_human_gold",
+  "source": {
+    "repository": "asimonmsz-design/pusula",
+    "commit": "78cdd15dd14adbed7e722a13b99171d84956f665",
+    "path": "kod/veri/etiketli_havuz.json",
+    "url": "https://raw.githubusercontent.com/asimonmsz-design/pusula/78cdd15dd14adbed7e722a13b99171d84956f665/kod/veri/etiketli_havuz.json",
+    "n": 2000
+  },
+  "model": "intfloat/multilingual-e5-base",
+  "model_revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "hidden_size": 768,
+  "train_n": 136,
+  "train_distribution": {
+    "ogretici": 34,
+    "eglendirici": 34,
+    "haber": 34,
+    "sosyal": 34
+  },
+  "vector_metrics": {
+    "current_tahmin_niyet": {
+      "intent_mae": 0.20018200000000003,
+      "mean_cosine_similarity": 0.8999630892489325,
+      "dominant_accuracy": 0.965,
+      "macro_f1": 0.9637342839097225,
+      "pred_distribution": {
+        "ogretici": 635,
+        "sosyal": 400,
+        "eglendirici": 595,
+        "haber": 370
+      },
+      "gold_distribution": {
+        "ogretici": 600,
+        "haber": 440,
+        "sosyal": 400,
+        "eglendirici": 560
+      },
+      "per_class_accuracy": {
+        "ogretici": 1.0,
+        "eglendirici": 1.0,
+        "haber": 0.8409090909090909,
+        "sosyal": 1.0
+      }
+    },
+    "e5_base_logistic_probability": {
+      "intent_mae": 0.18260464344296606,
+      "mean_cosine_similarity": 0.8826956655768164,
+      "dominant_accuracy": 0.646,
+      "macro_f1": 0.625735536653222,
+      "pred_distribution": {
+        "ogretici": 698,
+        "sosyal": 560,
+        "eglendirici": 552,
+        "haber": 190
+      },
+      "gold_distribution": {
+        "ogretici": 600,
+        "haber": 440,
+        "sosyal": 400,
+        "eglendirici": 560
+      },
+      "per_class_accuracy": {
+        "ogretici": 0.8333333333333334,
+        "eglendirici": 0.5910714285714286,
+        "haber": 0.36818181818181817,
+        "sosyal": 0.7475
+      }
+    }
+  },
+  "ranking": {
+    "current_tahmin_niyet": {
+      "macro": {
+        "ndcg_at_20": 0.9609428314062101,
+        "top20_overlap": 0.38125,
+        "spearman": 0.8639670205090708,
+        "pairwise_concordance_sampled": 0.854911132655213
+      },
+      "worst_profile": {
+        "ndcg_at_20": 0.8948037711694175,
+        "top20_overlap": 0.0,
+        "spearman": 0.7705945227504184,
+        "pairwise_concordance_sampled": 0.810226271525831
+      },
+      "by_profile": {
+        "pure_ogretici": {
+          "ndcg_at_20": 0.9602283111467688,
+          "top20_overlap": 0.35,
+          "spearman": 0.8586796792581215,
+          "pairwise_concordance_sampled": 0.8507649179014818
+        },
+        "pure_eglendirici": {
+          "ndcg_at_20": 0.9905318062998261,
+          "top20_overlap": 0.6,
+          "spearman": 0.8248534339881235,
+          "pairwise_concordance_sampled": 0.8304765718862636
+        },
+        "pure_haber": {
+          "ndcg_at_20": 0.9850157474693003,
+          "top20_overlap": 0.75,
+          "spearman": 0.8134804065658081,
+          "pairwise_concordance_sampled": 0.8261973511896419
+        },
+        "pure_sosyal": {
+          "ndcg_at_20": 0.9726911733947436,
+          "top20_overlap": 0.45,
+          "spearman": 0.7705945227504184,
+          "pairwise_concordance_sampled": 0.810226271525831
+        },
+        "ogretici_haber": {
+          "ndcg_at_20": 0.9612372280993574,
+          "top20_overlap": 0.25,
+          "spearman": 0.9178604356011463,
+          "pairwise_concordance_sampled": 0.8789287144573488
+        },
+        "ogretici_sosyal": {
+          "ndcg_at_20": 0.8948037711694175,
+          "top20_overlap": 0.0,
+          "spearman": 0.9081625842307806,
+          "pairwise_concordance_sampled": 0.872188626351622
+        },
+        "eglendirici_sosyal": {
+          "ndcg_at_20": 0.9904141411860193,
+          "top20_overlap": 0.55,
+          "spearman": 0.9305366965899532,
+          "pairwise_concordance_sampled": 0.8946595915098118
+        },
+        "haber_sosyal": {
+          "ndcg_at_20": 0.9326204724842466,
+          "top20_overlap": 0.1,
+          "spearman": 0.887568405088215,
+          "pairwise_concordance_sampled": 0.8758470164197036
+        }
+      },
+      "diversified_macro": {
+        "top20_overlap": 0.29375,
+        "dcg_ratio_to_oracle_diversified": 0.9104290601389513
+      },
+      "diversified_worst_profile": {
+        "top20_overlap": 0.2,
+        "dcg_ratio_to_oracle_diversified": 0.8606725329127429
+      },
+      "diversified_by_profile": {
+        "pure_ogretici": {
+          "top20_overlap": 0.3,
+          "dcg_ratio_to_oracle_diversified": 0.8996432823268895,
+          "selected_n": 20
+        },
+        "pure_eglendirici": {
+          "top20_overlap": 0.3,
+          "dcg_ratio_to_oracle_diversified": 0.9095429185124783,
+          "selected_n": 20
+        },
+        "pure_haber": {
+          "top20_overlap": 0.2,
+          "dcg_ratio_to_oracle_diversified": 0.9138321493450816,
+          "selected_n": 20
+        },
+        "pure_sosyal": {
+          "top20_overlap": 0.2,
+          "dcg_ratio_to_oracle_diversified": 0.8606725329127429,
+          "selected_n": 20
+        },
+        "ogretici_haber": {
+          "top20_overlap": 0.35,
+          "dcg_ratio_to_oracle_diversified": 0.9800568063615441,
+          "selected_n": 20
+        },
+        "ogretici_sosyal": {
+          "top20_overlap": 0.25,
+          "dcg_ratio_to_oracle_diversified": 0.9373647778741213,
+          "selected_n": 20
+        },
+        "eglendirici_sosyal": {
+          "top20_overlap": 0.45,
+          "dcg_ratio_to_oracle_diversified": 0.8815653673490018,
+          "selected_n": 20
+        },
+        "haber_sosyal": {
+          "top20_overlap": 0.3,
+          "dcg_ratio_to_oracle_diversified": 0.9007546464297507,
+          "selected_n": 20
+        }
+      }
+    },
+    "e5_base_logistic_probability": {
+      "macro": {
+        "ndcg_at_20": 0.9670997118227049,
+        "top20_overlap": 0.4375,
+        "spearman": 0.7910718581935632,
+        "pairwise_concordance_sampled": 0.8053350844302991
+      },
+      "worst_profile": {
+        "ndcg_at_20": 0.910285612112028,
+        "top20_overlap": 0.2,
+        "spearman": 0.7289207371254227,
+        "pairwise_concordance_sampled": 0.7770644773728475
+      },
+      "by_profile": {
+        "pure_ogretici": {
+          "ndcg_at_20": 0.9658626279126226,
+          "top20_overlap": 0.35,
+          "spearman": 0.8336602270532552,
+          "pairwise_concordance_sampled": 0.8207609130957149
+        },
+        "pure_eglendirici": {
+          "ndcg_at_20": 0.9877931773210055,
+          "top20_overlap": 0.4,
+          "spearman": 0.7544814525097185,
+          "pairwise_concordance_sampled": 0.790700841009211
+        },
+        "pure_haber": {
+          "ndcg_at_20": 0.9870405167800019,
+          "top20_overlap": 0.7,
+          "spearman": 0.754746902568559,
+          "pairwise_concordance_sampled": 0.7882193218180434
+        },
+        "pure_sosyal": {
+          "ndcg_at_20": 0.9271473370232085,
+          "top20_overlap": 0.2,
+          "spearman": 0.8110769504007167,
+          "pairwise_concordance_sampled": 0.8075530636764117
+        },
+        "ogretici_haber": {
+          "ndcg_at_20": 0.910285612112028,
+          "top20_overlap": 0.25,
+          "spearman": 0.8022104054568812,
+          "pairwise_concordance_sampled": 0.8074569483380056
+        },
+        "ogretici_sosyal": {
+          "ndcg_at_20": 0.977385223976015,
+          "top20_overlap": 0.35,
+          "spearman": 0.7506369874649885,
+          "pairwise_concordance_sampled": 0.7893592310772928
+        },
+        "eglendirici_sosyal": {
+          "ndcg_at_20": 0.9857905867905392,
+          "top20_overlap": 0.45,
+          "spearman": 0.8928412029689641,
+          "pairwise_concordance_sampled": 0.8615658790548658
+        },
+        "haber_sosyal": {
+          "ndcg_at_20": 0.995492612666219,
+          "top20_overlap": 0.8,
+          "spearman": 0.7289207371254227,
+          "pairwise_concordance_sampled": 0.7770644773728475
+        }
+      },
+      "diversified_macro": {
+        "top20_overlap": 0.18125000000000002,
+        "dcg_ratio_to_oracle_diversified": 0.8999500030773384
+      },
+      "diversified_worst_profile": {
+        "top20_overlap": 0.05,
+        "dcg_ratio_to_oracle_diversified": 0.8337792063272582
+      },
+      "diversified_by_profile": {
+        "pure_ogretici": {
+          "top20_overlap": 0.05,
+          "dcg_ratio_to_oracle_diversified": 0.9157120395068192,
+          "selected_n": 20
+        },
+        "pure_eglendirici": {
+          "top20_overlap": 0.1,
+          "dcg_ratio_to_oracle_diversified": 0.8815769079456817,
+          "selected_n": 20
+        },
+        "pure_haber": {
+          "top20_overlap": 0.1,
+          "dcg_ratio_to_oracle_diversified": 0.8812524643851792,
+          "selected_n": 20
+        },
+        "pure_sosyal": {
+          "top20_overlap": 0.2,
+          "dcg_ratio_to_oracle_diversified": 0.8932331571203844,
+          "selected_n": 20
+        },
+        "ogretici_haber": {
+          "top20_overlap": 0.25,
+          "dcg_ratio_to_oracle_diversified": 0.9255293650252716,
+          "selected_n": 20
+        },
+        "ogretici_sosyal": {
+          "top20_overlap": 0.35,
+          "dcg_ratio_to_oracle_diversified": 0.9064969829422974,
+          "selected_n": 20
+        },
+        "eglendirici_sosyal": {
+          "top20_overlap": 0.2,
+          "dcg_ratio_to_oracle_diversified": 0.9620199013658148,
+          "selected_n": 20
+        },
+        "haber_sosyal": {
+          "top20_overlap": 0.2,
+          "dcg_ratio_to_oracle_diversified": 0.8337792063272582,
+          "selected_n": 20
+        }
+      }
+    }
+  }
+}
