@@ -1,0 +1,71 @@
+name: Style Generalization Pilot
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - supervised-embedding-v1
+    paths:
+      - experiments/benchmark_style_generalization.py
+      - experiments/benchmark_supervised_embeddings.py
+      - data/dev_labels/raw_training_draft_annotator_a_v1.jsonl
+      - data/dev_labels/news_training_draft_annotator_a_v1.jsonl
+      - data/v2_realistic/raw_posts.jsonl
+      - data/gold_eval/draft_labels_annotator_a.jsonl
+      - data/gold_eval/candidate_hard_cases.jsonl
+      - data/gold_eval/candidate_news_cases.jsonl
+      - .github/workflows/style-generalization-pilot.yml
+
+permissions:
+  contents: write
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU inference dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "torch>=2.4,<3" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "transformers>=4.44,<5" "scikit-learn>=1.5,<2" safetensors
+      - name: Validate development data sizes
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          def rows(p):
+              return [json.loads(x) for x in Path(p).read_text(encoding='utf-8').splitlines() if x.strip()]
+          raw = rows('data/dev_labels/raw_training_draft_annotator_a_v1.jsonl')
+          news = rows('data/dev_labels/news_training_draft_annotator_a_v1.jsonl')
+          hard = rows('data/gold_eval/draft_labels_annotator_a.jsonl')
+          assert len(raw) == 80, f'expected 80 raw training labels, got {len(raw)}'
+          assert len(news) == 16, f'expected 16 news training labels, got {len(news)}'
+          assert len(hard) == 48, f'expected 48 hard development labels, got {len(hard)}'
+          assert len({r['id'] for r in raw}) == len(raw)
+          assert len({r['id'] for r in news}) == len(news)
+          print({'raw_train': len(raw), 'news_train': len(news), 'hard_eval': len(hard)})
+          PY
+      - name: Run cross-style benchmark
+        env:
+          TOKENIZERS_PARALLELISM: 'false'
+        run: |
+          python experiments/benchmark_style_generalization.py \
+            --model intfloat/multilingual-e5-small \
+            --output experiments/results/style_generalization.json \
+            --summary experiments/results/style_generalization.md
+      - name: Commit development results
+        run: |
+          if [ -z "$(git status --porcelain -- experiments/results/style_generalization.json experiments/results/style_generalization.md)" ]; then
+            echo "Results already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/results/style_generalization.json experiments/results/style_generalization.md
+          git commit -m "semantic-v2: record cross-style generalization pilot [skip ci]"
+          git push origin HEAD:supervised-embedding-v1
