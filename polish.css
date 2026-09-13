@@ -255,3 +255,34 @@ html,body{
   .postText{font-size:15.25px!important;line-height:1.62!important;max-width:none!important}
   .rightHead h3{font-size:15px!important}
 }
+
+/* UI_BALANCE_V1
+   Theme-aware composer button, softer sticky-header depth and balanced post geometry. */
+html[data-theme="light"] .sendBtn:not(.ready){
+  background:#e8edf3!important;
+  color:#7f8b9a!important;
+  box-shadow:inset 0 0 0 1px rgba(24,35,53,.035)!important;
+}
+html[data-theme="light"] .sendBtn:not(.ready):hover{background:#e3e9ef!important;color:#6f7c8c!important}
+html[data-theme="dark"] .sendBtn:not(.ready){
+  background:#2a3039!important;
+  color:#98a3b2!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.025)!important;
+}
+html[data-theme="dark"] .sendBtn:not(.ready):hover{background:#303741!important;color:#aab4c2!important}
+.sendBtn.ready{background:var(--brand-grad)!important;color:#fff!important}
+
+/* Let elevation separate the sticky header; avoid a hard 1px seam. */
+.compose{border-bottom:0!important}
+.feedTop{box-shadow:0 18px 42px -20px rgba(27,48,72,.22)!important}
+html[data-theme="dark"] .feedTop{box-shadow:0 20px 46px -20px rgba(0,0,0,.38)!important}
+
+/* Restore the post rhythm, then center the inner feed content only on wide columns. */
+.post{padding-top:20px!important;padding-bottom:20px!important}
+@media(min-width:1000px){
+  .post{
+    padding-left:max(28px,calc((100% - 1040px)/2 + 28px))!important;
+    padding-right:max(28px,calc((100% - 1040px)/2 + 28px))!important;
+  }
+  .postText{max-width:72ch!important}
+}
