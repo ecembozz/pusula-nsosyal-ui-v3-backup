@@ -71,3 +71,12 @@ html[data-theme="dark"] .modal{box-shadow:0 24px 70px rgba(0,0,0,.34)!important}
 html[data-theme="dark"] .techShell{box-shadow:0 34px 100px rgba(0,0,0,.46)!important}
 
 /* vercel-preview-trigger: soft-dark-v1 */
+
+/* THEME_FLASH_FIX
+   Keep the browser canvas and all large surfaces painted during color-scheme swaps. */
+html{background:var(--bg)!important}
+html[data-theme="light"]{background:#f4f7fa!important}
+html[data-theme="dark"]{background:#1b1e24!important}
+html.theme-switching,html.theme-switching body,html.theme-switching .shell,html.theme-switching .main,html.theme-switching .feedBody{background-color:var(--bg)!important}
+html.theme-switching .feedTop{background:var(--panel)!important;backdrop-filter:none!important}
+html.theme-switching *,html.theme-switching *::before,html.theme-switching *::after{transition:none!important;animation:none!important}
