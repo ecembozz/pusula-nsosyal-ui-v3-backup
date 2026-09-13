@@ -1,0 +1,70 @@
+name: Direct Semantic Ranking Benchmark
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - supervised-embedding-v1
+    paths:
+      - experiments/benchmark_semantic_ranking.py
+      - experiments/benchmark_encoder_sweep.py
+      - experiments/benchmark_intent_balanced_corpus.py
+      - experiments/benchmark_style_generalization.py
+      - experiments/benchmark_supervised_embeddings.py
+      - data/dev_labels/intent_balanced_training_v1.jsonl
+      - data/gold_eval/draft_labels_annotator_a.jsonl
+      - data/gold_eval/candidate_hard_cases.jsonl
+      - data/gold_eval/candidate_news_cases.jsonl
+      - .github/workflows/semantic-ranking-benchmark.yml
+
+permissions:
+  contents: write
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU inference dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "torch>=2.4,<3" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "transformers>=4.44,<5" "scikit-learn>=1.5,<2" safetensors sentencepiece
+      - name: Validate benchmark inputs
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+          train=[json.loads(x) for x in Path('data/dev_labels/intent_balanced_training_v1.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
+          hard=[json.loads(x) for x in Path('data/gold_eval/draft_labels_annotator_a.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
+          c=Counter(r['dominant_intent'] for r in train)
+          assert len(train)==136, len(train)
+          assert c=={'ogretici':34,'eglendirici':34,'haber':34,'sosyal':34}, c
+          assert len(hard)==48, len(hard)
+          assert not ({r['id'] for r in train} & {r['id'] for r in hard})
+          print({'train':len(train),'hard':len(hard),'train_distribution':dict(c),'overlap':0})
+          PY
+      - name: Run direct semantic ranking benchmark
+        env:
+          TOKENIZERS_PARALLELISM: 'false'
+          PYTHONUNBUFFERED: '1'
+        run: |
+          python experiments/benchmark_semantic_ranking.py \
+            --output experiments/results/semantic_ranking.json \
+            --summary experiments/results/semantic_ranking.md
+      - name: Commit development results
+        run: |
+          if [ -z "$(git status --porcelain -- experiments/results/semantic_ranking.json experiments/results/semantic_ranking.md)" ]; then
+            echo "Results already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/results/semantic_ranking.json experiments/results/semantic_ranking.md
+          git commit -m "semantic-v2: record direct semantic ranking benchmark [skip ci]"
+          git push origin HEAD:supervised-embedding-v1
