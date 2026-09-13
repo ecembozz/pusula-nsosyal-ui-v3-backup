@@ -286,3 +286,43 @@ html[data-theme="dark"] .feedTop{box-shadow:0 20px 46px -20px rgba(0,0,0,.38)!im
   }
   .postText{max-width:72ch!important}
 }
+
+/* POST_CENTER_NAV_V1
+   Match active-nav surfaces to the inactive composer button and center post content
+   while keeping the full-width row hover/divider. */
+html[data-theme="light"] .navBtn.active{
+  background:#e8edf3!important;
+  color:var(--text,#182335)!important;
+}
+html[data-theme="light"] .navBtn.active:hover{background:#e3e9ef!important}
+html[data-theme="dark"] .navBtn.active{
+  background:#2a3039!important;
+  color:var(--text,#f3f6fa)!important;
+}
+html[data-theme="dark"] .navBtn.active:hover{background:#303741!important}
+
+.post{
+  display:grid!important;
+  grid-template-columns:minmax(28px,1fr) 41px minmax(0,780px) minmax(28px,1fr)!important;
+  column-gap:14px!important;
+  align-items:start!important;
+  padding:20px 0!important;
+}
+.post>.avatar{
+  grid-column:2!important;
+  grid-row:1!important;
+}
+.post>.postMain{
+  grid-column:3!important;
+  grid-row:1!important;
+  min-width:0!important;
+}
+.postText{max-width:72ch!important}
+@media(max-width:720px){
+  .post{
+    grid-template-columns:16px 38px minmax(0,1fr) 16px!important;
+    column-gap:12px!important;
+    padding:18px 0!important;
+  }
+  .post>.avatar{width:38px!important;height:38px!important}
+}
