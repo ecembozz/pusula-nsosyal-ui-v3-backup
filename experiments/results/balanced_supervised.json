@@ -1,0 +1,99 @@
+{
+  "status": "development_only_single_annotator_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "embedding_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "train_n": 96,
+  "test_n": 48,
+  "train_distribution": {
+    "sosyal": 54,
+    "ogretici": 15,
+    "eglendirici": 11,
+    "haber": 16
+  },
+  "class_weights": {
+    "ogretici": 1.6,
+    "eglendirici": 2.1818181818181817,
+    "haber": 1.5,
+    "sosyal": 0.4444444444444444
+  },
+  "balanced_resample_distribution": {
+    "ogretici": 54,
+    "eglendirici": 54,
+    "haber": 54,
+    "sosyal": 54
+  },
+  "models": {
+    "weighted_ridge_vector": {
+      "dominant_accuracy": 0.3125,
+      "macro_f1": 0.11904761904761904,
+      "intent_mae": 0.24929723352193833,
+      "mean_cosine_similarity": 0.826423382299514,
+      "clickbait_mae": 0.004583340076108774,
+      "pred_distribution": {
+        "sosyal": 48
+      },
+      "per_class_accuracy": {
+        "ogretici": 0.0,
+        "eglendirici": 0.0,
+        "haber": 0.0,
+        "sosyal": 1.0
+      }
+    },
+    "balanced_knn_vector": {
+      "dominant_accuracy": 0.4583333333333333,
+      "macro_f1": 0.43106177877849705,
+      "intent_mae": 0.20366429299222003,
+      "mean_cosine_similarity": 0.8260731359361763,
+      "clickbait_mae": 0.004583333518590772,
+      "pred_distribution": {
+        "ogretici": 4,
+        "sosyal": 29,
+        "eglendirici": 6,
+        "haber": 9
+      },
+      "per_class_accuracy": {
+        "ogretici": 0.16666666666666666,
+        "eglendirici": 0.07692307692307693,
+        "haber": 0.875,
+        "sosyal": 0.8
+      }
+    },
+    "balanced_logistic_dominant": {
+      "dominant_accuracy": 0.375,
+      "macro_f1": 0.40436311000827124,
+      "pred_distribution": {
+        "ogretici": 14,
+        "haber": 7,
+        "sosyal": 16,
+        "eglendirici": 11
+      },
+      "per_class_accuracy": {
+        "ogretici": 0.5,
+        "eglendirici": 0.15384615384615385,
+        "haber": 0.625,
+        "sosyal": 0.3333333333333333
+      },
+      "accuracy_at_50pct_coverage": 0.5416666666666666,
+      "accuracy_at_75pct_coverage": 0.4722222222222222
+    },
+    "hybrid_knn_plus_logistic": {
+      "dominant_accuracy": 0.4375,
+      "macro_f1": 0.40097279221766224,
+      "intent_mae": 0.2068056386173578,
+      "mean_cosine_similarity": 0.844360256764691,
+      "clickbait_mae": 0.004583333518590772,
+      "pred_distribution": {
+        "ogretici": 6,
+        "sosyal": 28,
+        "eglendirici": 5,
+        "haber": 9
+      },
+      "per_class_accuracy": {
+        "ogretici": 0.16666666666666666,
+        "eglendirici": 0.0,
+        "haber": 0.875,
+        "sosyal": 0.8
+      }
+    }
+  }
+}
