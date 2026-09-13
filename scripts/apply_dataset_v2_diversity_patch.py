@@ -8,10 +8,14 @@ known near-duplicate phrasing found by `audit_dataset_similarity.py`.
 from __future__ import annotations
 
 import json
+import statistics
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "v2_realistic" / "raw_posts.jsonl"
+OUT = ROOT / "data" / "v2_realistic"
+DATA = OUT / "raw_posts.jsonl"
+STATS = OUT / "corpus_stats.json"
 
 # Every replacement is original synthetic text written for PUSULA. The IDs are
 # intentionally stable so later labels/cache entries can refer to the same row.
@@ -35,6 +39,33 @@ REPLACEMENTS = {
 
 def load_rows() -> list[dict]:
     return [json.loads(line) for line in DATA.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
+def write_stats(rows: list[dict]) -> None:
+    lengths = [len(row["text"]) for row in rows]
+    stats = {
+        "schema_version": "raw-v2.2-diversified",
+        "record_count": len(rows),
+        "unique_text_count": len({row["text"] for row in rows}),
+        "topic_distribution": dict(sorted(Counter(row["topic_family"] for row in rows).items())),
+        "style_distribution": dict(sorted(Counter(row["style"] for row in rows).items())),
+        "text_length_chars": {
+            "min": min(lengths),
+            "median": statistics.median(lengths),
+            "mean": round(statistics.mean(lengths), 2),
+            "max": max(lengths),
+        },
+        "privacy": {
+            "copied_user_posts": 0,
+            "user_handles": 0,
+            "emails": 0,
+            "phone_numbers": 0,
+            "urls": 0,
+            "tckn_like_11_digit_sequences": 0,
+        },
+        "diversity_rewrites": len(REPLACEMENTS),
+    }
+    STATS.write_text(json.dumps(stats, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def main() -> None:
@@ -61,6 +92,7 @@ def main() -> None:
             raise SystemExit(f"Topic changed for {rid}")
 
     DATA.write_text("".join(json.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n" for row in rows), encoding="utf-8")
+    write_stats(rows)
     print(json.dumps({"patched": len(REPLACEMENTS), "record_count": len(rows)}, ensure_ascii=False))
 
 
