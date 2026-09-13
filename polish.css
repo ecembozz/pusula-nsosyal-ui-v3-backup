@@ -47,3 +47,27 @@ html[data-theme="light"] .navBtn.active:hover{background:#e5f1f7!important}
 .sendBtn{box-shadow:none!important}
 .sendBtn.ready{box-shadow:var(--cta-shadow)!important}
 .sendBtn.ready:hover{box-shadow:var(--cta-shadow-hover)!important}
+
+/* PUSULA_SOFT_DARK_V1
+   Color/elevation-only refinement copied from the preferred old preview.
+   No layout, typography, HTML, JS or API changes. */
+html[data-theme="dark"]{
+  --bg:#1b1e24!important;
+  --bg-deep:#171a20!important;
+  --panel:#1d2027!important;
+  --panel-2:#20242b!important;
+  --panel-3:#242931!important;
+  --line:#323943!important;
+  --line-soft:#2b3139!important;
+  --nav-selected:#262b33!important;
+  --nav-hover:#1f2c38!important;
+  --jury-surface:#20242b!important;
+  --rail-shadow:0 5px 20px rgba(0,0,0,.055)!important;
+  --feed-shadow:0 18px 52px rgba(0,0,0,.18)!important;
+}
+html[data-theme="dark"] .feedTop{box-shadow:0 8px 24px rgba(0,0,0,.06)!important}
+html[data-theme="dark"] .juryCard{box-shadow:0 5px 20px rgba(0,0,0,.055)!important}
+html[data-theme="dark"] .modal{box-shadow:0 24px 70px rgba(0,0,0,.34)!important}
+html[data-theme="dark"] .techShell{box-shadow:0 34px 100px rgba(0,0,0,.46)!important}
+
+/* vercel-preview-trigger: soft-dark-v1 */
