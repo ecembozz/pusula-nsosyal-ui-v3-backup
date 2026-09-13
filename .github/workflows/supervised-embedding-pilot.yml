@@ -39,7 +39,7 @@ jobs:
             --summary experiments/results/supervised_embedding_cv.md
       - name: Commit development results
         run: |
-          if git diff --quiet -- experiments/results/supervised_embedding_cv.json experiments/results/supervised_embedding_cv.md; then
+          if [ -z "$(git status --porcelain -- experiments/results/supervised_embedding_cv.json experiments/results/supervised_embedding_cv.md)" ]; then
             echo "Results already up to date."
             exit 0
           fi
