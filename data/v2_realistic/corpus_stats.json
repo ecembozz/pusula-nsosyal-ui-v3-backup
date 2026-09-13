@@ -1,0 +1,37 @@
+{
+  "schema_version": "raw-v2.1",
+  "record_count": 320,
+  "unique_text_count": 320,
+  "topic_distribution": {
+    "egitim_yks": 32,
+    "ekonomi_butce": 32,
+    "gundelik_yasam": 32,
+    "kampus_is": 32,
+    "kultur_sanat": 32,
+    "oyun_espor": 32,
+    "sosyal_sohbet": 32,
+    "spor_futbol": 32,
+    "teknofest_maker": 32,
+    "teknoloji_ai": 32
+  },
+  "style_distribution": {
+    "casual_lower": 80,
+    "emoji_end": 80,
+    "plain": 80,
+    "question": 80
+  },
+  "text_length_chars": {
+    "min": 49,
+    "median": 83.5,
+    "mean": 84.52,
+    "max": 127
+  },
+  "privacy": {
+    "copied_user_posts": 0,
+    "user_handles": 0,
+    "emails": 0,
+    "phone_numbers": 0,
+    "urls": 0,
+    "tckn_like_11_digit_sequences": 0
+  }
+}
