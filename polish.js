@@ -30,6 +30,46 @@
     });
     if(changed){try{lucide.createIcons({attrs:{'stroke-width':1.8}})}catch(e){}}
   }
+  function ensurePostFlex(){
+    if(document.getElementById('post-flex-v2'))return;
+    const style=document.createElement('style');
+    style.id='post-flex-v2';
+    style.textContent=`
+      .post{
+        display:flex!important;
+        grid-template-columns:none!important;
+        align-items:flex-start!important;
+        gap:14px!important;
+        padding-top:20px!important;
+        padding-bottom:20px!important;
+        padding-left:max(28px,calc((100% - 840px)/2))!important;
+        padding-right:max(28px,calc((100% - 840px)/2))!important;
+      }
+      .post>.avatar{
+        grid-column:auto!important;
+        grid-row:auto!important;
+        flex:0 0 41px!important;
+      }
+      .post>.postMain{
+        grid-column:auto!important;
+        grid-row:auto!important;
+        flex:1 1 auto!important;
+        min-width:0!important;
+      }
+      @media(max-width:720px){
+        .post{
+          gap:12px!important;
+          padding:18px 16px!important;
+        }
+        .post>.avatar{
+          flex-basis:38px!important;
+          width:38px!important;
+          height:38px!important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
   function settleHome(){
     const home=document.querySelector('.navBtn[data-page="home"]');if(!home)return;
     const anyActive=document.querySelector('.navBtn[data-page].active');
@@ -50,6 +90,7 @@
     themeWrapped=true;
   }
   function finish(){
+    ensurePostFlex();
     settleHome();
     normalize();
     wrapTheme();
