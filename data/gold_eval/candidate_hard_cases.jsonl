@@ -1,0 +1,40 @@
+{"id":"goldcand_001","text":"YKS yerleştirme sonucu geldi, sevindim ama bölümün ders planını görünce biraz da korktum açıkçası 😅","challenge":["mixed_intent","emotion"]}
+{"id":"goldcand_002","text":"Bugün kayıt için üç farklı sayfa gezdim; sonunda resmi duyurudaki iki satır bütün karmaşayı çözdü.","challenge":["informative_personal","context"]}
+{"id":"goldcand_003","text":"Hazırlık muafiyetine çalışıyorum diye başladım, iki saat sonra İngilizce meme sayfalarında buldum kendimi. verimlilik 10/10","challenge":["irony","mixed_intent"]}
+{"id":"goldcand_004","text":"Bölüm seçerken sadece taban puana bakmayın derim; ders içeriklerini okuyunca fikrim baya değişti.","challenge":["advice","education"]}
+{"id":"goldcand_005","text":"Üniversiteye başlıyorum ama en çok hangi otobüse bineceğimi düşünüyorum, akademik hedefler sonra 😭","challenge":["humor","social"]}
+{"id":"goldcand_006","text":"Küçük dil modeli telefonda şaşırtıcı hızlı çalıştı ama bir soruda çok emin şekilde yanlış cevap verdi. hız güzel, kontrol şart.","challenge":["technology","nuance"]}
+{"id":"goldcand_007","text":"AI her şeyi çözecek diyorlar, bugün kodu düzelteyim derken çalışan kısmı da bozdu :) yine de tekrar eden işlerde iyi.","challenge":["irony","balanced_opinion"]}
+{"id":"goldcand_008","text":"Bir makaleyi özetlettim, ana fikir doğruydu ama kritik bir istisnayı atlamış. özet okumak başka, kaynağı okumak başka.","challenge":["informative","caution"]}
+{"id":"goldcand_009","text":"Yeni yapay zekâ özelliğini açtım, ilk baktığım yer model değil gizlilik ayarları oldu. yaşlanıyor muyum ne 😅","challenge":["tech_social","humor"]}
+{"id":"goldcand_010","text":"Kod tamamlayıcı bugün 15 dakika kazandırdı, sonra ürettiği tek satırlık bug 40 dakikamı aldı. hesabı siz yapın.","challenge":["irony","technology"]}
+{"id":"goldcand_011","text":"TEKNOFEST için son testte her şey çalıştı. tabii ekipçe 'bir daha dokunmayalım' dedikten 5 dakika sonra bir ayar daha değiştirdik.","challenge":["maker","humor"]}
+{"id":"goldcand_012","text":"Sensör kalibrasyonu sonunda düzeldi; sorun yazılım değil masanın hafif eğik olmasıymış. bazen en basit ihtimali en son düşünüyorsun.","challenge":["technical_lesson","personal"]}
+{"id":"goldcand_013","text":"Sunum provasında 8 dakika konuşmuşuz, final süresi 5 dakika. üç slaytı sevgiyle uğurladık 🥲","challenge":["event","humor"]}
+{"id":"goldcand_014","text":"Takımda herkes farklı çözüm önerince tartışma uzadı ama en iyi fikir de o tartışmadan çıktı. yorucu ama değerdi.","challenge":["social","reflection"]}
+{"id":"goldcand_015","text":"Uçuş öncesi checklist sıkıcı geliyordu, bugün bir gevşek bağlantıyı yakaladı. fikrimi geri alıyorum.","challenge":["technical","attitude_change"]}
+{"id":"goldcand_016","text":"Milli maç için 'sadece ilk yarıyı izlerim' dedim. uzatmaları ayakta izliyordum, planlama yine mükemmel.","challenge":["sports","humor"]}
+{"id":"goldcand_017","text":"Pozisyonu canlı izleyince net faul dedim, tekrarını görünce o kadar da emin olamadım. kamera açısı acayip şey.","challenge":["uncertainty","sports"]}
+{"id":"goldcand_018","text":"Maç kötü değildi bence ama sosyal medyayı okuyunca sanki başka bir karşılaşma izlemişim gibi hissediyorum.","challenge":["opinion","social_context"]}
+{"id":"goldcand_019","text":"Skor güzel, oyun için aynı şeyi söyleyemeyeceğim. sonuçla performansı aynı şey saymak bana garip geliyor.","challenge":["analysis","sports"]}
+{"id":"goldcand_020","text":"Arkadaş grubunda maç tahmini yaptık, futboldan en az anlayan kişi tek bilen çıktı. istatistik bilimi şu an üzgün.","challenge":["humor","sports_social"]}
+{"id":"goldcand_021","text":"Şehirdeki festivale sırf arkadaşım istedi diye gittim, günün sonunda benden çok ben program bakıyordum.","challenge":["culture","attitude_change"]}
+{"id":"goldcand_022","text":"Sergide bir işi beş dakika izledim, ne anlatmak istediğini hâlâ bilmiyorum ama aklımdan da çıkmıyor.","challenge":["ambiguous","culture"]}
+{"id":"goldcand_023","text":"Açık hava konseri güzel de eve dönüş planını konserden önce yapmak gerekiyormuş, bunu biraz geç öğrendik 😅","challenge":["culture","practical_advice"]}
+{"id":"goldcand_024","text":"Filmi çok sevdim diyemem ama çıkınca yarım saat üzerine konuştuysak bir şeyleri doğru yapmış demektir.","challenge":["nuance","culture_social"]}
+{"id":"goldcand_025","text":"Kitap fuarına 'bir bakıp çıkarım' diye girdim, çantayla çıktım. bütçe planı başka bahara.","challenge":["culture","budget","humor"]}
+{"id":"goldcand_026","text":"Bu ay harcamaları yazınca küçük küçük aldıklarımın toplamı moral bozdu. büyük alışveriş değil, görünmeyenler yoruyor.","challenge":["budget","reflection"]}
+{"id":"goldcand_027","text":"Market fiyatlarını geçen ayla kıyaslamak için fiş saklamaya başladım. beklemediğim kadar faydalı oldu.","challenge":["budget","informative_personal"]}
+{"id":"goldcand_028","text":"İndirim var diye ihtiyacım olmayan şeyi almak tasarruf sayılmıyormuş, bugün finans dünyasına katkım bu kadar.","challenge":["irony","budget"]}
+{"id":"goldcand_029","text":"Evde kahve yapınca para kalıyor mu bilmiyorum çünkü bu kez ekipman bakmaya başladım. sistem beni yendi.","challenge":["humor","budget"]}
+{"id":"goldcand_030","text":"Abonelikleri tek tek görünce ucuz, topluca görünce başka bir hikâye. iki tanesini sonunda kapattım.","challenge":["budget","personal_action"]}
+{"id":"goldcand_031","text":"Yeni yamadan sonra oyun daha dengeli olmuş diyorlar, benim karakter hâlâ yere bakıyor olabilir tamamen yetenek meselesi 😭","challenge":["gaming","self_deprecating_humor"]}
+{"id":"goldcand_032","text":"Co-op oyunda görevi geçemedik ama iki saat boyunca çok eğlendik. başarı metriğini değiştirmek lazım bazen.","challenge":["gaming","social","reflection"]}
+{"id":"goldcand_033","text":"Boss'u üçüncü denemede kestim diye seviniyordum, arkadaşım ilk denemede geçti. bu bilgiye ihtiyacım yoktu.","challenge":["gaming","humor"]}
+{"id":"goldcand_034","text":"Oyunun grafikleri normal ama ses tasarımı kulaklıkla bambaşka hissettiriyor. fragmanda hiç dikkat etmemiştim.","challenge":["gaming","review"]}
+{"id":"goldcand_035","text":"Ranked girmeden önce 'sinirlenmeyeceğim' diye kendime söz vermem zaten nasıl bir akşam olacağını anlatıyor.","challenge":["gaming","irony"]}
+{"id":"goldcand_036","text":"Otobüs geç geldi diye söyleniyordum, kulaklığı takıp yürüyünce günün en sakin 20 dakikası oldu.","challenge":["daily","attitude_change"]}
+{"id":"goldcand_037","text":"Bugün hiçbir büyük iş yapmadım ama masayı topladım, maillere döndüm, yürüyüş yaptım. garip şekilde üretken hissediyorum.","challenge":["daily","reflection"]}
+{"id":"goldcand_038","text":"Arkadaşla kahve içmeye çıktık, kahve 15 dakika sohbet 3 saat sürdü. plan teknik olarak başarıyla tamamlandı.","challenge":["social","humor"]}
+{"id":"goldcand_039","text":"Grup projesinde herkes aynı anda müsait olunca tarihî bir an yaşandı. 25 dakikada bir haftalık işi planladık.","challenge":["work_social","humor"]}
+{"id":"goldcand_040","text":"Sabah internet gitti diye bütün plan bozuldu sandım; offline yapabileceğim üç işi bitirdim. biraz da bahaneymiş galiba.","challenge":["daily","reflection","irony"]}
