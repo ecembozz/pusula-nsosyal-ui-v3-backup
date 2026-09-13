@@ -1,12 +1,16 @@
 import json
 import re
 import unittest
+from collections import Counter
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 RAW=ROOT/'data'/'v2_realistic'/'raw_posts.jsonl'
 HARD=ROOT/'data'/'gold_eval'/'candidate_hard_cases.jsonl'
+NEWS=ROOT/'data'/'gold_eval'/'candidate_news_cases.jsonl'
+DRAFT=ROOT/'data'/'gold_eval'/'draft_labels_annotator_a.jsonl'
 
+DIMS=('ogretici','eglendirici','haber','sosyal')
 PII=[
     re.compile(r'\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b'),
     re.compile(r'https?://|www\.',re.I),
@@ -35,15 +39,41 @@ class DatasetV2Tests(unittest.TestCase):
         self.assertEqual(set(topics.values()),{32})
         self.assertEqual(len(topics),10)
 
-    def test_hard_gold_candidates(self):
-        rows=load_jsonl(HARD)
-        self.assertEqual(len(rows),40)
-        self.assertEqual(len({r['id'] for r in rows}),40)
-        self.assertEqual(len({r['text'] for r in rows}),40)
+    def test_hard_development_cases(self):
+        hard=load_jsonl(HARD)
+        news=load_jsonl(NEWS)
+        rows=hard+news
+        self.assertEqual(len(hard),40)
+        self.assertEqual(len(news),8)
+        self.assertEqual(len(rows),48)
+        self.assertEqual(len({r['id'] for r in rows}),48)
+        self.assertEqual(len({r['text'] for r in rows}),48)
         for r in rows:
             self.assertTrue(r['challenge'])
             self.assertTrue(20<=len(r['text'])<=280)
             self.assertFalse(any(p.search(r['text']) for p in PII))
+
+    def test_single_annotator_draft_schema(self):
+        cases={r['id'] for r in load_jsonl(HARD)+load_jsonl(NEWS)}
+        labels=load_jsonl(DRAFT)
+        self.assertEqual(len(labels),48)
+        self.assertEqual({r['id'] for r in labels},cases)
+        distribution=Counter()
+        for r in labels:
+            self.assertEqual(r['annotation_status'],'draft_single_annotator')
+            self.assertEqual(r['annotator_role'],'assistant_draft_a')
+            self.assertIn(r['dominant_intent'],DIMS)
+            self.assertTrue(0.0<=float(r['clickbait'])<=1.0)
+            self.assertTrue(0.0<=float(r['annotation_confidence'])<=1.0)
+            self.assertEqual(set(r['intent']),set(DIMS))
+            for dim in DIMS:
+                self.assertTrue(0.0<=float(r['intent'][dim])<=1.0)
+            # Dominant must match the maximum draft dimension. Ties are allowed
+            # only when the recorded dominant is one of the maxima.
+            mx=max(float(r['intent'][d]) for d in DIMS)
+            self.assertAlmostEqual(float(r['intent'][r['dominant_intent']]),mx)
+            distribution[r['dominant_intent']]+=1
+        self.assertEqual(distribution,Counter({'sosyal':15,'eglendirici':13,'ogretici':12,'haber':8}))
 
 if __name__=='__main__':
     unittest.main()
