@@ -1,0 +1,48 @@
+name: Dataset V2 Diversity Refresh
+
+on:
+  push:
+    branches:
+      - semantic-v2
+    paths:
+      - "scripts/build_dataset_v2.py"
+      - "scripts/apply_dataset_v2_diversity_patch.py"
+      - ".github/workflows/dataset-v2-diversity-refresh.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild deterministic base corpus
+        run: python scripts/build_dataset_v2.py
+      - name: Apply deterministic diversity rewrites
+        run: python scripts/apply_dataset_v2_diversity_patch.py
+      - name: Audit near duplicates
+        run: python scripts/audit_dataset_similarity.py --output /tmp/dataset_similarity_audit.json --top 30
+      - name: Enforce high-similarity gate
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('/tmp/dataset_similarity_audit.json',encoding='utf-8'))
+          print('>=0.90 pairs:',p['pair_count_ge_0_90'],'max:',p['max_similarity'])
+          if p['pair_count_ge_0_90'] != 0:
+              raise SystemExit('Dataset still contains >=0.90 near-duplicate pairs')
+          PY
+      - name: Commit diversified corpus
+        run: |
+          if git diff --quiet -- data/v2_realistic/raw_posts.jsonl data/v2_realistic/corpus_stats.json; then
+            echo "Corpus already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/v2_realistic/raw_posts.jsonl data/v2_realistic/corpus_stats.json
+          git commit -m "semantic-v2: refresh diversified 320-post corpus [skip ci]"
+          git push origin HEAD:semantic-v2
