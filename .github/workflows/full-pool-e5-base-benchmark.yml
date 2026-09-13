@@ -1,0 +1,52 @@
+name: Full Pool E5 Base Benchmark
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - supervised-embedding-v1
+    paths:
+      - experiments/benchmark_full_pool_e5_base.py
+      - experiments/benchmark_encoder_sweep.py
+      - experiments/benchmark_intent_balanced_corpus.py
+      - experiments/benchmark_style_generalization.py
+      - experiments/benchmark_supervised_embeddings.py
+      - data/dev_labels/intent_balanced_training_v1.jsonl
+      - .github/workflows/full-pool-e5-base-benchmark.yml
+
+permissions:
+  contents: write
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU inference dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "torch>=2.4,<3" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "transformers>=4.44,<5" "scikit-learn>=1.5,<2" safetensors sentencepiece
+      - name: Run pinned 2000-post benchmark
+        env:
+          TOKENIZERS_PARALLELISM: 'false'
+          PYTHONUNBUFFERED: '1'
+        run: |
+          python experiments/benchmark_full_pool_e5_base.py \
+            --output experiments/results/full_pool_e5_base.json \
+            --summary experiments/results/full_pool_e5_base.md
+      - name: Commit development results
+        run: |
+          if [ -z "$(git status --porcelain -- experiments/results/full_pool_e5_base.json experiments/results/full_pool_e5_base.md)" ]; then
+            echo "Results already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/results/full_pool_e5_base.json experiments/results/full_pool_e5_base.md
+          git commit -m "semantic-v2: record 2000-post E5-base benchmark [skip ci]"
+          git push origin HEAD:supervised-embedding-v1
