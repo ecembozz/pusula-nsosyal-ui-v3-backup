@@ -54,10 +54,29 @@ def macro_f1(gold, pred):
     return sum(vals) / len(vals), per_class
 
 
+def nli_label_ids(model):
+    label2id = {str(k).lower(): int(v) for k, v in model.config.label2id.items()}
+    entail_idx = next((idx for name, idx in label2id.items() if "entail" in name), None)
+    contradiction_idx = next((idx for name, idx in label2id.items() if "contrad" in name), None)
+
+    # Most MNLI-family models use [contradiction, neutral, entailment] when
+    # semantic label names are absent from config. This matches the fallback
+    # used by transformers' zero-shot pipeline.
+    if entail_idx is None:
+        entail_idx = 2
+    if contradiction_idx is None:
+        contradiction_idx = 0
+    return contradiction_idx, entail_idx
+
+
 def entailment_score(classifier, text: str, hypothesis: str) -> float:
-    # The zero-shot pipeline takes candidate labels, not arbitrary completed
-    # hypotheses. We use the model tokenizer/model directly so each PUSULA
-    # definition is evaluated as an explicit premise-hypothesis NLI pair.
+    """Return zero-shot style P(entailment | contradiction or entailment).
+
+    Neutral is intentionally excluded from the denominator. For independent
+    multi-label zero-shot classification this mirrors the standard Hugging Face
+    formulation and avoids suppressing all scores toward zero simply because a
+    premise/hypothesis pair is often neutral.
+    """
     tokenizer = classifier.tokenizer
     model = classifier.model
     import torch
@@ -66,17 +85,10 @@ def entailment_score(classifier, text: str, hypothesis: str) -> float:
     with torch.inference_mode():
         logits = model(**encoded).logits[0]
 
-    label2id = {str(k).lower(): int(v) for k, v in model.config.label2id.items()}
-    entail_idx = None
-    for name, idx in label2id.items():
-        if "entail" in name:
-            entail_idx = idx
-            break
-    if entail_idx is None:
-        # Common MNLI ordering: contradiction, neutral, entailment.
-        entail_idx = int(logits.numel() - 1)
-    probs = torch.softmax(logits, dim=-1)
-    return float(probs[entail_idx].item())
+    contradiction_idx, entail_idx = nli_label_ids(model)
+    pair_logits = torch.stack([logits[contradiction_idx], logits[entail_idx]])
+    pair_probs = torch.softmax(pair_logits, dim=-1)
+    return float(pair_probs[1].item())
 
 
 def main():
@@ -118,6 +130,7 @@ def main():
         "model": MODEL_ID,
         "model_commit": model_commit,
         "n": len(gold),
+        "score_normalization": "entailment_vs_contradiction_two_class_softmax",
         "hypothesis_source": "data/gold_eval/ANNOTATION_GUIDE.md",
         "hypotheses": HYPOTHESES,
         "gold_distribution": dict(Counter(gold_dom)),
