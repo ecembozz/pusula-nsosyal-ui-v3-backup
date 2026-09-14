@@ -16,18 +16,18 @@
         "n": 48,
         "pair_order_accuracy": 0.9375,
         "pair_order_margin_0_10_rate": 0.8958333333333334,
-        "mean_axis_delta": 0.39270101013754016,
+        "mean_axis_delta": 0.39270120092835487,
         "low_false_high_rate": 0.14583333333333334,
         "high_capture_rate": 0.7083333333333334,
         "high_axis_top1_rate": 0.9791666666666666,
-        "vector_mae": 0.14166050737997224,
-        "mean_cosine_similarity": 0.8578128591019342,
+        "vector_mae": 0.1416604807434856,
+        "mean_cosine_similarity": 0.8578128549412849,
         "by_axis": {
           "eglendirici": {
             "n": 12,
             "pair_order_accuracy": 0.75,
             "pair_order_margin_0_10_rate": 0.6666666666666666,
-            "mean_axis_delta": 0.14431054649914923,
+            "mean_axis_delta": 0.1443104039178801,
             "low_false_high_rate": 0.16666666666666666,
             "high_capture_rate": 0.3333333333333333,
             "high_axis_top1_rate": 0.9166666666666666
@@ -36,7 +36,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 0.9166666666666666,
-            "mean_axis_delta": 0.3967493074806914,
+            "mean_axis_delta": 0.39674931178030276,
             "low_false_high_rate": 0.4166666666666667,
             "high_capture_rate": 1.0,
             "high_axis_top1_rate": 1.0
@@ -45,7 +45,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 1.0,
-            "mean_axis_delta": 0.47139509057943735,
+            "mean_axis_delta": 0.4713951105188538,
             "low_false_high_rate": 0.0,
             "high_capture_rate": 0.8333333333333334,
             "high_axis_top1_rate": 1.0
@@ -54,7 +54,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 1.0,
-            "mean_axis_delta": 0.5583490959908824,
+            "mean_axis_delta": 0.5583499774963828,
             "low_false_high_rate": 0.0,
             "high_capture_rate": 0.6666666666666666,
             "high_axis_top1_rate": 1.0
@@ -64,9 +64,9 @@
           {
             "id": "pair_e01",
             "axis": "eglendirici",
-            "low_score": 0.7360759149685793,
-            "high_score": 0.5599972205956026,
-            "delta": -0.17607869437297663,
+            "low_score": 0.73607613832906,
+            "high_score": 0.5599970644237687,
+            "delta": -0.17607907390529132,
             "ordered": false,
             "ordered_margin_0_10": false,
             "low_false_high": true,
@@ -76,9 +76,9 @@
           {
             "id": "pair_e08",
             "axis": "eglendirici",
-            "low_score": 0.6223993619354431,
-            "high_score": 0.5371173047942328,
-            "delta": -0.08528205714121029,
+            "low_score": 0.6223994738456722,
+            "high_score": 0.5371172530678688,
+            "delta": -0.08528222077780334,
             "ordered": false,
             "ordered_margin_0_10": false,
             "low_false_high": true,
@@ -88,9 +88,9 @@
           {
             "id": "pair_e11",
             "axis": "eglendirici",
-            "low_score": 0.1486644819764735,
-            "high_score": 0.13271289354918478,
-            "delta": -0.01595158842728872,
+            "low_score": 0.14866425992047388,
+            "high_score": 0.13271291631097415,
+            "delta": -0.015951343609499735,
             "ordered": false,
             "ordered_margin_0_10": false,
             "low_false_high": false,
@@ -114,10 +114,10 @@
         },
         "max_class_share": 0.615625,
         "mean_vector": [
-          0.18417428345129755,
-          0.3565748954626943,
-          0.08601187895180258,
-          0.2680239022260439
+          0.18417428746256237,
+          0.3565748826153515,
+          0.08601187041402479,
+          0.26802390192387476
         ]
       }
     },
@@ -126,18 +126,18 @@
         "n": 48,
         "pair_order_accuracy": 0.9583333333333334,
         "pair_order_margin_0_10_rate": 0.875,
-        "mean_axis_delta": 0.37101333651440016,
+        "mean_axis_delta": 0.3710134776981999,
         "low_false_high_rate": 0.10416666666666667,
         "high_capture_rate": 0.7291666666666666,
         "high_axis_top1_rate": 0.9791666666666666,
-        "vector_mae": 0.1556336668268846,
-        "mean_cosine_similarity": 0.8623061962077087,
+        "vector_mae": 0.15563364569800067,
+        "mean_cosine_similarity": 0.8623061828382937,
         "by_axis": {
           "eglendirici": {
             "n": 12,
             "pair_order_accuracy": 0.8333333333333334,
             "pair_order_margin_0_10_rate": 0.5833333333333334,
-            "mean_axis_delta": 0.11968707714172777,
+            "mean_axis_delta": 0.11968693564644456,
             "low_false_high_rate": 0.16666666666666666,
             "high_capture_rate": 0.3333333333333333,
             "high_axis_top1_rate": 0.9166666666666666
@@ -146,7 +146,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 0.9166666666666666,
-            "mean_axis_delta": 0.40126338080284335,
+            "mean_axis_delta": 0.401263229565423,
             "low_false_high_rate": 0.25,
             "high_capture_rate": 1.0,
             "high_axis_top1_rate": 1.0
@@ -155,7 +155,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 1.0,
-            "mean_axis_delta": 0.4350099233199996,
+            "mean_axis_delta": 0.43501005035873663,
             "low_false_high_rate": 0.0,
             "high_capture_rate": 0.8333333333333334,
             "high_axis_top1_rate": 1.0
@@ -164,7 +164,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 1.0,
-            "mean_axis_delta": 0.5280929647930299,
+            "mean_axis_delta": 0.5280936952221955,
             "low_false_high_rate": 0.0,
             "high_capture_rate": 0.75,
             "high_axis_top1_rate": 1.0
@@ -174,9 +174,9 @@
           {
             "id": "pair_e01",
             "axis": "eglendirici",
-            "low_score": 0.7293229005263113,
-            "high_score": 0.5889003489700281,
-            "delta": -0.14042255155628325,
+            "low_score": 0.7293232882095824,
+            "high_score": 0.5889003725709786,
+            "delta": -0.14042291563860376,
             "ordered": false,
             "ordered_margin_0_10": false,
             "low_false_high": true,
@@ -186,9 +186,9 @@
           {
             "id": "pair_e08",
             "axis": "eglendirici",
-            "low_score": 0.6444005352034283,
-            "high_score": 0.5771950309997588,
-            "delta": -0.06720550420366955,
+            "low_score": 0.6444006813008634,
+            "high_score": 0.5771951055748828,
+            "delta": -0.06720557572598052,
             "ordered": false,
             "ordered_margin_0_10": false,
             "low_false_high": true,
@@ -212,10 +212,10 @@
         },
         "max_class_share": 0.596875,
         "mean_vector": [
-          0.20764978834082087,
-          0.3662427644970102,
-          0.09591493541618092,
-          0.29236186504072537
+          0.2076497524988786,
+          0.3662427862802577,
+          0.09591496382388634,
+          0.2923618447906522
         ]
       }
     },
@@ -224,18 +224,18 @@
         "n": 48,
         "pair_order_accuracy": 1.0,
         "pair_order_margin_0_10_rate": 0.9791666666666666,
-        "mean_axis_delta": 0.4450832554001975,
+        "mean_axis_delta": 0.4450834025660388,
         "low_false_high_rate": 0.020833333333333332,
         "high_capture_rate": 0.625,
         "high_axis_top1_rate": 0.9583333333333334,
-        "vector_mae": 0.10645860285810553,
-        "mean_cosine_similarity": 0.88837316862854,
+        "vector_mae": 0.10645858156703576,
+        "mean_cosine_similarity": 0.88837311400872,
         "by_axis": {
           "eglendirici": {
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 0.9166666666666666,
-            "mean_axis_delta": 0.25608817669826595,
+            "mean_axis_delta": 0.2560876917518715,
             "low_false_high_rate": 0.0,
             "high_capture_rate": 0.0,
             "high_axis_top1_rate": 0.8333333333333334
@@ -244,7 +244,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 1.0,
-            "mean_axis_delta": 0.44253210383717984,
+            "mean_axis_delta": 0.4425320371002733,
             "low_false_high_rate": 0.08333333333333333,
             "high_capture_rate": 1.0,
             "high_axis_top1_rate": 1.0
@@ -253,7 +253,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 1.0,
-            "mean_axis_delta": 0.5500876893089871,
+            "mean_axis_delta": 0.5500877369536011,
             "low_false_high_rate": 0.0,
             "high_capture_rate": 0.8333333333333334,
             "high_axis_top1_rate": 1.0
@@ -262,7 +262,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 1.0,
-            "mean_axis_delta": 0.5316250517563571,
+            "mean_axis_delta": 0.5316261444584093,
             "low_false_high_rate": 0.0,
             "high_capture_rate": 0.6666666666666666,
             "high_axis_top1_rate": 1.0
@@ -285,10 +285,10 @@
         },
         "max_class_share": 0.615625,
         "mean_vector": [
-          0.17146923522865515,
-          0.3330069604001957,
-          0.08203672226826154,
-          0.2537851917391205
+          0.1714692371421175,
+          0.33300694643165163,
+          0.08203671251251866,
+          0.25378518863187705
         ]
       }
     },
@@ -297,18 +297,18 @@
         "n": 48,
         "pair_order_accuracy": 1.0,
         "pair_order_margin_0_10_rate": 0.9791666666666666,
-        "mean_axis_delta": 0.4103000204613932,
+        "mean_axis_delta": 0.4103001289264629,
         "low_false_high_rate": 0.020833333333333332,
         "high_capture_rate": 0.6458333333333334,
         "high_axis_top1_rate": 0.9583333333333334,
-        "vector_mae": 0.12838032554771092,
-        "mean_cosine_similarity": 0.8843568003670955,
+        "vector_mae": 0.12838032376126304,
+        "mean_cosine_similarity": 0.8843567595663467,
         "by_axis": {
           "eglendirici": {
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 0.9166666666666666,
-            "mean_axis_delta": 0.20352029979106526,
+            "mean_axis_delta": 0.2035199015219381,
             "low_false_high_rate": 0.0,
             "high_capture_rate": 0.0,
             "high_axis_top1_rate": 0.8333333333333334
@@ -317,7 +317,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 1.0,
-            "mean_axis_delta": 0.43560047807020963,
+            "mean_axis_delta": 0.4356002735554008,
             "low_false_high_rate": 0.08333333333333333,
             "high_capture_rate": 1.0,
             "high_axis_top1_rate": 1.0
@@ -326,7 +326,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 1.0,
-            "mean_axis_delta": 0.4940293723671619,
+            "mean_axis_delta": 0.4940295201847971,
             "low_false_high_rate": 0.0,
             "high_capture_rate": 0.8333333333333334,
             "high_axis_top1_rate": 1.0
@@ -335,7 +335,7 @@
             "n": 12,
             "pair_order_accuracy": 1.0,
             "pair_order_margin_0_10_rate": 1.0,
-            "mean_axis_delta": 0.508049931617136,
+            "mean_axis_delta": 0.5080508204437152,
             "low_false_high_rate": 0.0,
             "high_capture_rate": 0.75,
             "high_axis_top1_rate": 1.0
@@ -358,10 +358,10 @@
         },
         "max_class_share": 0.590625,
         "mean_vector": [
-          0.19812100217383893,
-          0.34856681320013627,
-          0.09293356790352517,
-          0.28168283217553275
+          0.19812096475854485,
+          0.3485668341424829,
+          0.09293359539775684,
+          0.28168280982165383
         ]
       }
     }
