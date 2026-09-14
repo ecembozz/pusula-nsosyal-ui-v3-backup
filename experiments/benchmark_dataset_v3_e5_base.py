@@ -97,13 +97,7 @@ def cls_metrics(dom_true, pred, probs):
     return out
 
 
-def train_eval(x_train, y_train, d_train, x_test, y_test, d_test):
-    # Keep k fixed across all scenarios so the 128-vs-256 comparison isolates data effects.
-    k = 7
-    knn = KNeighborsRegressor(n_neighbors=k, weights="distance", metric="cosine")
-    knn.fit(x_train, y_train)
-    p_knn = np.asarray(knn.predict(x_test), dtype=float)
-
+def fit_classifier(x_train, d_train, x_test, d_test):
     clf = LogisticRegression(
         C=4.0,
         class_weight="balanced",
@@ -118,6 +112,37 @@ def train_eval(x_train, y_train, d_train, x_test, y_test, d_test):
     cmap = {c: i for i, c in enumerate(clf.classes_)}
     for j, cls in enumerate(INTENTS):
         probs[:, j] = raw_probs[:, cmap[cls]]
+    return clf, d_pred, probs, cls_metrics(d_test, d_pred.tolist(), probs)
+
+
+def margin_aware_classifiers(x_train, y_train, d_train, x_test, d_test):
+    intent = np.asarray(y_train[:, :4], dtype=float)
+    sorted_scores = np.sort(intent, axis=1)
+    label_margin = sorted_scores[:, -1] - sorted_scores[:, -2]
+    out = {}
+    for threshold in (0.15, 0.25, 0.35):
+        keep = label_margin >= threshold
+        kept_classes = Counter(d_train[keep])
+        if not all(kept_classes.get(cls, 0) >= 2 for cls in INTENTS):
+            continue
+        _, _, _, metrics = fit_classifier(x_train[keep], d_train[keep], x_test, d_test)
+        out[f"margin_{threshold:.2f}"] = {
+            "label_margin_threshold": threshold,
+            "train_n": int(np.sum(keep)),
+            "train_distribution": dict(kept_classes),
+            **metrics,
+        }
+    return out
+
+
+def train_eval(x_train, y_train, d_train, x_test, y_test, d_test):
+    # Fixed k isolates training-data effects in the 128-vs-256 comparison.
+    k = 7
+    knn = KNeighborsRegressor(n_neighbors=k, weights="distance", metric="cosine")
+    knn.fit(x_train, y_train)
+    p_knn = np.asarray(knn.predict(x_test), dtype=float)
+
+    _, d_pred, probs, standard_cls = fit_classifier(x_train, d_train, x_test, d_test)
 
     hybrid = np.zeros_like(p_knn)
     hybrid[:, :4] = 0.72 * np.clip(p_knn[:, :4], 0, 1) + 0.28 * probs
@@ -134,7 +159,10 @@ def train_eval(x_train, y_train, d_train, x_test, y_test, d_test):
         "knn_k": int(k),
         "semantic_knn": vec_metrics(y_test, p_knn, d_test),
         "hybrid_vector": vec_metrics(y_test, hybrid, d_test),
-        "balanced_logistic_dominant": cls_metrics(d_test, d_pred.tolist(), probs),
+        "balanced_logistic_dominant": standard_cls,
+        "margin_aware_dominant": margin_aware_classifiers(
+            x_train, y_train, d_train, x_test, d_test
+        ),
         "ood": {
             "threshold": threshold,
             "ood_rate": float(np.mean(nearest < threshold)),
@@ -225,11 +253,26 @@ def main():
             f"{c['accuracy_at_50pct_coverage']:.3f} | {h['dominant_accuracy']:.3f} | "
             f"{h['macro_f1']:.3f} | {h['intent_mae']:.3f} | {h['mean_cosine_similarity']:.3f} |"
         )
+
+    lines += ["", "## Margin-aware dominant classifier", ""]
+    for key in ("v3_128_only", "v3_256_only"):
+        lines.append(f"### {key}")
+        lines.append("")
+        lines.append("| Label margin | Train n | Accuracy | Macro-F1 | Top-50% conf. acc. |")
+        lines.append("|---:|---:|---:|---:|---:|")
+        for name, m in scenarios[key]["margin_aware_dominant"].items():
+            lines.append(
+                f"| {m['label_margin_threshold']:.2f} | {m['train_n']} | "
+                f"{m['dominant_accuracy']:.3f} | {m['macro_f1']:.3f} | "
+                f"{m['accuracy_at_50pct_coverage']:.3f} |"
+            )
+        lines.append("")
+
     lines += [
-        "",
         "## Policy",
         "",
         "V3 tranche 2 deliberately targets teaching↔social and entertainment↔social boundary cases instead of merely adding more easy examples.",
+        "Ambiguous rows remain valuable for the 4D vector head. Margin-aware experiments test whether they should be excluded only from the auxiliary single-dominant classifier.",
         "The old 2,000-post templated pool remains a baseline/demo fixture only and is not used to train these candidate models.",
         "",
     ]
