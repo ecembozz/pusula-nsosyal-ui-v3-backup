@@ -1,0 +1,54 @@
+{
+  "schema": "pusula-dataset-v4-calibrated-development",
+  "clear_n": 256,
+  "neutral_mixed_n": 64,
+  "total_n": 320,
+  "clear_auxiliary_distribution": {
+    "ogretici": 64,
+    "eglendirici": 64,
+    "haber": 64,
+    "sosyal": 64
+  },
+  "clear_class_prototypes": {
+    "ogretici": [
+      0.8861,
+      0.0633,
+      0.0319,
+      0.1353
+    ],
+    "eglendirici": [
+      0.0302,
+      0.928,
+      0.0206,
+      0.1241
+    ],
+    "haber": [
+      0.2764,
+      0.0456,
+      0.9119,
+      0.12
+    ],
+    "sosyal": [
+      0.1388,
+      0.0938,
+      0.0158,
+      0.9561
+    ]
+  },
+  "social_semantics": "interpersonal_or_community_function_not_generic_personal_post",
+  "source_policy": {
+    "v3_non_social_rows": "retained_text_recalibrated_social_secondary_axis",
+    "v3_social_rows": "retained_text_as_neutral_mixed_no_auxiliary_hard_label",
+    "new_social_rows": "64_original_clear_interaction_examples"
+  },
+  "near_duplicate_audit": {
+    "threshold": 0.9,
+    "pair_count": 0,
+    "pairs": [],
+    "max_similarity": 0.8206037722065124,
+    "max_pair": [
+      "v4c_v3h_029",
+      "v4c_v3h_046"
+    ]
+  }
+}
