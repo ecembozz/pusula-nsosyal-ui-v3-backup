@@ -1,0 +1,35 @@
+{
+  "status": "development_smoke_not_final_evaluation",
+  "n": 320,
+  "intent_head": "knn_k7_cosine_distance_352",
+  "clickbait_head": "e5_ridge_alpha_0.05_continuous_192",
+  "dominant_distribution": {
+    "eglendirici": 197,
+    "sosyal": 75,
+    "ogretici": 39,
+    "haber": 9
+  },
+  "auxiliary_distribution": {
+    "eglendirici": 171,
+    "sosyal": 100,
+    "ogretici": 46,
+    "haber": 3
+  },
+  "canonical_auxiliary_agreement_rate": 0.734375,
+  "mixed_intent_count": 146,
+  "mixed_intent_rate": 0.45625,
+  "mean_intent_margin": 0.19342905625,
+  "mean_screening_confidence": 0.29056965625000003,
+  "screening_confidence_lt_0_50": 315,
+  "ood_count": 7,
+  "mean_clickbait": 0.12969086875,
+  "median_clickbait": 0.12466350000000001,
+  "p90_clickbait": 0.26859410000000006,
+  "p95_clickbait": 0.2923230500000002,
+  "max_clickbait": 0.444935,
+  "clickbait_ge_0_50": 0,
+  "clickbait_ge_0_65": 0,
+  "mean_quality_multiplier": 0.87030913125,
+  "cache_record_count": 320,
+  "cache_reject_count": 0
+}
