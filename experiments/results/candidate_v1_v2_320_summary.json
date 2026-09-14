@@ -1,18 +1,25 @@
 {
   "status": "development_smoke_not_final_evaluation",
   "n": 320,
-  "dominant_distribution": {
+  "canonical_dominant_distribution": {
+    "sosyal": 293,
+    "ogretici": 12,
+    "eglendirici": 10,
+    "haber": 5
+  },
+  "auxiliary_dominant_distribution": {
     "eglendirici": 104,
     "sosyal": 167,
     "ogretici": 47,
     "haber": 2
   },
-  "mean_confidence": 0.305806025,
-  "confidence_lt_0_50": 306,
-  "confidence_ge_0_70": 0,
-  "mean_dominant_margin": 0.124939396875,
+  "canonical_auxiliary_agreement_rate": 0.575,
+  "mean_screening_confidence": 0.305806134375,
+  "screening_confidence_lt_0_50": 306,
+  "screening_confidence_ge_0_70": 0,
+  "mean_auxiliary_dominant_margin": 0.12493956875000001,
   "ood_count": 12,
-  "mean_clickbait": 0.087720825,
+  "mean_clickbait": 0.087720815625,
   "clickbait_ge_0_50": 0,
   "cache_record_count": 320,
   "cache_reject_count": 0

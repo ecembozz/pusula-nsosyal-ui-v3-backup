@@ -7,7 +7,7 @@
     "0092b9ddf2af44cdfa01c9bcda586a3665287c05e0d9805aa0a72cc96e39b8ea": {
       "id": "v2r_0231",
       "text_fingerprint": "0092b9ddf2af44cdfa01c9bcda586a3665287c05e0d9805aa0a72cc96e39b8ea",
-      "ogretici": 0.328441,
+      "ogretici": 0.32844,
       "eglendirici": 0.307226,
       "haber": 0.156506,
       "sosyal": 0.62495,
@@ -18,7 +18,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.328441,
+        0.32844,
         0.307226,
         0.156506,
         0.62495
@@ -34,7 +34,7 @@
       "sosyal": 0.84605,
       "clickbait": 0.136973,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.211542,
+      "confidence": 0.211543,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -118,7 +118,7 @@
       "sosyal": 0.623948,
       "clickbait": 0.160017,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.220059,
+      "confidence": 0.22006,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -136,7 +136,7 @@
       "ogretici": 0.115573,
       "eglendirici": 0.238393,
       "haber": 0.276617,
-      "sosyal": 0.726219,
+      "sosyal": 0.726218,
       "clickbait": 0.017158,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.201206,
@@ -147,7 +147,7 @@
         0.115573,
         0.238393,
         0.276617,
-        0.726219
+        0.726218
       ],
       "dominant_intent": "sosyal"
     },
@@ -158,7 +158,7 @@
       "eglendirici": 0.914549,
       "haber": 0.018607,
       "sosyal": 0.567765,
-      "clickbait": 0.271699,
+      "clickbait": 0.271698,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.441385,
       "model": "intfloat/multilingual-e5-base",
@@ -244,7 +244,7 @@
       "sosyal": 0.918427,
       "clickbait": 0.01761,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.431914,
+      "confidence": 0.431915,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -283,10 +283,10 @@
       "ogretici": 0.513889,
       "eglendirici": 0.200632,
       "haber": 0.018616,
-      "sosyal": 0.596634,
+      "sosyal": 0.596633,
       "clickbait": 0.018616,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.211202,
+      "confidence": 0.211201,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -294,7 +294,7 @@
         0.513889,
         0.200632,
         0.018616,
-        0.596634
+        0.596633
       ],
       "dominant_intent": "sosyal"
     },
@@ -343,7 +343,7 @@
     "0d7a80f69b55af48fac5d8e38a6efda96ea8a3a8495b3cde6556b8caedf77f7a": {
       "id": "v2r_0084",
       "text_fingerprint": "0d7a80f69b55af48fac5d8e38a6efda96ea8a3a8495b3cde6556b8caedf77f7a",
-      "ogretici": 0.273233,
+      "ogretici": 0.273234,
       "eglendirici": 0.580059,
       "haber": 0.021419,
       "sosyal": 0.578792,
@@ -354,7 +354,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.273233,
+        0.273234,
         0.580059,
         0.021419,
         0.578792
@@ -389,7 +389,7 @@
       "eglendirici": 0.449998,
       "haber": 0.017217,
       "sosyal": 0.820595,
-      "clickbait": 0.157542,
+      "clickbait": 0.157541,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.303608,
       "model": "intfloat/multilingual-e5-base",
@@ -406,21 +406,21 @@
     "113712582d7d883660a1ea5354ceb661ea50fc333f52475ff5f8a493e542c625": {
       "id": "v2r_0042",
       "text_fingerprint": "113712582d7d883660a1ea5354ceb661ea50fc333f52475ff5f8a493e542c625",
-      "ogretici": 0.17794,
+      "ogretici": 0.177939,
       "eglendirici": 0.421664,
       "haber": 0.018622,
-      "sosyal": 0.68901,
+      "sosyal": 0.689009,
       "clickbait": 0.018622,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.291788,
+      "confidence": 0.291789,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.17794,
+        0.177939,
         0.421664,
         0.018622,
-        0.68901
+        0.689009
       ],
       "dominant_intent": "sosyal"
     },
@@ -513,7 +513,7 @@
       "text_fingerprint": "14b2b80581e252e8ffba2050abd6c6b326f45541988d7eb8cc9cc46715c29a9f",
       "ogretici": 0.098858,
       "eglendirici": 0.442834,
-      "haber": 0.270585,
+      "haber": 0.270584,
       "sosyal": 0.597788,
       "clickbait": 0.391759,
       "method": "pusula-semantic-candidate-v1",
@@ -524,7 +524,7 @@
       "intent_vector": [
         0.098858,
         0.442834,
-        0.270585,
+        0.270584,
         0.597788
       ],
       "dominant_intent": "sosyal"
@@ -538,7 +538,7 @@
       "sosyal": 0.729832,
       "clickbait": 0.015593,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.25604,
+      "confidence": 0.256041,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -575,18 +575,18 @@
       "id": "v2r_0256",
       "text_fingerprint": "17310f928f91694bcea2f807a1c905a07adfc65758c4f270e91529081a5b6cb3",
       "ogretici": 0.028651,
-      "eglendirici": 0.200543,
+      "eglendirici": 0.200542,
       "haber": 0.01568,
       "sosyal": 0.86076,
       "clickbait": 0.01568,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.352706,
+      "confidence": 0.352707,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.028651,
-        0.200543,
+        0.200542,
         0.01568,
         0.86076
       ],
@@ -619,8 +619,8 @@
       "ogretici": 0.292785,
       "eglendirici": 0.133621,
       "haber": 0.143916,
-      "sosyal": 0.702037,
-      "clickbait": 0.381204,
+      "sosyal": 0.702038,
+      "clickbait": 0.381203,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.24416,
       "model": "intfloat/multilingual-e5-base",
@@ -630,7 +630,7 @@
         0.292785,
         0.133621,
         0.143916,
-        0.702037
+        0.702038
       ],
       "dominant_intent": "sosyal"
     },
@@ -640,7 +640,7 @@
       "ogretici": 0.271694,
       "eglendirici": 0.086004,
       "haber": 0.53849,
-      "sosyal": 0.459288,
+      "sosyal": 0.459289,
       "clickbait": 0.132794,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.185856,
@@ -651,7 +651,7 @@
         0.271694,
         0.086004,
         0.53849,
-        0.459288
+        0.459289
       ],
       "dominant_intent": "haber"
     },
@@ -660,7 +660,7 @@
       "text_fingerprint": "199b1a4cd08f7435b0555b55e695e0912017512586ae21f07eef22376d16d893",
       "ogretici": 0.217881,
       "eglendirici": 0.225901,
-      "haber": 0.144179,
+      "haber": 0.14418,
       "sosyal": 0.775062,
       "clickbait": 0.018647,
       "method": "pusula-semantic-candidate-v1",
@@ -671,7 +671,7 @@
       "intent_vector": [
         0.217881,
         0.225901,
-        0.144179,
+        0.14418,
         0.775062
       ],
       "dominant_intent": "sosyal"
@@ -683,9 +683,9 @@
       "eglendirici": 0.462333,
       "haber": 0.018575,
       "sosyal": 0.816814,
-      "clickbait": 0.288546,
+      "clickbait": 0.288545,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.23985,
+      "confidence": 0.239849,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -742,7 +742,7 @@
     "1cec0fcbb15b47eca037063237cb87a0250edf3aea4fc8bf9c1c586549dcf1d1": {
       "id": "v2r_0227",
       "text_fingerprint": "1cec0fcbb15b47eca037063237cb87a0250edf3aea4fc8bf9c1c586549dcf1d1",
-      "ogretici": 0.261049,
+      "ogretici": 0.261048,
       "eglendirici": 0.443294,
       "haber": 0.02,
       "sosyal": 0.679958,
@@ -753,7 +753,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.261049,
+        0.261048,
         0.443294,
         0.02,
         0.679958
@@ -769,7 +769,7 @@
       "sosyal": 0.766704,
       "clickbait": 0.016872,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.207652,
+      "confidence": 0.207651,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -785,20 +785,20 @@
       "id": "v2r_0081",
       "text_fingerprint": "1de2f8a8e2cffeb651edcd805693f674d8929d0909b796094a473b60a7c204d5",
       "ogretici": 0.101435,
-      "eglendirici": 0.436333,
+      "eglendirici": 0.436334,
       "haber": 0.269133,
-      "sosyal": 0.608344,
+      "sosyal": 0.608343,
       "clickbait": 0.140947,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.352294,
+      "confidence": 0.352295,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.101435,
-        0.436333,
+        0.436334,
         0.269133,
-        0.608344
+        0.608343
       ],
       "dominant_intent": "sosyal"
     },
@@ -808,7 +808,7 @@
       "ogretici": 0.151527,
       "eglendirici": 0.32717,
       "haber": 0.018503,
-      "sosyal": 0.795428,
+      "sosyal": 0.795427,
       "clickbait": 0.02,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.310796,
@@ -819,16 +819,16 @@
         0.151527,
         0.32717,
         0.018503,
-        0.795428
+        0.795427
       ],
       "dominant_intent": "sosyal"
     },
     "1ee13b55338470803878efc9bc48e68f40c94ed1338262fcac78a90249b4787f": {
       "id": "v2r_0091",
       "text_fingerprint": "1ee13b55338470803878efc9bc48e68f40c94ed1338262fcac78a90249b4787f",
-      "ogretici": 0.202334,
+      "ogretici": 0.202333,
       "eglendirici": 0.304732,
-      "haber": 0.141731,
+      "haber": 0.14173,
       "sosyal": 0.680935,
       "clickbait": 0.017164,
       "method": "pusula-semantic-candidate-v1",
@@ -837,9 +837,9 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.202334,
+        0.202333,
         0.304732,
-        0.141731,
+        0.14173,
         0.680935
       ],
       "dominant_intent": "sosyal"
@@ -849,7 +849,7 @@
       "text_fingerprint": "1fbc25210438e8d4788552a5a971b290850ebc5613d1edfc7e0e6a63e07d9886",
       "ogretici": 0.50047,
       "eglendirici": 0.206388,
-      "haber": 0.02002,
+      "haber": 0.020019,
       "sosyal": 0.640009,
       "clickbait": 0.015726,
       "method": "pusula-semantic-candidate-v1",
@@ -860,7 +860,7 @@
       "intent_vector": [
         0.50047,
         0.206388,
-        0.02002,
+        0.020019,
         0.640009
       ],
       "dominant_intent": "sosyal"
@@ -916,7 +916,7 @@
       "sosyal": 0.941954,
       "clickbait": 0.017266,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.347043,
+      "confidence": 0.347042,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -931,7 +931,7 @@
     "218865275c23ebcb26466bcfced1c618ebdf0a8bfa258311b384ba0fedaa7288": {
       "id": "v2r_0086",
       "text_fingerprint": "218865275c23ebcb26466bcfced1c618ebdf0a8bfa258311b384ba0fedaa7288",
-      "ogretici": 0.299925,
+      "ogretici": 0.299926,
       "eglendirici": 0.465475,
       "haber": 0.195466,
       "sosyal": 0.544881,
@@ -942,7 +942,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.299925,
+        0.299926,
         0.465475,
         0.195466,
         0.544881
@@ -953,18 +953,18 @@
       "id": "v2r_0184",
       "text_fingerprint": "21e7d5b51fbbf9ebe4a0dda6be997886e050d3527ff8d75de5b3574b5e7c8d5d",
       "ogretici": 0.279087,
-      "eglendirici": 0.339295,
+      "eglendirici": 0.339296,
       "haber": 0.017215,
       "sosyal": 0.729701,
       "clickbait": 0.142037,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.299769,
+      "confidence": 0.299768,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.279087,
-        0.339295,
+        0.339296,
         0.017215,
         0.729701
       ],
@@ -1037,7 +1037,7 @@
       "id": "v2r_0213",
       "text_fingerprint": "26346c6f71898f9f67808b6870e2a072426e79b24a396395b9a4c43dfdade525",
       "ogretici": 0.182285,
-      "eglendirici": 0.424875,
+      "eglendirici": 0.424874,
       "haber": 0.152672,
       "sosyal": 0.588849,
       "clickbait": 0.018558,
@@ -1048,7 +1048,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.182285,
-        0.424875,
+        0.424874,
         0.152672,
         0.588849
       ],
@@ -1060,7 +1060,7 @@
       "ogretici": 0.409072,
       "eglendirici": 0.228011,
       "haber": 0.018568,
-      "sosyal": 0.694568,
+      "sosyal": 0.694569,
       "clickbait": 0.135212,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.232152,
@@ -1071,7 +1071,7 @@
         0.409072,
         0.228011,
         0.018568,
-        0.694568
+        0.694569
       ],
       "dominant_intent": "sosyal"
     },
@@ -1084,7 +1084,7 @@
       "sosyal": 0.851863,
       "clickbait": 0.016965,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.442245,
+      "confidence": 0.442246,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -1100,18 +1100,18 @@
       "id": "v2r_0169",
       "text_fingerprint": "2ad6c78e2e10106f58be5eb3ad4af4d8d673077c9621709dc8c40d98e65475e7",
       "ogretici": 0.526495,
-      "eglendirici": 0.172461,
+      "eglendirici": 0.17246,
       "haber": 0.018507,
       "sosyal": 0.584762,
       "clickbait": 0.018507,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.258845,
+      "confidence": 0.258844,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.526495,
-        0.172461,
+        0.17246,
         0.018507,
         0.584762
       ],
@@ -1124,7 +1124,7 @@
       "eglendirici": 0.320239,
       "haber": 0.02,
       "sosyal": 0.749437,
-      "clickbait": 0.140213,
+      "clickbait": 0.140214,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.248495,
       "model": "intfloat/multilingual-e5-base",
@@ -1142,7 +1142,7 @@
       "id": "v2r_0120",
       "text_fingerprint": "2c9cc492570d59b77179b101c2e55f88e16853d15628f4b164e180d673cec6ae",
       "ogretici": 0.027197,
-      "eglendirici": 0.605608,
+      "eglendirici": 0.605607,
       "haber": 0.032557,
       "sosyal": 0.750093,
       "clickbait": 0.015563,
@@ -1153,7 +1153,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.027197,
-        0.605608,
+        0.605607,
         0.032557,
         0.750093
       ],
@@ -1163,7 +1163,7 @@
       "id": "v2r_0225",
       "text_fingerprint": "2caa479551eae6a7e89308788b70f7a2eda90d37d432826ab866666630c60f2a",
       "ogretici": 0.18794,
-      "eglendirici": 0.315049,
+      "eglendirici": 0.31505,
       "haber": 0.019918,
       "sosyal": 0.802679,
       "clickbait": 0.14096,
@@ -1174,7 +1174,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.18794,
-        0.315049,
+        0.31505,
         0.019918,
         0.802679
       ],
@@ -1184,7 +1184,7 @@
       "id": "v2r_0175",
       "text_fingerprint": "2d65780b0a7be7495b0be8c22f3a1aa5d259e38cc0dbb0bb1539867a78b395a4",
       "ogretici": 0.040674,
-      "eglendirici": 0.208585,
+      "eglendirici": 0.208586,
       "haber": 0.018494,
       "sosyal": 0.8958,
       "clickbait": 0.137891,
@@ -1195,7 +1195,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.040674,
-        0.208585,
+        0.208586,
         0.018494,
         0.8958
       ],
@@ -1210,7 +1210,7 @@
       "sosyal": 0.844908,
       "clickbait": 0.275842,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.43334,
+      "confidence": 0.433341,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -1226,7 +1226,7 @@
       "id": "v2r_0025",
       "text_fingerprint": "2f4917aaa74b0fb4aa05a62b35554f3af74c17ea774af461f5cdc11442c8c1e1",
       "ogretici": 0.337748,
-      "eglendirici": 0.07945,
+      "eglendirici": 0.079449,
       "haber": 0.140197,
       "sosyal": 0.730788,
       "clickbait": 0.138659,
@@ -1237,7 +1237,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.337748,
-        0.07945,
+        0.079449,
         0.140197,
         0.730788
       ],
@@ -1309,21 +1309,21 @@
     "31645ac3809ff13db047af59aeb9c9349cc068a46a9ea93d5344b7a983579e30": {
       "id": "v2r_0006",
       "text_fingerprint": "31645ac3809ff13db047af59aeb9c9349cc068a46a9ea93d5344b7a983579e30",
-      "ogretici": 0.214765,
+      "ogretici": 0.214764,
       "eglendirici": 0.181395,
       "haber": 0.021255,
-      "sosyal": 0.854976,
+      "sosyal": 0.854977,
       "clickbait": 0.017123,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.214214,
+      "confidence": 0.214215,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.214765,
+        0.214764,
         0.181395,
         0.021255,
-        0.854976
+        0.854977
       ],
       "dominant_intent": "sosyal"
     },
@@ -1351,7 +1351,7 @@
     "31ea1069b5614414e86624567c923950e36677e38868768eece15e1af050ab5b": {
       "id": "v2r_0224",
       "text_fingerprint": "31ea1069b5614414e86624567c923950e36677e38868768eece15e1af050ab5b",
-      "ogretici": 0.551929,
+      "ogretici": 0.551928,
       "eglendirici": 0.091807,
       "haber": 0.02,
       "sosyal": 0.636512,
@@ -1362,7 +1362,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.551929,
+        0.551928,
         0.091807,
         0.02,
         0.636512
@@ -1399,7 +1399,7 @@
       "sosyal": 0.929872,
       "clickbait": 0.015462,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.420866,
+      "confidence": 0.420867,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -1415,20 +1415,20 @@
       "id": "v2r_0301",
       "text_fingerprint": "337c261942fb466d3a3c21f710a3c002812e5df01f4714b6b906eb3e0807207e",
       "ogretici": 0.130927,
-      "eglendirici": 0.47464,
+      "eglendirici": 0.474641,
       "haber": 0.017138,
-      "sosyal": 0.756965,
+      "sosyal": 0.756964,
       "clickbait": 0.018604,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.255027,
+      "confidence": 0.255028,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.130927,
-        0.47464,
+        0.474641,
         0.017138,
-        0.756965
+        0.756964
       ],
       "dominant_intent": "sosyal"
     },
@@ -1437,18 +1437,18 @@
       "text_fingerprint": "350a5c7e1b475a6ed0896359bca7c5fdc5f2149905d5653214f31051cc48ad90",
       "ogretici": 0.342186,
       "eglendirici": 0.196656,
-      "haber": 0.143299,
+      "haber": 0.143298,
       "sosyal": 0.648201,
       "clickbait": 0.018562,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.314486,
+      "confidence": 0.314487,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.342186,
         0.196656,
-        0.143299,
+        0.143298,
         0.648201
       ],
       "dominant_intent": "sosyal"
@@ -1459,7 +1459,7 @@
       "ogretici": 0.1562,
       "eglendirici": 0.071752,
       "haber": 0.021413,
-      "sosyal": 0.905348,
+      "sosyal": 0.905349,
       "clickbait": 0.02,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.350596,
@@ -1470,7 +1470,7 @@
         0.1562,
         0.071752,
         0.021413,
-        0.905348
+        0.905349
       ],
       "dominant_intent": "sosyal"
     },
@@ -1478,7 +1478,7 @@
       "id": "v2r_0166",
       "text_fingerprint": "3536546b612fb079b1ced874b7c46fc0d8175bfbb920e676feb3f4fc9fe6f00a",
       "ogretici": 0.045615,
-      "eglendirici": 0.166027,
+      "eglendirici": 0.166026,
       "haber": 0.019966,
       "sosyal": 0.88365,
       "clickbait": 0.018613,
@@ -1489,7 +1489,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.045615,
-        0.166027,
+        0.166026,
         0.019966,
         0.88365
       ],
@@ -1504,7 +1504,7 @@
       "sosyal": 0.700705,
       "clickbait": 0.150822,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.204442,
+      "confidence": 0.204441,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -1520,10 +1520,10 @@
       "id": "v2r_0131",
       "text_fingerprint": "38112fb2643ad441db93f6497e5bce03bd7e062977c6800e92a685a491a49d96",
       "ogretici": 0.037517,
-      "eglendirici": 0.230706,
+      "eglendirici": 0.230705,
       "haber": 0.017174,
       "sosyal": 0.897459,
-      "clickbait": 0.142909,
+      "clickbait": 0.14291,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.342194,
       "model": "intfloat/multilingual-e5-base",
@@ -1531,7 +1531,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.037517,
-        0.230706,
+        0.230705,
         0.017174,
         0.897459
       ],
@@ -1567,7 +1567,7 @@
       "sosyal": 0.754354,
       "clickbait": 0.015682,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.197606,
+      "confidence": 0.197605,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -1585,7 +1585,7 @@
       "ogretici": 0.380981,
       "eglendirici": 0.369618,
       "haber": 0.018551,
-      "sosyal": 0.63639,
+      "sosyal": 0.636389,
       "clickbait": 0.015591,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.215842,
@@ -1596,7 +1596,7 @@
         0.380981,
         0.369618,
         0.018551,
-        0.63639
+        0.636389
       ],
       "dominant_intent": "sosyal"
     },
@@ -1604,7 +1604,7 @@
       "id": "v2r_0274",
       "text_fingerprint": "3b2f849a8391baeb085c25d7328ff71bac9a50cff46e5fc39c6e111a04b1ead2",
       "ogretici": 0.044679,
-      "eglendirici": 0.299305,
+      "eglendirici": 0.299306,
       "haber": 0.02,
       "sosyal": 0.855019,
       "clickbait": 0.140654,
@@ -1615,7 +1615,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.044679,
-        0.299305,
+        0.299306,
         0.02,
         0.855019
       ],
@@ -1630,7 +1630,7 @@
       "sosyal": 0.713227,
       "clickbait": 0.01857,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.388945,
+      "confidence": 0.388946,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -1645,7 +1645,7 @@
     "3c58d8f453b0913bbb44370c562101e5ea5c5b26846a4035309b79a27888b1d2": {
       "id": "v2r_0161",
       "text_fingerprint": "3c58d8f453b0913bbb44370c562101e5ea5c5b26846a4035309b79a27888b1d2",
-      "ogretici": 0.164283,
+      "ogretici": 0.164282,
       "eglendirici": 0.474561,
       "haber": 0.031929,
       "sosyal": 0.733936,
@@ -1656,7 +1656,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.164283,
+        0.164282,
         0.474561,
         0.031929,
         0.733936
@@ -1669,10 +1669,10 @@
       "ogretici": 0.320392,
       "eglendirici": 0.175763,
       "haber": 0.018584,
-      "sosyal": 0.74152,
+      "sosyal": 0.741519,
       "clickbait": 0.017135,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.256885,
+      "confidence": 0.256886,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -1680,7 +1680,7 @@
         0.320392,
         0.175763,
         0.018584,
-        0.74152
+        0.741519
       ],
       "dominant_intent": "sosyal"
     },
@@ -1709,7 +1709,7 @@
       "id": "v2r_0072",
       "text_fingerprint": "3e1ec1fe63652d945ced6f560821c8eb7758ecc85a3c2fea2c97519085c45792",
       "ogretici": 0.423099,
-      "eglendirici": 0.429938,
+      "eglendirici": 0.429937,
       "haber": 0.02,
       "sosyal": 0.538487,
       "clickbait": 0.14439,
@@ -1720,7 +1720,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.423099,
-        0.429938,
+        0.429937,
         0.02,
         0.538487
       ],
@@ -1732,7 +1732,7 @@
       "ogretici": 0.03539,
       "eglendirici": 0.228326,
       "haber": 0.017155,
-      "sosyal": 0.891435,
+      "sosyal": 0.891434,
       "clickbait": 0.136807,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.362897,
@@ -1743,7 +1743,7 @@
         0.03539,
         0.228326,
         0.017155,
-        0.891435
+        0.891434
       ],
       "dominant_intent": "sosyal"
     },
@@ -1751,20 +1751,20 @@
       "id": "v2r_0062",
       "text_fingerprint": "3e98e4b0c996c43bf6203fa7c208131480ea3b69d8bac379d0d04cd4d7f34b36",
       "ogretici": 0.060558,
-      "eglendirici": 0.472031,
+      "eglendirici": 0.47203,
       "haber": 0.018639,
-      "sosyal": 0.771183,
+      "sosyal": 0.771184,
       "clickbait": 0.018675,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.264951,
+      "confidence": 0.264952,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.060558,
-        0.472031,
+        0.47203,
         0.018639,
-        0.771183
+        0.771184
       ],
       "dominant_intent": "sosyal"
     },
@@ -1772,7 +1772,7 @@
       "id": "v2r_0103",
       "text_fingerprint": "3ed34cf9b28d7442d6f1a8a9f26d2cd15cfb11aa45c63dab73f914fb480c7b42",
       "ogretici": 0.028612,
-      "eglendirici": 0.543873,
+      "eglendirici": 0.543874,
       "haber": 0.018386,
       "sosyal": 0.792516,
       "clickbait": 0.014287,
@@ -1783,7 +1783,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.028612,
-        0.543873,
+        0.543874,
         0.018386,
         0.792516
       ],
@@ -1840,7 +1840,7 @@
       "sosyal": 0.71629,
       "clickbait": 0.155533,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.263958,
+      "confidence": 0.263959,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -1857,7 +1857,7 @@
       "text_fingerprint": "46b5284caa582d95557904d6bc15afb4f8d9a2863242351094c1296823fb0509",
       "ogretici": 0.235915,
       "eglendirici": 0.222528,
-      "haber": 0.152629,
+      "haber": 0.15263,
       "sosyal": 0.703746,
       "clickbait": 0.135109,
       "method": "pusula-semantic-candidate-v1",
@@ -1868,7 +1868,7 @@
       "intent_vector": [
         0.235915,
         0.222528,
-        0.152629,
+        0.15263,
         0.703746
       ],
       "dominant_intent": "sosyal"
@@ -1903,7 +1903,7 @@
       "sosyal": 0.816663,
       "clickbait": 0.014091,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.26478,
+      "confidence": 0.264779,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -1945,7 +1945,7 @@
       "sosyal": 0.6571,
       "clickbait": 0.01854,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.350039,
+      "confidence": 0.35004,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -2002,7 +2002,7 @@
     "4aeb8713b0eb10cdb7d82aaa9b1bdb65d1e5d2c3e0fc0d3b5cdae29bc1832574": {
       "id": "v2r_0112",
       "text_fingerprint": "4aeb8713b0eb10cdb7d82aaa9b1bdb65d1e5d2c3e0fc0d3b5cdae29bc1832574",
-      "ogretici": 0.15727,
+      "ogretici": 0.157271,
       "eglendirici": 0.375012,
       "haber": 0.022811,
       "sosyal": 0.783504,
@@ -2013,7 +2013,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.15727,
+        0.157271,
         0.375012,
         0.022811,
         0.783504
@@ -2026,10 +2026,10 @@
       "ogretici": 0.034928,
       "eglendirici": 0.231011,
       "haber": 0.01709,
-      "sosyal": 0.898275,
+      "sosyal": 0.898274,
       "clickbait": 0.156124,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.363353,
+      "confidence": 0.363354,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -2037,7 +2037,7 @@
         0.034928,
         0.231011,
         0.01709,
-        0.898275
+        0.898274
       ],
       "dominant_intent": "sosyal"
     },
@@ -2050,7 +2050,7 @@
       "sosyal": 0.803826,
       "clickbait": 0.017142,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.21295,
+      "confidence": 0.212949,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -2067,8 +2067,8 @@
       "text_fingerprint": "4f58d3ba2feb975dd8100f882064d08f5ecab45d6c2e88743be5767990a0ba2c",
       "ogretici": 0.218999,
       "eglendirici": 0.189556,
-      "haber": 0.15644,
-      "sosyal": 0.725462,
+      "haber": 0.156439,
+      "sosyal": 0.725463,
       "clickbait": 0.140303,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.200058,
@@ -2078,8 +2078,8 @@
       "intent_vector": [
         0.218999,
         0.189556,
-        0.15644,
-        0.725462
+        0.156439,
+        0.725463
       ],
       "dominant_intent": "sosyal"
     },
@@ -2087,7 +2087,7 @@
       "id": "v2r_0268",
       "text_fingerprint": "50111dfa8f1709928c2754d2f1b0bfb62cde1c7d582015d2af22fcfb3fde6764",
       "ogretici": 0.247198,
-      "eglendirici": 0.454517,
+      "eglendirici": 0.454516,
       "haber": 0.018544,
       "sosyal": 0.699337,
       "clickbait": 0.018665,
@@ -2098,7 +2098,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.247198,
-        0.454517,
+        0.454516,
         0.018544,
         0.699337
       ],
@@ -2110,7 +2110,7 @@
       "ogretici": 0.042303,
       "eglendirici": 0.678912,
       "haber": 0.021284,
-      "sosyal": 0.699361,
+      "sosyal": 0.699362,
       "clickbait": 0.017253,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.276024,
@@ -2121,25 +2121,25 @@
         0.042303,
         0.678912,
         0.021284,
-        0.699361
+        0.699362
       ],
       "dominant_intent": "sosyal"
     },
     "5061f0120ac7cd3777ab759cd421ec4bbafacd3869803354762287bf8322ee90": {
       "id": "v2r_0300",
       "text_fingerprint": "5061f0120ac7cd3777ab759cd421ec4bbafacd3869803354762287bf8322ee90",
-      "ogretici": 0.159953,
+      "ogretici": 0.159954,
       "eglendirici": 0.05784,
       "haber": 0.018572,
       "sosyal": 0.914306,
-      "clickbait": 0.134291,
+      "clickbait": 0.13429,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.61923,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.159953,
+        0.159954,
         0.05784,
         0.018572,
         0.914306
@@ -2173,7 +2173,7 @@
       "ogretici": 0.186578,
       "eglendirici": 0.051594,
       "haber": 0.019982,
-      "sosyal": 0.894976,
+      "sosyal": 0.894975,
       "clickbait": 0.018581,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.436111,
@@ -2184,7 +2184,7 @@
         0.186578,
         0.051594,
         0.019982,
-        0.894976
+        0.894975
       ],
       "dominant_intent": "sosyal"
     },
@@ -2194,7 +2194,7 @@
       "ogretici": 0.035453,
       "eglendirici": 0.436919,
       "haber": 0.02,
-      "sosyal": 0.805045,
+      "sosyal": 0.805046,
       "clickbait": 0.139898,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.339431,
@@ -2205,7 +2205,7 @@
         0.035453,
         0.436919,
         0.02,
-        0.805045
+        0.805046
       ],
       "dominant_intent": "sosyal"
     },
@@ -2213,19 +2213,19 @@
       "id": "v2r_0245",
       "text_fingerprint": "525a0494822c35fc231cf1f0ac2219a8804d41db27bd44757344dccfc6cc6e3f",
       "ogretici": 0.154271,
-      "eglendirici": 0.203166,
-      "haber": 0.513329,
+      "eglendirici": 0.203165,
+      "haber": 0.51333,
       "sosyal": 0.5033,
       "clickbait": 0.018619,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.279031,
+      "confidence": 0.279032,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.154271,
-        0.203166,
-        0.513329,
+        0.203165,
+        0.51333,
         0.5033
       ],
       "dominant_intent": "haber"
@@ -2239,7 +2239,7 @@
       "sosyal": 0.626041,
       "clickbait": 0.01862,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.240393,
+      "confidence": 0.240394,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -2276,7 +2276,7 @@
       "id": "v2r_0028",
       "text_fingerprint": "540ffa7f60119d17e37fb14d04668d8df8ccef8483d2bd46c8729677d2e631cb",
       "ogretici": 0.241768,
-      "eglendirici": 0.486388,
+      "eglendirici": 0.486387,
       "haber": 0.031837,
       "sosyal": 0.685368,
       "clickbait": 0.017144,
@@ -2287,7 +2287,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.241768,
-        0.486388,
+        0.486387,
         0.031837,
         0.685368
       ],
@@ -2300,7 +2300,7 @@
       "eglendirici": 0.051399,
       "haber": 0.017152,
       "sosyal": 0.95546,
-      "clickbait": 0.138642,
+      "clickbait": 0.138643,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.662962,
       "model": "intfloat/multilingual-e5-base",
@@ -2386,7 +2386,7 @@
       "sosyal": 0.846587,
       "clickbait": 0.018582,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.437418,
+      "confidence": 0.437419,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -2403,7 +2403,7 @@
       "text_fingerprint": "579568632afaa41120f0373f3f84b7897f7712f4ebccb81b750c5f11bb741721",
       "ogretici": 0.046589,
       "eglendirici": 0.577478,
-      "haber": 0.034472,
+      "haber": 0.034471,
       "sosyal": 0.72852,
       "clickbait": 0.151938,
       "method": "pusula-semantic-candidate-v1",
@@ -2414,7 +2414,7 @@
       "intent_vector": [
         0.046589,
         0.577478,
-        0.034472,
+        0.034471,
         0.72852
       ],
       "dominant_intent": "sosyal"
@@ -2422,8 +2422,8 @@
     "581b520fb1d3fd0d7770b75901b35a60aec18b8d90f6afb80b46db1e6ddbe9ef": {
       "id": "v2r_0021",
       "text_fingerprint": "581b520fb1d3fd0d7770b75901b35a60aec18b8d90f6afb80b46db1e6ddbe9ef",
-      "ogretici": 0.165358,
-      "eglendirici": 0.206847,
+      "ogretici": 0.165359,
+      "eglendirici": 0.206846,
       "haber": 0.034627,
       "sosyal": 0.847597,
       "clickbait": 0.018537,
@@ -2433,8 +2433,8 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.165358,
-        0.206847,
+        0.165359,
+        0.206846,
         0.034627,
         0.847597
       ],
@@ -2443,10 +2443,10 @@
     "59a0630f8da2a8db90a4e1a7f31c9c5813aaaaa485c1b343da40c6de51faaf9c": {
       "id": "v2r_0136",
       "text_fingerprint": "59a0630f8da2a8db90a4e1a7f31c9c5813aaaaa485c1b343da40c6de51faaf9c",
-      "ogretici": 0.173667,
+      "ogretici": 0.173668,
       "eglendirici": 0.08744,
       "haber": 0.018645,
-      "sosyal": 0.909018,
+      "sosyal": 0.909017,
       "clickbait": 0.017287,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.410192,
@@ -2454,10 +2454,10 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.173667,
+        0.173668,
         0.08744,
         0.018645,
-        0.909018
+        0.909017
       ],
       "dominant_intent": "sosyal"
     },
@@ -2486,7 +2486,7 @@
       "id": "v2r_0252",
       "text_fingerprint": "59e64e94972a85ba0efbfa1330e36aa532973e478d67cdfdbf42977ef0e8c55d",
       "ogretici": 0.267858,
-      "eglendirici": 0.337073,
+      "eglendirici": 0.337072,
       "haber": 0.02,
       "sosyal": 0.766553,
       "clickbait": 0.018422,
@@ -2497,7 +2497,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.267858,
-        0.337073,
+        0.337072,
         0.02,
         0.766553
       ],
@@ -2509,10 +2509,10 @@
       "ogretici": 0.059611,
       "eglendirici": 0.339888,
       "haber": 0.135502,
-      "sosyal": 0.737183,
+      "sosyal": 0.737182,
       "clickbait": 0.13419,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.219509,
+      "confidence": 0.21951,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -2520,7 +2520,7 @@
         0.059611,
         0.339888,
         0.135502,
-        0.737183
+        0.737182
       ],
       "dominant_intent": "sosyal"
     },
@@ -2531,9 +2531,9 @@
       "eglendirici": 0.470771,
       "haber": 0.018594,
       "sosyal": 0.813826,
-      "clickbait": 0.142057,
+      "clickbait": 0.142056,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.395481,
+      "confidence": 0.395482,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -2548,18 +2548,18 @@
     "5bf5ec6ce94d5dcc94101261a2a624c3b14fa988ed5c391ea961b5a1edfba22d": {
       "id": "v2r_0047",
       "text_fingerprint": "5bf5ec6ce94d5dcc94101261a2a624c3b14fa988ed5c391ea961b5a1edfba22d",
-      "ogretici": 0.306985,
+      "ogretici": 0.306984,
       "eglendirici": 0.094374,
       "haber": 0.015629,
       "sosyal": 0.841021,
       "clickbait": 0.014252,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.199063,
+      "confidence": 0.199062,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.306985,
+        0.306984,
         0.094374,
         0.015629,
         0.841021
@@ -2590,7 +2590,7 @@
     "5ca836085e2ec5880ac20c3f9b1b2ff8ad4891ba8ea310ea511aa9878856dc32": {
       "id": "v2r_0140",
       "text_fingerprint": "5ca836085e2ec5880ac20c3f9b1b2ff8ad4891ba8ea310ea511aa9878856dc32",
-      "ogretici": 0.179915,
+      "ogretici": 0.179916,
       "eglendirici": 0.0749,
       "haber": 0.148627,
       "sosyal": 0.785955,
@@ -2601,7 +2601,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.179915,
+        0.179916,
         0.0749,
         0.148627,
         0.785955
@@ -2613,7 +2613,7 @@
       "text_fingerprint": "5d4eaed1b724c559ff97b4ce57bc038b482d52b0bc8085df82736bce8ec3bbd3",
       "ogretici": 0.074699,
       "eglendirici": 0.571706,
-      "haber": 0.261532,
+      "haber": 0.261533,
       "sosyal": 0.550538,
       "clickbait": 0.139636,
       "method": "pusula-semantic-candidate-v1",
@@ -2624,7 +2624,7 @@
       "intent_vector": [
         0.074699,
         0.571706,
-        0.261532,
+        0.261533,
         0.550538
       ],
       "dominant_intent": "eglendirici"
@@ -2653,7 +2653,7 @@
     "5dceaaa886e7f2161aae84da28e4af41f9989c00b5d747aaffa746f027e16b92": {
       "id": "v2r_0232",
       "text_fingerprint": "5dceaaa886e7f2161aae84da28e4af41f9989c00b5d747aaffa746f027e16b92",
-      "ogretici": 0.148701,
+      "ogretici": 0.148702,
       "eglendirici": 0.076286,
       "haber": 0.018604,
       "sosyal": 0.886132,
@@ -2664,7 +2664,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.148701,
+        0.148702,
         0.076286,
         0.018604,
         0.886132
@@ -2678,9 +2678,9 @@
       "eglendirici": 0.178779,
       "haber": 0.407762,
       "sosyal": 0.319475,
-      "clickbait": 0.144992,
+      "clickbait": 0.144993,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.248519,
+      "confidence": 0.24852,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -2701,7 +2701,7 @@
       "sosyal": 0.73953,
       "clickbait": 0.156168,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.225911,
+      "confidence": 0.225912,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -2722,7 +2722,7 @@
       "sosyal": 0.854354,
       "clickbait": 0.015651,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.362908,
+      "confidence": 0.362909,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -2779,18 +2779,18 @@
     "607fa04433d3f905a4c44d5ca2ebd25bdc3989de66737f71284bb6ad7e531be2": {
       "id": "v2r_0164",
       "text_fingerprint": "607fa04433d3f905a4c44d5ca2ebd25bdc3989de66737f71284bb6ad7e531be2",
-      "ogretici": 0.517038,
+      "ogretici": 0.517039,
       "eglendirici": 0.071185,
       "haber": 0.018538,
       "sosyal": 0.723039,
       "clickbait": 0.017146,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.24375,
+      "confidence": 0.243751,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.517038,
+        0.517039,
         0.071185,
         0.018538,
         0.723039
@@ -2848,7 +2848,7 @@
       "sosyal": 0.410245,
       "clickbait": 0.162805,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.319007,
+      "confidence": 0.319008,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -2884,7 +2884,7 @@
     "64445e4e292b35425d496a7794a329b48b9c4a9454397c2f1213142f15e8e296": {
       "id": "v2r_0024",
       "text_fingerprint": "64445e4e292b35425d496a7794a329b48b9c4a9454397c2f1213142f15e8e296",
-      "ogretici": 0.176947,
+      "ogretici": 0.176948,
       "eglendirici": 0.217163,
       "haber": 0.032943,
       "sosyal": 0.846167,
@@ -2895,7 +2895,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.176947,
+        0.176948,
         0.217163,
         0.032943,
         0.846167
@@ -2929,7 +2929,7 @@
       "ogretici": 0.133434,
       "eglendirici": 0.589901,
       "haber": 0.018522,
-      "sosyal": 0.68493,
+      "sosyal": 0.684929,
       "clickbait": 0.018583,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.27569,
@@ -2940,7 +2940,7 @@
         0.133434,
         0.589901,
         0.018522,
-        0.68493
+        0.684929
       ],
       "dominant_intent": "sosyal"
     },
@@ -2971,7 +2971,7 @@
       "ogretici": 0.034053,
       "eglendirici": 0.600032,
       "haber": 0.01854,
-      "sosyal": 0.738802,
+      "sosyal": 0.738801,
       "clickbait": 0.02,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.254192,
@@ -2982,7 +2982,7 @@
         0.034053,
         0.600032,
         0.01854,
-        0.738802
+        0.738801
       ],
       "dominant_intent": "sosyal"
     },
@@ -3013,10 +3013,10 @@
       "ogretici": 0.028568,
       "eglendirici": 0.468671,
       "haber": 0.017204,
-      "sosyal": 0.789723,
+      "sosyal": 0.789722,
       "clickbait": 0.143399,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.26639,
+      "confidence": 0.266389,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -3024,7 +3024,7 @@
         0.028568,
         0.468671,
         0.017204,
-        0.789723
+        0.789722
       ],
       "dominant_intent": "sosyal"
     },
@@ -3035,7 +3035,7 @@
       "eglendirici": 0.308521,
       "haber": 0.02,
       "sosyal": 0.794965,
-      "clickbait": 0.137797,
+      "clickbait": 0.137798,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.223079,
       "model": "intfloat/multilingual-e5-base",
@@ -3055,7 +3055,7 @@
       "ogretici": 0.066321,
       "eglendirici": 0.331962,
       "haber": 0.147085,
-      "sosyal": 0.755274,
+      "sosyal": 0.755273,
       "clickbait": 0.015592,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.265298,
@@ -3066,27 +3066,27 @@
         0.066321,
         0.331962,
         0.147085,
-        0.755274
+        0.755273
       ],
       "dominant_intent": "sosyal"
     },
     "693b97472462c4294c39e3d6a182e95cdfbe021eb7209ed2a85ff599b3ea757d": {
       "id": "v2r_0070",
       "text_fingerprint": "693b97472462c4294c39e3d6a182e95cdfbe021eb7209ed2a85ff599b3ea757d",
-      "ogretici": 0.571601,
-      "eglendirici": 0.17943,
-      "haber": 0.149627,
+      "ogretici": 0.571602,
+      "eglendirici": 0.179429,
+      "haber": 0.149626,
       "sosyal": 0.402305,
       "clickbait": 0.141113,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.343052,
+      "confidence": 0.343053,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.571601,
-        0.17943,
-        0.149627,
+        0.571602,
+        0.179429,
+        0.149626,
         0.402305
       ],
       "dominant_intent": "ogretici"
@@ -3100,7 +3100,7 @@
       "sosyal": 0.775149,
       "clickbait": 0.289469,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.261282,
+      "confidence": 0.261283,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -3116,9 +3116,9 @@
       "id": "v2r_0122",
       "text_fingerprint": "6a312f9ebc9101981d117053327758bd99fed1e46232b5ce369a239531ebf9ce",
       "ogretici": 0.042394,
-      "eglendirici": 0.570449,
+      "eglendirici": 0.57045,
       "haber": 0.019978,
-      "sosyal": 0.758483,
+      "sosyal": 0.758482,
       "clickbait": 0.01589,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.365522,
@@ -3127,9 +3127,9 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.042394,
-        0.570449,
+        0.57045,
         0.019978,
-        0.758483
+        0.758482
       ],
       "dominant_intent": "sosyal"
     },
@@ -3137,9 +3137,9 @@
       "id": "v2r_0090",
       "text_fingerprint": "6aecffd0d6b9233cfcb84071f8338c02c65cf50da878672b2131373af860d473",
       "ogretici": 0.280562,
-      "eglendirici": 0.5499,
+      "eglendirici": 0.549901,
       "haber": 0.021501,
-      "sosyal": 0.527166,
+      "sosyal": 0.527167,
       "clickbait": 0.150149,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.293589,
@@ -3148,9 +3148,9 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.280562,
-        0.5499,
+        0.549901,
         0.021501,
-        0.527166
+        0.527167
       ],
       "dominant_intent": "eglendirici"
     },
@@ -3179,7 +3179,7 @@
       "id": "v2r_0079",
       "text_fingerprint": "6e7f7a81d7954045b7b1d1da628faab6b95e330ddd6a6c52e407ac7c83752bdd",
       "ogretici": 0.055318,
-      "eglendirici": 0.354816,
+      "eglendirici": 0.354817,
       "haber": 0.018678,
       "sosyal": 0.841507,
       "clickbait": 0.144021,
@@ -3190,7 +3190,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.055318,
-        0.354816,
+        0.354817,
         0.018678,
         0.841507
       ],
@@ -3205,7 +3205,7 @@
       "sosyal": 0.906251,
       "clickbait": 0.276801,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.230727,
+      "confidence": 0.230728,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -3286,7 +3286,7 @@
       "ogretici": 0.034134,
       "eglendirici": 0.667721,
       "haber": 0.02,
-      "sosyal": 0.690284,
+      "sosyal": 0.690285,
       "clickbait": 0.018675,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.311708,
@@ -3297,7 +3297,7 @@
         0.034134,
         0.667721,
         0.02,
-        0.690284
+        0.690285
       ],
       "dominant_intent": "sosyal"
     },
@@ -3305,7 +3305,7 @@
       "id": "v2r_0201",
       "text_fingerprint": "709a350e2073e25e7735a785e8668f3869bb0d6b4d3cd6105f20e0e21caa874b",
       "ogretici": 0.035698,
-      "eglendirici": 0.503106,
+      "eglendirici": 0.503107,
       "haber": 0.017065,
       "sosyal": 0.770853,
       "clickbait": 0.017017,
@@ -3316,7 +3316,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.035698,
-        0.503106,
+        0.503107,
         0.017065,
         0.770853
       ],
@@ -3352,7 +3352,7 @@
       "sosyal": 0.535185,
       "clickbait": 0.017027,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.325406,
+      "confidence": 0.325405,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -3368,7 +3368,7 @@
       "id": "v2r_0048",
       "text_fingerprint": "73e43f636705f66db590f338669b4f3799f9c1bed7c1305eb3ecc75fb408cff9",
       "ogretici": 0.21818,
-      "eglendirici": 0.201687,
+      "eglendirici": 0.201688,
       "haber": 0.139821,
       "sosyal": 0.751692,
       "clickbait": 0.017188,
@@ -3379,7 +3379,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.21818,
-        0.201687,
+        0.201688,
         0.139821,
         0.751692
       ],
@@ -3388,7 +3388,7 @@
     "747479f2ba99a76842013af5d89f1ee566d372291074074211f8056a91b276ba": {
       "id": "v2r_0319",
       "text_fingerprint": "747479f2ba99a76842013af5d89f1ee566d372291074074211f8056a91b276ba",
-      "ogretici": 0.13726,
+      "ogretici": 0.137259,
       "eglendirici": 0.350159,
       "haber": 0.017168,
       "sosyal": 0.81744,
@@ -3399,7 +3399,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.13726,
+        0.137259,
         0.350159,
         0.017168,
         0.81744
@@ -3413,7 +3413,7 @@
       "eglendirici": 0.432139,
       "haber": 0.277208,
       "sosyal": 0.584552,
-      "clickbait": 0.275887,
+      "clickbait": 0.275888,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.296103,
       "model": "intfloat/multilingual-e5-base",
@@ -3433,7 +3433,7 @@
       "ogretici": 0.04334,
       "eglendirici": 0.117367,
       "haber": 0.017019,
-      "sosyal": 0.965354,
+      "sosyal": 0.965355,
       "clickbait": 0.017019,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.409092,
@@ -3444,7 +3444,7 @@
         0.04334,
         0.117367,
         0.017019,
-        0.965354
+        0.965355
       ],
       "dominant_intent": "sosyal"
     },
@@ -3473,18 +3473,18 @@
       "id": "v2r_0174",
       "text_fingerprint": "7a930c6aa3d4f11845cb036083bd1458d9f0673484b4c7f42b9792b90bbde7dd",
       "ogretici": 0.248947,
-      "eglendirici": 0.469643,
+      "eglendirici": 0.469644,
       "haber": 0.018558,
       "sosyal": 0.691789,
       "clickbait": 0.02,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.343626,
+      "confidence": 0.343627,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.248947,
-        0.469643,
+        0.469644,
         0.018558,
         0.691789
       ],
@@ -3515,7 +3515,7 @@
       "id": "v2r_0311",
       "text_fingerprint": "7b76ed5019a8bf050e95c93acd1948939f936d38e7dd3a41f03ea12ad52c0a3f",
       "ogretici": 0.052535,
-      "eglendirici": 0.189434,
+      "eglendirici": 0.189433,
       "haber": 0.015521,
       "sosyal": 0.884045,
       "clickbait": 0.01712,
@@ -3526,7 +3526,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.052535,
-        0.189434,
+        0.189433,
         0.015521,
         0.884045
       ],
@@ -3536,7 +3536,7 @@
       "id": "v2r_0093",
       "text_fingerprint": "7bc94c80b5666f4fdedf014aa90c9f643c102828bf5c5548d8e383c4e2d4173c",
       "ogretici": 0.6494,
-      "eglendirici": 0.29769,
+      "eglendirici": 0.297691,
       "haber": 0.021421,
       "sosyal": 0.435842,
       "clickbait": 0.147229,
@@ -3547,7 +3547,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.6494,
-        0.29769,
+        0.297691,
         0.021421,
         0.435842
       ],
@@ -3581,7 +3581,7 @@
       "eglendirici": 0.555339,
       "haber": 0.017135,
       "sosyal": 0.602496,
-      "clickbait": 0.40511,
+      "clickbait": 0.405111,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.320813,
       "model": "intfloat/multilingual-e5-base",
@@ -3644,9 +3644,9 @@
       "eglendirici": 0.502834,
       "haber": 0.030059,
       "sosyal": 0.734026,
-      "clickbait": 0.135903,
+      "clickbait": 0.135904,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.317587,
+      "confidence": 0.317588,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -3667,7 +3667,7 @@
       "sosyal": 0.657445,
       "clickbait": 0.017161,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.307206,
+      "confidence": 0.307205,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -3684,18 +3684,18 @@
       "text_fingerprint": "82281a4428f1b5e3e84473e8b78fa8b475a1ea8eede976a8c205f56d85a6cd1a",
       "ogretici": 0.848763,
       "eglendirici": 0.088807,
-      "haber": 0.151987,
+      "haber": 0.151988,
       "sosyal": 0.334868,
       "clickbait": 0.01697,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.34273,
+      "confidence": 0.342731,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.848763,
         0.088807,
-        0.151987,
+        0.151988,
         0.334868
       ],
       "dominant_intent": "ogretici"
@@ -3709,7 +3709,7 @@
       "sosyal": 0.724487,
       "clickbait": 0.017065,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.204368,
+      "confidence": 0.204369,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -3730,7 +3730,7 @@
       "sosyal": 0.538658,
       "clickbait": 0.017161,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.376987,
+      "confidence": 0.376988,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -3748,7 +3748,7 @@
       "ogretici": 0.393492,
       "eglendirici": 0.103834,
       "haber": 0.017088,
-      "sosyal": 0.736278,
+      "sosyal": 0.736279,
       "clickbait": 0.017088,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.227687,
@@ -3759,7 +3759,7 @@
         0.393492,
         0.103834,
         0.017088,
-        0.736278
+        0.736279
       ],
       "dominant_intent": "sosyal"
     },
@@ -3787,7 +3787,7 @@
     "862846929471146476d4b46e2497d7dbea84e252b20a42187780e5248171f53d": {
       "id": "v2r_0308",
       "text_fingerprint": "862846929471146476d4b46e2497d7dbea84e252b20a42187780e5248171f53d",
-      "ogretici": 0.157814,
+      "ogretici": 0.157815,
       "eglendirici": 0.173683,
       "haber": 0.02,
       "sosyal": 0.864033,
@@ -3798,7 +3798,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.157814,
+        0.157815,
         0.173683,
         0.02,
         0.864033
@@ -3835,7 +3835,7 @@
       "sosyal": 0.534733,
       "clickbait": 0.018533,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.354182,
+      "confidence": 0.354183,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -3898,7 +3898,7 @@
       "sosyal": 0.659155,
       "clickbait": 0.017174,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.326747,
+      "confidence": 0.326748,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -3935,20 +3935,20 @@
       "id": "v2r_0059",
       "text_fingerprint": "8b2d697e1e0a3acd515b2ce42c80d16d590e9f50b154a37ddcbd224f3ab734cb",
       "ogretici": 0.414386,
-      "eglendirici": 0.395223,
+      "eglendirici": 0.395222,
       "haber": 0.021483,
-      "sosyal": 0.581297,
+      "sosyal": 0.581298,
       "clickbait": 0.02,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.330415,
+      "confidence": 0.330416,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.414386,
-        0.395223,
+        0.395222,
         0.021483,
-        0.581297
+        0.581298
       ],
       "dominant_intent": "sosyal"
     },
@@ -3977,7 +3977,7 @@
       "id": "v2r_0276",
       "text_fingerprint": "8c3dd519166aabdd528e738bb48fd04dc6017aa4b1cc1818881906ad62b9cfce",
       "ogretici": 0.027033,
-      "eglendirici": 0.337139,
+      "eglendirici": 0.337138,
       "haber": 0.018468,
       "sosyal": 0.860181,
       "clickbait": 0.381777,
@@ -3988,7 +3988,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.027033,
-        0.337139,
+        0.337138,
         0.018468,
         0.860181
       ],
@@ -4020,7 +4020,7 @@
       "text_fingerprint": "8cedac98d8c162bb745bf5b1b225dc24295c77df41fd9a476ce00f1c1579961e",
       "ogretici": 0.426002,
       "eglendirici": 0.250421,
-      "haber": 0.157223,
+      "haber": 0.157224,
       "sosyal": 0.566934,
       "clickbait": 0.017202,
       "method": "pusula-semantic-candidate-v1",
@@ -4031,7 +4031,7 @@
       "intent_vector": [
         0.426002,
         0.250421,
-        0.157223,
+        0.157224,
         0.566934
       ],
       "dominant_intent": "sosyal"
@@ -4039,21 +4039,21 @@
     "8d7f55a298516acd40d971e9f94e61e8f7776d95356443c1e733d3272f1f8ac9": {
       "id": "v2r_0271",
       "text_fingerprint": "8d7f55a298516acd40d971e9f94e61e8f7776d95356443c1e733d3272f1f8ac9",
-      "ogretici": 0.169997,
+      "ogretici": 0.169996,
       "eglendirici": 0.500898,
       "haber": 0.015973,
-      "sosyal": 0.649393,
+      "sosyal": 0.649394,
       "clickbait": 0.131647,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.272225,
+      "confidence": 0.272226,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.169997,
+        0.169996,
         0.500898,
         0.015973,
-        0.649393
+        0.649394
       ],
       "dominant_intent": "sosyal"
     },
@@ -4129,7 +4129,7 @@
       "sosyal": 0.605913,
       "clickbait": 0.126737,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.293756,
+      "confidence": 0.293757,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -4229,7 +4229,7 @@
       "id": "v2r_0110",
       "text_fingerprint": "93a1772588e1b831d11f554879e83062df7aa280d7be496d423cc783eb9f99be",
       "ogretici": 0.266704,
-      "eglendirici": 0.383154,
+      "eglendirici": 0.383155,
       "haber": 0.022998,
       "sosyal": 0.689394,
       "clickbait": 0.132602,
@@ -4240,7 +4240,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.266704,
-        0.383154,
+        0.383155,
         0.022998,
         0.689394
       ],
@@ -4255,7 +4255,7 @@
       "sosyal": 0.766767,
       "clickbait": 0.142304,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.244052,
+      "confidence": 0.244053,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -4271,18 +4271,18 @@
       "id": "v2r_0259",
       "text_fingerprint": "976de065e22b19731798d562c1dbe85dd3a543021820099158d52e85387bc748",
       "ogretici": 0.141865,
-      "eglendirici": 0.187124,
+      "eglendirici": 0.187125,
       "haber": 0.018576,
       "sosyal": 0.848608,
       "clickbait": 0.017138,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.406788,
+      "confidence": 0.406789,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.141865,
-        0.187124,
+        0.187125,
         0.018576,
         0.848608
       ],
@@ -4354,20 +4354,20 @@
     "9aef6d81528319b8e0b9e376c95d956efb0d82d8b739e5a191f710ee465e8378": {
       "id": "v2r_0088",
       "text_fingerprint": "9aef6d81528319b8e0b9e376c95d956efb0d82d8b739e5a191f710ee465e8378",
-      "ogretici": 0.172659,
+      "ogretici": 0.17266,
       "eglendirici": 0.33028,
-      "haber": 0.138969,
+      "haber": 0.138968,
       "sosyal": 0.689839,
-      "clickbait": 0.138969,
+      "clickbait": 0.138968,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.255884,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.172659,
+        0.17266,
         0.33028,
-        0.138969,
+        0.138968,
         0.689839
       ],
       "dominant_intent": "sosyal"
@@ -4381,7 +4381,7 @@
       "sosyal": 0.876054,
       "clickbait": 0.017132,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.324695,
+      "confidence": 0.324694,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -4402,7 +4402,7 @@
       "sosyal": 0.702246,
       "clickbait": 0.017176,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.255545,
+      "confidence": 0.255546,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -4441,7 +4441,7 @@
       "ogretici": 0.130866,
       "eglendirici": 0.222401,
       "haber": 0.017145,
-      "sosyal": 0.845629,
+      "sosyal": 0.84563,
       "clickbait": 0.136721,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.338,
@@ -4452,17 +4452,17 @@
         0.130866,
         0.222401,
         0.017145,
-        0.845629
+        0.84563
       ],
       "dominant_intent": "sosyal"
     },
     "9f773040fed675db8a73eef26b789686fd1d11357acc2f8cca46062b25aa951e": {
       "id": "v2r_0209",
       "text_fingerprint": "9f773040fed675db8a73eef26b789686fd1d11357acc2f8cca46062b25aa951e",
-      "ogretici": 0.137303,
+      "ogretici": 0.137302,
       "eglendirici": 0.321403,
       "haber": 0.017119,
-      "sosyal": 0.819427,
+      "sosyal": 0.819428,
       "clickbait": 0.015759,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.240508,
@@ -4470,10 +4470,10 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.137303,
+        0.137302,
         0.321403,
         0.017119,
-        0.819427
+        0.819428
       ],
       "dominant_intent": "sosyal"
     },
@@ -4507,7 +4507,7 @@
       "sosyal": 0.788727,
       "clickbait": 0.018519,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.237245,
+      "confidence": 0.237246,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -4568,7 +4568,7 @@
       "eglendirici": 0.341328,
       "haber": 0.018616,
       "sosyal": 0.800867,
-      "clickbait": 0.138622,
+      "clickbait": 0.138621,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.305028,
       "model": "intfloat/multilingual-e5-base",
@@ -4589,7 +4589,7 @@
       "eglendirici": 0.424085,
       "haber": 0.018597,
       "sosyal": 0.819431,
-      "clickbait": 0.263136,
+      "clickbait": 0.263135,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.299826,
       "model": "intfloat/multilingual-e5-base",
@@ -4612,7 +4612,7 @@
       "sosyal": 0.951385,
       "clickbait": 0.02,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.479435,
+      "confidence": 0.479436,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -4629,7 +4629,7 @@
       "text_fingerprint": "a5456518f1f63e027cae2993e95f29de0680c2bdefdb982aff231c7dcb4b1909",
       "ogretici": 0.812182,
       "eglendirici": 0.122778,
-      "haber": 0.144527,
+      "haber": 0.144526,
       "sosyal": 0.392898,
       "clickbait": 0.017186,
       "method": "pusula-semantic-candidate-v1",
@@ -4640,7 +4640,7 @@
       "intent_vector": [
         0.812182,
         0.122778,
-        0.144527,
+        0.144526,
         0.392898
       ],
       "dominant_intent": "ogretici"
@@ -4670,8 +4670,8 @@
       "id": "v2r_0194",
       "text_fingerprint": "a80a63e56f45ba9a4e045f7addff933a4549871be4f8ba431780a20f190e655d",
       "ogretici": 0.142316,
-      "eglendirici": 0.254505,
-      "haber": 0.396619,
+      "eglendirici": 0.254506,
+      "haber": 0.396618,
       "sosyal": 0.595689,
       "clickbait": 0.015645,
       "method": "pusula-semantic-candidate-v1",
@@ -4681,8 +4681,8 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.142316,
-        0.254505,
-        0.396619,
+        0.254506,
+        0.396618,
         0.595689
       ],
       "dominant_intent": "sosyal"
@@ -4694,7 +4694,7 @@
       "eglendirici": 0.225794,
       "haber": 0.01564,
       "sosyal": 0.899526,
-      "clickbait": 0.152417,
+      "clickbait": 0.152416,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.365853,
       "model": "intfloat/multilingual-e5-base",
@@ -4733,7 +4733,7 @@
       "id": "v2r_0258",
       "text_fingerprint": "aabb7a8782b77cee3c2c96f33fbd7c913a3beacc158ef7628d2dfa4659e31eaa",
       "ogretici": 0.161757,
-      "eglendirici": 0.30232,
+      "eglendirici": 0.302321,
       "haber": 0.018616,
       "sosyal": 0.798301,
       "clickbait": 0.143507,
@@ -4744,7 +4744,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.161757,
-        0.30232,
+        0.302321,
         0.018616,
         0.798301
       ],
@@ -4780,7 +4780,7 @@
       "sosyal": 0.579954,
       "clickbait": 0.017152,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.281299,
+      "confidence": 0.2813,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -4796,7 +4796,7 @@
       "id": "v2r_0237",
       "text_fingerprint": "af5a1ea4afda06d96f3d3d890efefe4e36a7dd48f38521736219ba4986765651",
       "ogretici": 0.062376,
-      "eglendirici": 0.210882,
+      "eglendirici": 0.210881,
       "haber": 0.02,
       "sosyal": 0.910407,
       "clickbait": 0.018298,
@@ -4807,7 +4807,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.062376,
-        0.210882,
+        0.210881,
         0.02,
         0.910407
       ],
@@ -4838,7 +4838,7 @@
       "id": "v2r_0222",
       "text_fingerprint": "b084617d2384455e327dbad1db2eaf522fe2f08b72df211b253ef87394cf28f9",
       "ogretici": 0.029841,
-      "eglendirici": 0.572314,
+      "eglendirici": 0.572315,
       "haber": 0.018505,
       "sosyal": 0.749829,
       "clickbait": 0.143284,
@@ -4849,7 +4849,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.029841,
-        0.572314,
+        0.572315,
         0.018505,
         0.749829
       ],
@@ -4860,7 +4860,7 @@
       "text_fingerprint": "b1b6e8f79727d7df1ac88b96583172be2c2e09df91c6b495bac8ccb1961c2bf7",
       "ogretici": 0.075629,
       "eglendirici": 0.058438,
-      "haber": 0.131758,
+      "haber": 0.131759,
       "sosyal": 0.885299,
       "clickbait": 0.018547,
       "method": "pusula-semantic-candidate-v1",
@@ -4871,7 +4871,7 @@
       "intent_vector": [
         0.075629,
         0.058438,
-        0.131758,
+        0.131759,
         0.885299
       ],
       "dominant_intent": "sosyal"
@@ -4904,7 +4904,7 @@
       "eglendirici": 0.235091,
       "haber": 0.40235,
       "sosyal": 0.507969,
-      "clickbait": 0.147894,
+      "clickbait": 0.147895,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.270471,
       "model": "intfloat/multilingual-e5-base",
@@ -4922,10 +4922,10 @@
       "id": "v2r_0205",
       "text_fingerprint": "b4499900868e230f563b901be3ee929336fa4014462e36ecf16b9c865b29392f",
       "ogretici": 0.025663,
-      "eglendirici": 0.808889,
+      "eglendirici": 0.80889,
       "haber": 0.018531,
       "sosyal": 0.638582,
-      "clickbait": 0.256879,
+      "clickbait": 0.256878,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.472038,
       "model": "intfloat/multilingual-e5-base",
@@ -4933,7 +4933,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.025663,
-        0.808889,
+        0.80889,
         0.018531,
         0.638582
       ],
@@ -4948,7 +4948,7 @@
       "sosyal": 0.801313,
       "clickbait": 0.148746,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.223411,
+      "confidence": 0.22341,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -4990,7 +4990,7 @@
       "sosyal": 0.760222,
       "clickbait": 0.017166,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.304181,
+      "confidence": 0.304182,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -5009,7 +5009,7 @@
       "eglendirici": 0.463948,
       "haber": 0.017091,
       "sosyal": 0.810967,
-      "clickbait": 0.135717,
+      "clickbait": 0.135716,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.220259,
       "model": "intfloat/multilingual-e5-base",
@@ -5027,7 +5027,7 @@
       "id": "v2r_0097",
       "text_fingerprint": "bad2478abecaaa341c952259bd66faa9288e5f66741423f49383befbc7d14283",
       "ogretici": 0.074428,
-      "eglendirici": 0.283904,
+      "eglendirici": 0.283903,
       "haber": 0.139353,
       "sosyal": 0.771184,
       "clickbait": 0.01581,
@@ -5038,7 +5038,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.074428,
-        0.283904,
+        0.283903,
         0.139353,
         0.771184
       ],
@@ -5048,9 +5048,9 @@
       "id": "v2r_0137",
       "text_fingerprint": "bc03b255be43a23eed1f89f662adac207fd766ff585cd6087509e7e896ab9b74",
       "ogretici": 0.063794,
-      "eglendirici": 0.239701,
+      "eglendirici": 0.239702,
       "haber": 0.015758,
-      "sosyal": 0.885444,
+      "sosyal": 0.885443,
       "clickbait": 0.01718,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.297973,
@@ -5059,9 +5059,9 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.063794,
-        0.239701,
+        0.239702,
         0.015758,
-        0.885444
+        0.885443
       ],
       "dominant_intent": "sosyal"
     },
@@ -5074,7 +5074,7 @@
       "sosyal": 0.69833,
       "clickbait": 0.142442,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.320089,
+      "confidence": 0.32009,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -5110,9 +5110,9 @@
     "bfc3b1f59613c53928b18ae1ca24019faf3a6772fc1fcd42ccc9d40f5d573a9b": {
       "id": "v2r_0126",
       "text_fingerprint": "bfc3b1f59613c53928b18ae1ca24019faf3a6772fc1fcd42ccc9d40f5d573a9b",
-      "ogretici": 0.176684,
+      "ogretici": 0.176685,
       "eglendirici": 0.360058,
-      "haber": 0.307773,
+      "haber": 0.307772,
       "sosyal": 0.501754,
       "clickbait": 0.015939,
       "method": "pusula-semantic-candidate-v1",
@@ -5121,9 +5121,9 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.176684,
+        0.176685,
         0.360058,
-        0.307773,
+        0.307772,
         0.501754
       ],
       "dominant_intent": "sosyal"
@@ -5137,7 +5137,7 @@
       "sosyal": 0.966854,
       "clickbait": 0.153847,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.650285,
+      "confidence": 0.650286,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -5155,7 +5155,7 @@
       "ogretici": 0.171499,
       "eglendirici": 0.491879,
       "haber": 0.018636,
-      "sosyal": 0.715252,
+      "sosyal": 0.715253,
       "clickbait": 0.017204,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.282423,
@@ -5166,7 +5166,7 @@
         0.171499,
         0.491879,
         0.018636,
-        0.715252
+        0.715253
       ],
       "dominant_intent": "sosyal"
     },
@@ -5179,7 +5179,7 @@
       "sosyal": 0.773798,
       "clickbait": 0.016871,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.258449,
+      "confidence": 0.258448,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -5195,9 +5195,9 @@
       "id": "v2r_0119",
       "text_fingerprint": "c15c053aacfba1f56f4c8ec0d47dbe59bd90d689eb9d0b3296de10733658995a",
       "ogretici": 0.098528,
-      "eglendirici": 0.36591,
-      "haber": 0.28619,
-      "sosyal": 0.657345,
+      "eglendirici": 0.365911,
+      "haber": 0.286191,
+      "sosyal": 0.657344,
       "clickbait": 0.015856,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.254709,
@@ -5206,9 +5206,9 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.098528,
-        0.36591,
-        0.28619,
-        0.657345
+        0.365911,
+        0.286191,
+        0.657344
       ],
       "dominant_intent": "sosyal"
     },
@@ -5242,7 +5242,7 @@
       "sosyal": 0.453324,
       "clickbait": 0.018511,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.405388,
+      "confidence": 0.405389,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -5302,7 +5302,7 @@
       "ogretici": 0.031632,
       "eglendirici": 0.348136,
       "haber": 0.015896,
-      "sosyal": 0.872663,
+      "sosyal": 0.872662,
       "clickbait": 0.152675,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.281255,
@@ -5313,7 +5313,7 @@
         0.031632,
         0.348136,
         0.015896,
-        0.872663
+        0.872662
       ],
       "dominant_intent": "sosyal"
     },
@@ -5384,18 +5384,18 @@
       "id": "v2r_0170",
       "text_fingerprint": "ca19fa01d14d225fd5885f25ae1507f507c3101c59a625ce1eee0cda0873cbd7",
       "ogretici": 0.055531,
-      "eglendirici": 0.361815,
+      "eglendirici": 0.361814,
       "haber": 0.017047,
       "sosyal": 0.840958,
       "clickbait": 0.133203,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.2426,
+      "confidence": 0.242599,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.055531,
-        0.361815,
+        0.361814,
         0.017047,
         0.840958
       ],
@@ -5427,8 +5427,8 @@
       "text_fingerprint": "cb75831ed4695c1d9bfdd6fa025252769ee1d99fc04a66839fa70405f9d3b372",
       "ogretici": 0.343202,
       "eglendirici": 0.25247,
-      "haber": 0.275845,
-      "sosyal": 0.580172,
+      "haber": 0.275844,
+      "sosyal": 0.580171,
       "clickbait": 0.017257,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.22653,
@@ -5438,8 +5438,8 @@
       "intent_vector": [
         0.343202,
         0.25247,
-        0.275845,
-        0.580172
+        0.275844,
+        0.580171
       ],
       "dominant_intent": "sosyal"
     },
@@ -5452,7 +5452,7 @@
       "sosyal": 0.81031,
       "clickbait": 0.01721,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.270125,
+      "confidence": 0.270124,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -5510,7 +5510,7 @@
       "id": "v2r_0296",
       "text_fingerprint": "cd28318a674f367e8ecbd7ce4eb61d6342e6da5f6066e8024bc31ad8cdce9fbd",
       "ogretici": 0.146728,
-      "eglendirici": 0.332779,
+      "eglendirici": 0.33278,
       "haber": 0.018462,
       "sosyal": 0.819549,
       "clickbait": 0.02,
@@ -5521,7 +5521,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.146728,
-        0.332779,
+        0.33278,
         0.018462,
         0.819549
       ],
@@ -5530,7 +5530,7 @@
     "cd573b3d0c6160b8aa671e235a287d998314b6b8b8758e84b9991a76caf8d599": {
       "id": "v2r_0282",
       "text_fingerprint": "cd573b3d0c6160b8aa671e235a287d998314b6b8b8758e84b9991a76caf8d599",
-      "ogretici": 0.255687,
+      "ogretici": 0.255688,
       "eglendirici": 0.469043,
       "haber": 0.017201,
       "sosyal": 0.697526,
@@ -5541,7 +5541,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.255687,
+        0.255688,
         0.469043,
         0.017201,
         0.697526
@@ -5554,10 +5554,10 @@
       "ogretici": 0.298952,
       "eglendirici": 0.321483,
       "haber": 0.14819,
-      "sosyal": 0.670044,
+      "sosyal": 0.670045,
       "clickbait": 0.02,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.29183,
+      "confidence": 0.291829,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -5565,7 +5565,7 @@
         0.298952,
         0.321483,
         0.14819,
-        0.670044
+        0.670045
       ],
       "dominant_intent": "sosyal"
     },
@@ -5576,7 +5576,7 @@
       "eglendirici": 0.146702,
       "haber": 0.021517,
       "sosyal": 0.935973,
-      "clickbait": 0.132838,
+      "clickbait": 0.132837,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.387966,
       "model": "intfloat/multilingual-e5-base",
@@ -5599,7 +5599,7 @@
       "sosyal": 0.876282,
       "clickbait": 0.016944,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.571327,
+      "confidence": 0.571328,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -5656,7 +5656,7 @@
     "d036ebf9e35c582813b6d1c90a6a2543c4466432b3155437f5fbce3022be72b1": {
       "id": "v2r_0069",
       "text_fingerprint": "d036ebf9e35c582813b6d1c90a6a2543c4466432b3155437f5fbce3022be72b1",
-      "ogretici": 0.274092,
+      "ogretici": 0.274093,
       "eglendirici": 0.214499,
       "haber": 0.025572,
       "sosyal": 0.766707,
@@ -5667,7 +5667,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.274092,
+        0.274093,
         0.214499,
         0.025572,
         0.766707
@@ -5701,7 +5701,7 @@
       "ogretici": 0.186898,
       "eglendirici": 0.230402,
       "haber": 0.140345,
-      "sosyal": 0.69227,
+      "sosyal": 0.692269,
       "clickbait": 0.140345,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.21991,
@@ -5712,7 +5712,7 @@
         0.186898,
         0.230402,
         0.140345,
-        0.69227
+        0.692269
       ],
       "dominant_intent": "sosyal"
     },
@@ -5744,7 +5744,7 @@
       "eglendirici": 0.372142,
       "haber": 0.016927,
       "sosyal": 0.650178,
-      "clickbait": 0.137767,
+      "clickbait": 0.137766,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.258958,
       "model": "intfloat/multilingual-e5-base",
@@ -5762,7 +5762,7 @@
       "id": "v2r_0092",
       "text_fingerprint": "d41c1d846c6076466c36437e3dfaf24e12e60ad0b883113b98e976277980d404",
       "ogretici": 0.326282,
-      "eglendirici": 0.126853,
+      "eglendirici": 0.126852,
       "haber": 0.145969,
       "sosyal": 0.708675,
       "clickbait": 0.018555,
@@ -5773,7 +5773,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.326282,
-        0.126853,
+        0.126852,
         0.145969,
         0.708675
       ],
@@ -5805,7 +5805,7 @@
       "text_fingerprint": "d50ff92f2a020ec5aaddab4c711bdbb89ff5ec568251fcadb263c89c25463aad",
       "ogretici": 0.086486,
       "eglendirici": 0.454505,
-      "haber": 0.157091,
+      "haber": 0.157092,
       "sosyal": 0.730829,
       "clickbait": 0.015711,
       "method": "pusula-semantic-candidate-v1",
@@ -5816,7 +5816,7 @@
       "intent_vector": [
         0.086486,
         0.454505,
-        0.157091,
+        0.157092,
         0.730829
       ],
       "dominant_intent": "sosyal"
@@ -5908,7 +5908,7 @@
     "dac11ee06a80f36f05bdc17384eeb85104fe81656a42bf0ba5dee3ec43ea26a4": {
       "id": "v2r_0124",
       "text_fingerprint": "dac11ee06a80f36f05bdc17384eeb85104fe81656a42bf0ba5dee3ec43ea26a4",
-      "ogretici": 0.145711,
+      "ogretici": 0.145712,
       "eglendirici": 0.368115,
       "haber": 0.021501,
       "sosyal": 0.793578,
@@ -5919,7 +5919,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.145711,
+        0.145712,
         0.368115,
         0.021501,
         0.793578
@@ -5951,7 +5951,7 @@
       "id": "v2r_0109",
       "text_fingerprint": "ddeb7c86fbfaa539cefff2ff465ad5d98f182c178933f53009bb90282a3e36d8",
       "ogretici": 0.09045,
-      "eglendirici": 0.272628,
+      "eglendirici": 0.272629,
       "haber": 0.262113,
       "sosyal": 0.697982,
       "clickbait": 0.01719,
@@ -5962,7 +5962,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.09045,
-        0.272628,
+        0.272629,
         0.262113,
         0.697982
       ],
@@ -5973,18 +5973,18 @@
       "text_fingerprint": "de73bab2daf07583393455ff024bb902ea35e24a988c7908fad19963460d6fe0",
       "ogretici": 0.086322,
       "eglendirici": 0.447154,
-      "haber": 0.160146,
+      "haber": 0.160147,
       "sosyal": 0.687863,
       "clickbait": 0.13762,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.208015,
+      "confidence": 0.208014,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.086322,
         0.447154,
-        0.160146,
+        0.160147,
         0.687863
       ],
       "dominant_intent": "sosyal"
@@ -5995,7 +5995,7 @@
       "ogretici": 0.146906,
       "eglendirici": 0.257813,
       "haber": 0.01685,
-      "sosyal": 0.837937,
+      "sosyal": 0.837936,
       "clickbait": 0.01685,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.358177,
@@ -6006,7 +6006,7 @@
         0.146906,
         0.257813,
         0.01685,
-        0.837937
+        0.837936
       ],
       "dominant_intent": "sosyal"
     },
@@ -6019,7 +6019,7 @@
       "sosyal": 0.433188,
       "clickbait": 0.01854,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.204602,
+      "confidence": 0.204601,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -6038,7 +6038,7 @@
       "eglendirici": 0.610041,
       "haber": 0.015589,
       "sosyal": 0.688975,
-      "clickbait": 0.264257,
+      "clickbait": 0.264258,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.277319,
       "model": "intfloat/multilingual-e5-base",
@@ -6061,7 +6061,7 @@
       "sosyal": 0.930254,
       "clickbait": 0.016731,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.597855,
+      "confidence": 0.597856,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -6098,7 +6098,7 @@
       "id": "v2r_0162",
       "text_fingerprint": "e4b22ea3698c06de5874cc419fd3a436e894174d22fea4485c7af03081901c9a",
       "ogretici": 0.190217,
-      "eglendirici": 0.348895,
+      "eglendirici": 0.348896,
       "haber": 0.017438,
       "sosyal": 0.768897,
       "clickbait": 0.134645,
@@ -6109,7 +6109,7 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.190217,
-        0.348895,
+        0.348896,
         0.017438,
         0.768897
       ],
@@ -6161,20 +6161,20 @@
       "id": "v2r_0254",
       "text_fingerprint": "e76988a8f8aeb1a52575f14711344084f2295c5bb5a260998caa12acede3a02a",
       "ogretici": 0.032984,
-      "eglendirici": 0.597932,
+      "eglendirici": 0.597933,
       "haber": 0.018566,
-      "sosyal": 0.748457,
+      "sosyal": 0.748456,
       "clickbait": 0.016999,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.242857,
+      "confidence": 0.242858,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.032984,
-        0.597932,
+        0.597933,
         0.018566,
-        0.748457
+        0.748456
       ],
       "dominant_intent": "sosyal"
     },
@@ -6203,8 +6203,8 @@
       "id": "v2r_0214",
       "text_fingerprint": "ea64122cec190ecb58f478dc73266c1c4abb079f46cf2493b8ca4d17fcf88032",
       "ogretici": 0.0719,
-      "eglendirici": 0.426549,
-      "haber": 0.12822,
+      "eglendirici": 0.42655,
+      "haber": 0.128219,
       "sosyal": 0.730798,
       "clickbait": 0.015515,
       "method": "pusula-semantic-candidate-v1",
@@ -6214,8 +6214,8 @@
       "schema_version": "pusula-label-v2",
       "intent_vector": [
         0.0719,
-        0.426549,
-        0.12822,
+        0.42655,
+        0.128219,
         0.730798
       ],
       "dominant_intent": "sosyal"
@@ -6250,7 +6250,7 @@
       "sosyal": 0.895197,
       "clickbait": 0.01866,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.553009,
+      "confidence": 0.55301,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -6271,7 +6271,7 @@
       "sosyal": 0.575774,
       "clickbait": 0.274811,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.285108,
+      "confidence": 0.285109,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -6334,7 +6334,7 @@
       "sosyal": 0.642427,
       "clickbait": 0.014447,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.211924,
+      "confidence": 0.211923,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -6376,7 +6376,7 @@
       "sosyal": 0.475806,
       "clickbait": 0.145411,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.294625,
+      "confidence": 0.294626,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -6391,7 +6391,7 @@
     "efb9dced81c00b452b4991a0ceaff920574f905fc29662be80065a558d094075": {
       "id": "v2r_0094",
       "text_fingerprint": "efb9dced81c00b452b4991a0ceaff920574f905fc29662be80065a558d094075",
-      "ogretici": 0.673973,
+      "ogretici": 0.673974,
       "eglendirici": 0.083785,
       "haber": 0.145596,
       "sosyal": 0.404183,
@@ -6402,7 +6402,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.673973,
+        0.673974,
         0.083785,
         0.145596,
         0.404183
@@ -6412,7 +6412,7 @@
     "f0ecb060b22935d7c36a1b1e6f4aa856ad5e1e409b0a40832f88ac106db96092": {
       "id": "v2r_0277",
       "text_fingerprint": "f0ecb060b22935d7c36a1b1e6f4aa856ad5e1e409b0a40832f88ac106db96092",
-      "ogretici": 0.157992,
+      "ogretici": 0.157991,
       "eglendirici": 0.44869,
       "haber": 0.018574,
       "sosyal": 0.728856,
@@ -6423,7 +6423,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.157992,
+        0.157991,
         0.44869,
         0.018574,
         0.728856
@@ -6436,7 +6436,7 @@
       "ogretici": 0.173438,
       "eglendirici": 0.200151,
       "haber": 0.018598,
-      "sosyal": 0.836681,
+      "sosyal": 0.83668,
       "clickbait": 0.261069,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.22057,
@@ -6447,7 +6447,7 @@
         0.173438,
         0.200151,
         0.018598,
-        0.836681
+        0.83668
       ],
       "dominant_intent": "sosyal"
     },
@@ -6481,7 +6481,7 @@
       "sosyal": 0.914322,
       "clickbait": 0.017228,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.363867,
+      "confidence": 0.363866,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -6498,7 +6498,7 @@
       "text_fingerprint": "f725b7e9456a54b68a252a8b4ffaf4413548d20b6c5942348181c987361c8155",
       "ogretici": 0.187449,
       "eglendirici": 0.493934,
-      "haber": 0.159614,
+      "haber": 0.159615,
       "sosyal": 0.608609,
       "clickbait": 0.374485,
       "method": "pusula-semantic-candidate-v1",
@@ -6509,7 +6509,7 @@
       "intent_vector": [
         0.187449,
         0.493934,
-        0.159614,
+        0.159615,
         0.608609
       ],
       "dominant_intent": "sosyal"
@@ -6517,10 +6517,10 @@
     "f85c56e8e37c40df8e556c898880b6401d4b08a9aa50958541963728f7699129": {
       "id": "v2r_0102",
       "text_fingerprint": "f85c56e8e37c40df8e556c898880b6401d4b08a9aa50958541963728f7699129",
-      "ogretici": 0.300458,
+      "ogretici": 0.300457,
       "eglendirici": 0.324191,
-      "haber": 0.293383,
-      "sosyal": 0.413511,
+      "haber": 0.293384,
+      "sosyal": 0.413512,
       "clickbait": 0.014351,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.130485,
@@ -6528,10 +6528,10 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.300458,
+        0.300457,
         0.324191,
-        0.293383,
-        0.413511
+        0.293384,
+        0.413512
       ],
       "dominant_intent": "sosyal"
     },
@@ -6544,7 +6544,7 @@
       "sosyal": 0.688287,
       "clickbait": 0.138108,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.308327,
+      "confidence": 0.308328,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -6565,7 +6565,7 @@
       "sosyal": 0.881372,
       "clickbait": 0.017249,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.241666,
+      "confidence": 0.241665,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
@@ -6605,7 +6605,7 @@
       "eglendirici": 0.074223,
       "haber": 0.406449,
       "sosyal": 0.477835,
-      "clickbait": 0.387214,
+      "clickbait": 0.387215,
       "method": "pusula-semantic-candidate-v1",
       "confidence": 0.19521,
       "model": "intfloat/multilingual-e5-base",
@@ -6664,7 +6664,7 @@
     "fccef46b4f0fc0add2b1b4dc9649ac12d636cb180db85f36e82747673b593471": {
       "id": "v2r_0188",
       "text_fingerprint": "fccef46b4f0fc0add2b1b4dc9649ac12d636cb180db85f36e82747673b593471",
-      "ogretici": 0.084146,
+      "ogretici": 0.084147,
       "eglendirici": 0.323812,
       "haber": 0.141878,
       "sosyal": 0.745082,
@@ -6675,7 +6675,7 @@
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
       "intent_vector": [
-        0.084146,
+        0.084147,
         0.323812,
         0.141878,
         0.745082
@@ -6691,7 +6691,7 @@
       "sosyal": 0.746034,
       "clickbait": 0.262919,
       "method": "pusula-semantic-candidate-v1",
-      "confidence": 0.335734,
+      "confidence": 0.335735,
       "model": "intfloat/multilingual-e5-base",
       "prompt_version": null,
       "schema_version": "pusula-label-v2",
