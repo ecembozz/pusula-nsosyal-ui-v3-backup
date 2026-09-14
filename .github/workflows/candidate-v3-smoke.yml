@@ -1,0 +1,107 @@
+name: Candidate V3 Offline Labeling Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dataset-v3-realistic
+    paths:
+      - scripts/label_with_candidate_v3.py
+      - scripts/build_semantic_cache.py
+      - data/v4_calibrated/**
+      - data/v2_realistic/raw_posts.jsonl
+      - .github/workflows/candidate-v3-smoke.yml
+
+permissions:
+  contents: write
+
+jobs:
+  label-unseen-corpus-v3:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU inference dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "torch>=2.4,<3" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "transformers>=4.44,<5" "scikit-learn>=1.5,<2" safetensors
+      - name: Label unseen V2-320 corpus with Candidate V3
+        env:
+          TOKENIZERS_PARALLELISM: 'false'
+        run: |
+          python scripts/label_with_candidate_v3.py \
+            --input data/v2_realistic/raw_posts.jsonl \
+            --output experiments/results/candidate_v3_v2_320.jsonl \
+            --text-key text \
+            --id-key id
+      - name: Validate and fingerprint semantic cache
+        run: |
+          python scripts/build_semantic_cache.py \
+            --input experiments/results/candidate_v3_v2_320.jsonl \
+            --output experiments/results/candidate_v3_v2_320_cache.json \
+            --rejects experiments/results/candidate_v3_v2_320_rejects.jsonl \
+            --minimum-confidence 0.0
+      - name: Build Candidate V3 smoke summary
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          rows=[json.loads(x) for x in Path('experiments/results/candidate_v3_v2_320.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
+          cache=json.loads(Path('experiments/results/candidate_v3_v2_320_cache.json').read_text(encoding='utf-8'))
+          assert len(rows)==320 and cache['record_count']==320 and cache['reject_count']==0
+          conf=[float(r['confidence']) for r in rows]
+          margins=[float(r['diagnostics']['intent_top1_top2_margin']) for r in rows]
+          mixed=[bool(r['mixed_intent']) for r in rows]
+          ood=[bool(r['diagnostics']['ood']) for r in rows]
+          clicks=[float(r['clickbait']) for r in rows]
+          agree=[bool(r['diagnostics']['canonical_auxiliary_agree']) for r in rows]
+          summary={
+            'status':'development_smoke_not_final_evaluation',
+            'n':len(rows),
+            'dominant_distribution':dict(Counter(r['dominant_intent'] for r in rows)),
+            'auxiliary_distribution':dict(Counter(r['diagnostics']['auxiliary_dominant_intent'] for r in rows)),
+            'canonical_auxiliary_agreement_rate':sum(agree)/len(agree),
+            'mixed_intent_count':sum(mixed),
+            'mixed_intent_rate':sum(mixed)/len(mixed),
+            'mean_intent_margin':sum(margins)/len(margins),
+            'mean_screening_confidence':sum(conf)/len(conf),
+            'screening_confidence_lt_0_50':sum(c<.50 for c in conf),
+            'ood_count':sum(ood),
+            'mean_clickbait':sum(clicks)/len(clicks),
+            'clickbait_ge_0_50':sum(c>=.50 for c in clicks),
+            'cache_record_count':cache['record_count'],
+            'cache_reject_count':cache['reject_count'],
+          }
+          Path('experiments/results/candidate_v3_v2_320_summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          # Review low-margin and per-class examples without treating V2-320 as gold.
+          packet=[]
+          by={k:[] for k in ['ogretici','eglendirici','haber','sosyal']}
+          for r in rows: by[r['dominant_intent']].append(r)
+          for k in by:
+              by[k].sort(key=lambda r:(-float(r['diagnostics']['intent_top1_top2_margin']),r['id']))
+              packet.extend(by[k][:5])
+          packet.extend(sorted(rows,key=lambda r:(float(r['diagnostics']['intent_top1_top2_margin']),r['id']))[:12])
+          chosen={r['id']:r for r in packet}
+          Path('experiments/results/candidate_v3_review_sample.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in chosen.values()),encoding='utf-8')
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          PY
+      - name: Commit Candidate V3 smoke outputs
+        run: |
+          FILES="experiments/results/candidate_v3_v2_320.jsonl experiments/results/candidate_v3_v2_320_cache.json experiments/results/candidate_v3_v2_320_rejects.jsonl experiments/results/candidate_v3_v2_320_summary.json experiments/results/candidate_v3_review_sample.jsonl"
+          if [ -z "$(git status --porcelain -- $FILES)" ]; then
+            echo "Candidate V3 outputs already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add $FILES
+          git commit -m "semantic-v3: record candidate v3 unseen-corpus smoke [skip ci]"
+          git pull --rebase origin dataset-v3-realistic
+          git push origin HEAD:dataset-v3-realistic
