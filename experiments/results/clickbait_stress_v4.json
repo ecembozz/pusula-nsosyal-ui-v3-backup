@@ -1,0 +1,917 @@
+{
+  "status": "development_stress_after_rule_freeze_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-base",
+  "embedding_revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "stress_n": 32,
+  "positive_n": 16,
+  "negative_n": 16,
+  "recommended_on_stress": "upstream_heuristic_v1",
+  "methods": {
+    "semantic_knn_candidate_v3": {
+      "accuracy_at_0_50": 0.5625,
+      "precision_at_0_50": 1.0,
+      "recall_at_0_50": 0.125,
+      "f1_at_0_50": 0.2222222222222222,
+      "mae": 0.3388827249449158,
+      "mean_positive_score": 0.2220561004405929,
+      "mean_negative_score": 0.08624525392344344,
+      "score_separation": 0.13581084651714947,
+      "false_positive_count": 0,
+      "false_negative_count": 14,
+      "by_group": {
+        "negative_caps_emphasis": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.015776456993172455,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_caps_explanation": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.1393087510265038,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_caps_result": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.012899381245422153,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_caps_warning": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.13446287395920156,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_legit_alert": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.3856475202661232,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_legit_announcement": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.01146059372757549,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_legit_deadline": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.02416867141816194,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_legit_urgency": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.014383522476240347,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_lexical_trap": {
+          "n": 3,
+          "positive_rate": 0.0,
+          "mean_score": 0.013784461817698242,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_metalinguistic": {
+          "n": 2,
+          "positive_rate": 0.0,
+          "mean_score": 0.08189628471546474,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_quoted_clickbait": {
+          "n": 3,
+          "positive_rate": 0.0,
+          "mean_score": 0.1455567789262233,
+          "accuracy_at_0_50": 1.0
+        },
+        "positive_caps_curiosity": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.25477176056491163,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_caps_hype": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.5160165573800826,
+          "accuracy_at_0_50": 1.0
+        },
+        "positive_caps_promise": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.284596779073507,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_caps_withholding": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.5117975790846169,
+          "accuracy_at_0_50": 1.0
+        },
+        "positive_curiosity_gap": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.13913669596935244,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_direct_hook": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.2566404599873088,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_fear": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.13866847289755085,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_overpromise": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.018477041651737608,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_personal_hype": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.14636405733959454,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_unseen_curiosity": {
+          "n": 3,
+          "positive_rate": 1.0,
+          "mean_score": 0.232973752188536,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_unseen_exclusivity": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.01572984118548034,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_unseen_withholding": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.2854383417006641,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_withholding": {
+          "n": 2,
+          "positive_rate": 1.0,
+          "mean_score": 0.14316938182453576,
+          "accuracy_at_0_50": 0.0
+        }
+      },
+      "failures": [
+        {
+          "id": "cbs_p01",
+          "group": "positive_unseen_curiosity",
+          "label": 1,
+          "score": 0.2729491642194755,
+          "text": "Bu ayarı ben de gereksiz sanıyordum; sonucu görünce fikrim tamamen değişti. Sonuna kadar bak."
+        },
+        {
+          "id": "cbs_p02",
+          "group": "positive_unseen_curiosity",
+          "label": 1,
+          "score": 0.2719048218765925,
+          "text": "Bir dakikanı ayır: neden telefonun gece bu kadar pil yediğini görünce şaşırabilirsin."
+        },
+        {
+          "id": "cbs_p03",
+          "group": "positive_unseen_exclusivity",
+          "label": 1,
+          "score": 0.01572984118548034,
+          "text": "Sana bunu kimse anlatmıyor: küçük bir alışkanlık ay sonunda beklediğinden çok daha fazla para bırakabilir."
+        },
+        {
+          "id": "cbs_p04",
+          "group": "positive_unseen_curiosity",
+          "label": 1,
+          "score": 0.15406727046954,
+          "text": "Ben de inanmıyordum, ta ki aynı testi üç kez yapana kadar. Sonuç düşündüğümün tam tersiydi."
+        },
+        {
+          "id": "cbs_p05",
+          "group": "positive_unseen_withholding",
+          "label": 1,
+          "score": 0.2854383417006641,
+          "text": "Bu detayı atlayan herkes aynı hataya düşüyor. İkinci adımın neden önemli olduğunu sona gelince anlayacaksın."
+        },
+        {
+          "id": "cbs_p06",
+          "group": "positive_caps_curiosity",
+          "label": 1,
+          "score": 0.25477176056491163,
+          "text": "NEDEN HERKES BUNU YAPMAYA BAŞLADI? Cevap sandığınız kadar basit değil 👀"
+        },
+        {
+          "id": "cbs_p08",
+          "group": "positive_overpromise",
+          "label": 1,
+          "score": 0.018477041651737608,
+          "text": "Bunu öğrendikten sonra eski yönteme dönmek istemeyeceksin. Küçük görünüyor ama etkisi beklediğimden büyük."
+        },
+        {
+          "id": "cbs_p09",
+          "group": "positive_withholding",
+          "label": 1,
+          "score": 0.14176217951221984,
+          "text": "Herkes ilk seçeneğe bakıyor ama asıl mesele başka yerde. En sonda fark ettiğim detay sonucu değiştirdi."
+        },
+        {
+          "id": "cbs_p11",
+          "group": "positive_fear",
+          "label": 1,
+          "score": 0.13866847289755085,
+          "text": "Birçok kişinin yaptığı bu hata fark edilmeden haftalarca devam ediyor. Sen de yapıyor olabilirsin."
+        },
+        {
+          "id": "cbs_p12",
+          "group": "positive_personal_hype",
+          "label": 1,
+          "score": 0.14636405733959454,
+          "text": "Bugün denedim ve gerçekten beklemiyordum: küçücük bir değişiklik bütün çalışma akışımı tersine çevirdi."
+        },
+        {
+          "id": "cbs_p13",
+          "group": "positive_curiosity_gap",
+          "label": 1,
+          "score": 0.13913669596935244,
+          "text": "İlk bakışta sıradan geliyor ama üçüncü örnekte ne demek istediğimi anlayacaksın."
+        },
+        {
+          "id": "cbs_p14",
+          "group": "positive_caps_promise",
+          "label": 1,
+          "score": 0.284596779073507,
+          "text": "BİR DAHA AYNI HATAYI YAPMAYACAKSIN! Sebebi öğrendiğimde ben de şaşırdım."
+        },
+        {
+          "id": "cbs_p15",
+          "group": "positive_withholding",
+          "label": 1,
+          "score": 0.1445765841368517,
+          "text": "Bu sonuç neden kimsenin konuşmadığı kadar önemli? Cevap son grafikte saklı."
+        },
+        {
+          "id": "cbs_p16",
+          "group": "positive_direct_hook",
+          "label": 1,
+          "score": 0.2566404599873088,
+          "text": "Sadece 30 saniye ver; kullandığın ayarın neden yanlış olabileceğini göstereceğim."
+        }
+      ]
+    },
+    "upstream_heuristic_v1": {
+      "accuracy_at_0_50": 0.5625,
+      "precision_at_0_50": 0.6666666666666666,
+      "recall_at_0_50": 0.25,
+      "f1_at_0_50": 0.36363636363636365,
+      "mae": 0.451875,
+      "mean_positive_score": 0.23125,
+      "mean_negative_score": 0.3125,
+      "score_separation": -0.08124999999999999,
+      "false_positive_count": 2,
+      "false_negative_count": 12,
+      "by_group": {
+        "negative_caps_emphasis": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.4,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_caps_explanation": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.8,
+          "accuracy_at_0_50": 0.0
+        },
+        "negative_caps_result": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.2,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_caps_warning": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.2,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_legit_alert": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.2,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_legit_announcement": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.4,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_legit_deadline": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.4,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_legit_urgency": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.4,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_lexical_trap": {
+          "n": 3,
+          "positive_rate": 0.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_metalinguistic": {
+          "n": 2,
+          "positive_rate": 0.0,
+          "mean_score": 0.225,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_quoted_clickbait": {
+          "n": 3,
+          "positive_rate": 0.0,
+          "mean_score": 0.5166666666666667,
+          "accuracy_at_0_50": 0.6666666666666666
+        },
+        "positive_caps_curiosity": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 1.0,
+          "accuracy_at_0_50": 1.0
+        },
+        "positive_caps_hype": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.75,
+          "accuracy_at_0_50": 1.0
+        },
+        "positive_caps_promise": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.95,
+          "accuracy_at_0_50": 1.0
+        },
+        "positive_caps_withholding": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 1.0,
+          "accuracy_at_0_50": 1.0
+        },
+        "positive_curiosity_gap": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_direct_hook": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_fear": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_overpromise": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_personal_hype": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_unseen_curiosity": {
+          "n": 3,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_unseen_exclusivity": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_unseen_withholding": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_withholding": {
+          "n": 2,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        }
+      },
+      "failures": [
+        {
+          "id": "cbs_p01",
+          "group": "positive_unseen_curiosity",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu ayarı ben de gereksiz sanıyordum; sonucu görünce fikrim tamamen değişti. Sonuna kadar bak."
+        },
+        {
+          "id": "cbs_p02",
+          "group": "positive_unseen_curiosity",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bir dakikanı ayır: neden telefonun gece bu kadar pil yediğini görünce şaşırabilirsin."
+        },
+        {
+          "id": "cbs_p03",
+          "group": "positive_unseen_exclusivity",
+          "label": 1,
+          "score": 0.0,
+          "text": "Sana bunu kimse anlatmıyor: küçük bir alışkanlık ay sonunda beklediğinden çok daha fazla para bırakabilir."
+        },
+        {
+          "id": "cbs_p04",
+          "group": "positive_unseen_curiosity",
+          "label": 1,
+          "score": 0.0,
+          "text": "Ben de inanmıyordum, ta ki aynı testi üç kez yapana kadar. Sonuç düşündüğümün tam tersiydi."
+        },
+        {
+          "id": "cbs_p05",
+          "group": "positive_unseen_withholding",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu detayı atlayan herkes aynı hataya düşüyor. İkinci adımın neden önemli olduğunu sona gelince anlayacaksın."
+        },
+        {
+          "id": "cbs_p08",
+          "group": "positive_overpromise",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bunu öğrendikten sonra eski yönteme dönmek istemeyeceksin. Küçük görünüyor ama etkisi beklediğimden büyük."
+        },
+        {
+          "id": "cbs_p09",
+          "group": "positive_withholding",
+          "label": 1,
+          "score": 0.0,
+          "text": "Herkes ilk seçeneğe bakıyor ama asıl mesele başka yerde. En sonda fark ettiğim detay sonucu değiştirdi."
+        },
+        {
+          "id": "cbs_p11",
+          "group": "positive_fear",
+          "label": 1,
+          "score": 0.0,
+          "text": "Birçok kişinin yaptığı bu hata fark edilmeden haftalarca devam ediyor. Sen de yapıyor olabilirsin."
+        },
+        {
+          "id": "cbs_p12",
+          "group": "positive_personal_hype",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bugün denedim ve gerçekten beklemiyordum: küçücük bir değişiklik bütün çalışma akışımı tersine çevirdi."
+        },
+        {
+          "id": "cbs_p13",
+          "group": "positive_curiosity_gap",
+          "label": 1,
+          "score": 0.0,
+          "text": "İlk bakışta sıradan geliyor ama üçüncü örnekte ne demek istediğimi anlayacaksın."
+        },
+        {
+          "id": "cbs_p15",
+          "group": "positive_withholding",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu sonuç neden kimsenin konuşmadığı kadar önemli? Cevap son grafikte saklı."
+        },
+        {
+          "id": "cbs_p16",
+          "group": "positive_direct_hook",
+          "label": 1,
+          "score": 0.0,
+          "text": "Sadece 30 saniye ver; kullandığın ayarın neden yanlış olabileceğini göstereceğim."
+        },
+        {
+          "id": "cbs_n06",
+          "group": "negative_quoted_clickbait",
+          "label": 0,
+          "score": 0.65,
+          "text": "Haberde ‘İNANAMAYACAKSINIZ’ ifadesi kullanılmış; metnin geri kalanı ise sıradan bir ürün duyurusu."
+        },
+        {
+          "id": "cbs_n14",
+          "group": "negative_caps_explanation",
+          "label": 0,
+          "score": 0.8,
+          "text": "DİKKAT EDİLMESİ GEREKEN NOKTA: iki grup başlangıçta aynı büyüklükte değildi."
+        }
+      ]
+    },
+    "frozen_presentation_rules_v1": {
+      "accuracy_at_0_50": 0.34375,
+      "precision_at_0_50": 0.0,
+      "recall_at_0_50": 0.0,
+      "f1_at_0_50": 0.0,
+      "mae": 0.5250000000000001,
+      "mean_positive_score": 0.09812499999999999,
+      "mean_negative_score": 0.38812500000000005,
+      "score_separation": -0.29000000000000004,
+      "false_positive_count": 5,
+      "false_negative_count": 16,
+      "by_group": {
+        "negative_caps_emphasis": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.2,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_caps_explanation": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.64,
+          "accuracy_at_0_50": 0.0
+        },
+        "negative_caps_result": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.1,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_caps_warning": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.52,
+          "accuracy_at_0_50": 0.0
+        },
+        "negative_legit_alert": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.44000000000000006,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_legit_announcement": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.2,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_legit_deadline": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.2,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_legit_urgency": {
+          "n": 1,
+          "positive_rate": 0.0,
+          "mean_score": 0.2,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_lexical_trap": {
+          "n": 3,
+          "positive_rate": 0.0,
+          "mean_score": 0.3933333333333333,
+          "accuracy_at_0_50": 1.0
+        },
+        "negative_metalinguistic": {
+          "n": 2,
+          "positive_rate": 0.0,
+          "mean_score": 0.45,
+          "accuracy_at_0_50": 0.5
+        },
+        "negative_quoted_clickbait": {
+          "n": 3,
+          "positive_rate": 0.0,
+          "mean_score": 0.5433333333333333,
+          "accuracy_at_0_50": 0.3333333333333333
+        },
+        "positive_caps_curiosity": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.38,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_caps_hype": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.45,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_caps_promise": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.37,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_caps_withholding": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.37,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_curiosity_gap": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_direct_hook": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_fear": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_overpromise": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_personal_hype": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_unseen_curiosity": {
+          "n": 3,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_unseen_exclusivity": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_unseen_withholding": {
+          "n": 1,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        },
+        "positive_withholding": {
+          "n": 2,
+          "positive_rate": 1.0,
+          "mean_score": 0.0,
+          "accuracy_at_0_50": 0.0
+        }
+      },
+      "failures": [
+        {
+          "id": "cbs_p01",
+          "group": "positive_unseen_curiosity",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu ayarı ben de gereksiz sanıyordum; sonucu görünce fikrim tamamen değişti. Sonuna kadar bak."
+        },
+        {
+          "id": "cbs_p02",
+          "group": "positive_unseen_curiosity",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bir dakikanı ayır: neden telefonun gece bu kadar pil yediğini görünce şaşırabilirsin."
+        },
+        {
+          "id": "cbs_p03",
+          "group": "positive_unseen_exclusivity",
+          "label": 1,
+          "score": 0.0,
+          "text": "Sana bunu kimse anlatmıyor: küçük bir alışkanlık ay sonunda beklediğinden çok daha fazla para bırakabilir."
+        },
+        {
+          "id": "cbs_p04",
+          "group": "positive_unseen_curiosity",
+          "label": 1,
+          "score": 0.0,
+          "text": "Ben de inanmıyordum, ta ki aynı testi üç kez yapana kadar. Sonuç düşündüğümün tam tersiydi."
+        },
+        {
+          "id": "cbs_p05",
+          "group": "positive_unseen_withholding",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu detayı atlayan herkes aynı hataya düşüyor. İkinci adımın neden önemli olduğunu sona gelince anlayacaksın."
+        },
+        {
+          "id": "cbs_p06",
+          "group": "positive_caps_curiosity",
+          "label": 1,
+          "score": 0.38,
+          "text": "NEDEN HERKES BUNU YAPMAYA BAŞLADI? Cevap sandığınız kadar basit değil 👀"
+        },
+        {
+          "id": "cbs_p07",
+          "group": "positive_caps_hype",
+          "label": 1,
+          "score": 0.45,
+          "text": "GÖRDÜĞÜM EN ÇILGIN SONUÇ! Aynı veri, sadece bir ayarla bambaşka göründü 😱"
+        },
+        {
+          "id": "cbs_p08",
+          "group": "positive_overpromise",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bunu öğrendikten sonra eski yönteme dönmek istemeyeceksin. Küçük görünüyor ama etkisi beklediğimden büyük."
+        },
+        {
+          "id": "cbs_p09",
+          "group": "positive_withholding",
+          "label": 1,
+          "score": 0.0,
+          "text": "Herkes ilk seçeneğe bakıyor ama asıl mesele başka yerde. En sonda fark ettiğim detay sonucu değiştirdi."
+        },
+        {
+          "id": "cbs_p10",
+          "group": "positive_caps_withholding",
+          "label": 1,
+          "score": 0.37,
+          "text": "BU VİDEOYU KAPATMADAN ÖNCE SON 10 SANİYEYİ İZLE! Ne olduğunu görünce nedenini anlayacaksın."
+        },
+        {
+          "id": "cbs_p11",
+          "group": "positive_fear",
+          "label": 1,
+          "score": 0.0,
+          "text": "Birçok kişinin yaptığı bu hata fark edilmeden haftalarca devam ediyor. Sen de yapıyor olabilirsin."
+        },
+        {
+          "id": "cbs_p12",
+          "group": "positive_personal_hype",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bugün denedim ve gerçekten beklemiyordum: küçücük bir değişiklik bütün çalışma akışımı tersine çevirdi."
+        },
+        {
+          "id": "cbs_p13",
+          "group": "positive_curiosity_gap",
+          "label": 1,
+          "score": 0.0,
+          "text": "İlk bakışta sıradan geliyor ama üçüncü örnekte ne demek istediğimi anlayacaksın."
+        },
+        {
+          "id": "cbs_p14",
+          "group": "positive_caps_promise",
+          "label": 1,
+          "score": 0.37,
+          "text": "BİR DAHA AYNI HATAYI YAPMAYACAKSIN! Sebebi öğrendiğimde ben de şaşırdım."
+        },
+        {
+          "id": "cbs_p15",
+          "group": "positive_withholding",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu sonuç neden kimsenin konuşmadığı kadar önemli? Cevap son grafikte saklı."
+        },
+        {
+          "id": "cbs_p16",
+          "group": "positive_direct_hook",
+          "label": 1,
+          "score": 0.0,
+          "text": "Sadece 30 saniye ver; kullandığın ayarın neden yanlış olabileceğini göstereceğim."
+        },
+        {
+          "id": "cbs_n05",
+          "group": "negative_quoted_clickbait",
+          "label": 0,
+          "score": 0.55,
+          "text": "‘Kimsenin söylemediği gerçek’ gibi başlıklar güvenilirlik hissini azaltabiliyor."
+        },
+        {
+          "id": "cbs_n06",
+          "group": "negative_quoted_clickbait",
+          "label": 0,
+          "score": 0.6,
+          "text": "Haberde ‘İNANAMAYACAKSINIZ’ ifadesi kullanılmış; metnin geri kalanı ise sıradan bir ürün duyurusu."
+        },
+        {
+          "id": "cbs_n07",
+          "group": "negative_caps_warning",
+          "label": 0,
+          "score": 0.52,
+          "text": "SAKINCA: Bu yöntem küçük örneklemde test edildi; sonuçları genellemek doğru değil."
+        },
+        {
+          "id": "cbs_n10",
+          "group": "negative_metalinguistic",
+          "label": 0,
+          "score": 0.52,
+          "text": "Son fırsat kavramı pazarlamada yapay kıtlık oluşturmak için sık kullanılan bir yöntemdir."
+        },
+        {
+          "id": "cbs_n14",
+          "group": "negative_caps_explanation",
+          "label": 0,
+          "score": 0.64,
+          "text": "DİKKAT EDİLMESİ GEREKEN NOKTA: iki grup başlangıçta aynı büyüklükte değildi."
+        }
+      ]
+    }
+  },
+  "frozen_rule_reasons": {
+    "cbs_p01": [],
+    "cbs_p02": [],
+    "cbs_p03": [],
+    "cbs_p04": [],
+    "cbs_p05": [],
+    "cbs_p06": [
+      "caps:5",
+      "amplifier_emoji"
+    ],
+    "cbs_p07": [
+      "caps:3",
+      "punctuation:1",
+      "amplifier_emoji"
+    ],
+    "cbs_p08": [],
+    "cbs_p09": [],
+    "cbs_p10": [
+      "caps:5",
+      "punctuation:1"
+    ],
+    "cbs_p11": [],
+    "cbs_p12": [],
+    "cbs_p13": [],
+    "cbs_p14": [
+      "caps:4",
+      "punctuation:1"
+    ],
+    "cbs_p15": [],
+    "cbs_p16": [],
+    "cbs_n01": [
+      "phrase:dikkat",
+      "caps:1"
+    ],
+    "cbs_n02": [
+      "caps:2"
+    ],
+    "cbs_n03": [
+      "phrase:şok"
+    ],
+    "cbs_n04": [
+      "phrase:dikkat"
+    ],
+    "cbs_n05": [
+      "phrase:kimsenin söylemediği"
+    ],
+    "cbs_n06": [
+      "phrase:inanamayacaks",
+      "caps:1"
+    ],
+    "cbs_n07": [
+      "phrase:sakın",
+      "caps:1"
+    ],
+    "cbs_n08": [
+      "caps:2"
+    ],
+    "cbs_n09": [
+      "caps:2"
+    ],
+    "cbs_n10": [
+      "phrase:son fırsat"
+    ],
+    "cbs_n11": [
+      "phrase:herkes yanılıyor"
+    ],
+    "cbs_n12": [
+      "phrase:sakın"
+    ],
+    "cbs_n13": [
+      "caps:2"
+    ],
+    "cbs_n14": [
+      "phrase:dikkat",
+      "caps:4"
+    ],
+    "cbs_n15": [
+      "caps:1"
+    ],
+    "cbs_n16": [
+      "phrase:asıl sebep"
+    ]
+  }
+}
