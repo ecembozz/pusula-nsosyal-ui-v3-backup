@@ -12,6 +12,10 @@ on:
       - scripts/build_final_holdout_blind_packet.py
       - .github/workflows/final-holdout-v1-audit.yml
 
+concurrency:
+  group: final-holdout-v1-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
