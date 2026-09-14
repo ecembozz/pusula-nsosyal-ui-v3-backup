@@ -15,11 +15,17 @@ from benchmark_supervised_embeddings import INTENTS, cosine_rows, dominant_from_
 
 ROOT = Path(__file__).resolve().parents[1]
 OLD_BALANCED = ROOT / "data/dev_labels/intent_balanced_training_v1.jsonl"
-V3_FILES = [
+V3_V1_FILES = [
     ROOT / "data/v3_realistic/train_ogretici_v1.jsonl",
     ROOT / "data/v3_realistic/train_eglendirici_v1.jsonl",
     ROOT / "data/v3_realistic/train_haber_v1.jsonl",
     ROOT / "data/v3_realistic/train_sosyal_v1.jsonl",
+]
+V3_V2_FILES = [
+    ROOT / "data/v3_realistic/train_ogretici_v2.jsonl",
+    ROOT / "data/v3_realistic/train_eglendirici_v2.jsonl",
+    ROOT / "data/v3_realistic/train_haber_v2.jsonl",
+    ROOT / "data/v3_realistic/train_sosyal_v2.jsonl",
 ]
 
 
@@ -38,9 +44,9 @@ def load_old():
     return rows
 
 
-def load_v3():
+def load_v3(paths, source):
     rows = []
-    for path in V3_FILES:
+    for path in paths:
         for r in read_jsonl(path):
             rows.append(
                 {
@@ -48,7 +54,7 @@ def load_v3():
                     "text": r["metin"],
                     "dominant": r["dominant_intent"],
                     "y": [float(x) for x in r["gercek_niyet"]] + [float(r["clickbait"])],
-                    "source": "dataset_v3_realistic",
+                    "source": source,
                 }
             )
     return rows
@@ -92,7 +98,8 @@ def cls_metrics(dom_true, pred, probs):
 
 
 def train_eval(x_train, y_train, d_train, x_test, y_test, d_test):
-    k = min(11, max(5, len(x_train) // 24))
+    # Keep k fixed across all scenarios so the 128-vs-256 comparison isolates data effects.
+    k = 7
     knn = KNeighborsRegressor(n_neighbors=k, weights="distance", metric="cosine")
     knn.fit(x_train, y_train)
     p_knn = np.asarray(knn.predict(x_test), dtype=float)
@@ -145,38 +152,43 @@ def main():
     args = ap.parse_args()
 
     old = load_old()
-    v3 = load_v3()
+    v3_128 = load_v3(V3_V1_FILES, "dataset_v3_tranche1")
+    v3_second = load_v3(V3_V2_FILES, "dataset_v3_tranche2")
+    v3_256 = v3_128 + v3_second
     hard = load_hard_eval()
+
     if len(old) != 136:
         raise SystemExit(f"expected 136 old balanced rows, got {len(old)}")
-    if len(v3) != 128:
-        raise SystemExit(f"expected 128 v3 rows, got {len(v3)}")
+    if len(v3_128) != 128:
+        raise SystemExit(f"expected 128 v3 tranche-1 rows, got {len(v3_128)}")
+    if len(v3_second) != 128:
+        raise SystemExit(f"expected 128 v3 tranche-2 rows, got {len(v3_second)}")
+    if len(v3_256) != 256:
+        raise SystemExit(f"expected 256 v3 rows, got {len(v3_256)}")
     if len(hard) != 48:
         raise SystemExit(f"expected 48 hard rows, got {len(hard)}")
 
-    all_rows = old + v3 + hard
+    all_rows = old + v3_256 + hard
     x, revision = encode_texts([r["text"] for r in all_rows], args.model, batch_size=16)
-    n_old, n_v3 = len(old), len(v3)
+    n_old, n_v3 = len(old), len(v3_256)
     xo = x[:n_old]
-    xv = x[n_old:n_old+n_v3]
+    xv256 = x[n_old:n_old+n_v3]
+    xv128 = xv256[:128]
     xh = x[n_old+n_v3:]
 
     yo = np.asarray([r["y"] for r in old], dtype=float)
-    yv = np.asarray([r["y"] for r in v3], dtype=float)
+    yv256 = np.asarray([r["y"] for r in v3_256], dtype=float)
+    yv128 = yv256[:128]
     yh = np.asarray([r["y"] for r in hard], dtype=float)
     do = np.asarray([r["dominant"] for r in old])
-    dv = np.asarray([r["dominant"] for r in v3])
+    dv256 = np.asarray([r["dominant"] for r in v3_256])
+    dv128 = dv256[:128]
     dh = np.asarray([r["dominant"] for r in hard])
 
     scenarios = {
         "old_136_only": train_eval(xo, yo, do, xh, yh, dh),
-        "v3_128_only": train_eval(xv, yv, dv, xh, yh, dh),
-        "combined_264": train_eval(
-            np.vstack([xo, xv]),
-            np.vstack([yo, yv]),
-            np.concatenate([do, dv]),
-            xh, yh, dh,
-        ),
+        "v3_128_only": train_eval(xv128, yv128, dv128, xh, yh, dh),
+        "v3_256_only": train_eval(xv256, yv256, dv256, xh, yh, dh),
     }
 
     result = {
@@ -199,10 +211,12 @@ def main():
         "",
         f"Encoder: `{args.model}` @ `{revision}`",
         "",
+        "All scenarios use the same frozen encoder, classifier settings and k-NN k=7. The old 2,000-post templated pool is excluded.",
+        "",
         "| Training source | Classifier acc. | Classifier F1 | Top-50% conf. acc. | Hybrid acc. | Hybrid F1 | Hybrid 4D MAE | Hybrid cosine |",
         "|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
-    for key in ("old_136_only", "v3_128_only", "combined_264"):
+    for key in ("old_136_only", "v3_128_only", "v3_256_only"):
         r = scenarios[key]
         c = r["balanced_logistic_dominant"]
         h = r["hybrid_vector"]
@@ -215,7 +229,8 @@ def main():
         "",
         "## Policy",
         "",
-        "The old 2,000-post templated pool is intentionally excluded from these training scenarios. It remains a baseline/demo fixture only.",
+        "V3 tranche 2 deliberately targets teaching↔social and entertainment↔social boundary cases instead of merely adding more easy examples.",
+        "The old 2,000-post templated pool remains a baseline/demo fixture only and is not used to train these candidate models.",
         "",
     ]
     (ROOT / args.summary).write_text("\n".join(lines), encoding="utf-8")
