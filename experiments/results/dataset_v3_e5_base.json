@@ -75,6 +75,60 @@
         "accuracy_at_50pct_coverage": 0.7916666666666666,
         "accuracy_at_75pct_coverage": 0.75
       },
+      "margin_aware_dominant": {
+        "margin_0.15": {
+          "label_margin_threshold": 0.15,
+          "train_n": 136,
+          "train_distribution": {
+            "ogretici": 34,
+            "eglendirici": 34,
+            "haber": 34,
+            "sosyal": 34
+          },
+          "dominant_accuracy": 0.6875,
+          "macro_f1": 0.6877494216310005,
+          "pred_distribution": {
+            "sosyal": 20,
+            "haber": 8,
+            "eglendirici": 13,
+            "ogretici": 7
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.3333333333333333,
+            "eglendirici": 0.7692307692307693,
+            "haber": 0.875,
+            "sosyal": 0.8
+          },
+          "accuracy_at_50pct_coverage": 0.7916666666666666,
+          "accuracy_at_75pct_coverage": 0.75
+        },
+        "margin_0.25": {
+          "label_margin_threshold": 0.25,
+          "train_n": 122,
+          "train_distribution": {
+            "ogretici": 34,
+            "eglendirici": 20,
+            "haber": 34,
+            "sosyal": 34
+          },
+          "dominant_accuracy": 0.6041666666666666,
+          "macro_f1": 0.6130083732057416,
+          "pred_distribution": {
+            "sosyal": 23,
+            "haber": 8,
+            "eglendirici": 9,
+            "ogretici": 8
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.3333333333333333,
+            "eglendirici": 0.46153846153846156,
+            "haber": 0.875,
+            "sosyal": 0.8
+          },
+          "accuracy_at_50pct_coverage": 0.8333333333333334,
+          "accuracy_at_75pct_coverage": 0.75
+        }
+      },
       "ood": {
         "threshold": 0.8622611165046692,
         "ood_rate": 0.0,
@@ -147,6 +201,86 @@
         "accuracy_at_50pct_coverage": 0.8333333333333334,
         "accuracy_at_75pct_coverage": 0.75
       },
+      "margin_aware_dominant": {
+        "margin_0.15": {
+          "label_margin_threshold": 0.15,
+          "train_n": 128,
+          "train_distribution": {
+            "ogretici": 32,
+            "eglendirici": 32,
+            "haber": 32,
+            "sosyal": 32
+          },
+          "dominant_accuracy": 0.7083333333333334,
+          "macro_f1": 0.7065736551030668,
+          "pred_distribution": {
+            "sosyal": 21,
+            "haber": 9,
+            "eglendirici": 13,
+            "ogretici": 5
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.3333333333333333,
+            "eglendirici": 0.6923076923076923,
+            "haber": 1.0,
+            "sosyal": 0.8666666666666667
+          },
+          "accuracy_at_50pct_coverage": 0.8333333333333334,
+          "accuracy_at_75pct_coverage": 0.75
+        },
+        "margin_0.25": {
+          "label_margin_threshold": 0.25,
+          "train_n": 126,
+          "train_distribution": {
+            "ogretici": 32,
+            "eglendirici": 30,
+            "haber": 32,
+            "sosyal": 32
+          },
+          "dominant_accuracy": 0.7083333333333334,
+          "macro_f1": 0.7065736551030668,
+          "pred_distribution": {
+            "sosyal": 21,
+            "haber": 9,
+            "eglendirici": 13,
+            "ogretici": 5
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.3333333333333333,
+            "eglendirici": 0.6923076923076923,
+            "haber": 1.0,
+            "sosyal": 0.8666666666666667
+          },
+          "accuracy_at_50pct_coverage": 0.8333333333333334,
+          "accuracy_at_75pct_coverage": 0.75
+        },
+        "margin_0.35": {
+          "label_margin_threshold": 0.35,
+          "train_n": 110,
+          "train_distribution": {
+            "ogretici": 30,
+            "eglendirici": 16,
+            "haber": 32,
+            "sosyal": 32
+          },
+          "dominant_accuracy": 0.5625,
+          "macro_f1": 0.5568218954248365,
+          "pred_distribution": {
+            "sosyal": 30,
+            "haber": 9,
+            "ogretici": 4,
+            "eglendirici": 5
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.25,
+            "eglendirici": 0.23076923076923078,
+            "haber": 1.0,
+            "sosyal": 0.8666666666666667
+          },
+          "accuracy_at_50pct_coverage": 0.7083333333333334,
+          "accuracy_at_75pct_coverage": 0.6666666666666666
+        }
+      },
       "ood": {
         "threshold": 0.8628045320510864,
         "ood_rate": 0.0,
@@ -218,6 +352,86 @@
         },
         "accuracy_at_50pct_coverage": 0.875,
         "accuracy_at_75pct_coverage": 0.75
+      },
+      "margin_aware_dominant": {
+        "margin_0.15": {
+          "label_margin_threshold": 0.15,
+          "train_n": 255,
+          "train_distribution": {
+            "ogretici": 63,
+            "eglendirici": 64,
+            "haber": 64,
+            "sosyal": 64
+          },
+          "dominant_accuracy": 0.625,
+          "macro_f1": 0.6365486764193661,
+          "pred_distribution": {
+            "sosyal": 18,
+            "haber": 8,
+            "eglendirici": 16,
+            "ogretici": 6
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.3333333333333333,
+            "eglendirici": 0.6923076923076923,
+            "haber": 0.875,
+            "sosyal": 0.6666666666666666
+          },
+          "accuracy_at_50pct_coverage": 0.875,
+          "accuracy_at_75pct_coverage": 0.75
+        },
+        "margin_0.25": {
+          "label_margin_threshold": 0.25,
+          "train_n": 247,
+          "train_distribution": {
+            "ogretici": 58,
+            "eglendirici": 61,
+            "haber": 64,
+            "sosyal": 64
+          },
+          "dominant_accuracy": 0.6875,
+          "macro_f1": 0.6849031279178338,
+          "pred_distribution": {
+            "sosyal": 19,
+            "haber": 8,
+            "eglendirici": 15,
+            "ogretici": 6
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.3333333333333333,
+            "eglendirici": 0.7692307692307693,
+            "haber": 0.875,
+            "sosyal": 0.8
+          },
+          "accuracy_at_50pct_coverage": 0.875,
+          "accuracy_at_75pct_coverage": 0.75
+        },
+        "margin_0.35": {
+          "label_margin_threshold": 0.35,
+          "train_n": 221,
+          "train_distribution": {
+            "ogretici": 51,
+            "eglendirici": 42,
+            "haber": 64,
+            "sosyal": 64
+          },
+          "dominant_accuracy": 0.6875,
+          "macro_f1": 0.6906604747162022,
+          "pred_distribution": {
+            "sosyal": 23,
+            "haber": 9,
+            "eglendirici": 11,
+            "ogretici": 5
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.3333333333333333,
+            "eglendirici": 0.6153846153846154,
+            "haber": 1.0,
+            "sosyal": 0.8666666666666667
+          },
+          "accuracy_at_50pct_coverage": 0.875,
+          "accuracy_at_75pct_coverage": 0.7222222222222222
+        }
       },
       "ood": {
         "threshold": 0.8767671585083008,
