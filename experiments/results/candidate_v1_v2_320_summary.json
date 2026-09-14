@@ -1,0 +1,19 @@
+{
+  "status": "development_smoke_not_final_evaluation",
+  "n": 320,
+  "dominant_distribution": {
+    "eglendirici": 104,
+    "sosyal": 167,
+    "ogretici": 47,
+    "haber": 2
+  },
+  "mean_confidence": 0.305806025,
+  "confidence_lt_0_50": 306,
+  "confidence_ge_0_70": 0,
+  "mean_dominant_margin": 0.124939396875,
+  "ood_count": 12,
+  "mean_clickbait": 0.087720825,
+  "clickbait_ge_0_50": 0,
+  "cache_record_count": 320,
+  "cache_reject_count": 0
+}
