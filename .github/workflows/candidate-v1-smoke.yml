@@ -61,16 +61,19 @@ jobs:
 
           conf=[float(r['confidence']) for r in rows]
           ood=[bool(r.get('diagnostics',{}).get('ood')) for r in rows]
-          margins=[float(r.get('diagnostics',{}).get('dominant_margin',0)) for r in rows]
+          margins=[float(r.get('diagnostics',{}).get('auxiliary_dominant_margin',0)) for r in rows]
           clicks=[float(r['clickbait']) for r in rows]
+          agree=[bool(r.get('diagnostics',{}).get('canonical_auxiliary_agree')) for r in rows]
           summary={
             'status':'development_smoke_not_final_evaluation',
             'n':len(rows),
-            'dominant_distribution':dict(Counter(r['dominant_intent'] for r in rows)),
-            'mean_confidence':sum(conf)/len(conf),
-            'confidence_lt_0_50':sum(c<.50 for c in conf),
-            'confidence_ge_0_70':sum(c>=.70 for c in conf),
-            'mean_dominant_margin':sum(margins)/len(margins),
+            'canonical_dominant_distribution':dict(Counter(r['dominant_intent'] for r in rows)),
+            'auxiliary_dominant_distribution':dict(Counter(r['auxiliary_dominant_intent'] for r in rows)),
+            'canonical_auxiliary_agreement_rate':sum(agree)/len(agree),
+            'mean_screening_confidence':sum(conf)/len(conf),
+            'screening_confidence_lt_0_50':sum(c<.50 for c in conf),
+            'screening_confidence_ge_0_70':sum(c>=.70 for c in conf),
+            'mean_auxiliary_dominant_margin':sum(margins)/len(margins),
             'ood_count':sum(ood),
             'mean_clickbait':sum(clicks)/len(clicks),
             'clickbait_ge_0_50':sum(c>=.50 for c in clicks),
