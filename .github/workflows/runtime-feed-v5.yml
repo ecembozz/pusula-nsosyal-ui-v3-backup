@@ -1,0 +1,57 @@
+name: Build Runtime Feed V5
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dataset-v3-realistic
+    paths:
+      - scripts/build_runtime_feed_v5.py
+      - experiments/results/candidate_v5_v2_320.jsonl
+      - data/v2_realistic/raw_posts.jsonl
+      - .github/workflows/runtime-feed-v5.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build-runtime-feed:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build Candidate V5 runtime feed
+        run: python scripts/build_runtime_feed_v5.py
+      - name: Validate runtime feed
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          feed=json.loads(Path('data/runtime/feed_v5.json').read_text(encoding='utf-8'))
+          meta=json.loads(Path('data/runtime/feed_v5_meta.json').read_text(encoding='utf-8'))
+          assert len(feed)==320
+          assert meta['record_count']==320
+          assert len({r['id'] for r in feed})==320
+          assert len({r['metin'] for r in feed})==320
+          assert all(len(r['tahmin_niyet'])==4 for r in feed)
+          assert all(0<=float(r['clickbait'])<=1 for r in feed)
+          assert all(r['ranking_metadata_provenance']=='deterministic_demo_simulation_not_platform_telemetry' for r in feed)
+          assert meta['semantic_architecture']['candidate']=='V5'
+          print(json.dumps(meta,ensure_ascii=False,indent=2))
+          PY
+      - name: Commit runtime feed
+        run: |
+          FILES="data/runtime/feed_v5.json data/runtime/feed_v5_meta.json"
+          if [ -z "$(git status --porcelain -- $FILES)" ]; then
+            echo "Runtime feed already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add $FILES
+          git commit -m "runtime-v5: build cached realistic feed [skip ci]"
+          git pull --rebase origin dataset-v3-realistic
+          git push origin HEAD:dataset-v3-realistic
