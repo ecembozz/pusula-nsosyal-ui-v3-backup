@@ -16,6 +16,10 @@ FILES = [
     ROOT / "data/v3_realistic/train_eglendirici_v1.jsonl",
     ROOT / "data/v3_realistic/train_haber_v1.jsonl",
     ROOT / "data/v3_realistic/train_sosyal_v1.jsonl",
+    ROOT / "data/v3_realistic/train_ogretici_v2.jsonl",
+    ROOT / "data/v3_realistic/train_eglendirici_v2.jsonl",
+    ROOT / "data/v3_realistic/train_haber_v2.jsonl",
+    ROOT / "data/v3_realistic/train_sosyal_v2.jsonl",
 ]
 
 
@@ -112,17 +116,17 @@ def main():
         raise SystemExit("exact duplicate texts found")
 
     dominant = Counter(r["dominant_intent"] for r in rows)
-    expected = {k: 32 for k in INTENTS}
+    expected = {k: 64 for k in INTENTS}
     if dict(dominant) != expected:
         raise SystemExit(f"dominant balance mismatch: {dominant}")
 
     clickbait_positive = Counter(
         r["dominant_intent"] for r in rows if float(r["clickbait"]) >= 0.75
     )
-    if sum(clickbait_positive.values()) < 8:
-        raise SystemExit("need at least 8 explicit clickbait-positive examples")
-    if len(clickbait_positive) < 4:
-        raise SystemExit("clickbait positives must span all four dominant intents")
+    if sum(clickbait_positive.values()) < 16:
+        raise SystemExit("need at least 16 explicit clickbait-positive examples")
+    if any(clickbait_positive.get(k, 0) < 4 for k in INTENTS):
+        raise SystemExit("need at least four clickbait positives per dominant intent")
 
     styles = Counter(r["style_bucket"] for r in rows)
     content_types = Counter(r["content_type"] for r in rows)
