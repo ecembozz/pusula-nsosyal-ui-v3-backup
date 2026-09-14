@@ -1,0 +1,546 @@
+{
+  "status": "development_only_clickbait_contrastive_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-base",
+  "embedding_revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "pairs_n": 24,
+  "semantic_training_rows": 352,
+  "recommended": "presentation_rules_dev_v1",
+  "selection_rule": "maximize pair ordering and high capture, minimize low false positives and MAE",
+  "methods": {
+    "semantic_knn_candidate_v3": {
+      "n": 24,
+      "pair_order_accuracy": 1.0,
+      "pair_margin_0_30_rate": 0.375,
+      "mean_delta": 0.27028011982994365,
+      "low_false_positive_rate": 0.0,
+      "high_capture_rate": 0.375,
+      "balanced_accuracy_at_0_50": 0.6875,
+      "f1_at_0_50": 0.5454545454545454,
+      "mae": 0.30276311047256904,
+      "mean_low_score": 0.08636134171854083,
+      "mean_high_score": 0.35664146154848453,
+      "by_family": {
+        "entertainment_parody": {
+          "n": 2,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 0.5,
+          "mean_delta": 0.399998299720004,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.5
+        },
+        "known_phrase": {
+          "n": 6,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 0.0,
+          "mean_delta": 0.0690403749612407,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.0
+        },
+        "novel_curiosity": {
+          "n": 5,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 0.8,
+          "mean_delta": 0.4545263908155867,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.6
+        },
+        "novel_exclusivity": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.4429342127403628,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "novel_fear": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.5127417461154127,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "novel_promise": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 0.0,
+          "mean_delta": 0.24813624820612445,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.0
+        },
+        "novel_urgency": {
+          "n": 2,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 0.0,
+          "mean_delta": 0.24774947478393913,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.5
+        },
+        "social_prompt": {
+          "n": 2,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.5160053860063367,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "subtle_curiosity_gap": {
+          "n": 2,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 0.0,
+          "mean_delta": 0.006775469811617031,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.0
+        },
+        "subtle_overpromise": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 0.0,
+          "mean_delta": 0.004255020843109853,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.0
+        },
+        "subtle_withholding": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 0.0,
+          "mean_delta": 0.25072418352446674,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.0
+        }
+      },
+      "failed_pairs": [
+        {
+          "id": "cb01",
+          "family": "known_phrase",
+          "low": 0.24617868488754935,
+          "high": 0.26763331759276743,
+          "delta": 0.02145463270521808,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb02",
+          "family": "known_phrase",
+          "low": 0.13011892000259098,
+          "high": 0.2627149764789792,
+          "delta": 0.1325960564763882,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb03",
+          "family": "known_phrase",
+          "low": 0.014391854538722213,
+          "high": 0.13096505474445344,
+          "delta": 0.11657320020573123,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb04",
+          "family": "known_phrase",
+          "low": 0.01430237979400777,
+          "high": 0.14743515639857888,
+          "delta": 0.1331327766045711,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb05",
+          "family": "known_phrase",
+          "low": 0.02251649353812984,
+          "high": 0.024910795854839962,
+          "delta": 0.002394302316710121,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb06",
+          "family": "known_phrase",
+          "low": 0.01599685157343248,
+          "high": 0.0240881330322579,
+          "delta": 0.008091281458825417,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb10",
+          "family": "novel_curiosity",
+          "low": 0.014201516014181691,
+          "high": 0.4086084759378411,
+          "delta": 0.39440695992365943,
+          "ordered": true,
+          "margin_0_30": true,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb12",
+          "family": "novel_promise",
+          "low": 0.014309118366474981,
+          "high": 0.2624453665725994,
+          "delta": 0.24813624820612445,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb14",
+          "family": "novel_urgency",
+          "low": 0.12863784304810855,
+          "high": 0.3895896782855436,
+          "delta": 0.26095183523743504,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb16",
+          "family": "novel_curiosity",
+          "low": 0.01421293158315858,
+          "high": 0.2715282942831775,
+          "delta": 0.2573153627000189,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb19",
+          "family": "entertainment_parody",
+          "low": 0.13272298728954518,
+          "high": 0.41251229391851857,
+          "delta": 0.2797893066289734,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb21",
+          "family": "subtle_curiosity_gap",
+          "low": 0.014196578953207679,
+          "high": 0.0171446722705154,
+          "delta": 0.0029480933173077224,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb22",
+          "family": "subtle_curiosity_gap",
+          "low": 0.2791935343957345,
+          "high": 0.28979638070166086,
+          "delta": 0.010602846305926339,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb23",
+          "family": "subtle_overpromise",
+          "low": 0.012910345049823737,
+          "high": 0.01716536589293359,
+          "delta": 0.004255020843109853,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb24",
+          "family": "subtle_withholding",
+          "low": 0.015708499293822214,
+          "high": 0.26643268281828897,
+          "delta": 0.25072418352446674,
+          "ordered": true,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        }
+      ]
+    },
+    "upstream_heuristic_v1": {
+      "n": 24,
+      "pair_order_accuracy": 0.8333333333333334,
+      "pair_margin_0_30_rate": 0.8333333333333334,
+      "mean_delta": 0.7416666666666667,
+      "low_false_positive_rate": 0.0,
+      "high_capture_rate": 0.8333333333333334,
+      "balanced_accuracy_at_0_50": 0.9166666666666666,
+      "f1_at_0_50": 0.9090909090909091,
+      "mae": 0.12958333333333333,
+      "mean_low_score": 0.0,
+      "mean_high_score": 0.7416666666666667,
+      "by_family": {
+        "entertainment_parody": {
+          "n": 2,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.825,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "known_phrase": {
+          "n": 6,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 1.0,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "novel_curiosity": {
+          "n": 5,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.79,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "novel_exclusivity": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 1.0,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "novel_fear": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.75,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "novel_promise": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 1.0,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "novel_urgency": {
+          "n": 2,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.7250000000000001,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "social_prompt": {
+          "n": 2,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 1.0,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "subtle_curiosity_gap": {
+          "n": 2,
+          "pair_order_accuracy": 0.0,
+          "pair_margin_0_30_rate": 0.0,
+          "mean_delta": 0.0,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.0
+        },
+        "subtle_overpromise": {
+          "n": 1,
+          "pair_order_accuracy": 0.0,
+          "pair_margin_0_30_rate": 0.0,
+          "mean_delta": 0.0,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.0
+        },
+        "subtle_withholding": {
+          "n": 1,
+          "pair_order_accuracy": 0.0,
+          "pair_margin_0_30_rate": 0.0,
+          "mean_delta": 0.0,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.0
+        }
+      },
+      "failed_pairs": [
+        {
+          "id": "cb21",
+          "family": "subtle_curiosity_gap",
+          "low": 0.0,
+          "high": 0.0,
+          "delta": 0.0,
+          "ordered": false,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb22",
+          "family": "subtle_curiosity_gap",
+          "low": 0.0,
+          "high": 0.0,
+          "delta": 0.0,
+          "ordered": false,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb23",
+          "family": "subtle_overpromise",
+          "low": 0.0,
+          "high": 0.0,
+          "delta": 0.0,
+          "ordered": false,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        },
+        {
+          "id": "cb24",
+          "family": "subtle_withholding",
+          "low": 0.0,
+          "high": 0.0,
+          "delta": 0.0,
+          "ordered": false,
+          "margin_0_30": false,
+          "low_false_positive": false,
+          "high_captured": false
+        }
+      ]
+    },
+    "presentation_rules_dev_v1": {
+      "n": 24,
+      "pair_order_accuracy": 1.0,
+      "pair_margin_0_30_rate": 1.0,
+      "mean_delta": 0.8470833333333333,
+      "low_false_positive_rate": 0.0,
+      "high_capture_rate": 0.9583333333333334,
+      "balanced_accuracy_at_0_50": 0.9791666666666666,
+      "f1_at_0_50": 0.9787234042553191,
+      "mae": 0.06604166666666667,
+      "mean_low_score": 0.0,
+      "mean_high_score": 0.8470833333333333,
+      "by_family": {
+        "entertainment_parody": {
+          "n": 2,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.7699999999999999,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "known_phrase": {
+          "n": 6,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.9466666666666667,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "novel_curiosity": {
+          "n": 5,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.8640000000000001,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 0.8
+        },
+        "novel_exclusivity": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.82,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "novel_fear": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.87,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "novel_promise": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.9900000000000001,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "novel_urgency": {
+          "n": 2,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.935,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "social_prompt": {
+          "n": 2,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.94,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "subtle_curiosity_gap": {
+          "n": 2,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.53,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "subtle_overpromise": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.52,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        },
+        "subtle_withholding": {
+          "n": 1,
+          "pair_order_accuracy": 1.0,
+          "pair_margin_0_30_rate": 1.0,
+          "mean_delta": 0.78,
+          "low_false_positive_rate": 0.0,
+          "high_capture_rate": 1.0
+        }
+      },
+      "failed_pairs": [
+        {
+          "id": "cb13",
+          "family": "novel_curiosity",
+          "low": 0.0,
+          "high": 0.45,
+          "delta": 0.45,
+          "ordered": true,
+          "margin_0_30": true,
+          "low_false_positive": false,
+          "high_captured": false
+        }
+      ]
+    }
+  }
+}
