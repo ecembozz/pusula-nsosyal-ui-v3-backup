@@ -1,0 +1,67 @@
+name: Pool 2000 Author Group CV
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - supervised-embedding-v1
+    paths:
+      - experiments/benchmark_pool2000_group_cv.py
+      - .github/workflows/pool2000-author-group-cv.yml
+
+permissions:
+  contents: write
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "torch>=2.4,<3" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "transformers>=4.44,<5" "scikit-learn>=1.5,<2" safetensors
+      - name: Fetch current PUSULA 2000-post pool
+        run: |
+          mkdir -p .tmp
+          curl --fail --location --silent --show-error \
+            https://raw.githubusercontent.com/asimonmsz-design/pusula/main/kod/veri/etiketli_havuz.json \
+            --output .tmp/etiketli_havuz.json
+          python - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          p=Path('.tmp/etiketli_havuz.json')
+          rows=json.loads(p.read_text(encoding='utf-8'))
+          assert len(rows)==2000, len(rows)
+          required={'id','metin','yazar','kategori','gercek_niyet','tahmin_niyet','clickbait'}
+          assert all(required.issubset(r) for r in rows)
+          print({'rows':len(rows),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+          PY
+      - name: Run author-grouped benchmark
+        env:
+          TOKENIZERS_PARALLELISM: 'false'
+          OMP_NUM_THREADS: '2'
+          MKL_NUM_THREADS: '2'
+        run: |
+          python experiments/benchmark_pool2000_group_cv.py \
+            --input .tmp/etiketli_havuz.json \
+            --model intfloat/multilingual-e5-base \
+            --output experiments/results/pool2000_e5_base_group_cv.json \
+            --summary experiments/results/pool2000_e5_base_group_cv.md \
+            --predictions experiments/results/pool2000_e5_base_oof.jsonl
+      - name: Commit development results
+        run: |
+          if [ -z "$(git status --porcelain -- experiments/results/pool2000_e5_base_group_cv.json experiments/results/pool2000_e5_base_group_cv.md experiments/results/pool2000_e5_base_oof.jsonl)" ]; then
+            echo "Results already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/results/pool2000_e5_base_group_cv.json experiments/results/pool2000_e5_base_group_cv.md experiments/results/pool2000_e5_base_oof.jsonl
+          git commit -m "semantic-v2: record 2000-post author-grouped benchmark [skip ci]"
+          git push origin HEAD:supervised-embedding-v1
