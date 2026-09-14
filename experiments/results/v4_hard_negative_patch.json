@@ -1,0 +1,369 @@
+{
+  "status": "development_only_hard_negative_tuning_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-base",
+  "embedding_revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "base_vector_train_n": 320,
+  "hard_negative_n": 32,
+  "patched_vector_train_n": 352,
+  "hard_negative_distribution": {
+    "h": 16,
+    "e": 16
+  },
+  "recommended": "patched_knn_k7_352",
+  "methods": {
+    "base_knn_k7_320": {
+      "contrastive": {
+        "n": 48,
+        "pair_order_accuracy": 0.9375,
+        "pair_order_margin_0_10_rate": 0.8958333333333334,
+        "mean_axis_delta": 0.39270101013754016,
+        "low_false_high_rate": 0.14583333333333334,
+        "high_capture_rate": 0.7083333333333334,
+        "high_axis_top1_rate": 0.9791666666666666,
+        "vector_mae": 0.14166050737997224,
+        "mean_cosine_similarity": 0.8578128591019342,
+        "by_axis": {
+          "eglendirici": {
+            "n": 12,
+            "pair_order_accuracy": 0.75,
+            "pair_order_margin_0_10_rate": 0.6666666666666666,
+            "mean_axis_delta": 0.14431054649914923,
+            "low_false_high_rate": 0.16666666666666666,
+            "high_capture_rate": 0.3333333333333333,
+            "high_axis_top1_rate": 0.9166666666666666
+          },
+          "haber": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 0.9166666666666666,
+            "mean_axis_delta": 0.3967493074806914,
+            "low_false_high_rate": 0.4166666666666667,
+            "high_capture_rate": 1.0,
+            "high_axis_top1_rate": 1.0
+          },
+          "ogretici": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 1.0,
+            "mean_axis_delta": 0.47139509057943735,
+            "low_false_high_rate": 0.0,
+            "high_capture_rate": 0.8333333333333334,
+            "high_axis_top1_rate": 1.0
+          },
+          "sosyal": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 1.0,
+            "mean_axis_delta": 0.5583490959908824,
+            "low_false_high_rate": 0.0,
+            "high_capture_rate": 0.6666666666666666,
+            "high_axis_top1_rate": 1.0
+          }
+        },
+        "failed_pairs": [
+          {
+            "id": "pair_e01",
+            "axis": "eglendirici",
+            "low_score": 0.7360759149685793,
+            "high_score": 0.5599972205956026,
+            "delta": -0.17607869437297663,
+            "ordered": false,
+            "ordered_margin_0_10": false,
+            "low_false_high": true,
+            "high_captured": false,
+            "high_axis_is_top1": true
+          },
+          {
+            "id": "pair_e08",
+            "axis": "eglendirici",
+            "low_score": 0.6223993619354431,
+            "high_score": 0.5371173047942328,
+            "delta": -0.08528205714121029,
+            "ordered": false,
+            "ordered_margin_0_10": false,
+            "low_false_high": true,
+            "high_captured": false,
+            "high_axis_is_top1": true
+          },
+          {
+            "id": "pair_e11",
+            "axis": "eglendirici",
+            "low_score": 0.1486644819764735,
+            "high_score": 0.13271289354918478,
+            "delta": -0.01595158842728872,
+            "ordered": false,
+            "ordered_margin_0_10": false,
+            "low_false_high": false,
+            "high_captured": false,
+            "high_axis_is_top1": false
+          }
+        ]
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 37,
+          "eglendirici": 197,
+          "haber": 10,
+          "sosyal": 76
+        },
+        "shares": {
+          "ogretici": 0.115625,
+          "eglendirici": 0.615625,
+          "haber": 0.03125,
+          "sosyal": 0.2375
+        },
+        "max_class_share": 0.615625,
+        "mean_vector": [
+          0.18417428345129755,
+          0.3565748954626943,
+          0.08601187895180258,
+          0.2680239022260439
+        ]
+      }
+    },
+    "base_knn_proto_blend_0.25": {
+      "contrastive": {
+        "n": 48,
+        "pair_order_accuracy": 0.9583333333333334,
+        "pair_order_margin_0_10_rate": 0.875,
+        "mean_axis_delta": 0.37101333651440016,
+        "low_false_high_rate": 0.10416666666666667,
+        "high_capture_rate": 0.7291666666666666,
+        "high_axis_top1_rate": 0.9791666666666666,
+        "vector_mae": 0.1556336668268846,
+        "mean_cosine_similarity": 0.8623061962077087,
+        "by_axis": {
+          "eglendirici": {
+            "n": 12,
+            "pair_order_accuracy": 0.8333333333333334,
+            "pair_order_margin_0_10_rate": 0.5833333333333334,
+            "mean_axis_delta": 0.11968707714172777,
+            "low_false_high_rate": 0.16666666666666666,
+            "high_capture_rate": 0.3333333333333333,
+            "high_axis_top1_rate": 0.9166666666666666
+          },
+          "haber": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 0.9166666666666666,
+            "mean_axis_delta": 0.40126338080284335,
+            "low_false_high_rate": 0.25,
+            "high_capture_rate": 1.0,
+            "high_axis_top1_rate": 1.0
+          },
+          "ogretici": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 1.0,
+            "mean_axis_delta": 0.4350099233199996,
+            "low_false_high_rate": 0.0,
+            "high_capture_rate": 0.8333333333333334,
+            "high_axis_top1_rate": 1.0
+          },
+          "sosyal": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 1.0,
+            "mean_axis_delta": 0.5280929647930299,
+            "low_false_high_rate": 0.0,
+            "high_capture_rate": 0.75,
+            "high_axis_top1_rate": 1.0
+          }
+        },
+        "failed_pairs": [
+          {
+            "id": "pair_e01",
+            "axis": "eglendirici",
+            "low_score": 0.7293229005263113,
+            "high_score": 0.5889003489700281,
+            "delta": -0.14042255155628325,
+            "ordered": false,
+            "ordered_margin_0_10": false,
+            "low_false_high": true,
+            "high_captured": false,
+            "high_axis_is_top1": true
+          },
+          {
+            "id": "pair_e08",
+            "axis": "eglendirici",
+            "low_score": 0.6444005352034283,
+            "high_score": 0.5771950309997588,
+            "delta": -0.06720550420366955,
+            "ordered": false,
+            "ordered_margin_0_10": false,
+            "low_false_high": true,
+            "high_captured": false,
+            "high_axis_is_top1": true
+          }
+        ]
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 36,
+          "eglendirici": 191,
+          "haber": 8,
+          "sosyal": 85
+        },
+        "shares": {
+          "ogretici": 0.1125,
+          "eglendirici": 0.596875,
+          "haber": 0.025,
+          "sosyal": 0.265625
+        },
+        "max_class_share": 0.596875,
+        "mean_vector": [
+          0.20764978834082087,
+          0.3662427644970102,
+          0.09591493541618092,
+          0.29236186504072537
+        ]
+      }
+    },
+    "patched_knn_k7_352": {
+      "contrastive": {
+        "n": 48,
+        "pair_order_accuracy": 1.0,
+        "pair_order_margin_0_10_rate": 0.9791666666666666,
+        "mean_axis_delta": 0.4450832554001975,
+        "low_false_high_rate": 0.020833333333333332,
+        "high_capture_rate": 0.625,
+        "high_axis_top1_rate": 0.9583333333333334,
+        "vector_mae": 0.10645860285810553,
+        "mean_cosine_similarity": 0.88837316862854,
+        "by_axis": {
+          "eglendirici": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 0.9166666666666666,
+            "mean_axis_delta": 0.25608817669826595,
+            "low_false_high_rate": 0.0,
+            "high_capture_rate": 0.0,
+            "high_axis_top1_rate": 0.8333333333333334
+          },
+          "haber": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 1.0,
+            "mean_axis_delta": 0.44253210383717984,
+            "low_false_high_rate": 0.08333333333333333,
+            "high_capture_rate": 1.0,
+            "high_axis_top1_rate": 1.0
+          },
+          "ogretici": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 1.0,
+            "mean_axis_delta": 0.5500876893089871,
+            "low_false_high_rate": 0.0,
+            "high_capture_rate": 0.8333333333333334,
+            "high_axis_top1_rate": 1.0
+          },
+          "sosyal": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 1.0,
+            "mean_axis_delta": 0.5316250517563571,
+            "low_false_high_rate": 0.0,
+            "high_capture_rate": 0.6666666666666666,
+            "high_axis_top1_rate": 1.0
+          }
+        },
+        "failed_pairs": []
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 39,
+          "eglendirici": 197,
+          "haber": 9,
+          "sosyal": 75
+        },
+        "shares": {
+          "ogretici": 0.121875,
+          "eglendirici": 0.615625,
+          "haber": 0.028125,
+          "sosyal": 0.234375
+        },
+        "max_class_share": 0.615625,
+        "mean_vector": [
+          0.17146923522865515,
+          0.3330069604001957,
+          0.08203672226826154,
+          0.2537851917391205
+        ]
+      }
+    },
+    "patched_knn_proto_blend_0.25": {
+      "contrastive": {
+        "n": 48,
+        "pair_order_accuracy": 1.0,
+        "pair_order_margin_0_10_rate": 0.9791666666666666,
+        "mean_axis_delta": 0.4103000204613932,
+        "low_false_high_rate": 0.020833333333333332,
+        "high_capture_rate": 0.6458333333333334,
+        "high_axis_top1_rate": 0.9583333333333334,
+        "vector_mae": 0.12838032554771092,
+        "mean_cosine_similarity": 0.8843568003670955,
+        "by_axis": {
+          "eglendirici": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 0.9166666666666666,
+            "mean_axis_delta": 0.20352029979106526,
+            "low_false_high_rate": 0.0,
+            "high_capture_rate": 0.0,
+            "high_axis_top1_rate": 0.8333333333333334
+          },
+          "haber": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 1.0,
+            "mean_axis_delta": 0.43560047807020963,
+            "low_false_high_rate": 0.08333333333333333,
+            "high_capture_rate": 1.0,
+            "high_axis_top1_rate": 1.0
+          },
+          "ogretici": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 1.0,
+            "mean_axis_delta": 0.4940293723671619,
+            "low_false_high_rate": 0.0,
+            "high_capture_rate": 0.8333333333333334,
+            "high_axis_top1_rate": 1.0
+          },
+          "sosyal": {
+            "n": 12,
+            "pair_order_accuracy": 1.0,
+            "pair_order_margin_0_10_rate": 1.0,
+            "mean_axis_delta": 0.508049931617136,
+            "low_false_high_rate": 0.0,
+            "high_capture_rate": 0.75,
+            "high_axis_top1_rate": 1.0
+          }
+        },
+        "failed_pairs": []
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 40,
+          "eglendirici": 189,
+          "haber": 7,
+          "sosyal": 84
+        },
+        "shares": {
+          "ogretici": 0.125,
+          "eglendirici": 0.590625,
+          "haber": 0.021875,
+          "sosyal": 0.2625
+        },
+        "max_class_share": 0.590625,
+        "mean_vector": [
+          0.19812100217383893,
+          0.34856681320013627,
+          0.09293356790352517,
+          0.28168283217553275
+        ]
+      }
+    }
+  }
+}
