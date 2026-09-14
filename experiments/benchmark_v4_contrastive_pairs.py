@@ -99,7 +99,7 @@ def main():
     clear=load_train(CLEAR)
     neutral=load_train(NEUTRAL)
     train=clear+neutral
-    pairs=read_jsonl(PAIRS)
+    pairs=list(read_jsonl(PAIRS))
     if len(clear)!=256 or len(neutral)!=64 or len(pairs)!=48:
         raise SystemExit(f"unexpected sizes clear={len(clear)} neutral={len(neutral)} pairs={len(pairs)}")
     axes=[p["axis"] for p in pairs]
@@ -148,8 +148,6 @@ def main():
     }
     results={name:evaluate(name,lo,hi,pairs) for name,(lo,hi) in methods.items()}
 
-    # Pair ordering is the primary criterion because each pair intentionally holds topic
-    # nearly constant and changes only the semantic function. Then prefer lower vector MAE.
     ranked=sorted(
         results.items(),
         key=lambda kv:(
