@@ -1,0 +1,54 @@
+name: Dataset V3 Pilot
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dataset-v3-realistic
+    paths:
+      - data/v3_realistic/**
+      - scripts/validate_dataset_v3.py
+      - experiments/benchmark_dataset_v3_e5_base.py
+      - .github/workflows/dataset-v3-pilot.yml
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "torch>=2.4,<3" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "transformers>=4.44,<5" "scikit-learn>=1.5,<2" safetensors
+      - name: Validate Dataset V3 tranche
+        run: |
+          python scripts/validate_dataset_v3.py \
+            --near-duplicate-threshold 0.90 \
+            --output experiments/results/dataset_v3_audit.json
+      - name: Benchmark Dataset V3 with frozen e5-base
+        env:
+          TOKENIZERS_PARALLELISM: 'false'
+        run: |
+          python experiments/benchmark_dataset_v3_e5_base.py \
+            --model intfloat/multilingual-e5-base \
+            --output experiments/results/dataset_v3_e5_base.json \
+            --summary experiments/results/dataset_v3_e5_base.md
+      - name: Commit development results
+        run: |
+          if [ -z "$(git status --porcelain -- experiments/results/dataset_v3_audit.json experiments/results/dataset_v3_e5_base.json experiments/results/dataset_v3_e5_base.md)" ]; then
+            echo "Results already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/results/dataset_v3_audit.json experiments/results/dataset_v3_e5_base.json experiments/results/dataset_v3_e5_base.md
+          git commit -m "dataset-v3: record first tranche audit and benchmark [skip ci]"
+          git push origin HEAD:dataset-v3-realistic
