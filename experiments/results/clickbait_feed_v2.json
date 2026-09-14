@@ -1,0 +1,1298 @@
+{
+  "status": "development_only_feed_distribution_clickbait_benchmark",
+  "embedding_model": "intfloat/multilingual-e5-base",
+  "embedding_revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "base_train_n": 128,
+  "feed_hard_negative_n": 64,
+  "augmented_train_n": 192,
+  "augmented_balance": {
+    "positive": 64,
+    "negative": 128
+  },
+  "feed_eval_n": 64,
+  "background_n": 320,
+  "note": "Feed eval and V2 background are development diagnostics, not final human gold.",
+  "methods": {
+    "e5_base128_balanced": {
+      "feed_eval": {
+        "accuracy": 0.8125,
+        "precision": 0.7272727272727273,
+        "recall": 1.0,
+        "f1": 0.8421052631578947,
+        "roc_auc": 0.9931640625,
+        "brier": 0.14940179855911426,
+        "false_positive_count": 12,
+        "false_negative_count": 0,
+        "mean_positive": 0.7071490154261272,
+        "mean_negative": 0.4476073387810334,
+        "failures": [
+          {
+            "id": "cbfe_n003",
+            "label": 0,
+            "score": 0.5020612050010219,
+            "text": "sunum başta beklediğimden stresliydi ama birkaç dakika sonra ritmi buldum."
+          },
+          {
+            "id": "cbfe_n005",
+            "label": 0,
+            "score": 0.5240514185586268,
+            "text": "maçın son pozisyonunu tekrar izleyince ilk yorumumun aceleci olduğunu düşündüm."
+          },
+          {
+            "id": "cbfe_n008",
+            "label": 0,
+            "score": 0.5267681892961962,
+            "text": "ders planında iki saat çakışıyor, aynı sorunu yaşayan var mı? danışmana da yazdım."
+          },
+          {
+            "id": "cbfe_n010",
+            "label": 0,
+            "score": 0.5431381493645724,
+            "text": "ilk bakışta gereksiz gelen kısa yol tuşuna alışınca gerçekten daha az mouse kullanıyorum."
+          },
+          {
+            "id": "cbfe_n011",
+            "label": 0,
+            "score": 0.5067435980851414,
+            "text": "bir haftadır kahveyi azaltıyorum; akşam uykuya dalmam biraz kolaylaştı ama sabah fark yok."
+          },
+          {
+            "id": "cbfe_n014",
+            "label": 0,
+            "score": 0.6164901507890953,
+            "text": "gizlilik ayarları güzel de neden üç farklı menüye dağılmış anlamadım 😅"
+          },
+          {
+            "id": "cbfe_n015",
+            "label": 0,
+            "score": 0.5084769260090062,
+            "text": "raporu teslim etmeden önce kaynak tarihlerini tekrar kontrol ettim, iki yerde eski yıl kalmış."
+          },
+          {
+            "id": "cbfe_n019",
+            "label": 0,
+            "score": 0.594949041070062,
+            "text": "bu sonuç beni şaşırttı: küçük model testte büyük modelle neredeyse aynı skoru aldı."
+          },
+          {
+            "id": "cbfe_n021",
+            "label": 0,
+            "score": 0.5060298541137274,
+            "text": "inanamıyorum ama sabah otobüsü bugün tam saatinde geldi 😄"
+          },
+          {
+            "id": "cbfe_n027",
+            "label": 0,
+            "score": 0.5192914822957632,
+            "text": "küçük bir ayrıntıyı atlamışım; grafiğin eksen başlığını ekleyince yorumlamak kolaylaştı."
+          },
+          {
+            "id": "cbfe_n028",
+            "label": 0,
+            "score": 0.5202544243372672,
+            "text": "bu kadar fark beklemiyordum, ekran parlaklığını azaltmak gerçekten pil süresine biraz yardımcı oldu."
+          },
+          {
+            "id": "cbfe_n032",
+            "label": 0,
+            "score": 0.6456407364822236,
+            "text": "sizce bu tasarım daha okunaklı mı? iki seçenek arasında kaldım, özellikle mobilde emin olamadım."
+          }
+        ]
+      },
+      "background": {
+        "n": 320,
+        "mean": 0.5143574565559612,
+        "median": 0.5298550041024459,
+        "p90": 0.6186801190041576,
+        "p95": 0.6498040127521437,
+        "max": 0.7172882222012363,
+        "ge_0_50": 183,
+        "ge_0_65": 16,
+        "ge_0_75": 0,
+        "top12": [
+          {
+            "id": "v2r_0104",
+            "score": 0.7172882222012363,
+            "text": "son dakikadaki gol hakkında yorum yapmadan önce tekrarını izlemek lazım, ilk anda çok farklı görünüyor siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0108",
+            "score": 0.7144175150173514,
+            "text": "maç sonrası yorumlar hakkında yorum yapmadan önce tekrarını izlemek lazım, ilk anda çok farklı görünüyor siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0180",
+            "score": 0.7134412436343788,
+            "text": "ulaşım masrafı için bir haftalık deneme yaptım, beklediğimden fazla fark etti siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0008",
+            "score": 0.6976325558782877,
+            "text": "ders seçimi için küçük bir kontrol listesi yaptım; iki maddeyi son anda fark ettim başka yaşayan var mı?"
+          },
+          {
+            "id": "v2r_0187",
+            "score": 0.6944183598202215,
+            "text": "market sepeti için bir haftalık deneme yaptım, beklediğimden fazla fark etti. 👀"
+          },
+          {
+            "id": "v2r_0300",
+            "score": 0.6832888726672662,
+            "text": "yeni biriyle tanışmak ile günün nasıl geçtiğini anlamadım; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0244",
+            "score": 0.6726312552072907,
+            "text": "kampüste boş ders sırasında herkes aynı anda “küçük bir değişiklik” isteyince işler büyüdü 😅; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0024",
+            "score": 0.6670998821460122,
+            "text": "ders seçimi açıklanınca ilk baktığım şey şehir değil ders planı oldu 😅; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0048",
+            "score": 0.6655646310560673,
+            "text": "sesli asistan güzel de gizlilik ayarlarını bulmak niye bu kadar zor 😅; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0190",
+            "score": 0.662715786812869,
+            "text": "evde yemek yapmak için bir haftalık deneme yaptım, beklediğimden fazla fark etti."
+          },
+          {
+            "id": "v2r_0068",
+            "score": 0.6623276949178913,
+            "text": "son test videosu sonrası ekipçe 10 dakika sessizce ekrana baktık. çalışınca insan inanamıyor başka yaşayan var mı?"
+          },
+          {
+            "id": "v2r_0174",
+            "score": 0.661798438274407,
+            "text": "kahve fiyatı için bi haftalık deneme yaptım, beklediğimden fazla fark etti."
+          }
+        ]
+      }
+    },
+    "e5_aug192_unweighted": {
+      "feed_eval": {
+        "accuracy": 0.90625,
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "roc_auc": 0.998046875,
+        "brier": 0.12182636326356668,
+        "false_positive_count": 0,
+        "false_negative_count": 6,
+        "mean_positive": 0.5724904559988689,
+        "mean_negative": 0.22176741504052064,
+        "failures": [
+          {
+            "id": "cbfe_p002",
+            "label": 1,
+            "score": 0.39112922031791286,
+            "text": "Ben de gereksiz sanıyordum ama tek bir detay fikrimi tamamen değiştirdi. En önemli kısmı sona bıraktım."
+          },
+          {
+            "id": "cbfe_p007",
+            "label": 1,
+            "score": 0.4920855441514894,
+            "text": "Sonuna kadar bakmadan karar verme; ilk sonuç tam tersini düşündürüyor."
+          },
+          {
+            "id": "cbfe_p010",
+            "label": 1,
+            "score": 0.4812506387020948,
+            "text": "İlk bakışta sıradan ama ikinci grafikte göreceğin şey bütün hikâyeyi değiştiriyor."
+          },
+          {
+            "id": "cbfe_p012",
+            "label": 1,
+            "score": 0.4522301493807306,
+            "text": "Bunu öğrendikten sonra aynı şekilde çalışmaya devam etmek istemeyeceksin; küçük görünüyor ama etkisi çok büyük."
+          },
+          {
+            "id": "cbfe_p014",
+            "label": 1,
+            "score": 0.4398989577099496,
+            "text": "Bir dakika ver, telefonunun gece pil yemesinin gerçek nedenini göstereceğim. Çoğu kişi yanlış yere bakıyor."
+          },
+          {
+            "id": "cbfe_p018",
+            "label": 1,
+            "score": 0.4494932498630626,
+            "text": "Bu detayı bilmeden yeni cihaz alma. Kâğıt üstünde iyi görünen özellik seni uzun süre uğraştırabilir."
+          }
+        ]
+      },
+      "background": {
+        "n": 320,
+        "mean": 0.2602637535616267,
+        "median": 0.26462145147659333,
+        "p90": 0.35744105738583914,
+        "p95": 0.3766304857281826,
+        "max": 0.49237948294073464,
+        "ge_0_50": 0,
+        "ge_0_65": 0,
+        "ge_0_75": 0,
+        "top12": [
+          {
+            "id": "v2r_0008",
+            "score": 0.49237948294073464,
+            "text": "ders seçimi için küçük bir kontrol listesi yaptım; iki maddeyi son anda fark ettim başka yaşayan var mı?"
+          },
+          {
+            "id": "v2r_0108",
+            "score": 0.44080404267513995,
+            "text": "maç sonrası yorumlar hakkında yorum yapmadan önce tekrarını izlemek lazım, ilk anda çok farklı görünüyor siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0104",
+            "score": 0.43882929080873473,
+            "text": "son dakikadaki gol hakkında yorum yapmadan önce tekrarını izlemek lazım, ilk anda çok farklı görünüyor siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0068",
+            "score": 0.4165773933453942,
+            "text": "son test videosu sonrası ekipçe 10 dakika sessizce ekrana baktık. çalışınca insan inanamıyor başka yaşayan var mı?"
+          },
+          {
+            "id": "v2r_0012",
+            "score": 0.4079941542500765,
+            "text": "yurt başvurusu için küçük bir kontrol listesi yaptım; iki maddeyi son anda fark ettim; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0048",
+            "score": 0.3954772336841439,
+            "text": "sesli asistan güzel de gizlilik ayarlarını bulmak niye bu kadar zor 😅; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0036",
+            "score": 0.39545540050252354,
+            "text": "otomatik özet aracı konusunda küçük modeller bazen beklediğimden daha mantıklı sonuç veriyor; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0051",
+            "score": 0.39300525225907335,
+            "text": "açık kaynak bir model konusunda küçük modeller bazen beklediğimden daha mantıklı sonuç veriyor. 🙃"
+          },
+          {
+            "id": "v2r_0180",
+            "score": 0.3918138536041818,
+            "text": "ulaşım masrafı için bir haftalık deneme yaptım, beklediğimden fazla fark etti siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0128",
+            "score": 0.38914729766585443,
+            "text": "VAR kararı için arkadaş grubunda skor tahmini şimdiden kavgaya döndü 😄 başka yaşayan var mı?"
+          },
+          {
+            "id": "v2r_0017",
+            "score": 0.38708349300539396,
+            "text": "ders seçimi tamam da şu belge listesini tek yerde toplayan biri var mı?"
+          },
+          {
+            "id": "v2r_0300",
+            "score": 0.3844347782942445,
+            "text": "yeni biriyle tanışmak ile günün nasıl geçtiğini anlamadım; sizde de böyle mi?"
+          }
+        ]
+      }
+    },
+    "e5_aug192_balanced": {
+      "feed_eval": {
+        "accuracy": 0.96875,
+        "precision": 0.9411764705882353,
+        "recall": 1.0,
+        "f1": 0.9696969696969697,
+        "roc_auc": 0.9990234375,
+        "brier": 0.10107156204181228,
+        "false_positive_count": 2,
+        "false_negative_count": 0,
+        "mean_positive": 0.6995784160326441,
+        "mean_negative": 0.31333758065709666,
+        "failures": [
+          {
+            "id": "cbfe_n019",
+            "label": 0,
+            "score": 0.5254421859872425,
+            "text": "bu sonuç beni şaşırttı: küçük model testte büyük modelle neredeyse aynı skoru aldı."
+          },
+          {
+            "id": "cbfe_n032",
+            "label": 0,
+            "score": 0.5237180060579799,
+            "text": "sizce bu tasarım daha okunaklı mı? iki seçenek arasında kaldım, özellikle mobilde emin olamadım."
+          }
+        ]
+      },
+      "background": {
+        "n": 320,
+        "mean": 0.3626390744284586,
+        "median": 0.3718119117171294,
+        "p90": 0.4822332700361292,
+        "p95": 0.5029303322774199,
+        "max": 0.6261960512014615,
+        "ge_0_50": 21,
+        "ge_0_65": 0,
+        "ge_0_75": 0,
+        "top12": [
+          {
+            "id": "v2r_0008",
+            "score": 0.6261960512014615,
+            "text": "ders seçimi için küçük bir kontrol listesi yaptım; iki maddeyi son anda fark ettim başka yaşayan var mı?"
+          },
+          {
+            "id": "v2r_0108",
+            "score": 0.5736793128797706,
+            "text": "maç sonrası yorumlar hakkında yorum yapmadan önce tekrarını izlemek lazım, ilk anda çok farklı görünüyor siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0104",
+            "score": 0.5727939192045681,
+            "text": "son dakikadaki gol hakkında yorum yapmadan önce tekrarını izlemek lazım, ilk anda çok farklı görünüyor siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0068",
+            "score": 0.5467204093789423,
+            "text": "son test videosu sonrası ekipçe 10 dakika sessizce ekrana baktık. çalışınca insan inanamıyor başka yaşayan var mı?"
+          },
+          {
+            "id": "v2r_0012",
+            "score": 0.5405259454194684,
+            "text": "yurt başvurusu için küçük bir kontrol listesi yaptım; iki maddeyi son anda fark ettim; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0048",
+            "score": 0.526411824418682,
+            "text": "sesli asistan güzel de gizlilik ayarlarını bulmak niye bu kadar zor 😅; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0036",
+            "score": 0.5259228127325768,
+            "text": "otomatik özet aracı konusunda küçük modeller bazen beklediğimden daha mantıklı sonuç veriyor; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0051",
+            "score": 0.5242942475731863,
+            "text": "açık kaynak bir model konusunda küçük modeller bazen beklediğimden daha mantıklı sonuç veriyor. 🙃"
+          },
+          {
+            "id": "v2r_0180",
+            "score": 0.5204435458572856,
+            "text": "ulaşım masrafı için bir haftalık deneme yaptım, beklediğimden fazla fark etti siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0128",
+            "score": 0.5163579023697967,
+            "text": "VAR kararı için arkadaş grubunda skor tahmini şimdiden kavgaya döndü 😄 başka yaşayan var mı?"
+          },
+          {
+            "id": "v2r_0040",
+            "score": 0.5137129398591445,
+            "text": "telefonun yeni yapay zekâ özelliği güzel de gizlilik ayarlarını bulmak niye bu kadar zor 😅; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0017",
+            "score": 0.5133245530808747,
+            "text": "ders seçimi tamam da şu belge listesini tek yerde toplayan biri var mı?"
+          }
+        ]
+      }
+    },
+    "tfidf_aug192_unweighted": {
+      "feed_eval": {
+        "accuracy": 0.9375,
+        "precision": 1.0,
+        "recall": 0.875,
+        "f1": 0.9333333333333333,
+        "roc_auc": 0.986328125,
+        "brier": 0.08290849133065786,
+        "false_positive_count": 0,
+        "false_negative_count": 4,
+        "mean_positive": 0.6836372487528918,
+        "mean_negative": 0.1784033198646046,
+        "failures": [
+          {
+            "id": "cbfe_p014",
+            "label": 1,
+            "score": 0.46473414426409526,
+            "text": "Bir dakika ver, telefonunun gece pil yemesinin gerçek nedenini göstereceğim. Çoğu kişi yanlış yere bakıyor."
+          },
+          {
+            "id": "cbfe_p016",
+            "label": 1,
+            "score": 0.2759862498286333,
+            "text": "SAKIN GEÇME! Son 10 saniyedeki ayrıntıyı görmeden videonun ne anlattığını kaçırırsın."
+          },
+          {
+            "id": "cbfe_p017",
+            "label": 1,
+            "score": 0.4594272555540028,
+            "text": "Bugün denedim ve beklemiyordum: tek bir değişiklik çalışma düzenimi tamamen dönüştürdü. Hangisi olduğunu tahmin et."
+          },
+          {
+            "id": "cbfe_p031",
+            "label": 1,
+            "score": 0.2949804979041581,
+            "text": "İnanamayacaksın ama aynı veri iki ayarla bambaşka göründü. Hangisinin doğru olduğunu sona sakladım."
+          }
+        ]
+      },
+      "background": {
+        "n": 320,
+        "mean": 0.21645113679971467,
+        "median": 0.18940150993446436,
+        "p90": 0.3738813665768175,
+        "p95": 0.46198060481195297,
+        "max": 0.8211520310717972,
+        "ge_0_50": 12,
+        "ge_0_65": 5,
+        "ge_0_75": 2,
+        "top12": [
+          {
+            "id": "v2r_0287",
+            "score": 0.8211520310717972,
+            "text": "alışveriş listesi ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek. ✨"
+          },
+          {
+            "id": "v2r_0265",
+            "score": 0.8083500071439582,
+            "text": "evde internetin gitmesi ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek."
+          },
+          {
+            "id": "v2r_0286",
+            "score": 0.6949958549870451,
+            "text": "çamaşır günü ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek."
+          },
+          {
+            "id": "v2r_0258",
+            "score": 0.6676254777512168,
+            "text": "erken uyanmak ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek."
+          },
+          {
+            "id": "v2r_0010",
+            "score": 0.6642338392985291,
+            "text": "bugün yerleştirme sonucu işini hallettim. sandığım kadar korkunç değilmiş, sadece sabır istiyor."
+          },
+          {
+            "id": "v2r_0142",
+            "score": 0.5981783304067751,
+            "text": "küçük bi tiyatro oyunu hakkında hiç beklentim yoktu, en sevdiğim şey bu oldu galiba."
+          },
+          {
+            "id": "v2r_0022",
+            "score": 0.5875636637808168,
+            "text": "bugün ders seçimi işini hallettim. sandığım kadar korkunç değilmiş, sadece sabır istiyor."
+          },
+          {
+            "id": "v2r_0005",
+            "score": 0.5585011070637583,
+            "text": "Bugün hazırlık muafiyet sınavı işini hallettim. sandığım kadar korkunç değilmiş, sadece sabır istiyor."
+          },
+          {
+            "id": "v2r_0031",
+            "score": 0.5512699780587107,
+            "text": "Bugün yurt başvurusu işini hallettim. sandığım kadar korkunç değilmiş, sadece sabır istiyor. 🙂"
+          },
+          {
+            "id": "v2r_0147",
+            "score": 0.5386065270317866,
+            "text": "kitap fuarı hakkında hiç beklentim yoktu, en sevdiğim şey bu oldu galiba. 👀"
+          },
+          {
+            "id": "v2r_0002",
+            "score": 0.5177953618268382,
+            "text": "bugün kampüse ilk gidiş işini hallettim. sandığım kadar korkunç değilmiş, sadece sabır istiyor."
+          },
+          {
+            "id": "v2r_0126",
+            "score": 0.5006525619984625,
+            "text": "deplasman maçı konusunda tribün sesi televizyondan bile ayrı bir şey."
+          }
+        ]
+      }
+    },
+    "tfidf_aug192_balanced": {
+      "feed_eval": {
+        "accuracy": 0.953125,
+        "precision": 0.967741935483871,
+        "recall": 0.9375,
+        "f1": 0.9523809523809523,
+        "roc_auc": 0.986328125,
+        "brier": 0.0743711788393884,
+        "false_positive_count": 1,
+        "false_negative_count": 2,
+        "mean_positive": 0.7632617806053156,
+        "mean_negative": 0.23633928513690416,
+        "failures": [
+          {
+            "id": "cbfe_p016",
+            "label": 1,
+            "score": 0.3589917980990003,
+            "text": "SAKIN GEÇME! Son 10 saniyedeki ayrıntıyı görmeden videonun ne anlattığını kaçırırsın."
+          },
+          {
+            "id": "cbfe_p031",
+            "label": 1,
+            "score": 0.3844888025070715,
+            "text": "İnanamayacaksın ama aynı veri iki ayarla bambaşka göründü. Hangisinin doğru olduğunu sona sakladım."
+          },
+          {
+            "id": "cbfe_n019",
+            "label": 0,
+            "score": 0.5313856766524547,
+            "text": "bu sonuç beni şaşırttı: küçük model testte büyük modelle neredeyse aynı skoru aldı."
+          }
+        ]
+      },
+      "background": {
+        "n": 320,
+        "mean": 0.2811296476910641,
+        "median": 0.25428439180114765,
+        "p90": 0.47281956630351696,
+        "p95": 0.5651923368917129,
+        "max": 0.8797693060090593,
+        "ge_0_50": 28,
+        "ge_0_65": 9,
+        "ge_0_75": 5,
+        "top12": [
+          {
+            "id": "v2r_0287",
+            "score": 0.8797693060090593,
+            "text": "alışveriş listesi ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek. ✨"
+          },
+          {
+            "id": "v2r_0265",
+            "score": 0.8700728099149516,
+            "text": "evde internetin gitmesi ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek."
+          },
+          {
+            "id": "v2r_0286",
+            "score": 0.780243802066687,
+            "text": "çamaşır günü ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek."
+          },
+          {
+            "id": "v2r_0258",
+            "score": 0.7569985718677065,
+            "text": "erken uyanmak ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek."
+          },
+          {
+            "id": "v2r_0010",
+            "score": 0.7548763034343698,
+            "text": "bugün yerleştirme sonucu işini hallettim. sandığım kadar korkunç değilmiş, sadece sabır istiyor."
+          },
+          {
+            "id": "v2r_0142",
+            "score": 0.6974874172716445,
+            "text": "küçük bi tiyatro oyunu hakkında hiç beklentim yoktu, en sevdiğim şey bu oldu galiba."
+          },
+          {
+            "id": "v2r_0022",
+            "score": 0.6864381770719943,
+            "text": "bugün ders seçimi işini hallettim. sandığım kadar korkunç değilmiş, sadece sabır istiyor."
+          },
+          {
+            "id": "v2r_0005",
+            "score": 0.659915090079137,
+            "text": "Bugün hazırlık muafiyet sınavı işini hallettim. sandığım kadar korkunç değilmiş, sadece sabır istiyor."
+          },
+          {
+            "id": "v2r_0031",
+            "score": 0.6527728875449276,
+            "text": "Bugün yurt başvurusu işini hallettim. sandığım kadar korkunç değilmiş, sadece sabır istiyor. 🙂"
+          },
+          {
+            "id": "v2r_0147",
+            "score": 0.6408176351797678,
+            "text": "kitap fuarı hakkında hiç beklentim yoktu, en sevdiğim şey bu oldu galiba. 👀"
+          },
+          {
+            "id": "v2r_0002",
+            "score": 0.623218904872071,
+            "text": "bugün kampüse ilk gidiş işini hallettim. sandığım kadar korkunç değilmiş, sadece sabır istiyor."
+          },
+          {
+            "id": "v2r_0126",
+            "score": 0.6023198293293264,
+            "text": "deplasman maçı konusunda tribün sesi televizyondan bile ayrı bir şey."
+          }
+        ]
+      }
+    },
+    "blend_e5_tfidf_unweighted": {
+      "feed_eval": {
+        "accuracy": 0.90625,
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "roc_auc": 1.0,
+        "brier": 0.10572732956320068,
+        "false_positive_count": 0,
+        "false_negative_count": 6,
+        "mean_positive": 0.6058344938250758,
+        "mean_negative": 0.2087581864877458,
+        "failures": [
+          {
+            "id": "cbfe_p002",
+            "label": 1,
+            "score": 0.46374120935436913,
+            "text": "Ben de gereksiz sanıyordum ama tek bir detay fikrimi tamamen değiştirdi. En önemli kısmı sona bıraktım."
+          },
+          {
+            "id": "cbfe_p012",
+            "label": 1,
+            "score": 0.4840186191479078,
+            "text": "Bunu öğrendikten sonra aynı şekilde çalışmaya devam etmek istemeyeceksin; küçük görünüyor ama etkisi çok büyük."
+          },
+          {
+            "id": "cbfe_p014",
+            "label": 1,
+            "score": 0.44734951367619324,
+            "text": "Bir dakika ver, telefonunun gece pil yemesinin gerçek nedenini göstereceğim. Çoğu kişi yanlış yere bakıyor."
+          },
+          {
+            "id": "cbfe_p016",
+            "label": 1,
+            "score": 0.4796956253633788,
+            "text": "SAKIN GEÇME! Son 10 saniyedeki ayrıntıyı görmeden videonun ne anlattığını kaçırırsın."
+          },
+          {
+            "id": "cbfe_p017",
+            "label": 1,
+            "score": 0.49442872681360234,
+            "text": "Bugün denedim ve beklemiyordum: tek bir değişiklik çalışma düzenimi tamamen dönüştürdü. Hangisi olduğunu tahmin et."
+          },
+          {
+            "id": "cbfe_p031",
+            "label": 1,
+            "score": 0.4671453882136046,
+            "text": "İnanamayacaksın ama aynı veri iki ayarla bambaşka göründü. Hangisinin doğru olduğunu sona sakladım."
+          }
+        ]
+      },
+      "background": {
+        "n": 320,
+        "mean": 0.247119968533053,
+        "median": 0.24885447395127852,
+        "p90": 0.33444356485542176,
+        "p95": 0.34874114811167983,
+        "max": 0.5085753035850631,
+        "ge_0_50": 1,
+        "ge_0_65": 0,
+        "ge_0_75": 0,
+        "top12": [
+          {
+            "id": "v2r_0287",
+            "score": 0.5085753035850631,
+            "text": "alışveriş listesi ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek. ✨"
+          },
+          {
+            "id": "v2r_0265",
+            "score": 0.4861625514871256,
+            "text": "evde internetin gitmesi ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek."
+          },
+          {
+            "id": "v2r_0286",
+            "score": 0.43646002934127354,
+            "text": "çamaşır günü ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek."
+          },
+          {
+            "id": "v2r_0104",
+            "score": 0.42305169192831327,
+            "text": "son dakikadaki gol hakkında yorum yapmadan önce tekrarını izlemek lazım, ilk anda çok farklı görünüyor siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0258",
+            "score": 0.41870236367880653,
+            "text": "erken uyanmak ile ilgili tek hedefim bunu düşünmeden yapabildiğim bir rutin haline getirmek."
+          },
+          {
+            "id": "v2r_0108",
+            "score": 0.4157489260769619,
+            "text": "maç sonrası yorumlar hakkında yorum yapmadan önce tekrarını izlemek lazım, ilk anda çok farklı görünüyor siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0142",
+            "score": 0.4027602465713642,
+            "text": "küçük bi tiyatro oyunu hakkında hiç beklentim yoktu, en sevdiğim şey bu oldu galiba."
+          },
+          {
+            "id": "v2r_0008",
+            "score": 0.3977075091944166,
+            "text": "ders seçimi için küçük bir kontrol listesi yaptım; iki maddeyi son anda fark ettim başka yaşayan var mı?"
+          },
+          {
+            "id": "v2r_0116",
+            "score": 0.3789347609857556,
+            "text": "VAR kararı bence sonucu değil oyunun gidişini değiştirdi siz ne düşünüyorsunuz?"
+          },
+          {
+            "id": "v2r_0125",
+            "score": 0.36723685908746245,
+            "text": "son dakikadaki gol bence sonucu değil oyunun gidişini değiştirdi."
+          },
+          {
+            "id": "v2r_0048",
+            "score": 0.36378006160484483,
+            "text": "sesli asistan güzel de gizlilik ayarlarını bulmak niye bu kadar zor 😅; sizde de böyle mi?"
+          },
+          {
+            "id": "v2r_0010",
+            "score": 0.3571460802941038,
+            "text": "bugün yerleştirme sonucu işini hallettim. sandığım kadar korkunç değilmiş, sadece sabır istiyor."
+          }
+        ]
+      }
+    }
+  },
+  "development_recommendation": "e5_aug192_balanced",
+  "oof_5fold_augmented_train": {
+    "e5_aug192_unweighted": {
+      "accuracy": 0.828125,
+      "precision": 0.9428571428571428,
+      "recall": 0.515625,
+      "f1": 0.6666666666666666,
+      "roc_auc": 0.9698486328125,
+      "brier": 0.13249949367119776,
+      "false_positive_count": 2,
+      "false_negative_count": 31,
+      "mean_positive": 0.5004420045975925,
+      "mean_negative": 0.24955945022195017,
+      "failures": [
+        {
+          "id": "cbtr_p011",
+          "label": 1,
+          "score": 0.49165763531469764,
+          "text": "İlk iki seçenek mantıklı görünüyor. Ama üçüncünün yaptığı şeyi kimse beklemiyor."
+        },
+        {
+          "id": "cbtr_p012",
+          "label": 1,
+          "score": 0.45090081623490025,
+          "text": "Bu alışkanlığı bırakırsan ay sonunda ne kadar zaman kazandığına inanamayabilirsin."
+        },
+        {
+          "id": "cbtr_p014",
+          "label": 1,
+          "score": 0.46864510429521855,
+          "text": "Bugün fark ettiğim şey çalışma düzenimi tersine çevirdi. Keşke bunu bir yıl önce bilseydim."
+        },
+        {
+          "id": "cbtr_p015",
+          "label": 1,
+          "score": 0.4300608426920643,
+          "text": "Sakın bu seçeneğe dokunma demiyorum; ama ne yaptığını bilmeden açarsan pişman olabilirsin."
+        },
+        {
+          "id": "cbtr_p016",
+          "label": 1,
+          "score": 0.4334085934351263,
+          "text": "İnsanların %90’ı ilk ekranda bırakıyor. Asıl işe yarayan ayar bir sonraki menüde gizli."
+        },
+        {
+          "id": "cbtr_p020",
+          "label": 1,
+          "score": 0.4346422726656382,
+          "text": "SON 24 SAAT! Bu fırsat kapanınca aynı koşulu tekrar bulamayabilirsin."
+        },
+        {
+          "id": "cbtr_p023",
+          "label": 1,
+          "score": 0.4879528106196432,
+          "text": "Bu sorunun cevabı basit görünüyordu. Veriye bakınca tam tersi çıktı; nedenini sona bıraktım."
+        },
+        {
+          "id": "cbtr_p027",
+          "label": 1,
+          "score": 0.40355579228305066,
+          "text": "Tek bir satır kod yüzünden saatler kaybediyor olabilirsin. Kontrol edeceğin yeri göstereyim."
+        },
+        {
+          "id": "cbtr_p029",
+          "label": 1,
+          "score": 0.3215146227801401,
+          "text": "Son grafiğe kadar bekle; ilk iki sonuç asıl hikâyeyi saklıyor."
+        },
+        {
+          "id": "cbtr_p030",
+          "label": 1,
+          "score": 0.42898871214557094,
+          "text": "Bu özelliği açmadan önce bilmen gereken bir şey var ve ayarlar sayfasında açıkça yazmıyor."
+        },
+        {
+          "id": "cbtr_p032",
+          "label": 1,
+          "score": 0.4488462874784981,
+          "text": "En şaşırtıcı kısmı başta söylemeyeceğim: aynı görevde neden ikinci yöntem daha hızlı çıktı?"
+        },
+        {
+          "id": "cbtr_p033",
+          "label": 1,
+          "score": 0.4702708366644858,
+          "text": "Bunu yapanların neden daha hızlı ilerlediğini merak ediyordum; cevabı sandığımdan farklı çıktı."
+        },
+        {
+          "id": "cbtr_p035",
+          "label": 1,
+          "score": 0.413064497010025,
+          "text": "Bu küçük ayarı açınca ne olduğunu tahmin et. Ben performans farkını görünce iki kez kontrol ettim."
+        },
+        {
+          "id": "cbtr_p036",
+          "label": 1,
+          "score": 0.4259968480281657,
+          "text": "Bunu bilmeden cihaz alma. Kâğıt üstünde güzel görünen özellik günlük kullanımda ters köşe yapabilir."
+        },
+        {
+          "id": "cbtr_p038",
+          "label": 1,
+          "score": 0.32870325608193784,
+          "text": "BUNU KAÇIRAN PİŞMAN OLUR 🔥 Kayıtlar bu gece kapanıyor ve kontenjan çok az kaldı!"
+        },
+        {
+          "id": "cbtr_p039",
+          "label": 1,
+          "score": 0.3316278093866351,
+          "text": "Bu kadar basit olmasına sinir oldum: problemi çözen şey tek bir kutucuğu kapatmakmış."
+        },
+        {
+          "id": "cbtr_p040",
+          "label": 1,
+          "score": 0.481242310202608,
+          "text": "NEDEN KİMSE BUNDAN BAHSETMİYOR? Yeni güncellemenin en önemli kısmı menünün en altında kalmış."
+        },
+        {
+          "id": "cbtr_p041",
+          "label": 1,
+          "score": 0.475522038795812,
+          "text": "Üç saniyede anlayacağın bir fark ama satın almadan önce görmezsen aylarca uğraşabilirsin."
+        },
+        {
+          "id": "cbtr_p042",
+          "label": 1,
+          "score": 0.4320307615852792,
+          "text": "Bu grafiği görene kadar ben de aynı şeyi savunuyordum. Son sütun bütün argümanı değiştiriyor."
+        },
+        {
+          "id": "cbtr_p044",
+          "label": 1,
+          "score": 0.4930491932191588,
+          "text": "En büyük hata sandığın şey değil. Asıl problem ikinci ekranda başlıyor."
+        },
+        {
+          "id": "cbtr_p045",
+          "label": 1,
+          "score": 0.48931408741481675,
+          "text": "Bu uygulamayı silmeden önce bir ayarı dene. Belki de sorun düşündüğün yerde değil."
+        },
+        {
+          "id": "cbtr_p046",
+          "label": 1,
+          "score": 0.39524107804795394,
+          "text": "ŞAŞIRTAN TEST 😱 En pahalı seçenek ilk sıraya bile giremedi!"
+        },
+        {
+          "id": "cbtr_p049",
+          "label": 1,
+          "score": 0.4968637621889847,
+          "text": "BİR GECEDE DÜZELDİ! Aylarca uğraştığım düzen sorununu bu küçük değişiklik çözdü."
+        },
+        {
+          "id": "cbtr_p050",
+          "label": 1,
+          "score": 0.4525729969321944,
+          "text": "Bu dosyayı açmadan önce yedek al. İçindeki tek bir ayar bütün projeyi etkileyebilir."
+        },
+        {
+          "id": "cbtr_p051",
+          "label": 1,
+          "score": 0.29491904331095575,
+          "text": "Kimsenin konuşmadığı küçük sorun yüzünden sonuçlar olduğundan iyi görünüyor olabilir."
+        },
+        {
+          "id": "cbtr_p053",
+          "label": 1,
+          "score": 0.40065230951047837,
+          "text": "Bu basit alışkanlığın beni ne kadar vakitten kurtardığını hesaplayınca inanamadım."
+        },
+        {
+          "id": "cbtr_p058",
+          "label": 1,
+          "score": 0.32711453340632407,
+          "text": "İlk sonuç beni yanılttı; ikinci ölçümde ortaya çıkan şey bütün yorumu değiştirdi."
+        },
+        {
+          "id": "cbtr_p059",
+          "label": 1,
+          "score": 0.49276208634470364,
+          "text": "YARIN ÇOK GEÇ OLABİLİR! Fiyat değişmeden önce kontrol etmen gereken son şey bu."
+        },
+        {
+          "id": "cbtr_p061",
+          "label": 1,
+          "score": 0.35838576751535633,
+          "text": "BÜTÜN PLAN DEĞİŞTİ 😱 Tek bir tarih güncellemesi her şeyi altüst etti!"
+        },
+        {
+          "id": "cbtr_p062",
+          "label": 1,
+          "score": 0.38840385995425203,
+          "text": "Şimdi söylemeyeceğim ama üçüncü seçenekte fark ettiğim ayrıntı testin sonucunu açıklıyor."
+        },
+        {
+          "id": "cbtr_p063",
+          "label": 1,
+          "score": 0.3966922292838623,
+          "text": "Bunu denersen eski düzene dönmek istemeyebilirsin. Küçük değişiklik beklenmedik kadar rahatlatıyor."
+        },
+        {
+          "id": "cbtr_n035",
+          "label": 0,
+          "score": 0.5249443876720982,
+          "text": "‘Kimsenin söylemediği sır’ türü başlıkların neden merak uyandırdığını inceliyoruz."
+        },
+        {
+          "id": "cbhn_052",
+          "label": 0,
+          "score": 0.5321470947892483,
+          "text": "bu sonuç beni şaşırttı: iki yöntem de neredeyse aynı hata oranını verdi."
+        }
+      ]
+    },
+    "e5_aug192_balanced": {
+      "accuracy": 0.9166666666666666,
+      "precision": 0.8529411764705882,
+      "recall": 0.90625,
+      "f1": 0.8787878787878788,
+      "roc_auc": 0.9705810546875,
+      "brier": 0.13640571832402992,
+      "false_positive_count": 10,
+      "false_negative_count": 6,
+      "mean_positive": 0.6326896699718862,
+      "mean_negative": 0.3481487725625838,
+      "failures": [
+        {
+          "id": "cbtr_p029",
+          "label": 1,
+          "score": 0.446749382575633,
+          "text": "Son grafiğe kadar bekle; ilk iki sonuç asıl hikâyeyi saklıyor."
+        },
+        {
+          "id": "cbtr_p038",
+          "label": 1,
+          "score": 0.4482313900557594,
+          "text": "BUNU KAÇIRAN PİŞMAN OLUR 🔥 Kayıtlar bu gece kapanıyor ve kontenjan çok az kaldı!"
+        },
+        {
+          "id": "cbtr_p039",
+          "label": 1,
+          "score": 0.4602109908929891,
+          "text": "Bu kadar basit olmasına sinir oldum: problemi çözen şey tek bir kutucuğu kapatmakmış."
+        },
+        {
+          "id": "cbtr_p051",
+          "label": 1,
+          "score": 0.41378474208062554,
+          "text": "Kimsenin konuşmadığı küçük sorun yüzünden sonuçlar olduğundan iyi görünüyor olabilir."
+        },
+        {
+          "id": "cbtr_p058",
+          "label": 1,
+          "score": 0.45204480517782236,
+          "text": "İlk sonuç beni yanılttı; ikinci ölçümde ortaya çıkan şey bütün yorumu değiştirdi."
+        },
+        {
+          "id": "cbtr_p061",
+          "label": 1,
+          "score": 0.4840663797191547,
+          "text": "BÜTÜN PLAN DEĞİŞTİ 😱 Tek bir tarih güncellemesi her şeyi altüst etti!"
+        },
+        {
+          "id": "cbtr_n035",
+          "label": 0,
+          "score": 0.6577923645534096,
+          "text": "‘Kimsenin söylemediği sır’ türü başlıkların neden merak uyandırdığını inceliyoruz."
+        },
+        {
+          "id": "cbtr_n042",
+          "label": 0,
+          "score": 0.5160455997860807,
+          "text": "‘Herkes yanılıyor’ cümlesini iddia olarak kabul etmeden önce veri kaynağını kontrol etmek gerekir."
+        },
+        {
+          "id": "cbtr_n059",
+          "label": 0,
+          "score": 0.5440156052707384,
+          "text": "‘İnanamayacaksınız’ başlığının örnekte tırnak içinde kullanılması, yazarın aynı iddiayı benimsediği anlamına gelmez."
+        },
+        {
+          "id": "cbhn_001",
+          "label": 0,
+          "score": 0.5177442165687748,
+          "text": "sunumdan önce çok gerildim ama başlayınca beklediğimden daha rahat geçti. sizde de böyle oluyor mu?"
+        },
+        {
+          "id": "cbhn_002",
+          "label": 0,
+          "score": 0.5449556669779123,
+          "text": "telefonun pil ayarlarını kurcaladım, küçük bir değişiklik gerçekten fark etti ama mucize değil 😅"
+        },
+        {
+          "id": "cbhn_003",
+          "label": 0,
+          "score": 0.55457881931659,
+          "text": "maçın son dakikasındaki pozisyon ilk anda faul gibi geldi, tekrarda fikrim değişti. siz ne düşünüyorsunuz?"
+        },
+        {
+          "id": "cbhn_015",
+          "label": 0,
+          "score": 0.5021670920739004,
+          "text": "bu filmi ikinci kez izleyince finaldeki küçük ayrıntıyı yeni fark ettim, ilk izleyişte kaçmış."
+        },
+        {
+          "id": "cbhn_039",
+          "label": 0,
+          "score": 0.5321891903954389,
+          "text": "telefonun yeni özelliği güzel de gizlilik menüsünü bulmak niye bu kadar zor?"
+        },
+        {
+          "id": "cbhn_052",
+          "label": 0,
+          "score": 0.6628224632696232,
+          "text": "bu sonuç beni şaşırttı: iki yöntem de neredeyse aynı hata oranını verdi."
+        },
+        {
+          "id": "cbhn_059",
+          "label": 0,
+          "score": 0.5860444694320228,
+          "text": "herkes aynı seçeneği işaretleyince ben de tekrar baktım; soru gerçekten biraz belirsiz yazılmış."
+        }
+      ]
+    },
+    "tfidf_aug192_unweighted": {
+      "accuracy": 0.8177083333333334,
+      "precision": 0.7959183673469388,
+      "recall": 0.609375,
+      "f1": 0.6902654867256637,
+      "roc_auc": 0.9197998046875,
+      "brier": 0.12487050118440456,
+      "false_positive_count": 10,
+      "false_negative_count": 25,
+      "mean_positive": 0.5572018342575924,
+      "mean_negative": 0.23166124281861067,
+      "failures": [
+        {
+          "id": "cbtr_p004",
+          "label": 1,
+          "score": 0.48693068200519324,
+          "text": "Sadece 20 saniye ver. Neden herkes aynı hatayı yapıyor göstereceğim."
+        },
+        {
+          "id": "cbtr_p005",
+          "label": 1,
+          "score": 0.23222748586170905,
+          "text": "SONUNDA ÇÖZDÜM! Haftalardır uğraştığım problemin cevabı sandığımdan çok daha basitmiş."
+        },
+        {
+          "id": "cbtr_p008",
+          "label": 1,
+          "score": 0.3786871774090707,
+          "text": "Üç yöntemi test ettim. Kazananı tahmin etmek kolay ama neden kazandığını görünce fikrin değişebilir."
+        },
+        {
+          "id": "cbtr_p016",
+          "label": 1,
+          "score": 0.41879633529125626,
+          "text": "İnsanların %90’ı ilk ekranda bırakıyor. Asıl işe yarayan ayar bir sonraki menüde gizli."
+        },
+        {
+          "id": "cbtr_p017",
+          "label": 1,
+          "score": 0.3418543184963472,
+          "text": "BU SONUCU BEKLEMİYORDUM! Aynı veriyi iki farklı şekilde işleyince tablo tamamen değişti."
+        },
+        {
+          "id": "cbtr_p018",
+          "label": 1,
+          "score": 0.49471740014388654,
+          "text": "Bir sonraki satın almadan önce şu 30 saniyelik testi yap. Sonuç seni gereksiz masraftan kurtarabilir."
+        },
+        {
+          "id": "cbtr_p020",
+          "label": 1,
+          "score": 0.23732552141880697,
+          "text": "SON 24 SAAT! Bu fırsat kapanınca aynı koşulu tekrar bulamayabilirsin."
+        },
+        {
+          "id": "cbtr_p022",
+          "label": 1,
+          "score": 0.39464377628475394,
+          "text": "BİR DAHA AYNI ŞEKİLDE NOT ALMAYACAKSIN! Bu küçük yöntem düşündüğümden çok daha etkili çıktı."
+        },
+        {
+          "id": "cbtr_p024",
+          "label": 1,
+          "score": 0.3393993897735298,
+          "text": "Gerçekten çalışan tek yöntem bu mu? Denediğim beş seçenekten biri diğerlerini açık ara geçti."
+        },
+        {
+          "id": "cbtr_p025",
+          "label": 1,
+          "score": 0.3180107427024309,
+          "text": "DİKKAT: Bu hatayı fark etmezsen rapordaki bütün yüzdeler yanlış yorumlanabilir!"
+        },
+        {
+          "id": "cbtr_p029",
+          "label": 1,
+          "score": 0.3287402997712785,
+          "text": "Son grafiğe kadar bekle; ilk iki sonuç asıl hikâyeyi saklıyor."
+        },
+        {
+          "id": "cbtr_p030",
+          "label": 1,
+          "score": 0.41275417031474954,
+          "text": "Bu özelliği açmadan önce bilmen gereken bir şey var ve ayarlar sayfasında açıkça yazmıyor."
+        },
+        {
+          "id": "cbtr_p032",
+          "label": 1,
+          "score": 0.3683210003316232,
+          "text": "En şaşırtıcı kısmı başta söylemeyeceğim: aynı görevde neden ikinci yöntem daha hızlı çıktı?"
+        },
+        {
+          "id": "cbtr_p035",
+          "label": 1,
+          "score": 0.3901114922834678,
+          "text": "Bu küçük ayarı açınca ne olduğunu tahmin et. Ben performans farkını görünce iki kez kontrol ettim."
+        },
+        {
+          "id": "cbtr_p038",
+          "label": 1,
+          "score": 0.4635886917395155,
+          "text": "BUNU KAÇIRAN PİŞMAN OLUR 🔥 Kayıtlar bu gece kapanıyor ve kontenjan çok az kaldı!"
+        },
+        {
+          "id": "cbtr_p040",
+          "label": 1,
+          "score": 0.26205729638760505,
+          "text": "NEDEN KİMSE BUNDAN BAHSETMİYOR? Yeni güncellemenin en önemli kısmı menünün en altında kalmış."
+        },
+        {
+          "id": "cbtr_p044",
+          "label": 1,
+          "score": 0.469507401676145,
+          "text": "En büyük hata sandığın şey değil. Asıl problem ikinci ekranda başlıyor."
+        },
+        {
+          "id": "cbtr_p046",
+          "label": 1,
+          "score": 0.3835219457632013,
+          "text": "ŞAŞIRTAN TEST 😱 En pahalı seçenek ilk sıraya bile giremedi!"
+        },
+        {
+          "id": "cbtr_p047",
+          "label": 1,
+          "score": 0.19009253800029952,
+          "text": "Bunu ilk gördüğümde hata sandım. Meğer sistem tam olarak böyle çalışıyormuş; son örnek açıklıyor."
+        },
+        {
+          "id": "cbtr_p051",
+          "label": 1,
+          "score": 0.42815873711747576,
+          "text": "Kimsenin konuşmadığı küçük sorun yüzünden sonuçlar olduğundan iyi görünüyor olabilir."
+        },
+        {
+          "id": "cbtr_p052",
+          "label": 1,
+          "score": 0.42165811983837026,
+          "text": "SONU GÖRMEDEN KARAR VERME! İlk iki ölçüm seni yanlış sonuca götürebilir."
+        },
+        {
+          "id": "cbtr_p055",
+          "label": 1,
+          "score": 0.4442142659245868,
+          "text": "Sadece gerçek oyuncular anlayacak 😂 Bu ayarın maçın tamamını nasıl değiştirdiğine bak."
+        },
+        {
+          "id": "cbtr_p058",
+          "label": 1,
+          "score": 0.3698448347476796,
+          "text": "İlk sonuç beni yanılttı; ikinci ölçümde ortaya çıkan şey bütün yorumu değiştirdi."
+        },
+        {
+          "id": "cbtr_p061",
+          "label": 1,
+          "score": 0.42382261560065093,
+          "text": "BÜTÜN PLAN DEĞİŞTİ 😱 Tek bir tarih güncellemesi her şeyi altüst etti!"
+        },
+        {
+          "id": "cbtr_p062",
+          "label": 1,
+          "score": 0.37294679193264196,
+          "text": "Şimdi söylemeyeceğim ama üçüncü seçenekte fark ettiğim ayrıntı testin sonucunu açıklıyor."
+        },
+        {
+          "id": "cbtr_n035",
+          "label": 0,
+          "score": 0.7064859151986007,
+          "text": "‘Kimsenin söylemediği sır’ türü başlıkların neden merak uyandırdığını inceliyoruz."
+        },
+        {
+          "id": "cbtr_n047",
+          "label": 0,
+          "score": 0.6590237710652267,
+          "text": "UYARI! Cihaz kapağını açmadan önce güç kablosunu çıkarın."
+        },
+        {
+          "id": "cbtr_n055",
+          "label": 0,
+          "score": 0.6549233233960127,
+          "text": "Bu makale ‘hayatını değiştirecek’ gibi iddialı ifadelerin reklam performansına etkisini ölçüyor."
+        },
+        {
+          "id": "cbtr_n061",
+          "label": 0,
+          "score": 0.5348287817492019,
+          "text": "ACİL DURUM TOPLANMA ALANI bu tabelanın gösterdiği yöndedir."
+        },
+        {
+          "id": "cbhn_033",
+          "label": 0,
+          "score": 0.7225808353820414,
+          "text": "neden herkes aynı saatte kahve almaya çıkıyor bilmiyorum, sıra yine kapıya kadar uzundu 😅"
+        },
+        {
+          "id": "cbhn_034",
+          "label": 0,
+          "score": 0.5757948699647103,
+          "text": "bu ayarı açınca bildirim sayısı azaldı; aradığım şey tam olarak buydu."
+        },
+        {
+          "id": "cbhn_035",
+          "label": 0,
+          "score": 0.5160227773371246,
+          "text": "son test videosunu ekipçe izledik, çalıştığını görünce birkaç saniye kimse konuşmadı 🙂"
+        },
+        {
+          "id": "cbhn_040",
+          "label": 0,
+          "score": 0.5110129901044889,
+          "text": "raporu teslim etmeden son değişikliği yapmamak bazen en iyi karar olabiliyor."
+        },
+        {
+          "id": "cbhn_052",
+          "label": 0,
+          "score": 0.5195713186300852,
+          "text": "bu sonuç beni şaşırttı: iki yöntem de neredeyse aynı hata oranını verdi."
+        },
+        {
+          "id": "cbhn_059",
+          "label": 0,
+          "score": 0.5954554061269337,
+          "text": "herkes aynı seçeneği işaretleyince ben de tekrar baktım; soru gerçekten biraz belirsiz yazılmış."
+        }
+      ]
+    }
+  }
+}
