@@ -1,0 +1,89 @@
+name: Runtime V5 API Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dataset-v3-realistic
+    paths:
+      - api/pusula.js
+      - client.js
+      - data/runtime/feed_v5.json
+      - data/runtime/feed_v5_meta.json
+      - .github/workflows/runtime-v5-api-smoke.yml
+
+jobs:
+  runtime-smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript syntax checks
+        run: |
+          node --check api/pusula.js
+          node --check client.js
+      - name: Test local Candidate V5 API core
+        run: |
+          node <<'NODE'
+          const api=require('./api/pusula.js');
+          const t=api._test;
+          const pool=t.loadPool();
+          if(!Array.isArray(pool)||pool.length!==320) throw new Error('runtime pool must be 320');
+          if(t.SOURCE.external_runtime_dependency!==false) throw new Error('runtime must not depend on external GitHub pool');
+          if(t.SOURCE.semantic_candidate!=='V5') throw new Error('semantic candidate must be V5');
+          if(!pool.every(p=>typeof p.id==='string'&&p.id.startsWith('v2r_'))) throw new Error('runtime IDs must remain string v2r ids');
+          if(!pool.every(p=>Array.isArray(p.tahmin_niyet)&&p.tahmin_niyet.length===4)) throw new Error('missing 4D vectors');
+          if(!pool.every(p=>Number.isFinite(p.clickbait)&&p.clickbait>=0&&p.clickbait<=1)) throw new Error('invalid clickbait');
+
+          for(const intent of ['ogrenmek','eglenmek','haberdar','sosyallesmek','dolasmak']){
+            const classic=t.ranked(pool,intent,'classic',20);
+            const pusula=t.ranked(pool,intent,'pusula',20);
+            if(classic.length!==20||pusula.length!==20) throw new Error('ranking length mismatch for '+intent);
+            for(const rows of [classic,pusula]){
+              if(!rows.every(p=>typeof p.id==='string')) throw new Error('enriched IDs must be strings');
+              if(!rows.every(p=>Number.isFinite(p.score)&&Number.isFinite(p.fit)&&Number.isFinite(p.quality))) throw new Error('non-finite ranking output');
+              const categoryCounts={};
+              for(const p of rows) categoryCounts[p.kategori]=(categoryCounts[p.kategori]||0)+1;
+              if(Math.max(...Object.values(categoryCounts))>5) throw new Error('category diversity cap broken');
+            }
+            const m=t.metrics(pusula,intent);
+            for(const key of ['niyet_uyumu','niyet_kalite','kalite','etkilesim','tazelik','clickbait_ortalama','clickbait_yuksek_orani']){
+              if(!Number.isFinite(m[key])) throw new Error('invalid metric '+key+' for '+intent);
+            }
+            if(Object.prototype.hasOwnProperty.call(m,'pismanlik')) throw new Error('unsupported regret metric returned');
+          }
+          console.log('runtime core smoke: OK');
+          NODE
+      - name: Test handler response shapes
+        run: |
+          node <<'NODE'
+          const handler=require('./api/pusula.js');
+          async function call(query){
+            let code=200,payload=null;
+            const res={
+              setHeader(){},
+              status(v){code=v;return this;},
+              json(v){payload=v;return v;},
+              end(){return null;},
+            };
+            await handler({method:'GET',query},res);
+            return {code,payload};
+          }
+          (async()=>{
+            const meta=await call({action:'meta'});
+            if(meta.code!==200||!meta.payload?.ok||meta.payload.source.pool_size!==320) throw new Error('meta failed');
+            const feed=await call({action:'feed',intent:'learn',mode:'pusula',limit:'20'});
+            if(feed.code!==200||feed.payload.posts.length!==20) throw new Error('feed failed');
+            const cmp=await call({action:'compare',intent:'social',limit:'20'});
+            if(cmp.code!==200||cmp.payload.classic.posts.length!==20||cmp.payload.pusula.posts.length!==20) throw new Error('compare failed');
+            console.log('handler smoke: OK');
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+      - name: Guard against stale UI source claims
+        run: |
+          if grep -q "asimonmsz-design/pusula" api/pusula.js; then echo "stale upstream runtime source"; exit 1; fi
+          if grep -q "aynı 2000 gönderi" client.js; then echo "stale 2000-post UI claim"; exit 1; fi
+          if grep -q "Pişmanlık" client.js; then echo "unsupported regret UI metric"; exit 1; fi
