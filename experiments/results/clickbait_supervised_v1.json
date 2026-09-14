@@ -1,0 +1,576 @@
+{
+  "status": "development_only_supervised_clickbait_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-base",
+  "embedding_revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "train_n": 128,
+  "train_balance": {
+    "positive": 64,
+    "negative": 64
+  },
+  "note": "Stress-32 has already been inspected and is now development/tuning data, not an untouched holdout.",
+  "oof_5fold_on_training": {
+    "e5_logistic": {
+      "accuracy": 0.953125,
+      "precision": 0.9393939393939394,
+      "recall": 0.96875,
+      "f1": 0.9538461538461539,
+      "roc_auc": 0.98876953125,
+      "brier": 0.13270717016730815,
+      "mae_to_continuous_target": 0.25392327075141385,
+      "mean_positive": 0.648664566212968,
+      "mean_negative": 0.35858739479209956,
+      "false_positive_count": 4,
+      "false_negative_count": 2,
+      "failures": [
+        {
+          "id": "cbtr_p029",
+          "label": 1,
+          "score": 0.49083638414357517,
+          "text": "Son grafiğe kadar bekle; ilk iki sonuç asıl hikâyeyi saklıyor."
+        },
+        {
+          "id": "cbtr_p038",
+          "label": 1,
+          "score": 0.4469879730338713,
+          "text": "BUNU KAÇIRAN PİŞMAN OLUR 🔥 Kayıtlar bu gece kapanıyor ve kontenjan çok az kaldı!"
+        },
+        {
+          "id": "cbtr_n005",
+          "label": 0,
+          "score": 0.5844658633301004,
+          "text": "Film finalindeki karar bana biraz hızlı geldi."
+        },
+        {
+          "id": "cbtr_n013",
+          "label": 0,
+          "score": 0.5628267937032007,
+          "text": "Bu tasarımın mobil hali sizce okunaklı mı? dışarıdan yorum almak isterim."
+        },
+        {
+          "id": "cbtr_n022",
+          "label": 0,
+          "score": 0.5852476241819029,
+          "text": "Diziyi bitirenlerle final hakkında konuşmak istiyorum; siz nasıl yorumladınız?"
+        },
+        {
+          "id": "cbtr_n035",
+          "label": 0,
+          "score": 0.5647862401124133,
+          "text": "‘Kimsenin söylemediği sır’ türü başlıkların neden merak uyandırdığını inceliyoruz."
+        }
+      ]
+    },
+    "tfidf_logistic": {
+      "accuracy": 0.84375,
+      "precision": 0.8055555555555556,
+      "recall": 0.90625,
+      "f1": 0.8529411764705882,
+      "roc_auc": 0.955078125,
+      "brier": 0.11791512101609955,
+      "mae_to_continuous_target": 0.22560018626556344,
+      "mean_positive": 0.7337416045060856,
+      "mean_negative": 0.3513664123912672,
+      "false_positive_count": 14,
+      "false_negative_count": 6,
+      "failures": [
+        {
+          "id": "cbtr_p005",
+          "label": 1,
+          "score": 0.39119596920065874,
+          "text": "SONUNDA ÇÖZDÜM! Haftalardır uğraştığım problemin cevabı sandığımdan çok daha basitmiş."
+        },
+        {
+          "id": "cbtr_p020",
+          "label": 1,
+          "score": 0.4616228902910938,
+          "text": "SON 24 SAAT! Bu fırsat kapanınca aynı koşulu tekrar bulamayabilirsin."
+        },
+        {
+          "id": "cbtr_p040",
+          "label": 1,
+          "score": 0.4958326213584119,
+          "text": "NEDEN KİMSE BUNDAN BAHSETMİYOR? Yeni güncellemenin en önemli kısmı menünün en altında kalmış."
+        },
+        {
+          "id": "cbtr_p047",
+          "label": 1,
+          "score": 0.41277189131550673,
+          "text": "Bunu ilk gördüğümde hata sandım. Meğer sistem tam olarak böyle çalışıyormuş; son örnek açıklıyor."
+        },
+        {
+          "id": "cbtr_p055",
+          "label": 1,
+          "score": 0.4774811108149915,
+          "text": "Sadece gerçek oyuncular anlayacak 😂 Bu ayarın maçın tamamını nasıl değiştirdiğine bak."
+        },
+        {
+          "id": "cbtr_p058",
+          "label": 1,
+          "score": 0.49501069465311254,
+          "text": "İlk sonuç beni yanılttı; ikinci ölçümde ortaya çıkan şey bütün yorumu değiştirdi."
+        },
+        {
+          "id": "cbtr_n003",
+          "label": 0,
+          "score": 0.5254274680025205,
+          "text": "CSV'de sayıların metin görünmesinin nedeni ondalık ayırıcı olabilir."
+        },
+        {
+          "id": "cbtr_n011",
+          "label": 0,
+          "score": 0.6566139362554085,
+          "text": "İki sensörü karşılaştırırken aynı koşulda birkaç tekrar ölçümü almak gerekiyor."
+        },
+        {
+          "id": "cbtr_n013",
+          "label": 0,
+          "score": 0.5438612437773654,
+          "text": "Bu tasarımın mobil hali sizce okunaklı mı? dışarıdan yorum almak isterim."
+        },
+        {
+          "id": "cbtr_n018",
+          "label": 0,
+          "score": 0.5060531137875571,
+          "text": "Bu hafta sonu masa oyunu oynayacak bir grup arıyorum."
+        },
+        {
+          "id": "cbtr_n027",
+          "label": 0,
+          "score": 0.5584019729857035,
+          "text": "Maçın ikinci yarısında tempo ilk yarıya göre yükseldi."
+        },
+        {
+          "id": "cbtr_n032",
+          "label": 0,
+          "score": 0.5201848991782235,
+          "text": "Raporun son tablosunda yüzde değerlerini yeniden kontrol ettim."
+        },
+        {
+          "id": "cbtr_n035",
+          "label": 0,
+          "score": 0.7884154383507038,
+          "text": "‘Kimsenin söylemediği sır’ türü başlıkların neden merak uyandırdığını inceliyoruz."
+        },
+        {
+          "id": "cbtr_n045",
+          "label": 0,
+          "score": 0.6705918914926987,
+          "text": "SONUÇ: Yöntem B ortalama gecikmeyi 18 ms azalttı."
+        },
+        {
+          "id": "cbtr_n047",
+          "label": 0,
+          "score": 0.626537980255783,
+          "text": "UYARI! Cihaz kapağını açmadan önce güç kablosunu çıkarın."
+        },
+        {
+          "id": "cbtr_n052",
+          "label": 0,
+          "score": 0.5347027568920028,
+          "text": "‘Bunu görmeden geçme’ biçimindeki çağrı, içerik pazarlamasında doğrudan dikkat çekme örneğidir."
+        },
+        {
+          "id": "cbtr_n054",
+          "label": 0,
+          "score": 0.6957557260038276,
+          "text": "SON TARİH: Proje dosyaları 25 Eylül saat 23.59'a kadar sisteme yüklenmelidir."
+        },
+        {
+          "id": "cbtr_n055",
+          "label": 0,
+          "score": 0.6091125356540623,
+          "text": "Bu makale ‘hayatını değiştirecek’ gibi iddialı ifadelerin reklam performansına etkisini ölçüyor."
+        },
+        {
+          "id": "cbtr_n061",
+          "label": 0,
+          "score": 0.5330817832182237,
+          "text": "ACİL DURUM TOPLANMA ALANI bu tabelanın gösterdiği yöndedir."
+        },
+        {
+          "id": "cbtr_n064",
+          "label": 0,
+          "score": 0.5198451969764356,
+          "text": "Bu örnekte ‘tek bir ayrıntı’ ifadesi dilbilgisel bir tamlama olarak ele alınıyor."
+        }
+      ]
+    }
+  },
+  "stress32": {
+    "e5_logistic": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0,
+      "brier": 0.10003814415549038,
+      "mae_to_continuous_target": 0.18762720358210255,
+      "mean_positive": 0.7190696862411892,
+      "mean_negative": 0.33432409340539426,
+      "false_positive_count": 0,
+      "false_negative_count": 0,
+      "failures": []
+    },
+    "tfidf_logistic": {
+      "accuracy": 0.96875,
+      "precision": 0.9411764705882353,
+      "recall": 1.0,
+      "f1": 0.9696969696969697,
+      "roc_auc": 0.9921875,
+      "brier": 0.059065897447588486,
+      "mae_to_continuous_target": 0.13121965433484437,
+      "mean_positive": 0.8117904535095991,
+      "mean_negative": 0.23118802689411197,
+      "false_positive_count": 1,
+      "false_negative_count": 0,
+      "failures": [
+        {
+          "id": "cbs_n07",
+          "label": 0,
+          "score": 0.6917816631540955,
+          "text": "SAKINCA: Bu yöntem küçük örneklemde test edildi; sonuçları genellemek doğru değil."
+        }
+      ]
+    },
+    "semantic_knn_candidate_v3": {
+      "accuracy": 0.5625,
+      "precision": 1.0,
+      "recall": 0.125,
+      "f1": 0.2222222222222222,
+      "roc_auc": 0.8203125,
+      "brier": 0.3237859398042262,
+      "mae_to_continuous_target": 0.33888276117168586,
+      "mean_positive": 0.22205603011553587,
+      "mean_negative": 0.08624525488005971,
+      "false_positive_count": 0,
+      "false_negative_count": 14,
+      "failures": [
+        {
+          "id": "cbs_p01",
+          "label": 1,
+          "score": 0.2729491237095088,
+          "text": "Bu ayarı ben de gereksiz sanıyordum; sonucu görünce fikrim tamamen değişti. Sonuna kadar bak."
+        },
+        {
+          "id": "cbs_p02",
+          "label": 1,
+          "score": 0.2719050097313424,
+          "text": "Bir dakikanı ayır: neden telefonun gece bu kadar pil yediğini görünce şaşırabilirsin."
+        },
+        {
+          "id": "cbs_p03",
+          "label": 1,
+          "score": 0.01572984110607849,
+          "text": "Sana bunu kimse anlatmıyor: küçük bir alışkanlık ay sonunda beklediğinden çok daha fazla para bırakabilir."
+        },
+        {
+          "id": "cbs_p04",
+          "label": 1,
+          "score": 0.15406744888692744,
+          "text": "Ben de inanmıyordum, ta ki aynı testi üç kez yapana kadar. Sonuç düşündüğümün tam tersiydi."
+        },
+        {
+          "id": "cbs_p05",
+          "label": 1,
+          "score": 0.2854381959902957,
+          "text": "Bu detayı atlayan herkes aynı hataya düşüyor. İkinci adımın neden önemli olduğunu sona gelince anlayacaksın."
+        },
+        {
+          "id": "cbs_p06",
+          "label": 1,
+          "score": 0.25477159649257575,
+          "text": "NEDEN HERKES BUNU YAPMAYA BAŞLADI? Cevap sandığınız kadar basit değil 👀"
+        },
+        {
+          "id": "cbs_p08",
+          "label": 1,
+          "score": 0.01847704253232268,
+          "text": "Bunu öğrendikten sonra eski yönteme dönmek istemeyeceksin. Küçük görünüyor ama etkisi beklediğimden büyük."
+        },
+        {
+          "id": "cbs_p09",
+          "label": 1,
+          "score": 0.14176215472389636,
+          "text": "Herkes ilk seçeneğe bakıyor ama asıl mesele başka yerde. En sonda fark ettiğim detay sonucu değiştirdi."
+        },
+        {
+          "id": "cbs_p11",
+          "label": 1,
+          "score": 0.13866842007540758,
+          "text": "Birçok kişinin yaptığı bu hata fark edilmeden haftalarca devam ediyor. Sen de yapıyor olabilirsin."
+        },
+        {
+          "id": "cbs_p12",
+          "label": 1,
+          "score": 0.14636406282583345,
+          "text": "Bugün denedim ve gerçekten beklemiyordum: küçücük bir değişiklik bütün çalışma akışımı tersine çevirdi."
+        },
+        {
+          "id": "cbs_p13",
+          "label": 1,
+          "score": 0.13913634715819428,
+          "text": "İlk bakışta sıradan geliyor ama üçüncü örnekte ne demek istediğimi anlayacaksın."
+        },
+        {
+          "id": "cbs_p14",
+          "label": 1,
+          "score": 0.2845964898755879,
+          "text": "BİR DAHA AYNI HATAYI YAPMAYACAKSIN! Sebebi öğrendiğimde ben de şaşırdım."
+        },
+        {
+          "id": "cbs_p15",
+          "label": 1,
+          "score": 0.14457657270333404,
+          "text": "Bu sonuç neden kimsenin konuşmadığı kadar önemli? Cevap son grafikte saklı."
+        },
+        {
+          "id": "cbs_p16",
+          "label": 1,
+          "score": 0.25664029916524955,
+          "text": "Sadece 30 saniye ver; kullandığın ayarın neden yanlış olabileceğini göstereceğim."
+        }
+      ]
+    },
+    "upstream_heuristic_v1": {
+      "accuracy": 0.5625,
+      "precision": 0.6666666666666666,
+      "recall": 0.25,
+      "f1": 0.36363636363636365,
+      "roc_auc": 0.33984375,
+      "brier": 0.45296875000000003,
+      "mae_to_continuous_target": 0.451875,
+      "mean_positive": 0.23125,
+      "mean_negative": 0.3125,
+      "false_positive_count": 2,
+      "false_negative_count": 12,
+      "failures": [
+        {
+          "id": "cbs_p01",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu ayarı ben de gereksiz sanıyordum; sonucu görünce fikrim tamamen değişti. Sonuna kadar bak."
+        },
+        {
+          "id": "cbs_p02",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bir dakikanı ayır: neden telefonun gece bu kadar pil yediğini görünce şaşırabilirsin."
+        },
+        {
+          "id": "cbs_p03",
+          "label": 1,
+          "score": 0.0,
+          "text": "Sana bunu kimse anlatmıyor: küçük bir alışkanlık ay sonunda beklediğinden çok daha fazla para bırakabilir."
+        },
+        {
+          "id": "cbs_p04",
+          "label": 1,
+          "score": 0.0,
+          "text": "Ben de inanmıyordum, ta ki aynı testi üç kez yapana kadar. Sonuç düşündüğümün tam tersiydi."
+        },
+        {
+          "id": "cbs_p05",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu detayı atlayan herkes aynı hataya düşüyor. İkinci adımın neden önemli olduğunu sona gelince anlayacaksın."
+        },
+        {
+          "id": "cbs_p08",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bunu öğrendikten sonra eski yönteme dönmek istemeyeceksin. Küçük görünüyor ama etkisi beklediğimden büyük."
+        },
+        {
+          "id": "cbs_p09",
+          "label": 1,
+          "score": 0.0,
+          "text": "Herkes ilk seçeneğe bakıyor ama asıl mesele başka yerde. En sonda fark ettiğim detay sonucu değiştirdi."
+        },
+        {
+          "id": "cbs_p11",
+          "label": 1,
+          "score": 0.0,
+          "text": "Birçok kişinin yaptığı bu hata fark edilmeden haftalarca devam ediyor. Sen de yapıyor olabilirsin."
+        },
+        {
+          "id": "cbs_p12",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bugün denedim ve gerçekten beklemiyordum: küçücük bir değişiklik bütün çalışma akışımı tersine çevirdi."
+        },
+        {
+          "id": "cbs_p13",
+          "label": 1,
+          "score": 0.0,
+          "text": "İlk bakışta sıradan geliyor ama üçüncü örnekte ne demek istediğimi anlayacaksın."
+        },
+        {
+          "id": "cbs_p15",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu sonuç neden kimsenin konuşmadığı kadar önemli? Cevap son grafikte saklı."
+        },
+        {
+          "id": "cbs_p16",
+          "label": 1,
+          "score": 0.0,
+          "text": "Sadece 30 saniye ver; kullandığın ayarın neden yanlış olabileceğini göstereceğim."
+        },
+        {
+          "id": "cbs_n06",
+          "label": 0,
+          "score": 0.65,
+          "text": "Haberde ‘İNANAMAYACAKSINIZ’ ifadesi kullanılmış; metnin geri kalanı ise sıradan bir ürün duyurusu."
+        },
+        {
+          "id": "cbs_n14",
+          "label": 0,
+          "score": 0.8,
+          "text": "DİKKAT EDİLMESİ GEREKEN NOKTA: iki grup başlangıçta aynı büyüklükte değildi."
+        }
+      ]
+    },
+    "frozen_presentation_rules_v1": {
+      "accuracy": 0.34375,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.111328125,
+      "brier": 0.5093875000000001,
+      "mae_to_continuous_target": 0.5250000000000001,
+      "mean_positive": 0.09812499999999999,
+      "mean_negative": 0.38812500000000005,
+      "false_positive_count": 5,
+      "false_negative_count": 16,
+      "failures": [
+        {
+          "id": "cbs_p01",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu ayarı ben de gereksiz sanıyordum; sonucu görünce fikrim tamamen değişti. Sonuna kadar bak."
+        },
+        {
+          "id": "cbs_p02",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bir dakikanı ayır: neden telefonun gece bu kadar pil yediğini görünce şaşırabilirsin."
+        },
+        {
+          "id": "cbs_p03",
+          "label": 1,
+          "score": 0.0,
+          "text": "Sana bunu kimse anlatmıyor: küçük bir alışkanlık ay sonunda beklediğinden çok daha fazla para bırakabilir."
+        },
+        {
+          "id": "cbs_p04",
+          "label": 1,
+          "score": 0.0,
+          "text": "Ben de inanmıyordum, ta ki aynı testi üç kez yapana kadar. Sonuç düşündüğümün tam tersiydi."
+        },
+        {
+          "id": "cbs_p05",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu detayı atlayan herkes aynı hataya düşüyor. İkinci adımın neden önemli olduğunu sona gelince anlayacaksın."
+        },
+        {
+          "id": "cbs_p06",
+          "label": 1,
+          "score": 0.38,
+          "text": "NEDEN HERKES BUNU YAPMAYA BAŞLADI? Cevap sandığınız kadar basit değil 👀"
+        },
+        {
+          "id": "cbs_p07",
+          "label": 1,
+          "score": 0.45,
+          "text": "GÖRDÜĞÜM EN ÇILGIN SONUÇ! Aynı veri, sadece bir ayarla bambaşka göründü 😱"
+        },
+        {
+          "id": "cbs_p08",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bunu öğrendikten sonra eski yönteme dönmek istemeyeceksin. Küçük görünüyor ama etkisi beklediğimden büyük."
+        },
+        {
+          "id": "cbs_p09",
+          "label": 1,
+          "score": 0.0,
+          "text": "Herkes ilk seçeneğe bakıyor ama asıl mesele başka yerde. En sonda fark ettiğim detay sonucu değiştirdi."
+        },
+        {
+          "id": "cbs_p10",
+          "label": 1,
+          "score": 0.37,
+          "text": "BU VİDEOYU KAPATMADAN ÖNCE SON 10 SANİYEYİ İZLE! Ne olduğunu görünce nedenini anlayacaksın."
+        },
+        {
+          "id": "cbs_p11",
+          "label": 1,
+          "score": 0.0,
+          "text": "Birçok kişinin yaptığı bu hata fark edilmeden haftalarca devam ediyor. Sen de yapıyor olabilirsin."
+        },
+        {
+          "id": "cbs_p12",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bugün denedim ve gerçekten beklemiyordum: küçücük bir değişiklik bütün çalışma akışımı tersine çevirdi."
+        },
+        {
+          "id": "cbs_p13",
+          "label": 1,
+          "score": 0.0,
+          "text": "İlk bakışta sıradan geliyor ama üçüncü örnekte ne demek istediğimi anlayacaksın."
+        },
+        {
+          "id": "cbs_p14",
+          "label": 1,
+          "score": 0.37,
+          "text": "BİR DAHA AYNI HATAYI YAPMAYACAKSIN! Sebebi öğrendiğimde ben de şaşırdım."
+        },
+        {
+          "id": "cbs_p15",
+          "label": 1,
+          "score": 0.0,
+          "text": "Bu sonuç neden kimsenin konuşmadığı kadar önemli? Cevap son grafikte saklı."
+        },
+        {
+          "id": "cbs_p16",
+          "label": 1,
+          "score": 0.0,
+          "text": "Sadece 30 saniye ver; kullandığın ayarın neden yanlış olabileceğini göstereceğim."
+        },
+        {
+          "id": "cbs_n05",
+          "label": 0,
+          "score": 0.55,
+          "text": "‘Kimsenin söylemediği gerçek’ gibi başlıklar güvenilirlik hissini azaltabiliyor."
+        },
+        {
+          "id": "cbs_n06",
+          "label": 0,
+          "score": 0.6,
+          "text": "Haberde ‘İNANAMAYACAKSINIZ’ ifadesi kullanılmış; metnin geri kalanı ise sıradan bir ürün duyurusu."
+        },
+        {
+          "id": "cbs_n07",
+          "label": 0,
+          "score": 0.52,
+          "text": "SAKINCA: Bu yöntem küçük örneklemde test edildi; sonuçları genellemek doğru değil."
+        },
+        {
+          "id": "cbs_n10",
+          "label": 0,
+          "score": 0.52,
+          "text": "Son fırsat kavramı pazarlamada yapay kıtlık oluşturmak için sık kullanılan bir yöntemdir."
+        },
+        {
+          "id": "cbs_n14",
+          "label": 0,
+          "score": 0.64,
+          "text": "DİKKAT EDİLMESİ GEREKEN NOKTA: iki grup başlangıçta aynı büyüklükte değildi."
+        }
+      ]
+    }
+  },
+  "development_recommendation": "e5_logistic"
+}
