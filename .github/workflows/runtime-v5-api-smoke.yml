@@ -57,6 +57,40 @@ jobs:
           }
           console.log('runtime core smoke: OK');
           NODE
+      - name: Report ranking behavior across all intents
+        run: |
+          node <<'NODE'
+          const api=require('./api/pusula.js');
+          const t=api._test;
+          const pool=t.loadPool();
+          const rows=[];
+          for(const intent of ['ogrenmek','eglenmek','haberdar','sosyallesmek','dolasmak']){
+            const classicPosts=t.ranked(pool,intent,'classic',20);
+            const pusulaPosts=t.ranked(pool,intent,'pusula',20);
+            const c=t.metrics(classicPosts,intent);
+            const p=t.metrics(pusulaPosts,intent);
+            if(!(p.niyet_uyumu>c.niyet_uyumu)) throw new Error('PUSULA intent fit did not improve for '+intent);
+            if(!(p.niyet_kalite>c.niyet_kalite)) throw new Error('PUSULA intent-quality did not improve for '+intent);
+            if(p.clickbait_yuksek_orani!==0) throw new Error('high-clickbait item entered top20 for '+intent);
+            if(p.konu_sayisi<4) throw new Error('topic diversity too low for '+intent);
+            rows.push({
+              intent,
+              classic_fit:+c.niyet_uyumu.toFixed(3),
+              pusula_fit:+p.niyet_uyumu.toFixed(3),
+              fit_delta:+(p.niyet_uyumu-c.niyet_uyumu).toFixed(3),
+              classic_fit_quality:+c.niyet_kalite.toFixed(3),
+              pusula_fit_quality:+p.niyet_kalite.toFixed(3),
+              quality:+p.kalite.toFixed(3),
+              clickbait:+p.clickbait_ortalama.toFixed(3),
+              topics:p.konu_sayisi,
+              authors:p.yazar_sayisi,
+              engagement_demo:+p.etkilesim.toFixed(3),
+              freshness_demo:+p.tazelik.toFixed(3),
+            });
+          }
+          console.table(rows);
+          console.log('RANKING_BEHAVIOR_JSON='+JSON.stringify(rows));
+          NODE
       - name: Test handler response shapes
         run: |
           node <<'NODE'
