@@ -12,15 +12,9 @@ from sklearn.neighbors import KNeighborsRegressor
 
 from benchmark_style_generalization import load_hard_eval
 from benchmark_supervised_embeddings import INTENTS, cosine_rows, dominant_from_scores, encode_texts
-from benchmark_pool2000_group_cv import load_pool, softmax_np if False else None
+from benchmark_pool2000_group_cv import load_pool
 
 ROOT = Path(__file__).resolve().parents[1]
-
-
-def softmax_np(x):
-    x = x - np.max(x, axis=1, keepdims=True)
-    e = np.exp(x)
-    return e / np.sum(e, axis=1, keepdims=True)
 
 
 def vec_metrics(y_true, pred, dom_true):
@@ -97,7 +91,6 @@ def main():
 
     hybrid = np.clip(0.70 * p_knn + 0.15 * np.clip(p_ridge, 0, 1) + 0.15 * probs, 0, 1)
 
-    # OOD screening against the actual 2k training pool.
     nearest = np.max(xh @ xp.T, axis=1)
     pool_sim = xp @ xp.T
     np.fill_diagonal(pool_sim, -1.0)
