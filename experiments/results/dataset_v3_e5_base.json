@@ -1,0 +1,230 @@
+{
+  "status": "development_only_hard48_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-base",
+  "embedding_revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "hard_eval_n": 48,
+  "hard_distribution": {
+    "sosyal": 15,
+    "ogretici": 12,
+    "eglendirici": 13,
+    "haber": 8
+  },
+  "scenarios": {
+    "old_136_only": {
+      "train_n": 136,
+      "train_distribution": {
+        "ogretici": 34,
+        "eglendirici": 34,
+        "haber": 34,
+        "sosyal": 34
+      },
+      "knn_k": 5,
+      "semantic_knn": {
+        "dominant_accuracy": 0.5416666666666666,
+        "macro_f1": 0.5208333333333334,
+        "intent_mae": 0.18031830539839053,
+        "mean_cosine_similarity": 0.8716142206863363,
+        "clickbait_mae": 0.07772677148887273,
+        "pred_distribution": {
+          "sosyal": 33,
+          "eglendirici": 7,
+          "ogretici": 2,
+          "haber": 6
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.08333333333333333,
+          "eglendirici": 0.38461538461538464,
+          "haber": 0.75,
+          "sosyal": 0.9333333333333333
+        }
+      },
+      "hybrid_vector": {
+        "dominant_accuracy": 0.5625,
+        "macro_f1": 0.5548885511651469,
+        "intent_mae": 0.17274054681799547,
+        "mean_cosine_similarity": 0.8876857843107097,
+        "clickbait_mae": 0.07772677148887273,
+        "pred_distribution": {
+          "sosyal": 32,
+          "eglendirici": 7,
+          "ogretici": 3,
+          "haber": 6
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.16666666666666666,
+          "eglendirici": 0.38461538461538464,
+          "haber": 0.75,
+          "sosyal": 0.9333333333333333
+        }
+      },
+      "balanced_logistic_dominant": {
+        "dominant_accuracy": 0.6875,
+        "macro_f1": 0.6877494216310005,
+        "pred_distribution": {
+          "sosyal": 20,
+          "haber": 8,
+          "eglendirici": 13,
+          "ogretici": 7
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.3333333333333333,
+          "eglendirici": 0.7692307692307693,
+          "haber": 0.875,
+          "sosyal": 0.8
+        },
+        "accuracy_at_50pct_coverage": 0.7916666666666666,
+        "accuracy_at_75pct_coverage": 0.75
+      },
+      "ood": {
+        "threshold": 0.8622611165046692,
+        "ood_rate": 0.0,
+        "mean_nearest_train_cosine": 0.8875072598457336,
+        "min_nearest_train_cosine": 0.8646862506866455
+      }
+    },
+    "v3_128_only": {
+      "train_n": 128,
+      "train_distribution": {
+        "ogretici": 32,
+        "eglendirici": 32,
+        "haber": 32,
+        "sosyal": 32
+      },
+      "knn_k": 5,
+      "semantic_knn": {
+        "dominant_accuracy": 0.5208333333333334,
+        "macro_f1": 0.49381868131868134,
+        "intent_mae": 0.18652771262855325,
+        "mean_cosine_similarity": 0.8545652274000674,
+        "clickbait_mae": 0.07556082428525268,
+        "pred_distribution": {
+          "sosyal": 33,
+          "eglendirici": 8,
+          "ogretici": 1,
+          "haber": 6
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.08333333333333333,
+          "eglendirici": 0.3076923076923077,
+          "haber": 0.75,
+          "sosyal": 0.9333333333333333
+        }
+      },
+      "hybrid_vector": {
+        "dominant_accuracy": 0.5625,
+        "macro_f1": 0.5521739130434783,
+        "intent_mae": 0.17773927367850129,
+        "mean_cosine_similarity": 0.8734249781759278,
+        "clickbait_mae": 0.07556082428525268,
+        "pred_distribution": {
+          "sosyal": 31,
+          "eglendirici": 8,
+          "ogretici": 2,
+          "haber": 7
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.16666666666666666,
+          "eglendirici": 0.3076923076923077,
+          "haber": 0.875,
+          "sosyal": 0.9333333333333333
+        }
+      },
+      "balanced_logistic_dominant": {
+        "dominant_accuracy": 0.7083333333333334,
+        "macro_f1": 0.7065736551030668,
+        "pred_distribution": {
+          "sosyal": 21,
+          "haber": 9,
+          "eglendirici": 13,
+          "ogretici": 5
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.3333333333333333,
+          "eglendirici": 0.6923076923076923,
+          "haber": 1.0,
+          "sosyal": 0.8666666666666667
+        },
+        "accuracy_at_50pct_coverage": 0.8333333333333334,
+        "accuracy_at_75pct_coverage": 0.75
+      },
+      "ood": {
+        "threshold": 0.8628045320510864,
+        "ood_rate": 0.0,
+        "mean_nearest_train_cosine": 0.887225329875946,
+        "min_nearest_train_cosine": 0.8646860718727112
+      }
+    },
+    "combined_264": {
+      "train_n": 264,
+      "train_distribution": {
+        "ogretici": 66,
+        "eglendirici": 66,
+        "haber": 66,
+        "sosyal": 66
+      },
+      "knn_k": 11,
+      "semantic_knn": {
+        "dominant_accuracy": 0.4791666666666667,
+        "macro_f1": 0.4486102133160957,
+        "intent_mae": 0.1830955417941519,
+        "mean_cosine_similarity": 0.8646306612216157,
+        "clickbait_mae": 0.07834301857738078,
+        "pred_distribution": {
+          "sosyal": 36,
+          "eglendirici": 5,
+          "ogretici": 2,
+          "haber": 5
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.08333333333333333,
+          "eglendirici": 0.23076923076923078,
+          "haber": 0.625,
+          "sosyal": 0.9333333333333333
+        }
+      },
+      "hybrid_vector": {
+        "dominant_accuracy": 0.5416666666666666,
+        "macro_f1": 0.5298885511651469,
+        "intent_mae": 0.17329585143113754,
+        "mean_cosine_similarity": 0.8815128955282449,
+        "clickbait_mae": 0.07834301857738078,
+        "pred_distribution": {
+          "sosyal": 32,
+          "eglendirici": 7,
+          "ogretici": 3,
+          "haber": 6
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.16666666666666666,
+          "eglendirici": 0.3076923076923077,
+          "haber": 0.75,
+          "sosyal": 0.9333333333333333
+        }
+      },
+      "balanced_logistic_dominant": {
+        "dominant_accuracy": 0.6875,
+        "macro_f1": 0.6877494216310005,
+        "pred_distribution": {
+          "sosyal": 20,
+          "haber": 8,
+          "eglendirici": 13,
+          "ogretici": 7
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.3333333333333333,
+          "eglendirici": 0.7692307692307693,
+          "haber": 0.875,
+          "sosyal": 0.8
+        },
+        "accuracy_at_50pct_coverage": 0.8333333333333334,
+        "accuracy_at_75pct_coverage": 0.8055555555555556
+      },
+      "ood": {
+        "threshold": 0.8838208317756653,
+        "ood_rate": 0.4375,
+        "mean_nearest_train_cosine": 0.8881043791770935,
+        "min_nearest_train_cosine": 0.8646862506866455
+      }
+    }
+  }
+}
