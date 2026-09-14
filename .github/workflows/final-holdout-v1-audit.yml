@@ -1,0 +1,46 @@
+name: Final Holdout V1 Audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - semantic-v2-eval-v1
+    paths:
+      - data/final_holdout/holdout_a_v1.jsonl
+      - data/final_holdout/holdout_neutral_a_v1.jsonl
+      - scripts/audit_final_holdout_v1.py
+      - scripts/build_final_holdout_blind_packet.py
+      - .github/workflows/final-holdout-v1-audit.yml
+
+permissions:
+  contents: write
+
+jobs:
+  audit-and-blind:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audit dependencies
+        run: python -m pip install "scikit-learn>=1.5,<2"
+      - name: Audit untouched holdout against all tuning sources
+        run: python scripts/audit_final_holdout_v1.py
+      - name: Build blinded second-annotator packet
+        run: python scripts/build_final_holdout_blind_packet.py
+      - name: Commit audit and blind packet
+        run: |
+          FILES="data/final_holdout/audit_v1.json data/final_holdout/annotator_b_packet_v1.jsonl data/final_holdout/annotator_b_packet_v1.csv data/final_holdout/annotator_b_key_v1.json"
+          if [ -z "$(git status --porcelain -- $FILES)" ]; then
+            echo "Holdout audit outputs already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add $FILES
+          git commit -m "eval-v1: record holdout leakage audit and blind packet [skip ci]"
+          git fetch origin semantic-v2-eval-v1
+          git rebase origin/semantic-v2-eval-v1
+          git push origin HEAD:semantic-v2-eval-v1
