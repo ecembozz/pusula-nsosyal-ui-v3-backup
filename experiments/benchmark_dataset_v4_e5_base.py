@@ -37,10 +37,17 @@ def load_train(path: Path):
 def load_dev():
     rows = []
     for r in read_jsonl(DEV):
+        intent = r["intent"]
+        if isinstance(intent, dict):
+            vec = [float(intent[k]) for k in INTENTS]
+        elif isinstance(intent, list) and len(intent) == 4:
+            vec = [float(x) for x in intent]
+        else:
+            raise ValueError(f"{r.get('id')}: intent must be a 4-value list or intent mapping")
         rows.append({
             "id": r["id"],
             "text": r["text"],
-            "y": [float(r["intent"][k]) for k in INTENTS] + [float(r["clickbait"])],
+            "y": vec + [float(r["clickbait"])],
             "auxiliary": r["auxiliary_label"],
         })
     return rows
