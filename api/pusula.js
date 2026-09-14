@@ -127,6 +127,26 @@ function ranked(pool,intent,mode,limit){
   const selected=diverse(pool,scoreFn,limit);
   return selected.map((p,i)=>enrich(p,i+1,intent,mode));
 }
+function behaviorBenchmark(pool,limit=20){
+  return Object.keys(INTENTS).map(intent=>{
+    const classic=ranked(pool,intent,'classic',limit);
+    const pusula=ranked(pool,intent,'pusula',limit);
+    const classicMetrics=metrics(classic,intent);
+    const pusulaMetrics=metrics(pusula,intent);
+    return {
+      intent,
+      intent_label:INTENT_LABELS[intent],
+      classic:classicMetrics,
+      pusula:pusulaMetrics,
+      delta:{
+        niyet_uyumu:pusulaMetrics.niyet_uyumu-classicMetrics.niyet_uyumu,
+        niyet_kalite:pusulaMetrics.niyet_kalite-classicMetrics.niyet_kalite,
+        kalite:pusulaMetrics.kalite-classicMetrics.kalite,
+        clickbait_ortalama:pusulaMetrics.clickbait_ortalama-classicMetrics.clickbait_ortalama,
+      },
+    };
+  });
+}
 
 module.exports = async function handler(req,res){
   res.setHeader('Cache-Control','no-store');
@@ -150,6 +170,15 @@ module.exports = async function handler(req,res){
       const classic=ranked(pool,intent,'classic',limit), pusula=ranked(pool,intent,'pusula',limit);
       return res.status(200).json({ok:true,source:SOURCE,intent,intent_label:INTENT_LABELS[intent],classic:{posts:classic,metrics:metrics(classic,intent)},pusula:{posts:pusula,metrics:metrics(pusula,intent)}});
     }
+    if(action==='benchmark'){
+      return res.status(200).json({
+        ok:true,
+        status:'runtime_behavior_smoke_not_final_human_gold_accuracy',
+        source:SOURCE,
+        limit,
+        rows:behaviorBenchmark(pool,limit),
+      });
+    }
     return res.status(400).json({ok:false,error:'Bilinmeyen action'});
   }catch(err){
     console.error('PUSULA API error',err);
@@ -157,4 +186,4 @@ module.exports = async function handler(req,res){
   }
 };
 
-module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,cosine,classicScore,pusulaParts,diverse,enrich,metrics,loadPool,ranked};
+module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,cosine,classicScore,pusulaParts,diverse,enrich,metrics,loadPool,ranked,behaviorBenchmark};
