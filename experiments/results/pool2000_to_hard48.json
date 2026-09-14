@@ -1,0 +1,97 @@
+{
+  "status": "development_cross_style_transfer_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-base",
+  "embedding_revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "train_pool_n": 2000,
+  "hard_eval_n": 48,
+  "train_dominant_distribution": {
+    "ogretici": 600,
+    "haber": 440,
+    "sosyal": 400,
+    "eglendirici": 560
+  },
+  "hard_dominant_distribution": {
+    "sosyal": 15,
+    "ogretici": 12,
+    "eglendirici": 13,
+    "haber": 8
+  },
+  "semantic_knn": {
+    "dominant_accuracy": 0.4791666666666667,
+    "macro_f1": 0.5051190476190476,
+    "intent_mae": 0.2542450726990864,
+    "mean_cosine_similarity": 0.7481937379974629,
+    "pred_distribution": {
+      "eglendirici": 22,
+      "ogretici": 12,
+      "sosyal": 10,
+      "haber": 4
+    },
+    "per_class_accuracy": {
+      "ogretici": 0.4166666666666667,
+      "eglendirici": 0.6153846153846154,
+      "haber": 0.5,
+      "sosyal": 0.4
+    }
+  },
+  "ridge": {
+    "dominant_accuracy": 0.5208333333333334,
+    "macro_f1": 0.5392375168690958,
+    "intent_mae": 0.24551837560410303,
+    "mean_cosine_similarity": 0.8202663846952211,
+    "pred_distribution": {
+      "eglendirici": 27,
+      "ogretici": 7,
+      "sosyal": 9,
+      "haber": 5
+    },
+    "per_class_accuracy": {
+      "ogretici": 0.3333333333333333,
+      "eglendirici": 0.8461538461538461,
+      "haber": 0.625,
+      "sosyal": 0.3333333333333333
+    }
+  },
+  "hybrid": {
+    "dominant_accuracy": 0.4791666666666667,
+    "macro_f1": 0.5051190476190476,
+    "intent_mae": 0.2424188541982483,
+    "mean_cosine_similarity": 0.7726536032388563,
+    "pred_distribution": {
+      "eglendirici": 22,
+      "ogretici": 12,
+      "sosyal": 10,
+      "haber": 4
+    },
+    "per_class_accuracy": {
+      "ogretici": 0.4166666666666667,
+      "eglendirici": 0.6153846153846154,
+      "haber": 0.5,
+      "sosyal": 0.4
+    }
+  },
+  "balanced_logistic_dominant": {
+    "dominant_accuracy": 0.3958333333333333,
+    "macro_f1": 0.4248972148541114,
+    "pred_distribution": {
+      "sosyal": 10,
+      "haber": 8,
+      "ogretici": 14,
+      "eglendirici": 16
+    },
+    "per_class_accuracy": {
+      "ogretici": 0.3333333333333333,
+      "eglendirici": 0.23076923076923078,
+      "haber": 0.625,
+      "sosyal": 0.4666666666666667
+    },
+    "accuracy_at_50pct_coverage": 0.4583333333333333,
+    "accuracy_at_75pct_coverage": 0.4166666666666667
+  },
+  "ood": {
+    "threshold": 0.9999997615814209,
+    "ood_rate": 1.0,
+    "mean_nearest_pool_cosine": 0.8803610801696777,
+    "min_nearest_pool_cosine": 0.8571006655693054
+  }
+}
