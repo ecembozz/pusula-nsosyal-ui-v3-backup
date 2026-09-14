@@ -1,0 +1,94 @@
+name: Candidate V1 Offline Labeling Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dataset-v3-realistic
+    paths:
+      - scripts/label_with_candidate_v1.py
+      - scripts/build_semantic_cache.py
+      - core/labeling.py
+      - data/v3_realistic/**
+      - data/v2_realistic/raw_posts.jsonl
+      - .github/workflows/candidate-v1-smoke.yml
+
+permissions:
+  contents: write
+
+jobs:
+  label-unseen-corpus:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU inference dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "torch>=2.4,<3" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "transformers>=4.44,<5" "scikit-learn>=1.5,<2" safetensors
+      - name: Label unseen V2-320 corpus with Candidate V1
+        env:
+          TOKENIZERS_PARALLELISM: 'false'
+        run: |
+          python scripts/label_with_candidate_v1.py \
+            --input data/v2_realistic/raw_posts.jsonl \
+            --output experiments/results/candidate_v1_v2_320.jsonl \
+            --text-key text \
+            --id-key id
+      - name: Validate and fingerprint semantic cache
+        run: |
+          python scripts/build_semantic_cache.py \
+            --input experiments/results/candidate_v1_v2_320.jsonl \
+            --output experiments/results/candidate_v1_v2_320_cache.json \
+            --rejects experiments/results/candidate_v1_v2_320_rejects.jsonl \
+            --minimum-confidence 0.0
+      - name: Build smoke summary
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          rows=[json.loads(x) for x in Path('experiments/results/candidate_v1_v2_320.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
+          cache=json.loads(Path('experiments/results/candidate_v1_v2_320_cache.json').read_text(encoding='utf-8'))
+          assert len(rows)==320, len(rows)
+          assert cache['record_count']==320, cache['record_count']
+          assert cache['reject_count']==0, cache['reject_count']
+
+          conf=[float(r['confidence']) for r in rows]
+          ood=[bool(r.get('diagnostics',{}).get('ood')) for r in rows]
+          margins=[float(r.get('diagnostics',{}).get('dominant_margin',0)) for r in rows]
+          clicks=[float(r['clickbait']) for r in rows]
+          summary={
+            'status':'development_smoke_not_final_evaluation',
+            'n':len(rows),
+            'dominant_distribution':dict(Counter(r['dominant_intent'] for r in rows)),
+            'mean_confidence':sum(conf)/len(conf),
+            'confidence_lt_0_50':sum(c<.50 for c in conf),
+            'confidence_ge_0_70':sum(c>=.70 for c in conf),
+            'mean_dominant_margin':sum(margins)/len(margins),
+            'ood_count':sum(ood),
+            'mean_clickbait':sum(clicks)/len(clicks),
+            'clickbait_ge_0_50':sum(c>=.50 for c in clicks),
+            'cache_record_count':cache['record_count'],
+            'cache_reject_count':cache['reject_count'],
+          }
+          Path('experiments/results/candidate_v1_v2_320_summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          PY
+      - name: Commit smoke outputs
+        run: |
+          FILES="experiments/results/candidate_v1_v2_320.jsonl experiments/results/candidate_v1_v2_320_cache.json experiments/results/candidate_v1_v2_320_rejects.jsonl experiments/results/candidate_v1_v2_320_summary.json"
+          if [ -z "$(git status --porcelain -- $FILES)" ]; then
+            echo "Smoke outputs already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add $FILES
+          git commit -m "semantic-v2: record candidate v1 unseen-corpus smoke [skip ci]"
+          git push origin HEAD:dataset-v3-realistic
