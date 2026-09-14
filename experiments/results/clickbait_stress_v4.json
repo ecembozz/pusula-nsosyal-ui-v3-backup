@@ -12,155 +12,155 @@
       "precision_at_0_50": 1.0,
       "recall_at_0_50": 0.125,
       "f1_at_0_50": 0.2222222222222222,
-      "mae": 0.3388827249449158,
-      "mean_positive_score": 0.2220561004405929,
-      "mean_negative_score": 0.08624525392344344,
-      "score_separation": 0.13581084651714947,
+      "mae": 0.33888276117168586,
+      "mean_positive_score": 0.22205603011553587,
+      "mean_negative_score": 0.08624525488005971,
+      "score_separation": 0.13581077523547616,
       "false_positive_count": 0,
       "false_negative_count": 14,
       "by_group": {
         "negative_caps_emphasis": {
           "n": 1,
           "positive_rate": 0.0,
-          "mean_score": 0.015776456993172455,
+          "mean_score": 0.015776457471320067,
           "accuracy_at_0_50": 1.0
         },
         "negative_caps_explanation": {
           "n": 1,
           "positive_rate": 0.0,
-          "mean_score": 0.1393087510265038,
+          "mean_score": 0.13930878902399157,
           "accuracy_at_0_50": 1.0
         },
         "negative_caps_result": {
           "n": 1,
           "positive_rate": 0.0,
-          "mean_score": 0.012899381245422153,
+          "mean_score": 0.012899378883670765,
           "accuracy_at_0_50": 1.0
         },
         "negative_caps_warning": {
           "n": 1,
           "positive_rate": 0.0,
-          "mean_score": 0.13446287395920156,
+          "mean_score": 0.1344628591553451,
           "accuracy_at_0_50": 1.0
         },
         "negative_legit_alert": {
           "n": 1,
           "positive_rate": 0.0,
-          "mean_score": 0.3856475202661232,
+          "mean_score": 0.38564768994875226,
           "accuracy_at_0_50": 1.0
         },
         "negative_legit_announcement": {
           "n": 1,
           "positive_rate": 0.0,
-          "mean_score": 0.01146059372757549,
+          "mean_score": 0.011460595739794232,
           "accuracy_at_0_50": 1.0
         },
         "negative_legit_deadline": {
           "n": 1,
           "positive_rate": 0.0,
-          "mean_score": 0.02416867141816194,
+          "mean_score": 0.024168661302011393,
           "accuracy_at_0_50": 1.0
         },
         "negative_legit_urgency": {
           "n": 1,
           "positive_rate": 0.0,
-          "mean_score": 0.014383522476240347,
+          "mean_score": 0.014383524531472723,
           "accuracy_at_0_50": 1.0
         },
         "negative_lexical_trap": {
           "n": 3,
           "positive_rate": 0.0,
-          "mean_score": 0.013784461817698242,
+          "mean_score": 0.013784461482370643,
           "accuracy_at_0_50": 1.0
         },
         "negative_metalinguistic": {
           "n": 2,
           "positive_rate": 0.0,
-          "mean_score": 0.08189628471546474,
+          "mean_score": 0.0818962349395578,
           "accuracy_at_0_50": 1.0
         },
         "negative_quoted_clickbait": {
           "n": 3,
           "positive_rate": 0.0,
-          "mean_score": 0.1455567789262233,
+          "mean_score": 0.14555675589945655,
           "accuracy_at_0_50": 1.0
         },
         "positive_caps_curiosity": {
           "n": 1,
           "positive_rate": 1.0,
-          "mean_score": 0.25477176056491163,
+          "mean_score": 0.25477159649257575,
           "accuracy_at_0_50": 0.0
         },
         "positive_caps_hype": {
           "n": 1,
           "positive_rate": 1.0,
-          "mean_score": 0.5160165573800826,
+          "mean_score": 0.5160164458018174,
           "accuracy_at_0_50": 1.0
         },
         "positive_caps_promise": {
           "n": 1,
           "positive_rate": 1.0,
-          "mean_score": 0.284596779073507,
+          "mean_score": 0.2845964898755879,
           "accuracy_at_0_50": 0.0
         },
         "positive_caps_withholding": {
           "n": 1,
           "positive_rate": 1.0,
-          "mean_score": 0.5117975790846169,
+          "mean_score": 0.5117974310702023,
           "accuracy_at_0_50": 1.0
         },
         "positive_curiosity_gap": {
           "n": 1,
           "positive_rate": 1.0,
-          "mean_score": 0.13913669596935244,
+          "mean_score": 0.13913634715819428,
           "accuracy_at_0_50": 0.0
         },
         "positive_direct_hook": {
           "n": 1,
           "positive_rate": 1.0,
-          "mean_score": 0.2566404599873088,
+          "mean_score": 0.25664029916524955,
           "accuracy_at_0_50": 0.0
         },
         "positive_fear": {
           "n": 1,
           "positive_rate": 1.0,
-          "mean_score": 0.13866847289755085,
+          "mean_score": 0.13866842007540758,
           "accuracy_at_0_50": 0.0
         },
         "positive_overpromise": {
           "n": 1,
           "positive_rate": 1.0,
-          "mean_score": 0.018477041651737608,
+          "mean_score": 0.01847704253232268,
           "accuracy_at_0_50": 0.0
         },
         "positive_personal_hype": {
           "n": 1,
           "positive_rate": 1.0,
-          "mean_score": 0.14636405733959454,
+          "mean_score": 0.14636406282583345,
           "accuracy_at_0_50": 0.0
         },
         "positive_unseen_curiosity": {
           "n": 3,
           "positive_rate": 1.0,
-          "mean_score": 0.232973752188536,
+          "mean_score": 0.23297386077592622,
           "accuracy_at_0_50": 0.0
         },
         "positive_unseen_exclusivity": {
           "n": 1,
           "positive_rate": 1.0,
-          "mean_score": 0.01572984118548034,
+          "mean_score": 0.01572984110607849,
           "accuracy_at_0_50": 0.0
         },
         "positive_unseen_withholding": {
           "n": 1,
           "positive_rate": 1.0,
-          "mean_score": 0.2854383417006641,
+          "mean_score": 0.2854381959902957,
           "accuracy_at_0_50": 0.0
         },
         "positive_withholding": {
           "n": 2,
           "positive_rate": 1.0,
-          "mean_score": 0.14316938182453576,
+          "mean_score": 0.14316936371361522,
           "accuracy_at_0_50": 0.0
         }
       },
@@ -169,98 +169,98 @@
           "id": "cbs_p01",
           "group": "positive_unseen_curiosity",
           "label": 1,
-          "score": 0.2729491642194755,
+          "score": 0.2729491237095088,
           "text": "Bu ayarı ben de gereksiz sanıyordum; sonucu görünce fikrim tamamen değişti. Sonuna kadar bak."
         },
         {
           "id": "cbs_p02",
           "group": "positive_unseen_curiosity",
           "label": 1,
-          "score": 0.2719048218765925,
+          "score": 0.2719050097313424,
           "text": "Bir dakikanı ayır: neden telefonun gece bu kadar pil yediğini görünce şaşırabilirsin."
         },
         {
           "id": "cbs_p03",
           "group": "positive_unseen_exclusivity",
           "label": 1,
-          "score": 0.01572984118548034,
+          "score": 0.01572984110607849,
           "text": "Sana bunu kimse anlatmıyor: küçük bir alışkanlık ay sonunda beklediğinden çok daha fazla para bırakabilir."
         },
         {
           "id": "cbs_p04",
           "group": "positive_unseen_curiosity",
           "label": 1,
-          "score": 0.15406727046954,
+          "score": 0.15406744888692744,
           "text": "Ben de inanmıyordum, ta ki aynı testi üç kez yapana kadar. Sonuç düşündüğümün tam tersiydi."
         },
         {
           "id": "cbs_p05",
           "group": "positive_unseen_withholding",
           "label": 1,
-          "score": 0.2854383417006641,
+          "score": 0.2854381959902957,
           "text": "Bu detayı atlayan herkes aynı hataya düşüyor. İkinci adımın neden önemli olduğunu sona gelince anlayacaksın."
         },
         {
           "id": "cbs_p06",
           "group": "positive_caps_curiosity",
           "label": 1,
-          "score": 0.25477176056491163,
+          "score": 0.25477159649257575,
           "text": "NEDEN HERKES BUNU YAPMAYA BAŞLADI? Cevap sandığınız kadar basit değil 👀"
         },
         {
           "id": "cbs_p08",
           "group": "positive_overpromise",
           "label": 1,
-          "score": 0.018477041651737608,
+          "score": 0.01847704253232268,
           "text": "Bunu öğrendikten sonra eski yönteme dönmek istemeyeceksin. Küçük görünüyor ama etkisi beklediğimden büyük."
         },
         {
           "id": "cbs_p09",
           "group": "positive_withholding",
           "label": 1,
-          "score": 0.14176217951221984,
+          "score": 0.14176215472389636,
           "text": "Herkes ilk seçeneğe bakıyor ama asıl mesele başka yerde. En sonda fark ettiğim detay sonucu değiştirdi."
         },
         {
           "id": "cbs_p11",
           "group": "positive_fear",
           "label": 1,
-          "score": 0.13866847289755085,
+          "score": 0.13866842007540758,
           "text": "Birçok kişinin yaptığı bu hata fark edilmeden haftalarca devam ediyor. Sen de yapıyor olabilirsin."
         },
         {
           "id": "cbs_p12",
           "group": "positive_personal_hype",
           "label": 1,
-          "score": 0.14636405733959454,
+          "score": 0.14636406282583345,
           "text": "Bugün denedim ve gerçekten beklemiyordum: küçücük bir değişiklik bütün çalışma akışımı tersine çevirdi."
         },
         {
           "id": "cbs_p13",
           "group": "positive_curiosity_gap",
           "label": 1,
-          "score": 0.13913669596935244,
+          "score": 0.13913634715819428,
           "text": "İlk bakışta sıradan geliyor ama üçüncü örnekte ne demek istediğimi anlayacaksın."
         },
         {
           "id": "cbs_p14",
           "group": "positive_caps_promise",
           "label": 1,
-          "score": 0.284596779073507,
+          "score": 0.2845964898755879,
           "text": "BİR DAHA AYNI HATAYI YAPMAYACAKSIN! Sebebi öğrendiğimde ben de şaşırdım."
         },
         {
           "id": "cbs_p15",
           "group": "positive_withholding",
           "label": 1,
-          "score": 0.1445765841368517,
+          "score": 0.14457657270333404,
           "text": "Bu sonuç neden kimsenin konuşmadığı kadar önemli? Cevap son grafikte saklı."
         },
         {
           "id": "cbs_p16",
           "group": "positive_direct_hook",
           "label": 1,
-          "score": 0.2566404599873088,
+          "score": 0.25664029916524955,
           "text": "Sadece 30 saniye ver; kullandığın ayarın neden yanlış olabileceğini göstereceğim."
         }
       ]
