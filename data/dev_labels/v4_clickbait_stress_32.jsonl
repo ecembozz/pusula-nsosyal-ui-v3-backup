@@ -1,0 +1,32 @@
+{"id":"cbs_p01","text":"Bu ayarı ben de gereksiz sanıyordum; sonucu görünce fikrim tamamen değişti. Sonuna kadar bak.","label":1,"target":0.80,"group":"positive_unseen_curiosity"}
+{"id":"cbs_p02","text":"Bir dakikanı ayır: neden telefonun gece bu kadar pil yediğini görünce şaşırabilirsin.","label":1,"target":0.78,"group":"positive_unseen_curiosity"}
+{"id":"cbs_p03","text":"Sana bunu kimse anlatmıyor: küçük bir alışkanlık ay sonunda beklediğinden çok daha fazla para bırakabilir.","label":1,"target":0.82,"group":"positive_unseen_exclusivity"}
+{"id":"cbs_p04","text":"Ben de inanmıyordum, ta ki aynı testi üç kez yapana kadar. Sonuç düşündüğümün tam tersiydi.","label":1,"target":0.78,"group":"positive_unseen_curiosity"}
+{"id":"cbs_p05","text":"Bu detayı atlayan herkes aynı hataya düşüyor. İkinci adımın neden önemli olduğunu sona gelince anlayacaksın.","label":1,"target":0.84,"group":"positive_unseen_withholding"}
+{"id":"cbs_p06","text":"NEDEN HERKES BUNU YAPMAYA BAŞLADI? Cevap sandığınız kadar basit değil 👀","label":1,"target":0.86,"group":"positive_caps_curiosity"}
+{"id":"cbs_p07","text":"GÖRDÜĞÜM EN ÇILGIN SONUÇ! Aynı veri, sadece bir ayarla bambaşka göründü 😱","label":1,"target":0.90,"group":"positive_caps_hype"}
+{"id":"cbs_p08","text":"Bunu öğrendikten sonra eski yönteme dönmek istemeyeceksin. Küçük görünüyor ama etkisi beklediğimden büyük.","label":1,"target":0.80,"group":"positive_overpromise"}
+{"id":"cbs_p09","text":"Herkes ilk seçeneğe bakıyor ama asıl mesele başka yerde. En sonda fark ettiğim detay sonucu değiştirdi.","label":1,"target":0.80,"group":"positive_withholding"}
+{"id":"cbs_p10","text":"BU VİDEOYU KAPATMADAN ÖNCE SON 10 SANİYEYİ İZLE! Ne olduğunu görünce nedenini anlayacaksın.","label":1,"target":0.91,"group":"positive_caps_withholding"}
+{"id":"cbs_p11","text":"Birçok kişinin yaptığı bu hata fark edilmeden haftalarca devam ediyor. Sen de yapıyor olabilirsin.","label":1,"target":0.78,"group":"positive_fear"}
+{"id":"cbs_p12","text":"Bugün denedim ve gerçekten beklemiyordum: küçücük bir değişiklik bütün çalışma akışımı tersine çevirdi.","label":1,"target":0.80,"group":"positive_personal_hype"}
+{"id":"cbs_p13","text":"İlk bakışta sıradan geliyor ama üçüncü örnekte ne demek istediğimi anlayacaksın.","label":1,"target":0.76,"group":"positive_curiosity_gap"}
+{"id":"cbs_p14","text":"BİR DAHA AYNI HATAYI YAPMAYACAKSIN! Sebebi öğrendiğimde ben de şaşırdım.","label":1,"target":0.88,"group":"positive_caps_promise"}
+{"id":"cbs_p15","text":"Bu sonuç neden kimsenin konuşmadığı kadar önemli? Cevap son grafikte saklı.","label":1,"target":0.80,"group":"positive_withholding"}
+{"id":"cbs_p16","text":"Sadece 30 saniye ver; kullandığın ayarın neden yanlış olabileceğini göstereceğim.","label":1,"target":0.76,"group":"positive_direct_hook"}
+{"id":"cbs_n01","text":"DİKKAT: Deprem tatbikatı nedeniyle bina 14.00–14.30 arasında boşaltılacaktır.","label":0,"target":0.06,"group":"negative_legit_alert"}
+{"id":"cbs_n02","text":"SON BAŞVURU TARİHİ: 18 Eylül 17.00. Form bu saatten sonra kapanacaktır.","label":0,"target":0.05,"group":"negative_legit_deadline"}
+{"id":"cbs_n03","text":"Şok cihazı kullanımı sırasında elektrotların kuru olmaması gerekiyor.","label":0,"target":0.04,"group":"negative_lexical_trap"}
+{"id":"cbs_n04","text":"Dikkat eksikliği üzerine yapılan çalışmada 120 katılımcının verisi incelendi.","label":0,"target":0.04,"group":"negative_lexical_trap"}
+{"id":"cbs_n05","text":"‘Kimsenin söylemediği gerçek’ gibi başlıklar güvenilirlik hissini azaltabiliyor.","label":0,"target":0.08,"group":"negative_quoted_clickbait"}
+{"id":"cbs_n06","text":"Haberde ‘İNANAMAYACAKSINIZ’ ifadesi kullanılmış; metnin geri kalanı ise sıradan bir ürün duyurusu.","label":0,"target":0.08,"group":"negative_quoted_clickbait"}
+{"id":"cbs_n07","text":"SAKINCA: Bu yöntem küçük örneklemde test edildi; sonuçları genellemek doğru değil.","label":0,"target":0.05,"group":"negative_caps_warning"}
+{"id":"cbs_n08","text":"ACİL SERVİS girişi bakım nedeniyle bu gece kuzey kapısından yapılacaktır.","label":0,"target":0.05,"group":"negative_legit_urgency"}
+{"id":"cbs_n09","text":"ÖNEMLİ DUYURU: Sınav salonu B bloktan C bloğa alınmıştır.","label":0,"target":0.05,"group":"negative_legit_announcement"}
+{"id":"cbs_n10","text":"Son fırsat kavramı pazarlamada yapay kıtlık oluşturmak için sık kullanılan bir yöntemdir.","label":0,"target":0.08,"group":"negative_metalinguistic"}
+{"id":"cbs_n11","text":"‘Herkes yanılıyor’ iddiasını test etmek için dört farklı veri kaynağını karşılaştırdık.","label":0,"target":0.08,"group":"negative_quoted_clickbait"}
+{"id":"cbs_n12","text":"Sakıncalı içerik filtresi yeni sürümde varsayılan olarak açık geliyor.","label":0,"target":0.04,"group":"negative_lexical_trap"}
+{"id":"cbs_n13","text":"BU SONUÇLAR ÖNEMLİ: örneklem 40 kişiden oluştuğu için belirsizlik aralığı geniş.","label":0,"target":0.06,"group":"negative_caps_emphasis"}
+{"id":"cbs_n14","text":"DİKKAT EDİLMESİ GEREKEN NOKTA: iki grup başlangıçta aynı büyüklükte değildi.","label":0,"target":0.05,"group":"negative_caps_explanation"}
+{"id":"cbs_n15","text":"SONUÇ: Model A test setinde yüzde 4 daha yüksek doğruluk verdi.","label":0,"target":0.03,"group":"negative_caps_result"}
+{"id":"cbs_n16","text":"Bu metinde ‘asıl sebep’ ifadesinin neden ikna edici göründüğünü dil açısından inceliyoruz.","label":0,"target":0.07,"group":"negative_metalinguistic"}
