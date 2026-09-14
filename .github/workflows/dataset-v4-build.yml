@@ -1,0 +1,95 @@
+name: Dataset V4 Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dataset-v3-realistic
+    paths:
+      - data/v3_realistic/**
+      - data/v4_calibrated/social_clear_additions.jsonl
+      - scripts/build_dataset_v4.py
+      - docs/DATASET_V4_ANNOTATION_GUIDE.md
+      - .github/workflows/dataset-v4-build.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audit dependency
+        run: python -m pip install "scikit-learn>=1.5,<2"
+      - name: Build V4
+        run: python scripts/build_dataset_v4.py
+      - name: Audit V4 duplicates and label contract
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+          import numpy as np
+          from sklearn.feature_extraction.text import TfidfVectorizer
+          from sklearn.metrics.pairwise import cosine_similarity
+
+          root=Path('data/v4_calibrated')
+          clear=[json.loads(x) for x in (root/'train_clear.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
+          neutral=[json.loads(x) for x in (root/'train_neutral_mixed.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
+          rows=clear+neutral
+          intents=['ogretici','eglendirici','haber','sosyal']
+          assert len(clear)==256 and len(neutral)==64 and len(rows)==320
+          assert Counter(r['auxiliary_label'] for r in clear)==Counter({k:64 for k in intents})
+          assert all(r['training_role']=='clear_intent' for r in clear)
+          assert all(r['training_role']=='neutral_mixed' and r['auxiliary_label'] is None for r in neutral)
+          for r in rows:
+              v=[float(x) for x in r['gercek_niyet']]
+              assert len(v)==4 and all(0<=x<=1 for x in v)
+              assert 0<=float(r['clickbait'])<=1
+          for r in clear:
+              v=[float(x) for x in r['gercek_niyet']]
+              assert intents[int(np.argmax(v))]==r['auxiliary_label'], r['id']
+
+          texts=[' '.join(r['metin'].casefold().split()) for r in rows]
+          assert len(texts)==len(set(texts)), 'exact duplicate text'
+          mat=TfidfVectorizer(analyzer='char_wb',ngram_range=(3,5),min_df=1).fit_transform(texts)
+          sim=cosine_similarity(mat)
+          np.fill_diagonal(sim,0)
+          max_idx=np.unravel_index(np.argmax(sim),sim.shape)
+          pairs=[]
+          for i in range(len(rows)):
+              for j in range(i+1,len(rows)):
+                  if sim[i,j]>=0.90:
+                      pairs.append({'a':rows[i]['id'],'b':rows[j]['id'],'similarity':float(sim[i,j])})
+          summary=json.loads((root/'build_summary.json').read_text(encoding='utf-8'))
+          summary['near_duplicate_audit']={
+              'threshold':0.90,
+              'pair_count':len(pairs),
+              'pairs':sorted(pairs,key=lambda x:-x['similarity']),
+              'max_similarity':float(sim[max_idx]),
+              'max_pair':[rows[max_idx[0]]['id'],rows[max_idx[1]]['id']],
+          }
+          (root/'audit_summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          if pairs:
+              raise SystemExit(f"near-duplicate audit failed: {len(pairs)} pairs >= 0.90")
+          PY
+      - name: Commit V4 build outputs
+        run: |
+          FILES="data/v4_calibrated/train_clear.jsonl data/v4_calibrated/train_neutral_mixed.jsonl data/v4_calibrated/build_summary.json data/v4_calibrated/audit_summary.json"
+          if [ -z "$(git status --porcelain -- $FILES)" ]; then
+            echo "V4 outputs already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add $FILES
+          git commit -m "dataset-v4: record calibrated build and audit [skip ci]"
+          git fetch origin dataset-v3-realistic
+          git rebase origin/dataset-v3-realistic
+          git push origin HEAD:dataset-v3-realistic
