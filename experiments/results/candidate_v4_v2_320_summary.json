@@ -1,0 +1,30 @@
+{
+  "status": "development_smoke_not_final_evaluation",
+  "n": 320,
+  "intent_head": "knn_k7_cosine_distance_352",
+  "clickbait_head": "e5_logistic_balanced_128",
+  "dominant_distribution": {
+    "eglendirici": 197,
+    "sosyal": 75,
+    "ogretici": 39,
+    "haber": 9
+  },
+  "auxiliary_distribution": {
+    "eglendirici": 171,
+    "sosyal": 100,
+    "ogretici": 46,
+    "haber": 3
+  },
+  "canonical_auxiliary_agreement_rate": 0.734375,
+  "mixed_intent_count": 146,
+  "mixed_intent_rate": 0.45625,
+  "mean_intent_margin": 0.1934291,
+  "mean_screening_confidence": 0.290569809375,
+  "screening_confidence_lt_0_50": 315,
+  "ood_count": 7,
+  "mean_clickbait_probability": 0.5143575,
+  "clickbait_probability_ge_0_50": 183,
+  "clickbait_probability_ge_0_75": 0,
+  "cache_record_count": 320,
+  "cache_reject_count": 0
+}
