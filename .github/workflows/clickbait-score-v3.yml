@@ -1,0 +1,49 @@
+name: Continuous Clickbait Score V3
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dataset-v3-realistic
+    paths:
+      - experiments/benchmark_clickbait_score_v3.py
+      - .github/workflows/clickbait-score-v3.yml
+
+permissions:
+  contents: write
+
+jobs:
+  benchmark-clickbait-score:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "torch>=2.4,<3" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "transformers>=4.44,<5" "scikit-learn>=1.5,<2" safetensors scipy
+      - name: Benchmark continuous clickbait score
+        env:
+          TOKENIZERS_PARALLELISM: 'false'
+        run: |
+          python experiments/benchmark_clickbait_score_v3.py \
+            --model intfloat/multilingual-e5-base \
+            --output experiments/results/clickbait_score_v3.json \
+            --summary experiments/results/clickbait_score_v3.md
+      - name: Commit continuous-score outputs
+        run: |
+          FILES="experiments/results/clickbait_score_v3.json experiments/results/clickbait_score_v3.md"
+          if [ -z "$(git status --porcelain -- $FILES)" ]; then
+            echo "Continuous clickbait outputs already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add $FILES
+          git commit -m "semantic-v4: record continuous clickbait benchmark [skip ci]"
+          git pull --rebase origin dataset-v3-realistic
+          git push origin HEAD:dataset-v3-realistic
