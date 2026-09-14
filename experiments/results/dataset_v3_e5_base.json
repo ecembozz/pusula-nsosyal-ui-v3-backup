@@ -18,41 +18,41 @@
         "haber": 34,
         "sosyal": 34
       },
-      "knn_k": 5,
+      "knn_k": 7,
       "semantic_knn": {
-        "dominant_accuracy": 0.5416666666666666,
-        "macro_f1": 0.5208333333333334,
-        "intent_mae": 0.18031830539839053,
-        "mean_cosine_similarity": 0.8716142206863363,
-        "clickbait_mae": 0.07772677148887273,
+        "dominant_accuracy": 0.5,
+        "macro_f1": 0.45817610062893077,
+        "intent_mae": 0.18634529228400384,
+        "mean_cosine_similarity": 0.8698666034851233,
+        "clickbait_mae": 0.08055478011548982,
         "pred_distribution": {
-          "sosyal": 33,
-          "eglendirici": 7,
+          "sosyal": 38,
+          "eglendirici": 2,
           "ogretici": 2,
           "haber": 6
         },
         "per_class_accuracy": {
           "ogretici": 0.08333333333333333,
-          "eglendirici": 0.38461538461538464,
+          "eglendirici": 0.15384615384615385,
           "haber": 0.75,
-          "sosyal": 0.9333333333333333
+          "sosyal": 1.0
         }
       },
       "hybrid_vector": {
-        "dominant_accuracy": 0.5625,
-        "macro_f1": 0.5548885511651469,
-        "intent_mae": 0.17274054681799547,
-        "mean_cosine_similarity": 0.8876857843107097,
-        "clickbait_mae": 0.07772677148887273,
+        "dominant_accuracy": 0.5,
+        "macro_f1": 0.4754901960784314,
+        "intent_mae": 0.17641445608398906,
+        "mean_cosine_similarity": 0.885720515141562,
+        "clickbait_mae": 0.08055478011548982,
         "pred_distribution": {
-          "sosyal": 32,
-          "eglendirici": 7,
-          "ogretici": 3,
+          "sosyal": 36,
+          "eglendirici": 4,
+          "ogretici": 2,
           "haber": 6
         },
         "per_class_accuracy": {
-          "ogretici": 0.16666666666666666,
-          "eglendirici": 0.38461538461538464,
+          "ogretici": 0.08333333333333333,
+          "eglendirici": 0.23076923076923078,
           "haber": 0.75,
           "sosyal": 0.9333333333333333
         }
@@ -90,42 +90,42 @@
         "haber": 32,
         "sosyal": 32
       },
-      "knn_k": 5,
+      "knn_k": 7,
       "semantic_knn": {
-        "dominant_accuracy": 0.5208333333333334,
-        "macro_f1": 0.49381868131868134,
-        "intent_mae": 0.18652771262855325,
-        "mean_cosine_similarity": 0.8545652274000674,
-        "clickbait_mae": 0.07556082428525268,
+        "dominant_accuracy": 0.4583333333333333,
+        "macro_f1": 0.4214608920491273,
+        "intent_mae": 0.18800527069064396,
+        "mean_cosine_similarity": 0.8570492048992294,
+        "clickbait_mae": 0.08202405454589999,
         "pred_distribution": {
-          "sosyal": 33,
-          "eglendirici": 8,
-          "ogretici": 1,
-          "haber": 6
+          "sosyal": 37,
+          "eglendirici": 4,
+          "ogretici": 2,
+          "haber": 5
         },
         "per_class_accuracy": {
           "ogretici": 0.08333333333333333,
-          "eglendirici": 0.3076923076923077,
-          "haber": 0.75,
+          "eglendirici": 0.15384615384615385,
+          "haber": 0.625,
           "sosyal": 0.9333333333333333
         }
       },
       "hybrid_vector": {
-        "dominant_accuracy": 0.5625,
-        "macro_f1": 0.5521739130434783,
-        "intent_mae": 0.17773927367850129,
-        "mean_cosine_similarity": 0.8734249781759278,
-        "clickbait_mae": 0.07556082428525268,
+        "dominant_accuracy": 0.5,
+        "macro_f1": 0.4823076923076923,
+        "intent_mae": 0.17909848109153814,
+        "mean_cosine_similarity": 0.874912519061659,
+        "clickbait_mae": 0.08202405454589999,
         "pred_distribution": {
-          "sosyal": 31,
-          "eglendirici": 8,
-          "ogretici": 2,
-          "haber": 7
+          "sosyal": 35,
+          "eglendirici": 5,
+          "ogretici": 3,
+          "haber": 5
         },
         "per_class_accuracy": {
           "ogretici": 0.16666666666666666,
-          "eglendirici": 0.3076923076923077,
-          "haber": 0.875,
+          "eglendirici": 0.23076923076923078,
+          "haber": 0.625,
           "sosyal": 0.9333333333333333
         }
       },
@@ -154,76 +154,76 @@
         "min_nearest_train_cosine": 0.8646860718727112
       }
     },
-    "combined_264": {
-      "train_n": 264,
+    "v3_256_only": {
+      "train_n": 256,
       "train_distribution": {
-        "ogretici": 66,
-        "eglendirici": 66,
-        "haber": 66,
-        "sosyal": 66
+        "ogretici": 64,
+        "eglendirici": 64,
+        "haber": 64,
+        "sosyal": 64
       },
-      "knn_k": 11,
+      "knn_k": 7,
       "semantic_knn": {
-        "dominant_accuracy": 0.4791666666666667,
-        "macro_f1": 0.4486102133160957,
-        "intent_mae": 0.1830955417941519,
-        "mean_cosine_similarity": 0.8646306612216157,
-        "clickbait_mae": 0.07834301857738078,
+        "dominant_accuracy": 0.4583333333333333,
+        "macro_f1": 0.41302785265049413,
+        "intent_mae": 0.18845020383144004,
+        "mean_cosine_similarity": 0.8605045120324123,
+        "clickbait_mae": 0.06773587161094524,
         "pred_distribution": {
-          "sosyal": 36,
-          "eglendirici": 5,
-          "ogretici": 2,
-          "haber": 5
-        },
-        "per_class_accuracy": {
-          "ogretici": 0.08333333333333333,
-          "eglendirici": 0.23076923076923078,
-          "haber": 0.625,
-          "sosyal": 0.9333333333333333
-        }
-      },
-      "hybrid_vector": {
-        "dominant_accuracy": 0.5416666666666666,
-        "macro_f1": 0.5298885511651469,
-        "intent_mae": 0.17329585143113754,
-        "mean_cosine_similarity": 0.8815128955282449,
-        "clickbait_mae": 0.07834301857738078,
-        "pred_distribution": {
-          "sosyal": 32,
-          "eglendirici": 7,
+          "sosyal": 38,
           "ogretici": 3,
+          "eglendirici": 1,
           "haber": 6
         },
         "per_class_accuracy": {
           "ogretici": 0.16666666666666666,
-          "eglendirici": 0.3076923076923077,
+          "eglendirici": 0.0,
           "haber": 0.75,
           "sosyal": 0.9333333333333333
         }
       },
-      "balanced_logistic_dominant": {
-        "dominant_accuracy": 0.6875,
-        "macro_f1": 0.6877494216310005,
+      "hybrid_vector": {
+        "dominant_accuracy": 0.5208333333333334,
+        "macro_f1": 0.4907738095238095,
+        "intent_mae": 0.17483473490662918,
+        "mean_cosine_similarity": 0.884898003893878,
+        "clickbait_mae": 0.06773587161094524,
         "pred_distribution": {
-          "sosyal": 20,
+          "sosyal": 34,
           "haber": 8,
-          "eglendirici": 13,
-          "ogretici": 7
+          "ogretici": 3,
+          "eglendirici": 3
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.16666666666666666,
+          "eglendirici": 0.15384615384615385,
+          "haber": 0.875,
+          "sosyal": 0.9333333333333333
+        }
+      },
+      "balanced_logistic_dominant": {
+        "dominant_accuracy": 0.625,
+        "macro_f1": 0.6365486764193661,
+        "pred_distribution": {
+          "sosyal": 18,
+          "haber": 8,
+          "eglendirici": 16,
+          "ogretici": 6
         },
         "per_class_accuracy": {
           "ogretici": 0.3333333333333333,
-          "eglendirici": 0.7692307692307693,
+          "eglendirici": 0.6923076923076923,
           "haber": 0.875,
-          "sosyal": 0.8
+          "sosyal": 0.6666666666666666
         },
-        "accuracy_at_50pct_coverage": 0.8333333333333334,
-        "accuracy_at_75pct_coverage": 0.8055555555555556
+        "accuracy_at_50pct_coverage": 0.875,
+        "accuracy_at_75pct_coverage": 0.75
       },
       "ood": {
-        "threshold": 0.8838208317756653,
-        "ood_rate": 0.4375,
-        "mean_nearest_train_cosine": 0.8881043791770935,
-        "min_nearest_train_cosine": 0.8646862506866455
+        "threshold": 0.8767671585083008,
+        "ood_rate": 0.08333333333333333,
+        "mean_nearest_train_cosine": 0.8942441940307617,
+        "min_nearest_train_cosine": 0.8695906400680542
       }
     }
   }
