@@ -1,0 +1,72 @@
+name: Fix Final Holdout Overlaps
+
+on:
+  push:
+    branches:
+      - semantic-v2-eval-v1
+    paths:
+      - .github/workflows/fix-final-holdout-overlaps.yml
+
+permissions:
+  contents: write
+
+jobs:
+  replace-overlaps:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Replace four pre-evaluation overlap cases
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('data/final_holdout/holdout_a_v1.jsonl')
+          rows = [json.loads(x) for x in path.read_text(encoding='utf-8').splitlines() if x.strip()]
+          replacements = {
+            'ho_s05': {
+              'text': 'Bu hafta fotoğraf çekmeye çıkacak biri varsa birlikte rota gezebiliriz; yeni lensi tek başıma denemek istemiyorum.',
+              'intent': [0.01, 0.10, 0.01, 0.98], 'clickbait': 0.01,
+              'style_bucket': 'activity_partner'
+            },
+            'ho_s13': {
+              'text': 'Bunu cevaplayanların çalışma düzeni değişebilir 😱 gerçekten merak ediyorum: sessizlikte mi müzikle mi daha iyi odaklanıyorsunuz?',
+              'intent': [0.04, 0.12, 0.01, 0.95], 'clickbait': 0.86,
+              'style_bucket': 'clickbait_opinion_prompt'
+            },
+            'ho_s14': {
+              'text': 'TEK CEVAPLA TARTIŞMAYI BİTİRİN 😱 grup sohbetlerinde sesli mesaj mı uzun metin mi, siz hangisini tercih ediyorsunuz?',
+              'intent': [0.02, 0.10, 0.01, 0.95], 'clickbait': 0.84,
+              'style_bucket': 'clickbait_social_poll'
+            },
+            'ho_s15': {
+              'text': 'Mahallede pazar sabahı küçük bir çevre temizliği yapmayı düşünüyoruz; katılmak isteyen olursa ekip kurabiliriz.',
+              'intent': [0.02, 0.04, 0.01, 0.98], 'clickbait': 0.01,
+              'style_bucket': 'community_coordination'
+            },
+          }
+          seen=set()
+          for row in rows:
+              rid=row['id']
+              if rid in replacements:
+                  row.update(replacements[rid])
+                  seen.add(rid)
+          if seen != set(replacements):
+              raise SystemExit(f'missing replacement ids: {set(replacements)-seen}')
+          path.write_text(''.join(json.dumps(r,ensure_ascii=False)+"\n" for r in rows),encoding='utf-8')
+          print({'replaced': sorted(seen), 'rows': len(rows)})
+          PY
+      - name: Commit repaired holdout only
+        run: |
+          if git diff --quiet -- data/final_holdout/holdout_a_v1.jsonl; then
+            echo "No holdout changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/final_holdout/holdout_a_v1.jsonl
+          git commit -m "eval-v1: remove holdout overlaps before model evaluation [skip ci]"
+          git push origin HEAD:semantic-v2-eval-v1
