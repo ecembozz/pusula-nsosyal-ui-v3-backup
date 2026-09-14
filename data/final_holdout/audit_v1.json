@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "policy": {
+    "fail_similarity_threshold": 0.9,
+    "report_similarity_threshold": 0.82,
+    "similarity": "character_wb_tfidf_3_5_cosine"
+  },
+  "holdout": {
+    "clear_n": 80,
+    "neutral_mixed_n": 16,
+    "total_n": 96,
+    "clear_distribution": {
+      "ogretici": 20,
+      "eglendirici": 20,
+      "haber": 20,
+      "sosyal": 20
+    }
+  },
+  "references": {
+    "files": [
+      "data/v4_calibrated/train_clear.jsonl",
+      "data/v4_calibrated/train_neutral_mixed.jsonl",
+      "data/v4_calibrated/hard_negative_neutral_v1.jsonl",
+      "data/v4_calibrated/clickbait_feed_hardneg_v2.jsonl",
+      "data/v4_calibrated/clickbait_train_neg_a.jsonl",
+      "data/v4_calibrated/clickbait_train_neg_b.jsonl",
+      "data/v4_calibrated/clickbait_train_pos_a.jsonl",
+      "data/v4_calibrated/clickbait_train_pos_b.jsonl",
+      "data/dev_labels/v4_semantic_dev_64.jsonl",
+      "data/dev_labels/v4_contrastive_pairs_48.jsonl",
+      "data/dev_labels/v4_clickbait_pairs_24.jsonl",
+      "data/dev_labels/v4_clickbait_stress_32.jsonl",
+      "data/dev_labels/v4_clickbait_feed_eval_64.jsonl",
+      "data/gold_eval/candidate_hard_cases.jsonl",
+      "data/gold_eval/candidate_news_cases.jsonl",
+      "data/v2_realistic/raw_posts.jsonl"
+    ],
+    "unique_text_n": 1210
+  },
+  "exact_leaks": [],
+  "cross_reference_pairs_ge_0_90": [],
+  "within_holdout_pairs_ge_0_90": [],
+  "max_cross_reference_similarity": {
+    "similarity": 0.7820295404205378,
+    "holdout_id": "ho_s10",
+    "holdout_text": "backend öğrenen biri varsa karşılıklı PR review yapabiliriz, benim de yorum bekleyen küçük bir proje var",
+    "reference_source": "data/dev_labels/v4_semantic_dev_64.jsonl",
+    "reference_id": "v4dev_s10",
+    "reference_field": "text",
+    "reference_text": "aynı projede backend öğrenen biri varsa karşılıklı code review yapabiliriz, benim de yorum alacak PR'ım var"
+  },
+  "max_within_holdout_similarity": {
+    "similarity": 0.3355711077538931,
+    "a": "ho_s02",
+    "b": "ho_s17"
+  },
+  "reported_pairs_ge_0_82": []
+}

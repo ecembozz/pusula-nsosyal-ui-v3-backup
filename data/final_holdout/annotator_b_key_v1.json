@@ -1,0 +1,486 @@
+{
+  "status": "internal_mapping_do_not_share_with_blind_annotator",
+  "shuffle_seed": 20260914,
+  "rows": [
+    {
+      "eval_id": "eval_001",
+      "source_id": "ho_s15",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_002",
+      "source_id": "ho_o02",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_003",
+      "source_id": "ho_s16",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_004",
+      "source_id": "ho_o10",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_005",
+      "source_id": "ho_o15",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_006",
+      "source_id": "ho_h09",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_007",
+      "source_id": "ho_e08",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_008",
+      "source_id": "ho_h01",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_009",
+      "source_id": "ho_s13",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_010",
+      "source_id": "ho_e18",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_011",
+      "source_id": "ho_h14",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_012",
+      "source_id": "ho_o06",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_013",
+      "source_id": "ho_s11",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_014",
+      "source_id": "ho_o11",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_015",
+      "source_id": "ho_n02",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_016",
+      "source_id": "ho_s19",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_017",
+      "source_id": "ho_e19",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_018",
+      "source_id": "ho_h08",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_019",
+      "source_id": "ho_e07",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_020",
+      "source_id": "ho_s04",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_021",
+      "source_id": "ho_h19",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_022",
+      "source_id": "ho_e04",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_023",
+      "source_id": "ho_s03",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_024",
+      "source_id": "ho_h11",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_025",
+      "source_id": "ho_n03",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_026",
+      "source_id": "ho_e13",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_027",
+      "source_id": "ho_o18",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_028",
+      "source_id": "ho_h12",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_029",
+      "source_id": "ho_o20",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_030",
+      "source_id": "ho_h03",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_031",
+      "source_id": "ho_e16",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_032",
+      "source_id": "ho_n16",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_033",
+      "source_id": "ho_n09",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_034",
+      "source_id": "ho_o03",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_035",
+      "source_id": "ho_n07",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_036",
+      "source_id": "ho_s12",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_037",
+      "source_id": "ho_h10",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_038",
+      "source_id": "ho_o17",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_039",
+      "source_id": "ho_s09",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_040",
+      "source_id": "ho_e03",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_041",
+      "source_id": "ho_h15",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_042",
+      "source_id": "ho_s17",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_043",
+      "source_id": "ho_e02",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_044",
+      "source_id": "ho_e12",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_045",
+      "source_id": "ho_h06",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_046",
+      "source_id": "ho_o07",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_047",
+      "source_id": "ho_s02",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_048",
+      "source_id": "ho_e10",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_049",
+      "source_id": "ho_n14",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_050",
+      "source_id": "ho_e11",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_051",
+      "source_id": "ho_n05",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_052",
+      "source_id": "ho_s18",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_053",
+      "source_id": "ho_n04",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_054",
+      "source_id": "ho_o04",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_055",
+      "source_id": "ho_o19",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_056",
+      "source_id": "ho_o09",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_057",
+      "source_id": "ho_e20",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_058",
+      "source_id": "ho_h16",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_059",
+      "source_id": "ho_s07",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_060",
+      "source_id": "ho_h18",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_061",
+      "source_id": "ho_s06",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_062",
+      "source_id": "ho_e15",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_063",
+      "source_id": "ho_o16",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_064",
+      "source_id": "ho_h02",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_065",
+      "source_id": "ho_n10",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_066",
+      "source_id": "ho_e06",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_067",
+      "source_id": "ho_o12",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_068",
+      "source_id": "ho_n13",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_069",
+      "source_id": "ho_o05",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_070",
+      "source_id": "ho_h17",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_071",
+      "source_id": "ho_s01",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_072",
+      "source_id": "ho_e14",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_073",
+      "source_id": "ho_n08",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_074",
+      "source_id": "ho_s05",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_075",
+      "source_id": "ho_o13",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_076",
+      "source_id": "ho_o14",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_077",
+      "source_id": "ho_e09",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_078",
+      "source_id": "ho_h04",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_079",
+      "source_id": "ho_e01",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_080",
+      "source_id": "ho_h07",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_081",
+      "source_id": "ho_o08",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_082",
+      "source_id": "ho_n12",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_083",
+      "source_id": "ho_s10",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_084",
+      "source_id": "ho_e05",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_085",
+      "source_id": "ho_s08",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_086",
+      "source_id": "ho_e17",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_087",
+      "source_id": "ho_n01",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_088",
+      "source_id": "ho_n11",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_089",
+      "source_id": "ho_o01",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_090",
+      "source_id": "ho_s14",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_091",
+      "source_id": "ho_h05",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_092",
+      "source_id": "ho_n06",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_093",
+      "source_id": "ho_h20",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_094",
+      "source_id": "ho_s20",
+      "source_subset": "clear"
+    },
+    {
+      "eval_id": "eval_095",
+      "source_id": "ho_n15",
+      "source_subset": "neutral_mixed"
+    },
+    {
+      "eval_id": "eval_096",
+      "source_id": "ho_h13",
+      "source_subset": "clear"
+    }
+  ]
+}
