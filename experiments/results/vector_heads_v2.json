@@ -1,0 +1,417 @@
+{
+  "status": "development_only_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-base",
+  "embedding_revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "train_vector_n": 256,
+  "train_auxiliary_classifier_n": 128,
+  "hard_eval_n": 48,
+  "unseen_distribution_probe_n": 320,
+  "selection_rule": "reject >75% one-class unseen argmax collapse; then minimize hard48 4D MAE; tie-break by cosine",
+  "recommended_vector_head": null,
+  "class_prototypes": {
+    "ogretici": [
+      0.8860937499999999,
+      0.06328124999999997,
+      0.031875000000000014,
+      0.37750000000000006
+    ],
+    "eglendirici": [
+      0.03015625000000002,
+      0.9279687499999997,
+      0.02062500000000001,
+      0.5628124999999997
+    ],
+    "haber": [
+      0.2764062499999999,
+      0.04562500000000002,
+      0.911875,
+      0.21062500000000006
+    ],
+    "sosyal": [
+      0.05203124999999998,
+      0.11640625000000002,
+      0.017343750000000012,
+      0.9432812499999995
+    ]
+  },
+  "methods": {
+    "knn_k7": {
+      "hard48": {
+        "dominant_accuracy": 0.4583333333333333,
+        "macro_f1": 0.41302785265049413,
+        "intent_mae": 0.18845020520878628,
+        "mean_cosine_similarity": 0.8605045118151979,
+        "clickbait_mae": 0.06773587863399683,
+        "pred_distribution": {
+          "sosyal": 38,
+          "ogretici": 3,
+          "eglendirici": 1,
+          "haber": 6
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.16666666666666666,
+          "eglendirici": 0.0,
+          "haber": 0.75,
+          "sosyal": 0.9333333333333333
+        }
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 12,
+          "eglendirici": 10,
+          "haber": 5,
+          "sosyal": 293
+        },
+        "shares": {
+          "ogretici": 0.0375,
+          "eglendirici": 0.03125,
+          "haber": 0.015625,
+          "sosyal": 0.915625
+        },
+        "max_class_share": 0.915625,
+        "mean_vector": [
+          0.18484713893518637,
+          0.2947644872903489,
+          0.0690734599607941,
+          0.7472272432630269
+        ]
+      },
+      "collapse_flag_over_75pct_one_class": true
+    },
+    "class_prototype": {
+      "hard48": {
+        "dominant_accuracy": 0.375,
+        "macro_f1": 0.26283292978208234,
+        "intent_mae": 0.20002198791679496,
+        "mean_cosine_similarity": 0.881943087017731,
+        "clickbait_mae": 0.06773587863399683,
+        "pred_distribution": {
+          "sosyal": 44,
+          "ogretici": 2,
+          "haber": 2
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.08333333333333333,
+          "eglendirici": 0.0,
+          "haber": 0.25,
+          "sosyal": 1.0
+        }
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 0,
+          "eglendirici": 0,
+          "haber": 0,
+          "sosyal": 320
+        },
+        "shares": {
+          "ogretici": 0.0,
+          "eglendirici": 0.0,
+          "haber": 0.0,
+          "sosyal": 1.0
+        },
+        "max_class_share": 1.0,
+        "mean_vector": [
+          0.24562091333078384,
+          0.3448064854988223,
+          0.13946539341937744,
+          0.6141982435634564
+        ]
+      },
+      "collapse_flag_over_75pct_one_class": true
+    },
+    "knn_prototype_blend_0.25": {
+      "hard48": {
+        "dominant_accuracy": 0.4583333333333333,
+        "macro_f1": 0.41302785265049413,
+        "intent_mae": 0.1860579689502305,
+        "mean_cosine_similarity": 0.8728561269037401,
+        "clickbait_mae": 0.06773587863399683,
+        "pred_distribution": {
+          "sosyal": 38,
+          "ogretici": 3,
+          "eglendirici": 1,
+          "haber": 6
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.16666666666666666,
+          "eglendirici": 0.0,
+          "haber": 0.75,
+          "sosyal": 0.9333333333333333
+        }
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 10,
+          "eglendirici": 4,
+          "haber": 2,
+          "sosyal": 304
+        },
+        "shares": {
+          "ogretici": 0.03125,
+          "eglendirici": 0.0125,
+          "haber": 0.00625,
+          "sosyal": 0.95
+        },
+        "max_class_share": 0.95,
+        "mean_vector": [
+          0.20004058253408571,
+          0.30727498684246696,
+          0.08667144332543995,
+          0.7139699933381343
+        ]
+      },
+      "collapse_flag_over_75pct_one_class": true
+    },
+    "knn_prototype_blend_0.50": {
+      "hard48": {
+        "dominant_accuracy": 0.4375,
+        "macro_f1": 0.38001998001998,
+        "intent_mae": 0.18748115971820845,
+        "mean_cosine_similarity": 0.8815022981162063,
+        "clickbait_mae": 0.06773587863399683,
+        "pred_distribution": {
+          "sosyal": 40,
+          "ogretici": 1,
+          "eglendirici": 1,
+          "haber": 6
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.08333333333333333,
+          "eglendirici": 0.0,
+          "haber": 0.75,
+          "sosyal": 0.9333333333333333
+        }
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 10,
+          "eglendirici": 4,
+          "haber": 0,
+          "sosyal": 306
+        },
+        "shares": {
+          "ogretici": 0.03125,
+          "eglendirici": 0.0125,
+          "haber": 0.0,
+          "sosyal": 0.95625
+        },
+        "max_class_share": 0.95625,
+        "mean_vector": [
+          0.21523402613298512,
+          0.3197854863945857,
+          0.1042694266900858,
+          0.6807127434132414
+        ]
+      },
+      "collapse_flag_over_75pct_one_class": true
+    },
+    "knn_prototype_blend_0.75": {
+      "hard48": {
+        "dominant_accuracy": 0.4166666666666667,
+        "macro_f1": 0.33395989974937346,
+        "intent_mae": 0.1919767877515761,
+        "mean_cosine_similarity": 0.8850128881075906,
+        "clickbait_mae": 0.06773587863399683,
+        "pred_distribution": {
+          "sosyal": 42,
+          "ogretici": 2,
+          "haber": 4
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.08333333333333333,
+          "eglendirici": 0.0,
+          "haber": 0.5,
+          "sosyal": 1.0
+        }
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 5,
+          "eglendirici": 1,
+          "haber": 0,
+          "sosyal": 314
+        },
+        "shares": {
+          "ogretici": 0.015625,
+          "eglendirici": 0.003125,
+          "haber": 0.0,
+          "sosyal": 0.98125
+        },
+        "max_class_share": 0.98125,
+        "mean_vector": [
+          0.2304274697318846,
+          0.332295985946704,
+          0.12186741005473171,
+          0.647455493488349
+        ]
+      },
+      "collapse_flag_over_75pct_one_class": true
+    },
+    "ridge_0.1": {
+      "hard48": {
+        "dominant_accuracy": 0.5416666666666666,
+        "macro_f1": 0.5254067584480601,
+        "intent_mae": 0.1797996212138484,
+        "mean_cosine_similarity": 0.9010574311182511,
+        "clickbait_mae": 0.06773587863399683,
+        "pred_distribution": {
+          "sosyal": 32,
+          "haber": 7,
+          "ogretici": 5,
+          "eglendirici": 4
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.25,
+          "eglendirici": 0.23076923076923078,
+          "haber": 0.75,
+          "sosyal": 0.9333333333333333
+        }
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 20,
+          "eglendirici": 34,
+          "haber": 0,
+          "sosyal": 266
+        },
+        "shares": {
+          "ogretici": 0.0625,
+          "eglendirici": 0.10625,
+          "haber": 0.0,
+          "sosyal": 0.83125
+        },
+        "max_class_share": 0.83125,
+        "mean_vector": [
+          0.24317987263202667,
+          0.3593219220638275,
+          0.11508522927761078,
+          0.6678105592727661
+        ]
+      },
+      "collapse_flag_over_75pct_one_class": true
+    },
+    "ridge_1": {
+      "hard48": {
+        "dominant_accuracy": 0.4375,
+        "macro_f1": 0.35079365079365077,
+        "intent_mae": 0.18358348736694705,
+        "mean_cosine_similarity": 0.9020689486314665,
+        "clickbait_mae": 0.06773587863399683,
+        "pred_distribution": {
+          "sosyal": 39,
+          "haber": 6,
+          "ogretici": 3
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.08333333333333333,
+          "eglendirici": 0.0,
+          "haber": 0.625,
+          "sosyal": 1.0
+        }
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 12,
+          "eglendirici": 0,
+          "haber": 0,
+          "sosyal": 308
+        },
+        "shares": {
+          "ogretici": 0.0375,
+          "eglendirici": 0.0,
+          "haber": 0.0,
+          "sosyal": 0.9625
+        },
+        "max_class_share": 0.9625,
+        "mean_vector": [
+          0.25776731967926025,
+          0.3362576365470886,
+          0.13463929295539856,
+          0.6282840967178345
+        ]
+      },
+      "collapse_flag_over_75pct_one_class": true
+    },
+    "ridge_10": {
+      "hard48": {
+        "dominant_accuracy": 0.3125,
+        "macro_f1": 0.11904761904761904,
+        "intent_mae": 0.23319835707545278,
+        "mean_cosine_similarity": 0.8474039154078628,
+        "clickbait_mae": 0.06773587863399683,
+        "pred_distribution": {
+          "sosyal": 48
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.0,
+          "eglendirici": 0.0,
+          "haber": 0.0,
+          "sosyal": 1.0
+        }
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 0,
+          "eglendirici": 0,
+          "haber": 0,
+          "sosyal": 320
+        },
+        "shares": {
+          "ogretici": 0.0,
+          "eglendirici": 0.0,
+          "haber": 0.0,
+          "sosyal": 1.0
+        },
+        "max_class_share": 1.0,
+        "mean_vector": [
+          0.2971089482307434,
+          0.302470862865448,
+          0.20894630253314972,
+          0.5544347763061523
+        ]
+      },
+      "collapse_flag_over_75pct_one_class": true
+    },
+    "ridge_100": {
+      "hard48": {
+        "dominant_accuracy": 0.3125,
+        "macro_f1": 0.11904761904761904,
+        "intent_mae": 0.25505450883880254,
+        "mean_cosine_similarity": 0.8137233611780633,
+        "clickbait_mae": 0.06773587863399683,
+        "pred_distribution": {
+          "sosyal": 48
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.0,
+          "eglendirici": 0.0,
+          "haber": 0.0,
+          "sosyal": 1.0
+        }
+      },
+      "unseen_v2_320": {
+        "counts": {
+          "ogretici": 0,
+          "eglendirici": 0,
+          "haber": 0,
+          "sosyal": 320
+        },
+        "shares": {
+          "ogretici": 0.0,
+          "eglendirici": 0.0,
+          "haber": 0.0,
+          "sosyal": 1.0
+        },
+        "max_class_share": 1.0,
+        "mean_vector": [
+          0.3094903826713562,
+          0.2901000380516052,
+          0.24072036147117615,
+          0.5274412631988525
+        ]
+      },
+      "collapse_flag_over_75pct_one_class": true
+    }
+  }
+}
