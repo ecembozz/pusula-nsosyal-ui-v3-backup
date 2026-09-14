@@ -1,0 +1,37 @@
+{
+  "schema_version": "pusula-runtime-feed-v5",
+  "record_count": 320,
+  "semantic_architecture": {
+    "candidate": "V5",
+    "encoder": "intfloat/multilingual-e5-base",
+    "intent_head": "knn_k7_cosine_distance_352",
+    "clickbait_head": "e5_ridge_alpha_0.05_continuous_192",
+    "inference": "offline_cached"
+  },
+  "text_provenance": "synthetic_original_privacy_safe_not_copied_user_posts",
+  "author_provenance": "fictional_demo_pseudonyms",
+  "engagement_freshness_provenance": "deterministic_demo_simulation_not_platform_telemetry",
+  "topic_distribution": {
+    "egitim_yks": 32,
+    "teknoloji_ai": 32,
+    "teknofest_maker": 32,
+    "spor_futbol": 32,
+    "kultur_sanat": 32,
+    "ekonomi_butce": 32,
+    "oyun_espor": 32,
+    "kampus_is": 32,
+    "gundelik_yasam": 32,
+    "sosyal_sohbet": 32
+  },
+  "author_count": 32,
+  "clickbait": {
+    "mean": 0.12969086875,
+    "max": 0.444935,
+    "ge_0_50": 0
+  },
+  "guardrails": [
+    "Do not report simulated engagement/freshness as observed NSosyal/X metrics.",
+    "Do not report development smoke results as final human-gold accuracy.",
+    "Runtime performs no LLM or embedding inference; semantic labels are cached offline."
+  ]
+}
