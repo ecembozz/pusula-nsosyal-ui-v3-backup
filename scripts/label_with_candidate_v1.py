@@ -7,7 +7,8 @@ multilingual-e5-base encoder, and writes provider-independent JSONL that can be
 validated by `scripts/build_semantic_cache.py`.
 
 Candidate policy:
-- dominant intent + confidence: V3 tranche 1 (128 cleaner rows)
+- canonical dominant intent: argmax of the 4D intent vector
+- auxiliary dominant classifier + confidence: V3 tranche 1 (128 cleaner rows)
 - 4D intent vector + clickbait: all V3 rows (256, including boundary cases)
 - OOD diagnostic: nearest cosine against all V3 training embeddings
 
@@ -140,8 +141,7 @@ def screen_confidence(probs, nearest, ood_threshold):
     margin = np.clip(sorted_probs[:, -1] - sorted_probs[:, -2], 0.0, 1.0)
     max_prob = np.max(probs, axis=1)
 
-    # Nearest-cosine is included only as an OOD guard. Keep the user-visible
-    # confidence score easy to interpret and bounded; this is not calibration.
+    # This is only a development screening score, not a calibrated probability.
     score = np.clip(0.65 * max_prob + 0.35 * margin, 0.0, 1.0)
     score = np.where(nearest < ood_threshold, score * 0.55, score)
     return score, margin, max_prob
@@ -168,7 +168,6 @@ def main():
     if Counter(r["dominant"] for r in all_train) != Counter({k: 64 for k in INTENTS}):
         raise SystemExit("V3-256 is no longer intent-balanced")
 
-    # One encoder pass makes the offline pipeline deterministic and efficient.
     all_texts = [r["text"] for r in all_train] + [r["text"] for r in input_rows]
     x, revision = encode_texts(all_texts, args.model, batch_size=16)
     x_train = x[: len(all_train)]
@@ -178,8 +177,11 @@ def main():
     clf, knn, ood_threshold = fit_heads(x_v1, v1, x_train, all_train)
     vector_pred = np.clip(np.asarray(knn.predict(x_input), dtype=float), 0.0, 1.0)
     probs = class_probabilities(clf, x_input)
-    dominant_index = np.argmax(probs, axis=1)
-    dominant = [INTENTS[int(i)] for i in dominant_index]
+
+    canonical_idx = np.argmax(vector_pred[:, :4], axis=1)
+    canonical_dominant = [INTENTS[int(i)] for i in canonical_idx]
+    auxiliary_idx = np.argmax(probs, axis=1)
+    auxiliary_dominant = [INTENTS[int(i)] for i in auxiliary_idx]
 
     nearest = np.max(x_input @ x_train.T, axis=1)
     confidence, probability_margin, max_prob = screen_confidence(probs, nearest, ood_threshold)
@@ -195,15 +197,20 @@ def main():
                 "text": row["text"],
                 "intent_vector": [round(float(v), 6) for v in vec],
                 "clickbait": round(float(vector_pred[i, 4]), 6),
-                "dominant_intent": dominant[i],
+                # Canonical label semantics must match LabelResult.dominant_intent.
+                "dominant_intent": canonical_dominant[i],
+                # The auxiliary classifier is retained only as a confidence and
+                # explainability signal; it does not override the 4D vector.
+                "auxiliary_dominant_intent": auxiliary_dominant[i],
                 "confidence": round(float(confidence[i]), 6),
                 "method": METHOD,
                 "model": args.model,
                 "prompt_version": None,
                 "schema_version": "pusula-label-v2",
                 "diagnostics": {
-                    "dominant_probability": round(float(max_prob[i]), 6),
-                    "dominant_margin": round(float(probability_margin[i]), 6),
+                    "auxiliary_dominant_probability": round(float(max_prob[i]), 6),
+                    "auxiliary_dominant_margin": round(float(probability_margin[i]), 6),
+                    "canonical_auxiliary_agree": canonical_dominant[i] == auxiliary_dominant[i],
                     "nearest_train_cosine": round(float(nearest[i]), 6),
                     "ood": bool(ood[i]),
                     "ood_threshold": round(float(ood_threshold), 6),
@@ -214,14 +221,19 @@ def main():
             }
             f.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
+    agreement = np.asarray(
+        [a == b for a, b in zip(canonical_dominant, auxiliary_dominant)], dtype=bool
+    )
     summary = {
         "method": METHOD,
         "model": args.model,
         "encoder_revision": revision,
         "input_count": len(input_rows),
-        "dominant_distribution": dict(Counter(dominant)),
-        "mean_confidence": float(np.mean(confidence)) if len(confidence) else None,
-        "low_confidence_lt_0_50": int(np.sum(confidence < 0.50)),
+        "canonical_dominant_distribution": dict(Counter(canonical_dominant)),
+        "auxiliary_dominant_distribution": dict(Counter(auxiliary_dominant)),
+        "canonical_auxiliary_agreement_rate": float(np.mean(agreement)) if len(agreement) else None,
+        "mean_screening_confidence": float(np.mean(confidence)) if len(confidence) else None,
+        "low_screening_confidence_lt_0_50": int(np.sum(confidence < 0.50)),
         "ood_count": int(np.sum(ood)),
         "ood_rate": float(np.mean(ood)) if len(ood) else None,
         "ood_threshold": ood_threshold,
