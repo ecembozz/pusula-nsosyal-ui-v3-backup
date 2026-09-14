@@ -1,0 +1,582 @@
+{
+  "status": "development_only_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "embedding_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "training": {
+    "train_n": 136,
+    "hard_eval_n": 48,
+    "epochs": 8,
+    "unfreeze_last_n": 2,
+    "encoder_lr": 2e-05,
+    "head_lr": 0.0008,
+    "knn_k": 7,
+    "hybrid_classifier_blend": 0.15,
+    "train_distribution": {
+      "ogretici": 34,
+      "eglendirici": 34,
+      "haber": 34,
+      "sosyal": 34
+    }
+  },
+  "baseline_frozen_encoder": {
+    "knn_vector": {
+      "dominant_accuracy": 0.4791666666666667,
+      "macro_f1": 0.43237179487179483,
+      "intent_mae": 0.20355449917648608,
+      "mean_cosine_similarity": 0.8526422910451235,
+      "pred_distribution": {
+        "sosyal": 37,
+        "eglendirici": 3,
+        "ogretici": 3,
+        "haber": 5
+      },
+      "per_class_accuracy": {
+        "ogretici": 0.08333333333333333,
+        "eglendirici": 0.15384615384615385,
+        "haber": 0.625,
+        "sosyal": 1.0
+      }
+    },
+    "hybrid_vector": {
+      "dominant_accuracy": 0.4791666666666667,
+      "macro_f1": 0.43237179487179483,
+      "intent_mae": 0.20072038614065,
+      "mean_cosine_similarity": 0.8588760300332378,
+      "pred_distribution": {
+        "sosyal": 37,
+        "eglendirici": 3,
+        "ogretici": 3,
+        "haber": 5
+      },
+      "per_class_accuracy": {
+        "ogretici": 0.08333333333333333,
+        "eglendirici": 0.15384615384615385,
+        "haber": 0.625,
+        "sosyal": 1.0
+      }
+    },
+    "classifier": {
+      "dominant_accuracy": 0.25,
+      "macro_f1": 0.1,
+      "accuracy_at_50pct_confidence": 0.3333333333333333,
+      "pred_distribution": {
+        "ogretici": 48
+      }
+    },
+    "ood": {
+      "threshold": 0.8688514232635498,
+      "ood_rate": 0.041666666666666664,
+      "mean_nearest_train_cosine": 0.8902127146720886
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.4827180469737333,
+      "evaluation": {
+        "knn_vector": {
+          "dominant_accuracy": 0.4791666666666667,
+          "macro_f1": 0.43237179487179483,
+          "intent_mae": 0.20529383949663801,
+          "mean_cosine_similarity": 0.851609624016743,
+          "pred_distribution": {
+            "sosyal": 37,
+            "eglendirici": 3,
+            "ogretici": 3,
+            "haber": 5
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.15384615384615385,
+            "haber": 0.625,
+            "sosyal": 1.0
+          }
+        },
+        "hybrid_vector": {
+          "dominant_accuracy": 0.4791666666666667,
+          "macro_f1": 0.43237179487179483,
+          "intent_mae": 0.20197457475199673,
+          "mean_cosine_similarity": 0.8579897629669849,
+          "pred_distribution": {
+            "sosyal": 37,
+            "eglendirici": 3,
+            "ogretici": 3,
+            "haber": 5
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.15384615384615385,
+            "haber": 0.625,
+            "sosyal": 1.0
+          }
+        },
+        "classifier": {
+          "dominant_accuracy": 0.2708333333333333,
+          "macro_f1": 0.16468253968253968,
+          "accuracy_at_50pct_confidence": 0.375,
+          "pred_distribution": {
+            "eglendirici": 15,
+            "ogretici": 33
+          }
+        },
+        "ood": {
+          "threshold": 0.8635903596878052,
+          "ood_rate": 0.041666666666666664,
+          "mean_nearest_train_cosine": 0.8859567046165466
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.4532709402196549,
+      "evaluation": {
+        "knn_vector": {
+          "dominant_accuracy": 0.4583333333333333,
+          "macro_f1": 0.4004837929366232,
+          "intent_mae": 0.204800651796783,
+          "mean_cosine_similarity": 0.8493906921071877,
+          "pred_distribution": {
+            "sosyal": 38,
+            "eglendirici": 2,
+            "ogretici": 3,
+            "haber": 5
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.07692307692307693,
+            "haber": 0.625,
+            "sosyal": 1.0
+          }
+        },
+        "hybrid_vector": {
+          "dominant_accuracy": 0.4583333333333333,
+          "macro_f1": 0.4004837929366232,
+          "intent_mae": 0.20113870254087185,
+          "mean_cosine_similarity": 0.8563632451939759,
+          "pred_distribution": {
+            "sosyal": 38,
+            "eglendirici": 2,
+            "ogretici": 3,
+            "haber": 5
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.07692307692307693,
+            "haber": 0.625,
+            "sosyal": 1.0
+          }
+        },
+        "classifier": {
+          "dominant_accuracy": 0.25,
+          "macro_f1": 0.1,
+          "accuracy_at_50pct_confidence": 0.375,
+          "pred_distribution": {
+            "ogretici": 48
+          }
+        },
+        "ood": {
+          "threshold": 0.8499999642372131,
+          "ood_rate": 0.041666666666666664,
+          "mean_nearest_train_cosine": 0.8741564750671387
+        }
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.4218158932293163,
+      "evaluation": {
+        "knn_vector": {
+          "dominant_accuracy": 0.4791666666666667,
+          "macro_f1": 0.4246031746031746,
+          "intent_mae": 0.2071252450502167,
+          "mean_cosine_similarity": 0.8441300267565968,
+          "pred_distribution": {
+            "sosyal": 39,
+            "eglendirici": 1,
+            "ogretici": 2,
+            "haber": 6
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.07692307692307693,
+            "haber": 0.75,
+            "sosyal": 1.0
+          }
+        },
+        "hybrid_vector": {
+          "dominant_accuracy": 0.4791666666666667,
+          "macro_f1": 0.4246031746031746,
+          "intent_mae": 0.20263008928692824,
+          "mean_cosine_similarity": 0.8517899497523963,
+          "pred_distribution": {
+            "sosyal": 39,
+            "eglendirici": 1,
+            "ogretici": 2,
+            "haber": 6
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.07692307692307693,
+            "haber": 0.75,
+            "sosyal": 1.0
+          }
+        },
+        "classifier": {
+          "dominant_accuracy": 0.3958333333333333,
+          "macro_f1": 0.4325369458128079,
+          "accuracy_at_50pct_confidence": 0.5,
+          "pred_distribution": {
+            "eglendirici": 16,
+            "haber": 6,
+            "ogretici": 16,
+            "sosyal": 10
+          }
+        },
+        "ood": {
+          "threshold": 0.8146780729293823,
+          "ood_rate": 0.020833333333333332,
+          "mean_nearest_train_cosine": 0.8450344204902649
+        }
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.3873010593302109,
+      "evaluation": {
+        "knn_vector": {
+          "dominant_accuracy": 0.4791666666666667,
+          "macro_f1": 0.4129380053908356,
+          "intent_mae": 0.19743054429030357,
+          "mean_cosine_similarity": 0.8477947421916205,
+          "pred_distribution": {
+            "sosyal": 38,
+            "haber": 7,
+            "eglendirici": 1,
+            "ogretici": 2
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.07692307692307693,
+            "haber": 0.75,
+            "sosyal": 1.0
+          }
+        },
+        "hybrid_vector": {
+          "dominant_accuracy": 0.4791666666666667,
+          "macro_f1": 0.4132783882783883,
+          "intent_mae": 0.1932657288212795,
+          "mean_cosine_similarity": 0.8561830968158531,
+          "pred_distribution": {
+            "sosyal": 37,
+            "haber": 7,
+            "eglendirici": 2,
+            "ogretici": 2
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.07692307692307693,
+            "haber": 0.75,
+            "sosyal": 1.0
+          }
+        },
+        "classifier": {
+          "dominant_accuracy": 0.5208333333333334,
+          "macro_f1": 0.4867167919799498,
+          "accuracy_at_50pct_confidence": 0.625,
+          "pred_distribution": {
+            "sosyal": 27,
+            "haber": 11,
+            "ogretici": 8,
+            "eglendirici": 2
+          }
+        },
+        "ood": {
+          "threshold": 0.7450326681137085,
+          "ood_rate": 0.041666666666666664,
+          "mean_nearest_train_cosine": 0.7865256667137146
+        }
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.3299001034568338,
+      "evaluation": {
+        "knn_vector": {
+          "dominant_accuracy": 0.4375,
+          "macro_f1": 0.3561355311355311,
+          "intent_mae": 0.20418616604486792,
+          "mean_cosine_similarity": 0.8380458262798364,
+          "pred_distribution": {
+            "sosyal": 37,
+            "haber": 6,
+            "ogretici": 3,
+            "eglendirici": 2
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.0,
+            "haber": 0.625,
+            "sosyal": 1.0
+          }
+        },
+        "hybrid_vector": {
+          "dominant_accuracy": 0.4375,
+          "macro_f1": 0.3561355311355311,
+          "intent_mae": 0.19801552217686547,
+          "mean_cosine_similarity": 0.8473112859686956,
+          "pred_distribution": {
+            "sosyal": 37,
+            "haber": 6,
+            "ogretici": 3,
+            "eglendirici": 2
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.0,
+            "haber": 0.625,
+            "sosyal": 1.0
+          }
+        },
+        "classifier": {
+          "dominant_accuracy": 0.5208333333333334,
+          "macro_f1": 0.48759655377302435,
+          "accuracy_at_50pct_confidence": 0.5416666666666666,
+          "pred_distribution": {
+            "sosyal": 29,
+            "haber": 10,
+            "eglendirici": 4,
+            "ogretici": 5
+          }
+        },
+        "ood": {
+          "threshold": 0.6113948822021484,
+          "ood_rate": 0.08333333333333333,
+          "mean_nearest_train_cosine": 0.6798536777496338
+        }
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 1.238988343407126,
+      "evaluation": {
+        "knn_vector": {
+          "dominant_accuracy": 0.5208333333333334,
+          "macro_f1": 0.43729575163398693,
+          "intent_mae": 0.19563605842995457,
+          "mean_cosine_similarity": 0.8463999292803388,
+          "pred_distribution": {
+            "sosyal": 33,
+            "haber": 10,
+            "ogretici": 5
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.16666666666666666,
+            "eglendirici": 0.0,
+            "haber": 1.0,
+            "sosyal": 1.0
+          }
+        },
+        "hybrid_vector": {
+          "dominant_accuracy": 0.5208333333333334,
+          "macro_f1": 0.43729575163398693,
+          "intent_mae": 0.18872990417779267,
+          "mean_cosine_similarity": 0.8555915631321122,
+          "pred_distribution": {
+            "sosyal": 33,
+            "haber": 10,
+            "ogretici": 5
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.16666666666666666,
+            "eglendirici": 0.0,
+            "haber": 1.0,
+            "sosyal": 1.0
+          }
+        },
+        "classifier": {
+          "dominant_accuracy": 0.5208333333333334,
+          "macro_f1": 0.4749202551834131,
+          "accuracy_at_50pct_confidence": 0.5416666666666666,
+          "pred_distribution": {
+            "sosyal": 29,
+            "haber": 11,
+            "eglendirici": 2,
+            "ogretici": 6
+          }
+        },
+        "ood": {
+          "threshold": 0.4445336163043976,
+          "ood_rate": 0.125,
+          "mean_nearest_train_cosine": 0.563678503036499
+        }
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 1.1259580359739416,
+      "evaluation": {
+        "knn_vector": {
+          "dominant_accuracy": 0.5208333333333334,
+          "macro_f1": 0.4477941176470588,
+          "intent_mae": 0.19824914738031416,
+          "mean_cosine_similarity": 0.8417369979863502,
+          "pred_distribution": {
+            "sosyal": 35,
+            "ogretici": 4,
+            "haber": 9
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.16666666666666666,
+            "eglendirici": 0.0,
+            "haber": 1.0,
+            "sosyal": 1.0
+          }
+        },
+        "hybrid_vector": {
+          "dominant_accuracy": 0.5208333333333334,
+          "macro_f1": 0.4477941176470588,
+          "intent_mae": 0.19062386620401717,
+          "mean_cosine_similarity": 0.850618111381286,
+          "pred_distribution": {
+            "sosyal": 35,
+            "ogretici": 4,
+            "haber": 9
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.16666666666666666,
+            "eglendirici": 0.0,
+            "haber": 1.0,
+            "sosyal": 1.0
+          }
+        },
+        "classifier": {
+          "dominant_accuracy": 0.5208333333333334,
+          "macro_f1": 0.47635691957942594,
+          "accuracy_at_50pct_confidence": 0.5416666666666666,
+          "pred_distribution": {
+            "sosyal": 31,
+            "haber": 9,
+            "ogretici": 6,
+            "eglendirici": 2
+          }
+        },
+        "ood": {
+          "threshold": 0.43527817726135254,
+          "ood_rate": 0.14583333333333334,
+          "mean_nearest_train_cosine": 0.5826187133789062
+        }
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 1.0140127504573149,
+      "evaluation": {
+        "knn_vector": {
+          "dominant_accuracy": 0.5,
+          "macro_f1": 0.4156862745098039,
+          "intent_mae": 0.19743534142617136,
+          "mean_cosine_similarity": 0.8413516847138398,
+          "pred_distribution": {
+            "sosyal": 36,
+            "ogretici": 3,
+            "haber": 9
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.0,
+            "haber": 1.0,
+            "sosyal": 1.0
+          }
+        },
+        "hybrid_vector": {
+          "dominant_accuracy": 0.5,
+          "macro_f1": 0.4156862745098039,
+          "intent_mae": 0.18889786092380137,
+          "mean_cosine_similarity": 0.8496462862858509,
+          "pred_distribution": {
+            "sosyal": 36,
+            "ogretici": 3,
+            "haber": 9
+          },
+          "per_class_accuracy": {
+            "ogretici": 0.08333333333333333,
+            "eglendirici": 0.0,
+            "haber": 1.0,
+            "sosyal": 1.0
+          }
+        },
+        "classifier": {
+          "dominant_accuracy": 0.5208333333333334,
+          "macro_f1": 0.43729575163398693,
+          "accuracy_at_50pct_confidence": 0.5416666666666666,
+          "pred_distribution": {
+            "sosyal": 33,
+            "haber": 10,
+            "ogretici": 5
+          }
+        },
+        "ood": {
+          "threshold": 0.48348620533943176,
+          "ood_rate": 0.14583333333333334,
+          "mean_nearest_train_cosine": 0.6428523063659668
+        }
+      }
+    }
+  ],
+  "best_by_hybrid_macro_f1": {
+    "epoch": 7,
+    "train_loss": 1.1259580359739416,
+    "evaluation": {
+      "knn_vector": {
+        "dominant_accuracy": 0.5208333333333334,
+        "macro_f1": 0.4477941176470588,
+        "intent_mae": 0.19824914738031416,
+        "mean_cosine_similarity": 0.8417369979863502,
+        "pred_distribution": {
+          "sosyal": 35,
+          "ogretici": 4,
+          "haber": 9
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.16666666666666666,
+          "eglendirici": 0.0,
+          "haber": 1.0,
+          "sosyal": 1.0
+        }
+      },
+      "hybrid_vector": {
+        "dominant_accuracy": 0.5208333333333334,
+        "macro_f1": 0.4477941176470588,
+        "intent_mae": 0.19062386620401717,
+        "mean_cosine_similarity": 0.850618111381286,
+        "pred_distribution": {
+          "sosyal": 35,
+          "ogretici": 4,
+          "haber": 9
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.16666666666666666,
+          "eglendirici": 0.0,
+          "haber": 1.0,
+          "sosyal": 1.0
+        }
+      },
+      "classifier": {
+        "dominant_accuracy": 0.5208333333333334,
+        "macro_f1": 0.47635691957942594,
+        "accuracy_at_50pct_confidence": 0.5416666666666666,
+        "pred_distribution": {
+          "sosyal": 31,
+          "haber": 9,
+          "ogretici": 6,
+          "eglendirici": 2
+        }
+      },
+      "ood": {
+        "threshold": 0.43527817726135254,
+        "ood_rate": 0.14583333333333334,
+        "mean_nearest_train_cosine": 0.5826187133789062
+      }
+    }
+  }
+}
