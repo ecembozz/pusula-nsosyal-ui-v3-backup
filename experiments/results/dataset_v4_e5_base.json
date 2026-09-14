@@ -70,9 +70,9 @@
       "dev64": {
         "dominant_accuracy": 0.984375,
         "macro_f1": 0.9843597262952102,
-        "intent_mae": 0.10471184808587726,
-        "mean_cosine_similarity": 0.9562767593969869,
-        "clickbait_mae": 0.13351983514874088,
+        "intent_mae": 0.1047118441285892,
+        "mean_cosine_similarity": 0.9562767546365494,
+        "clickbait_mae": 0.13351982179213615,
         "pred_distribution": {
           "ogretici": 17,
           "eglendirici": 16,
@@ -101,10 +101,10 @@
         },
         "max_class_share": 0.615625,
         "mean_vector": [
-          0.18417428746256237,
-          0.3565748826153515,
-          0.08601187041402479,
-          0.26802390192387476
+          0.18417428345129755,
+          0.3565748954626943,
+          0.08601187895180258,
+          0.2680239022260439
         ]
       },
       "collapse_flag_over_75pct_one_class": false
@@ -113,9 +113,9 @@
       "dev64": {
         "dominant_accuracy": 1.0,
         "macro_f1": 1.0,
-        "intent_mae": 0.16729772042210925,
-        "mean_cosine_similarity": 0.9204826942395973,
-        "clickbait_mae": 0.13351983514874088,
+        "intent_mae": 0.16729772261899029,
+        "mean_cosine_similarity": 0.9204826308217926,
+        "clickbait_mae": 0.13351982179213615,
         "pred_distribution": {
           "ogretici": 16,
           "eglendirici": 16,
@@ -144,10 +144,10 @@
         },
         "max_class_share": 0.478125,
         "mean_vector": [
-          0.27807614760782706,
-          0.39524649727497657,
-          0.1256242440534716,
-          0.36537567339098476
+          0.27807630300939035,
+          0.3952463715999585,
+          0.12562410480931613,
+          0.3653757534847702
         ]
       },
       "collapse_flag_over_75pct_one_class": false
@@ -156,9 +156,9 @@
       "dev64": {
         "dominant_accuracy": 1.0,
         "macro_f1": 1.0,
-        "intent_mae": 0.11944902595669726,
-        "mean_cosine_similarity": 0.9528673778611534,
-        "clickbait_mae": 0.13351983514874088,
+        "intent_mae": 0.11944902491566345,
+        "mean_cosine_similarity": 0.9528673580222085,
+        "clickbait_mae": 0.13351982179213615,
         "pred_distribution": {
           "ogretici": 16,
           "eglendirici": 16,
@@ -187,10 +187,10 @@
         },
         "max_class_share": 0.596875,
         "mean_vector": [
-          0.2076497524988786,
-          0.3662427862802577,
-          0.09591496382388634,
-          0.2923618447906522
+          0.20764978834082087,
+          0.3662427644970102,
+          0.09591493541618092,
+          0.29236186504072537
         ]
       },
       "collapse_flag_over_75pct_one_class": false
@@ -199,9 +199,9 @@
       "dev64": {
         "dominant_accuracy": 1.0,
         "macro_f1": 1.0,
-        "intent_mae": 0.13491641402957155,
-        "mean_cosine_similarity": 0.9460562194826281,
-        "clickbait_mae": 0.13351983514874088,
+        "intent_mae": 0.13491641497713835,
+        "mean_cosine_similarity": 0.9460561850558856,
+        "clickbait_mae": 0.13351982179213615,
         "pred_distribution": {
           "ogretici": 16,
           "eglendirici": 16,
@@ -230,10 +230,10 @@
         },
         "max_class_share": 0.575,
         "mean_vector": [
-          0.23112521753519438,
-          0.3759106899451643,
-          0.10581805723374829,
-          0.31669978765742973
+          0.23112529323034386,
+          0.3759106335313258,
+          0.10581799188055926,
+          0.31669982785540696
         ]
       },
       "collapse_flag_over_75pct_one_class": false
@@ -242,9 +242,9 @@
       "dev64": {
         "dominant_accuracy": 0.984375,
         "macro_f1": 0.9843597262952102,
-        "intent_mae": 0.11433208017842843,
-        "mean_cosine_similarity": 0.9518042550708585,
-        "clickbait_mae": 0.13351983514874088,
+        "intent_mae": 0.11433207074878736,
+        "mean_cosine_similarity": 0.9518042911333111,
+        "clickbait_mae": 0.13351982179213615,
         "pred_distribution": {
           "ogretici": 15,
           "sosyal": 17,
@@ -273,10 +273,10 @@
         },
         "max_class_share": 0.55625,
         "mean_vector": [
-          0.2151850163936615,
+          0.21518509089946747,
           0.40116849541664124,
-          0.11699731647968292,
-          0.28833746910095215
+          0.11699730157852173,
+          0.28833743929862976
         ]
       },
       "collapse_flag_over_75pct_one_class": false
@@ -285,9 +285,9 @@
       "dev64": {
         "dominant_accuracy": 0.984375,
         "macro_f1": 0.9843597262952102,
-        "intent_mae": 0.11774958637193776,
-        "mean_cosine_similarity": 0.9506661432355281,
-        "clickbait_mae": 0.13351983514874088,
+        "intent_mae": 0.11774960392154753,
+        "mean_cosine_similarity": 0.9506661601665066,
+        "clickbait_mae": 0.13351982179213615,
         "pred_distribution": {
           "ogretici": 15,
           "sosyal": 17,
@@ -316,10 +316,10 @@
         },
         "max_class_share": 0.51875,
         "mean_vector": [
-          0.21901372075080872,
-          0.38592711091041565,
-          0.11760129779577255,
-          0.29086023569107056
+          0.2190137654542923,
+          0.38592708110809326,
+          0.11760123819112778,
+          0.290860116481781
         ]
       },
       "collapse_flag_over_75pct_one_class": false
@@ -328,9 +328,9 @@
       "dev64": {
         "dominant_accuracy": 1.0,
         "macro_f1": 1.0,
-        "intent_mae": 0.1515490754973143,
-        "mean_cosine_similarity": 0.9272636639382343,
-        "clickbait_mae": 0.13351983514874088,
+        "intent_mae": 0.15154904505470765,
+        "mean_cosine_similarity": 0.927263695346634,
+        "clickbait_mae": 0.13351982179213615,
         "pred_distribution": {
           "ogretici": 16,
           "eglendirici": 16,
@@ -359,10 +359,10 @@
         },
         "max_class_share": 0.490625,
         "mean_vector": [
-          0.22934766113758087,
-          0.352264404296875,
-          0.12470921128988266,
-          0.3021527826786041
+          0.22934767603874207,
+          0.35226449370384216,
+          0.12470917403697968,
+          0.3021528124809265
         ]
       },
       "collapse_flag_over_75pct_one_class": false
@@ -371,9 +371,9 @@
       "dev64": {
         "dominant_accuracy": 1.0,
         "macro_f1": 1.0,
-        "intent_mae": 0.1796096926101018,
-        "mean_cosine_similarity": 0.9014152364543123,
-        "clickbait_mae": 0.13351983514874088,
+        "intent_mae": 0.17960962922195906,
+        "mean_cosine_similarity": 0.901415304600316,
+        "clickbait_mae": 0.13351982179213615,
         "pred_distribution": {
           "ogretici": 16,
           "eglendirici": 16,
@@ -402,10 +402,10 @@
         },
         "max_class_share": 0.465625,
         "mean_vector": [
-          0.23775196075439453,
-          0.3382560610771179,
-          0.1327274590730667,
-          0.30666476488113403
+          0.23775187134742737,
+          0.3382560908794403,
+          0.13272733986377716,
+          0.30666473507881165
         ]
       },
       "collapse_flag_over_75pct_one_class": false
@@ -414,9 +414,9 @@
       "dev64": {
         "dominant_accuracy": 0.984375,
         "macro_f1": 0.9843597262952102,
-        "intent_mae": 0.25774381280178205,
-        "mean_cosine_similarity": 0.7843229733767687,
-        "clickbait_mae": 0.13351983514874088,
+        "intent_mae": 0.25774377153255046,
+        "mean_cosine_similarity": 0.7843230686549756,
+        "clickbait_mae": 0.13351982179213615,
         "pred_distribution": {
           "ogretici": 17,
           "eglendirici": 15,
@@ -446,9 +446,9 @@
         "max_class_share": 0.428125,
         "mean_vector": [
           0.2650390565395355,
-          0.30703312158584595,
-          0.16778519749641418,
-          0.3077881932258606
+          0.30703315138816833,
+          0.1677851676940918,
+          0.30778825283050537
         ]
       },
       "collapse_flag_over_75pct_one_class": false
