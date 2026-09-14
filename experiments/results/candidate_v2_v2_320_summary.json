@@ -1,0 +1,27 @@
+{
+  "status": "development_smoke_not_final_evaluation",
+  "n": 320,
+  "dominant_distribution": {
+    "eglendirici": 197,
+    "sosyal": 76,
+    "ogretici": 37,
+    "haber": 10
+  },
+  "auxiliary_distribution": {
+    "eglendirici": 171,
+    "sosyal": 100,
+    "ogretici": 46,
+    "haber": 3
+  },
+  "canonical_auxiliary_agreement_rate": 0.746875,
+  "mixed_intent_count": 134,
+  "mixed_intent_rate": 0.41875,
+  "mean_intent_margin": 0.209398359375,
+  "mean_screening_confidence": 0.28951498125,
+  "screening_confidence_lt_0_50": 315,
+  "ood_count": 8,
+  "mean_clickbait": 0.09289120625,
+  "clickbait_ge_0_50": 0,
+  "cache_record_count": 320,
+  "cache_reject_count": 0
+}
