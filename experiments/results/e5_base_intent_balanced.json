@@ -1,0 +1,683 @@
+{
+  "status": "development_only_not_final_gold",
+  "embedding_model": "intfloat/multilingual-e5-base",
+  "embedding_revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+  "balanced_train_n": 136,
+  "balanced_train_distribution": {
+    "ogretici": 34,
+    "eglendirici": 34,
+    "haber": 34,
+    "sosyal": 34
+  },
+  "balanced_style_distribution": {
+    "plain": 16,
+    "casual": 16,
+    "emoji": 16,
+    "question": 16,
+    "typo": 16,
+    "humorous_tip": 4,
+    "mixed": 16,
+    "short": 16,
+    "clickbait": 8,
+    "irony": 12
+  },
+  "old_base_n": 96,
+  "old_base_distribution": {
+    "sosyal": 54,
+    "ogretici": 15,
+    "eglendirici": 11,
+    "haber": 16
+  },
+  "hard_eval_n": 48,
+  "hard_eval_distribution": {
+    "sosyal": 15,
+    "ogretici": 12,
+    "eglendirici": 13,
+    "haber": 8
+  },
+  "scenarios": {
+    "intent_balanced_only": {
+      "semantic_knn": {
+        "dominant_accuracy": 0.5416666666666666,
+        "macro_f1": 0.5208333333333334,
+        "intent_mae": 0.18031830858714945,
+        "mean_cosine_similarity": 0.8716142067269503,
+        "clickbait_mae": 0.07772672387242723,
+        "pred_distribution": {
+          "sosyal": 33,
+          "eglendirici": 7,
+          "ogretici": 2,
+          "haber": 6
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.08333333333333333,
+          "eglendirici": 0.38461538461538464,
+          "haber": 0.75,
+          "sosyal": 0.9333333333333333
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.18977279146253298
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.27376766982292805
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.6,
+            "intent_mae": 0.16848452232238686
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.1279746111014166
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.5,
+            "intent_mae": 0.12669088663539332
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.5,
+            "intent_mae": 0.15676437357313047
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.12776433066687512
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.75,
+            "intent_mae": 0.17289444687323563
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.1502080932998517
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.11018603933971777
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.2827179727593712
+          }
+        }
+      },
+      "weighted_ridge": {
+        "dominant_accuracy": 0.3125,
+        "macro_f1": 0.11904761904761904,
+        "intent_mae": 0.23663187803700567,
+        "mean_cosine_similarity": 0.8456918222825957,
+        "clickbait_mae": 0.058735567750409244,
+        "pred_distribution": {
+          "sosyal": 48
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.0,
+          "eglendirici": 0.0,
+          "haber": 0.0,
+          "sosyal": 1.0
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.2051091873645782
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.23932748568554718
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.4,
+            "intent_mae": 0.19595350304245945
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.1595999842385451
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.22221676580607894
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.2514764022330443
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.2311606167753538
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.32450130123645066
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.1940657225251198
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.26777164950966836
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.17252561673521993
+          }
+        }
+      },
+      "hybrid_knn_logistic": {
+        "dominant_accuracy": 0.5625,
+        "macro_f1": 0.5548885511651469,
+        "intent_mae": 0.17296610464827922,
+        "mean_cosine_similarity": 0.8888072936890522,
+        "clickbait_mae": 0.07772672387242723,
+        "pred_distribution": {
+          "sosyal": 32,
+          "eglendirici": 7,
+          "ogretici": 3,
+          "haber": 6
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.16666666666666666,
+          "eglendirici": 0.38461538461538464,
+          "haber": 0.75,
+          "sosyal": 0.9333333333333333
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.17400911282102305
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.24115377578531616
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.6,
+            "intent_mae": 0.14234802327082946
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.1284842889942504
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.5,
+            "intent_mae": 0.1289734145257279
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.5,
+            "intent_mae": 0.16001826037437647
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.14157954336660677
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.75,
+            "intent_mae": 0.17800996947248082
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.15589098802678744
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.1539668290145065
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.21895635028906227
+          }
+        }
+      },
+      "ensemble_knn_ridge_logistic": {
+        "dominant_accuracy": 0.5,
+        "macro_f1": 0.47333333333333333,
+        "intent_mae": 0.18177454691109166,
+        "mean_cosine_similarity": 0.8924745038295584,
+        "clickbait_mae": 0.07173771034997088,
+        "pred_distribution": {
+          "sosyal": 35,
+          "eglendirici": 5,
+          "ogretici": 2,
+          "haber": 6
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.08333333333333333,
+          "eglendirici": 0.23076923076923078,
+          "haber": 0.75,
+          "sosyal": 0.9333333333333333
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.17880043674254598
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.2387464877514038
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.6,
+            "intent_mae": 0.14701799868465998
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.12687926324468565
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.14810425005835537
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.5,
+            "intent_mae": 0.1715646662613904
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.5,
+            "intent_mae": 0.1576776195685821
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.75,
+            "intent_mae": 0.20889935712335564
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.15721907256210674
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.17556959572692898
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.19676835030583625
+          }
+        }
+      },
+      "balanced_logistic_dominant": {
+        "dominant_accuracy": 0.6875,
+        "macro_f1": 0.6877494216310005,
+        "pred_distribution": {
+          "sosyal": 20,
+          "haber": 8,
+          "eglendirici": 13,
+          "ogretici": 7
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.3333333333333333,
+          "eglendirici": 0.7692307692307693,
+          "haber": 0.875,
+          "sosyal": 0.8
+        },
+        "accuracy_at_50pct_coverage": 0.7916666666666666,
+        "accuracy_at_75pct_coverage": 0.75
+      }
+    },
+    "intent_balanced_plus_old_base": {
+      "semantic_knn": {
+        "dominant_accuracy": 0.4791666666666667,
+        "macro_f1": 0.40793650793650793,
+        "intent_mae": 0.17428012995697428,
+        "mean_cosine_similarity": 0.8924455043159566,
+        "clickbait_mae": 0.033862940776177505,
+        "pred_distribution": {
+          "sosyal": 39,
+          "eglendirici": 1,
+          "haber": 7,
+          "ogretici": 1
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.0,
+          "eglendirici": 0.07692307692307693,
+          "haber": 0.875,
+          "sosyal": 1.0
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.1686767530759967
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.2323081989285364
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.6,
+            "intent_mae": 0.1475914235427385
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.11711091092630847
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.5,
+            "intent_mae": 0.14838672347556076
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.4166666666666667,
+            "intent_mae": 0.18283005927692905
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.18677555720142971
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.875,
+            "intent_mae": 0.18179333722674246
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.13344338748208445
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.1465903279429357
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.20175695853329093
+          }
+        }
+      },
+      "weighted_ridge": {
+        "dominant_accuracy": 0.3333333333333333,
+        "macro_f1": 0.1785063752276867,
+        "intent_mae": 0.22675764977931978,
+        "mean_cosine_similarity": 0.8605118753611941,
+        "clickbait_mae": 0.03519488791935146,
+        "pred_distribution": {
+          "sosyal": 46,
+          "haber": 1,
+          "ogretici": 1
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.0,
+          "eglendirici": 0.0,
+          "haber": 0.125,
+          "sosyal": 1.0
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.20325565407673518
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.2269369522233804
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.4,
+            "intent_mae": 0.19317516130208964
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.15947158321738245
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.21442396452029547
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.24714508196959892
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.22592663543919725
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.125,
+            "intent_mae": 0.2961139874532819
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.18934597566723826
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.2631559552252293
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.16739714369177816
+          }
+        }
+      },
+      "hybrid_knn_logistic": {
+        "dominant_accuracy": 0.5208333333333334,
+        "macro_f1": 0.5004166666666667,
+        "intent_mae": 0.1691226701290547,
+        "mean_cosine_similarity": 0.9092274551769816,
+        "clickbait_mae": 0.033862940776177505,
+        "pred_distribution": {
+          "sosyal": 35,
+          "ogretici": 4,
+          "eglendirici": 2,
+          "haber": 7
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.25,
+          "eglendirici": 0.07692307692307693,
+          "haber": 0.875,
+          "sosyal": 0.9333333333333333
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.17264878199289782
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.2033619542674879
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.6,
+            "intent_mae": 0.13224140727457642
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.14016012860619384
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.5,
+            "intent_mae": 0.14591750457224603
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.4166666666666667,
+            "intent_mae": 0.18450517617414705
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.18170665779284087
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.875,
+            "intent_mae": 0.18112358349439034
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.14745993871367286
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.17395688927019404
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.17771461460260454
+          }
+        }
+      },
+      "ensemble_knn_ridge_logistic": {
+        "dominant_accuracy": 0.4791666666666667,
+        "macro_f1": 0.41984126984126985,
+        "intent_mae": 0.1796748488282597,
+        "mean_cosine_similarity": 0.9046703406298944,
+        "clickbait_mae": 0.03196710966760443,
+        "pred_distribution": {
+          "sosyal": 39,
+          "ogretici": 3,
+          "haber": 6
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.16666666666666666,
+          "eglendirici": 0.0,
+          "haber": 0.75,
+          "sosyal": 1.0
+        },
+        "by_challenge": {
+          "attitude_change": {
+            "n": 3,
+            "dominant_accuracy": 0.6666666666666666,
+            "intent_mae": 0.17955384046766806
+          },
+          "budget": {
+            "n": 6,
+            "dominant_accuracy": 0.0,
+            "intent_mae": 0.2098745246376453
+          },
+          "culture": {
+            "n": 5,
+            "dominant_accuracy": 0.6,
+            "intent_mae": 0.14522421054093942
+          },
+          "daily": {
+            "n": 3,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.14213359121844663
+          },
+          "gaming": {
+            "n": 6,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.15640059732088554
+          },
+          "humor": {
+            "n": 12,
+            "dominant_accuracy": 0.4166666666666667,
+            "intent_mae": 0.19346686430151072
+          },
+          "irony": {
+            "n": 6,
+            "dominant_accuracy": 0.16666666666666666,
+            "intent_mae": 0.19083018320096276
+          },
+          "news": {
+            "n": 8,
+            "dominant_accuracy": 0.75,
+            "intent_mae": 0.2087601522008788
+          },
+          "reflection": {
+            "n": 5,
+            "dominant_accuracy": 0.8,
+            "intent_mae": 0.15401192456582424
+          },
+          "social": {
+            "n": 4,
+            "dominant_accuracy": 1.0,
+            "intent_mae": 0.19123698684425394
+          },
+          "sports": {
+            "n": 3,
+            "dominant_accuracy": 0.3333333333333333,
+            "intent_mae": 0.17060535036580857
+          }
+        }
+      },
+      "balanced_logistic_dominant": {
+        "dominant_accuracy": 0.625,
+        "macro_f1": 0.6428571428571428,
+        "pred_distribution": {
+          "sosyal": 17,
+          "haber": 8,
+          "eglendirici": 15,
+          "ogretici": 8
+        },
+        "per_class_accuracy": {
+          "ogretici": 0.4166666666666667,
+          "eglendirici": 0.6153846153846154,
+          "haber": 0.875,
+          "sosyal": 0.6666666666666666
+        },
+        "accuracy_at_50pct_coverage": 0.75,
+        "accuracy_at_75pct_coverage": 0.75
+      }
+    }
+  }
+}
