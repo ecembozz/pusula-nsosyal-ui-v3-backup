@@ -19,6 +19,8 @@
 .pusulaTourFog[data-tourfog="right"]::before{left:calc(-1 * var(--tour-r,20px));top:0;background:radial-gradient(circle at 0% 100%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,13,22,.28) var(--tour-r,20px))}
 .pusulaTourFog[data-tourfog="right"]::after{left:calc(-1 * var(--tour-r,20px));bottom:0;background:radial-gradient(circle at 0% 0%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,13,22,.28) var(--tour-r,20px))}
 .pusulaTourCard{box-sizing:border-box!important}
+html.pusulaTourLocked,html.pusulaTourLocked body{overflow:hidden!important;overscroll-behavior:none!important}
+html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:none!important}
 `;
       document.head.appendChild(st);
     }
@@ -43,12 +45,31 @@
         card.style.setProperty('transform','none','important');
       });
     };
-    const mo=new MutationObserver(()=>{if(document.getElementById('pusulaTour')){align();setTimeout(align,80);setTimeout(align,180)}});
+    const syncTourState=()=>{
+      const root=document.getElementById('pusulaTour');
+      document.documentElement.classList.toggle('pusulaTourLocked',!!root);
+      if(!root)return;
+      if(!root.dataset.fogDismissBound){
+        root.dataset.fogDismissBound='1';
+        root.querySelectorAll('.pusulaTourFog').forEach(f=>f.addEventListener('click',e=>{
+          if(e.target===f)root.querySelector('.pusulaTourSkip')?.click();
+        }));
+      }
+      align();setTimeout(align,80);setTimeout(align,180);
+    };
+    const blockScroll=e=>{if(document.getElementById('pusulaTour'))e.preventDefault()};
+    const blockKeys=e=>{
+      if(!document.getElementById('pusulaTour'))return;
+      if(['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '].includes(e.key))e.preventDefault();
+    };
+    window.addEventListener('wheel',blockScroll,{passive:false,capture:true});
+    window.addEventListener('touchmove',blockScroll,{passive:false,capture:true});
+    document.addEventListener('keydown',blockKeys,true);
+    const mo=new MutationObserver(syncTourState);
     mo.observe(document.body,{childList:true,subtree:true});
     window.addEventListener('resize',align,{passive:true});
     window.addEventListener('orientationchange',align,{passive:true});
-    window.addEventListener('scroll',align,true);
-    align();
+    syncTourState();
   }
   bootBase();
 })();
