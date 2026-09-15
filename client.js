@@ -43,7 +43,7 @@ function UB(){let e=document.getElementById('budgetStatus');if(!S.budget){e.text
 function clock(){clearInterval(G.tm);G.st=Date.now();G.end=0;UB();if(S.budget)G.tm=setInterval(UB,1000)}
 function clearIntent(){clearInterval(G.tm);S.intent=null;S.budget=0;S.modalIntent=null;S.dismissed=false;S.mode='classic';G.c=null;document.getElementById('intentModal').classList.remove('show');LF('classic');toast('Standart demo akışı')}
 async function applyIntent(){if(!S.modalIntent)return toast('Önce bir yön seç');S.intent=S.modalIntent;S.budget=S.modalBudget;S.mode='pusula';S.dismissed=false;document.getElementById('intentModal').classList.remove('show');clock();toast(`${I[S.intent].label} · ${S.budget?S.budget+' dk':'sınırsız'}`);await LF('pusula')}
-async function setMode(m){S.mode=m;await LF(m);toast(m==='classic'?'Klasik sıralama':'PUSULA sıralaması')}
+async function setMode(m){if(m==='pusula'&&!S.intent){S.mode='classic';render();return toast('Önce bir yön seç')}S.mode=m;await LF(m);toast(m==='classic'?'Klasik sıralama':'PUSULA sıralaması')}
 
 function metrics(){
   let b=document.getElementById('metrics');
@@ -101,6 +101,7 @@ function techArchitecture(){
 }
 
 (async()=>{
+  S.mode='classic';
   syncTechChrome();
   const sub=document.getElementById('pusulaSub');
   if(sub)sub.textContent='PUSULA kapalı · 320 gizlilik güvenli gönderi klasik demo sıralamasında.';
