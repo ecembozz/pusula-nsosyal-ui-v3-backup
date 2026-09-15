@@ -6,7 +6,15 @@
     const s=document.createElement('script');
     s.src='/polish.base.js';
     s.async=false;
-    s.onload=installTourFix;
+    s.onload=()=>{installTourFix();bootCompassSelector()};
+    document.head.appendChild(s);
+  }
+  function bootCompassSelector(){
+    if(document.querySelector('script[data-pusula-compass-selector]'))return;
+    const s=document.createElement('script');
+    s.src='/compass-selector.js';
+    s.async=false;
+    s.dataset.pusulaCompassSelector='1';
     document.head.appendChild(s);
   }
   function installTourFix(){
