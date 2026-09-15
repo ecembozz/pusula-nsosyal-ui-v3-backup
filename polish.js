@@ -1,5 +1,8 @@
 (function(){
   function bootBase(){
+    // DEMO: onboarding'i her sayfa açılışında göstermek için "bir kez göster" kaydını temizle.
+    // Demo sonrası bu satırı kaldırmak yeterli; polish.base.js içindeki normal localStorage davranışı geri döner.
+    try{localStorage.removeItem('pusula-onboarding-update-3')}catch(e){}
     const s=document.createElement('script');
     s.src='/polish.base.js';
     s.async=false;
