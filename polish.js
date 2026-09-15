@@ -82,6 +82,18 @@ html[data-theme="light"] .limit i{
     box-sizing:border-box!important;
   }
   .postInner>.postMain{width:100%!important;min-width:0!important}
+  .postActions{
+    width:min(100%,560px)!important;
+    max-width:560px!important;
+    margin:8px auto 0!important;
+    align-items:center!important;
+    justify-content:space-evenly!important;
+    gap:8px!important;
+  }
+  .postActions .act{
+    flex:1 1 0!important;
+    justify-content:center!important;
+  }
   #tech-overview .flow,#tech-architecture .flow{
     display:grid!important;
     align-items:stretch!important;
