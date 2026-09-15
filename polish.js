@@ -36,10 +36,14 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
         const lf=root.querySelector('[data-tourfog="left"]'),rf=root.querySelector('[data-tourfog="right"]');
         if(lf){lf.style.borderTopRightRadius='0px';lf.style.borderBottomRightRadius='0px'}
         if(rf){rf.style.borderTopLeftRadius='0px';rf.style.borderBottomLeftRadius='0px'}
-        const width=Math.min(vw-24,r.width);
-        const center=r.left+r.width/2;
+        const desktop=window.matchMedia('(min-width:721px)').matches;
+        const spotX=Math.max(8,r.left-8);
+        const spotW=Math.min(vw-spotX-8,r.width+16);
+        const width=desktop?spotW:Math.min(vw-24,r.width);
+        const center=desktop?(spotX+spotW/2):(r.left+r.width/2);
         const left=Math.max(12,Math.min(vw-width-12,center-width/2));
         card.style.setProperty('width',Math.round(width)+'px','important');
+        card.style.setProperty('max-width','none','important');
         card.style.setProperty('left',Math.round(left)+'px','important');
         card.style.setProperty('right','auto','important');
         card.style.setProperty('transform','none','important');
