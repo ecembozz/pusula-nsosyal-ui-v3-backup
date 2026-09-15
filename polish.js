@@ -117,6 +117,16 @@ html[data-theme="light"] .limit i{
     document.head.appendChild(style);
   }
   injectUiFixes();
+  function syncThemeControl(){
+    const dark=document.documentElement.dataset.theme==='dark';
+    const sw=document.getElementById('themeToggle');
+    const label=document.getElementById('themeLabel');
+    const btn=document.getElementById('themeBtn');
+    if(sw)sw.classList.toggle('on',dark);
+    if(label)label.textContent=dark?'Karanlık mod':'Açık mod';
+    if(btn)btn.setAttribute('aria-pressed',dark?'true':'false');
+  }
+  syncThemeControl();
   function icon(name,cls){return '<i data-lucide="'+name+'" class="'+(cls||'i')+'"></i>'}
   function ensureIcon(slot,name,cls){
     if(!slot||!name)return false;
@@ -170,6 +180,7 @@ html[data-theme="light"] .limit i{
       const root=document.documentElement;
       root.classList.add('theme-switching');
       const result=upstreamToggle.apply(this,arguments);
+      syncThemeControl();
       requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.remove('theme-switching')})});
       return result;
     };
@@ -177,6 +188,7 @@ html[data-theme="light"] .limit i{
   }
   function finish(){
     settleHome();
+    syncThemeControl();
     normalize();
     wrapTheme();
     if(!wrapped && typeof window.openPage==='function'){
