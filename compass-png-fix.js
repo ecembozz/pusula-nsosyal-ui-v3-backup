@@ -4,6 +4,7 @@
   st.id='pusula-compass-original-png-fix';
   st.textContent=`
 /* Original user-provided PNG assets. No sprite/WebP conversion. */
+:root{--pc-compass-y:14px}
 .pcCompassBody{
   position:absolute!important;
   inset:0!important;
@@ -13,7 +14,7 @@
   background-size:100% 100%!important;
   image-rendering:auto!important;
   transform-origin:49.45% 43.55%!important;
-  transform:scale(1.40)!important;
+  transform:translateY(var(--pc-compass-y)) scale(1.40)!important;
 }
 html[data-theme="dark"] .pcCompassBody{
   background-image:url('/assets/pusula/dark.png')!important;
@@ -24,7 +25,7 @@ html[data-theme="dark"] .pcCompassBody{
   position:absolute!important;
   inset:auto!important;
   left:49.45%!important;
-  top:43.55%!important;
+  top:calc(43.55% + var(--pc-compass-y))!important;
   width:0!important;
   height:0!important;
   background:none!important;
@@ -56,10 +57,11 @@ html[data-theme="dark"] .pcNeedle::before{
 /* Pointer math and visual rotation share exactly the same physical center. */
 .pcDialHit{
   left:49.45%!important;
-  top:43.55%!important;
+  top:calc(43.55% + var(--pc-compass-y))!important;
 }
 
 @media(max-width:720px){
+  :root{--pc-compass-y:10px}
   .pcNeedle::before{width:120px;height:120px}
 }
 @media(max-width:390px){
