@@ -19,7 +19,7 @@
     ['experiment','Deney sonuçları','table-2'],
     ['architecture','Mimari & doğrulama','workflow']
   ];
-  const TOUR_KEY='pusula-onboarding-update-1';
+  const TOUR_KEY='pusula-onboarding-update-2';
 
   function injectUiFixes(){
     if(document.getElementById('pusula-ui-fixes-v5'))return;
@@ -45,19 +45,32 @@ html[data-theme="light"] .scorePill{background:var(--ui-score-bg)!important;colo
 html[data-theme="light"] .scorePill.k{background:var(--ui-score-classic-bg)!important;color:var(--ui-score-classic-text)!important;border-color:var(--ui-soft-border)!important}
 html[data-theme="light"] .limit i{background:var(--ui-status-bg)!important;color:var(--ui-status-text)!important;border:1px solid var(--ui-soft-border)!important}
 .pusulaTour{position:fixed;inset:0;z-index:170;pointer-events:none}
-.pusulaTourFog{position:fixed;z-index:1;background:rgba(8,13,22,.48);backdrop-filter:blur(5px) saturate(.92);-webkit-backdrop-filter:blur(5px) saturate(.92);pointer-events:auto}
-.pusulaTourSpot{position:fixed;z-index:2;border:1.5px dashed color-mix(in srgb,var(--brand) 78%,#fff 22%);border-radius:18px;box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 22%,transparent),0 14px 42px rgba(16,69,118,.18);pointer-events:auto;cursor:pointer}
-.pusulaTourCard{position:fixed;z-index:4;width:min(330px,calc(100vw - 32px));padding:15px 16px 14px;border:1px solid var(--line-soft);border-radius:16px;background:color-mix(in srgb,var(--panel) 96%,transparent);color:var(--text);box-shadow:0 20px 58px rgba(7,20,34,.22);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);pointer-events:auto}
-.pusulaTourKicker{display:inline-flex;align-items:center;gap:6px;margin-bottom:8px;padding:5px 8px;border-radius:999px;background:color-mix(in srgb,var(--brand) 11%,transparent);color:var(--brand);font-size:10px;font-weight:800;letter-spacing:.02em}
+.pusulaTourFog{position:fixed;z-index:1;background:rgba(7,13,22,.50);backdrop-filter:blur(7px) saturate(.9);-webkit-backdrop-filter:blur(7px) saturate(.9);pointer-events:auto}
+.pusulaTourSpot{position:fixed;z-index:2;border:1.5px dashed color-mix(in srgb,var(--brand) 75%,#fff 25%);border-radius:20px;box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 18%,transparent),0 0 34px color-mix(in srgb,var(--brand) 20%,transparent),0 16px 48px rgba(16,69,118,.16);pointer-events:auto;cursor:pointer}
+.pusulaTourCard{position:fixed;z-index:4;width:min(470px,calc(100vw - 30px));overflow:hidden;border:1px solid color-mix(in srgb,var(--line-soft) 78%,var(--brand) 22%);border-radius:25px;background:var(--panel);color:var(--text);box-shadow:0 32px 90px rgba(7,20,34,.32);pointer-events:auto}
+.pusulaTourVisual{position:relative;height:190px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,color-mix(in srgb,var(--brand) 12%,var(--panel)) 0%,color-mix(in srgb,#22c7dc 13%,var(--panel)) 45%,color-mix(in srgb,#496cff 13%,var(--panel)) 100%)}
+.pusulaTourVisual:before{content:"";position:absolute;inset:-20px;background:linear-gradient(31deg,transparent 44%,color-mix(in srgb,var(--brand) 13%,transparent) 45%,color-mix(in srgb,var(--brand) 13%,transparent) 47%,transparent 48%),linear-gradient(143deg,transparent 53%,color-mix(in srgb,#2fc6df 12%,transparent) 54%,color-mix(in srgb,#2fc6df 12%,transparent) 56%,transparent 57%);background-size:92px 92px,128px 128px;opacity:.72;transform:rotate(-6deg)}
+.pusulaTourVisual:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--brand) 18%,transparent),transparent 68%);filter:blur(2px)}
+.pusulaTourKicker{position:absolute;left:20px;top:18px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border:1px solid color-mix(in srgb,var(--brand) 22%,transparent);border-radius:999px;background:color-mix(in srgb,var(--panel) 84%,transparent);color:var(--brand);font-size:10px;font-weight:850;letter-spacing:.045em;backdrop-filter:blur(12px)}
 .pusulaTourKicker .lucide{width:13px;height:13px}
-.pusulaTourTitle{font-size:17px;font-weight:850;letter-spacing:-.015em;margin:0 0 5px}
-.pusulaTourText{margin:0;color:var(--muted);font-size:12px;line-height:1.48}
-.pusulaTourActions{display:flex;align-items:center;gap:8px;margin-top:13px}
-.pusulaTourTry{height:36px;border:0;border-radius:10px;padding:0 13px;background:linear-gradient(115deg,#20bed5,#3974ff);color:#fff;font-size:11.5px;font-weight:800}
-.pusulaTourSkip{height:36px;border:0;border-radius:10px;padding:0 10px;background:transparent;color:var(--muted);font-size:11px;font-weight:700}
+.pusulaTourCompass{position:relative;z-index:2;width:112px;height:112px;border-radius:50%;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--brand) 33%,transparent);background:color-mix(in srgb,var(--panel) 84%,transparent);box-shadow:0 18px 44px rgba(29,126,197,.18),inset 0 0 0 11px color-mix(in srgb,var(--brand) 6%,transparent);backdrop-filter:blur(12px)}
+.pusulaTourCompass:before,.pusulaTourCompass:after{content:"";position:absolute;left:50%;top:50%;background:color-mix(in srgb,var(--brand) 26%,transparent);transform:translate(-50%,-50%)}
+.pusulaTourCompass:before{width:1px;height:82px}.pusulaTourCompass:after{height:1px;width:82px}
+.pusulaTourCompass .lucide{width:54px;height:54px;color:var(--brand);stroke-width:1.45}
+.pusulaTourNorth,.pusulaTourSouth{position:absolute;left:50%;z-index:3;transform:translateX(-50%);font-size:10px;font-weight:900;color:var(--brand)}
+.pusulaTourNorth{top:12px}.pusulaTourSouth{bottom:11px}
+.pusulaTourBody{padding:20px 22px 19px}
+.pusulaTourTitle{font-size:22px;font-weight:900;letter-spacing:-.025em;margin:0 0 7px}
+.pusulaTourText{margin:0;color:var(--muted);font-size:12.5px;line-height:1.55}
+.pusulaTourSteps{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-top:17px;padding:12px;border:1px solid var(--line-soft);border-radius:15px;background:var(--panel-2)}
+.pusulaTourStep{display:flex;align-items:center;gap:9px;min-width:0;font-size:11.5px;font-weight:800}.pusulaTourStep .lucide{width:18px;height:18px;flex:none;color:var(--brand)}
+.pusulaTourStepArrow{color:var(--muted);display:grid;place-items:center}.pusulaTourStepArrow .lucide{width:16px;height:16px}
+.pusulaTourActions{display:grid;grid-template-columns:1fr auto;align-items:center;gap:9px;margin-top:17px}
+.pusulaTourTry{height:43px;border:0;border-radius:12px;padding:0 17px;background:linear-gradient(115deg,#20bed5,#3974ff);color:#fff;font-size:12px;font-weight:850;box-shadow:0 8px 22px rgba(44,125,255,.20)}
+.pusulaTourSkip{height:43px;border:0;border-radius:12px;padding:0 14px;background:transparent;color:var(--muted);font-size:11.5px;font-weight:750}
 .pusulaTourSkip:hover{background:var(--panel-2);color:var(--text)}
 .pusulaTourArrow{position:fixed;inset:0;z-index:3;width:100vw;height:100vh;overflow:visible;pointer-events:none}
-.pusulaTourArrow path{fill:none;stroke:var(--brand);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:7 7;filter:drop-shadow(0 2px 4px rgba(35,145,220,.22))}
+.pusulaTourArrow path{fill:none;stroke:var(--brand);stroke-width:2;stroke-linecap:round;stroke-dasharray:6 7;filter:drop-shadow(0 2px 4px rgba(35,145,220,.20))}
 @media(max-width:720px){
   html[data-theme="light"] .main,html[data-theme="light"] .feedBody,html[data-theme="light"] #posts{background:var(--panel)!important}
   html[data-theme="light"] .modalFooter{background:var(--panel)!important}
@@ -100,7 +113,9 @@ html[data-theme="light"] .limit i{background:var(--ui-status-bg)!important;color
   .mobileTechBody .techGrid{grid-template-columns:1fr!important;gap:8px!important;margin-top:10px!important}.mobileTechBody .span4,.mobileTechBody .span5,.mobileTechBody .span6,.mobileTechBody .span7,.mobileTechBody .span8,.mobileTechBody .span12{grid-column:1/-1!important}
   .mobileTechBody .techCard{padding:12px!important}.mobileTechBody .compareCols{grid-template-columns:1fr!important}.mobileTechBody .flow{grid-template-columns:1fr!important}.mobileTechBody .arrow{display:none!important}.mobileTechBody .sourceBadge,.mobileTechBody .backendStatus{margin-top:10px!important}.mobileTechBody .expTable{min-width:720px!important}
   .mobileTechLoading{padding:14px 4px!important;color:var(--muted)!important;font-size:11px!important}
-  .pusulaTourCard{width:calc(100vw - 28px);padding:14px 15px 13px}
+  .pusulaTourCard{width:calc(100vw - 24px);border-radius:22px}
+  .pusulaTourVisual{height:160px}.pusulaTourCompass{width:94px;height:94px}.pusulaTourCompass .lucide{width:45px;height:45px}.pusulaTourCompass:before{height:70px}.pusulaTourCompass:after{width:70px}
+  .pusulaTourBody{padding:17px 17px 16px}.pusulaTourTitle{font-size:19px}.pusulaTourSteps{margin-top:14px;padding:10px;gap:7px}.pusulaTourStep{font-size:10.5px;gap:6px}.pusulaTourActions{margin-top:14px}.pusulaTourTry,.pusulaTourSkip{height:40px}
 }
 @media(min-width:721px){.mobileDock,.mobileNavOverlay{display:none!important}}
 @media(min-width:721px){
@@ -159,9 +174,11 @@ html[data-theme="light"] .limit i{background:var(--ui-status-bg)!important;color
     Object.assign(leftFog.style,{left:'0px',top:y+'px',width:Math.max(0,x)+'px',height:h+'px'});
     Object.assign(rightFog.style,{left:(x+w)+'px',top:y+'px',width:Math.max(0,vw-x-w)+'px',height:h+'px'});
     Object.assign(bottomFog.style,{left:'0px',top:(y+h)+'px',width:vw+'px',height:Math.max(0,vh-y-h)+'px'});
-    const card=root.querySelector('.pusulaTourCard');card.style.left=Math.max(14,Math.min(vw-card.offsetWidth-14,r.left))+'px';
-    const cardH=card.offsetHeight,below=r.bottom+22+cardH<vh-14;card.style.top=(below?r.bottom+22:Math.max(14,r.top-22-cardH))+'px';
-    const c=card.getBoundingClientRect(),sx=c.left+c.width*.68,sy=below?c.top:c.bottom,ex=t.left+t.width/2,ey=below?t.bottom:t.top,dy=Math.max(34,Math.abs(ey-sy)*.45);
+    const card=root.querySelector('.pusulaTourCard'),cardW=card.offsetWidth,cardH=card.offsetHeight;
+    const left=Math.max(12,Math.min(vw-cardW-12,(vw-cardW)/2));card.style.left=left+'px';
+    const canBelow=r.bottom+26+cardH<vh-12,canAbove=r.top-26-cardH>12;
+    const top=canBelow?r.bottom+26:canAbove?r.top-26-cardH:Math.max(12,Math.min(vh-cardH-12,(vh-cardH)/2));card.style.top=top+'px';
+    const c=card.getBoundingClientRect(),below=c.top>=r.bottom,sx=c.left+c.width*.72,sy=below?c.top:c.bottom,ex=t.left+t.width/2,ey=below?t.bottom:t.top,dy=Math.max(38,Math.abs(ey-sy)*.38);
     root.querySelector('.pusulaTourArrow path').setAttribute('d',`M ${sx} ${sy} C ${sx} ${below?sy-dy:sy+dy}, ${ex} ${below?ey+dy:ey-dy}, ${ex} ${ey}`);
   }
   function startPusulaTour(){closePusulaTour(true);setTimeout(()=>window.openIntent?.(),40)}
@@ -171,7 +188,7 @@ html[data-theme="light"] .limit i{background:var(--ui-status-bg)!important;color
     if(typeof S!=='undefined'&&(S.intent||S.dismissed))return;
     const target=document.getElementById('pusulaBar');if(!target||target.offsetParent===null)return;
     const root=document.createElement('div');root.id='pusulaTour';root.className='pusulaTour';root.setAttribute('role','dialog');root.setAttribute('aria-label','PUSULA güncellemesi');
-    root.innerHTML='<div class="pusulaTourFog" data-tourfog="top"></div><div class="pusulaTourFog" data-tourfog="left"></div><div class="pusulaTourFog" data-tourfog="right"></div><div class="pusulaTourFog" data-tourfog="bottom"></div><div class="pusulaTourSpot" title="PUSULA yönünü seç"></div><svg class="pusulaTourArrow" aria-hidden="true"><defs><marker id="pusulaTourArrowHead" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="none" stroke="var(--brand)" stroke-width="1.6"/></marker></defs><path marker-end="url(#pusulaTourArrowHead)"></path></svg><div class="pusulaTourCard"><div class="pusulaTourKicker">'+icon('sparkles','i')+'<span>Yeni güncelleme</span></div><div class="pusulaTourTitle">PUSULA akışı</div><p class="pusulaTourText">Bu oturumda ne için geldiğini ve ne kadar kalmak istediğini seçebilirsin.</p><div class="pusulaTourActions"><button type="button" class="pusulaTourTry">Şimdi dene</button><button type="button" class="pusulaTourSkip">Geç</button></div></div>';
+    root.innerHTML='<div class="pusulaTourFog" data-tourfog="top"></div><div class="pusulaTourFog" data-tourfog="left"></div><div class="pusulaTourFog" data-tourfog="right"></div><div class="pusulaTourFog" data-tourfog="bottom"></div><div class="pusulaTourSpot" title="PUSULA yönünü seç"></div><svg class="pusulaTourArrow" aria-hidden="true"><defs><marker id="pusulaTourArrowHead" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="none" stroke="var(--brand)" stroke-width="1.6"/></marker></defs><path marker-end="url(#pusulaTourArrowHead)"></path></svg><div class="pusulaTourCard"><div class="pusulaTourVisual"><div class="pusulaTourKicker">'+icon('sparkles','i')+'<span>YENİ GÜNCELLEME</span></div><div class="pusulaTourCompass"><span class="pusulaTourNorth">N</span>'+icon('compass','i')+'<span class="pusulaTourSouth">S</span></div></div><div class="pusulaTourBody"><div class="pusulaTourTitle">Akışının yönünü sen seç</div><p class="pusulaTourText">Ne için geldiğini seç. İstersen ne kadar kalmak istediğini de belirle.</p><div class="pusulaTourSteps"><div class="pusulaTourStep">'+icon('compass','i')+'<span>Amacını seç</span></div><div class="pusulaTourStepArrow">'+icon('arrow-right','i')+'</div><div class="pusulaTourStep">'+icon('clock-3','i')+'<span>Süreni belirle</span></div></div><div class="pusulaTourActions"><button type="button" class="pusulaTourTry">Şimdi dene</button><button type="button" class="pusulaTourSkip">Geç</button></div></div></div>';
     document.body.appendChild(root);root.querySelector('.pusulaTourTry').onclick=startPusulaTour;root.querySelector('.pusulaTourSpot').onclick=startPusulaTour;root.querySelector('.pusulaTourSkip').onclick=()=>closePusulaTour(true);paintIcons();
     tourReflow=()=>positionPusulaTour();window.addEventListener('resize',tourReflow,{passive:true});window.addEventListener('orientationchange',tourReflow,{passive:true});window.addEventListener('scroll',tourReflow,true);requestAnimationFrame(()=>{positionPusulaTour();setTimeout(positionPusulaTour,120)});
   }
