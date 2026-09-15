@@ -77,7 +77,7 @@ function techTab(name,btn){
   if(name==='experiment'&&!G.b){techExperiment();LB().then(()=>techExperiment());return}
   renderTech(name)
 }
-async function syncBackend(){await LM();if(S.intent)await LC();syncTechChrome();renderTech(document.querySelector('.techPane.active')?.id?.replace('tech-','')||'overview')}
+async function syncBackend(){await LM();if(S.intent)await LC();if(matchMedia('(max-width:720px)').matches&&!G.b)await LB();syncTechChrome();renderTech(document.querySelector('.techPane.active')?.id?.replace('tech-','')||'overview')}
 function sourceStatus(){let c=G.m?.source?.pool_size||320,v=G.m?.source?.semantic_candidate||'V5';return `<span class="sourceBadge">${c} gizlilik güvenli gönderi</span> <span class="backendStatus ${BACKEND.ok?'':'off'}"><i class="statusDot"></i>${BACKEND.ok?'API + Candidate '+E(v)+' offline cache':'API bağlantısı bekleniyor'}</span>`}
 function techOverview(){
   const r=document.getElementById('tech-overview');if(!r)return;
