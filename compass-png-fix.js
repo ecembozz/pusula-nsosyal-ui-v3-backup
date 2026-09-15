@@ -12,6 +12,8 @@
   background-position:center!important;
   background-size:100% 100%!important;
   image-rendering:auto!important;
+  transform-origin:49.45% 43.55%!important;
+  transform:scale(1.18)!important;
 }
 html[data-theme="dark"] .pcCompassBody{
   background-image:url('/assets/pusula/dark.png')!important;
