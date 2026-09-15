@@ -38,15 +38,15 @@ html[data-theme="dark"] .pcCompassBody{
   position:absolute;
   left:0;
   top:0;
-  width:205px;
-  height:205px;
+  width:150px;
+  height:150px;
   transform:translate(-50%,-50%);
   transform-origin:50% 50%;
   background-image:url('/assets/pusula/neddle-light.png');
   background-repeat:no-repeat;
   background-position:center;
   background-size:100% 100%;
-  filter:drop-shadow(0 5px 7px rgba(13,61,118,.18));
+  filter:drop-shadow(0 4px 6px rgba(13,61,118,.16));
   pointer-events:none;
 }
 html[data-theme="dark"] .pcNeedle::before{
@@ -60,10 +60,10 @@ html[data-theme="dark"] .pcNeedle::before{
 }
 
 @media(max-width:720px){
-  .pcNeedle::before{width:164px;height:164px}
+  .pcNeedle::before{width:120px;height:120px}
 }
 @media(max-width:390px){
-  .pcNeedle::before{width:151px;height:151px}
+  .pcNeedle::before{width:110px;height:110px}
 }
 `;
   document.head.appendChild(st);
