@@ -13,7 +13,7 @@
   background-size:100% 100%!important;
   image-rendering:auto!important;
   transform-origin:49.45% 43.55%!important;
-  transform:scale(1.18)!important;
+  transform:scale(1.34)!important;
 }
 html[data-theme="dark"] .pcCompassBody{
   background-image:url('/assets/pusula/dark.png')!important;
@@ -38,8 +38,8 @@ html[data-theme="dark"] .pcCompassBody{
   position:absolute;
   left:0;
   top:0;
-  width:286px;
-  height:286px;
+  width:252px;
+  height:252px;
   transform:translate(-50%,-50%);
   transform-origin:50% 50%;
   background-image:url('/assets/pusula/neddle-light.png');
@@ -60,10 +60,10 @@ html[data-theme="dark"] .pcNeedle::before{
 }
 
 @media(max-width:720px){
-  .pcNeedle::before{width:228px;height:228px}
+  .pcNeedle::before{width:201px;height:201px}
 }
 @media(max-width:390px){
-  .pcNeedle::before{width:210px;height:210px}
+  .pcNeedle::before{width:185px;height:185px}
 }
 `;
   document.head.appendChild(st);
