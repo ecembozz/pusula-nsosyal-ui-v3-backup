@@ -73,6 +73,16 @@ html[data-theme="light"] .limit i{
   color:var(--ui-status-text)!important;
   border:1px solid var(--ui-soft-border)!important;
 }
+@media(max-width:720px){
+  html[data-theme="light"] .main,
+  html[data-theme="light"] .feedBody,
+  html[data-theme="light"] #posts{
+    background:var(--panel)!important;
+  }
+  html[data-theme="light"] .modalFooter{
+    background:var(--panel)!important;
+  }
+}
 @media(min-width:721px){
   .postInner{
     width:100%!important;
