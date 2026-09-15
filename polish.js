@@ -19,7 +19,7 @@
     ['experiment','Deney sonuçları','table-2'],
     ['architecture','Mimari & doğrulama','workflow']
   ];
-  const TOUR_KEY='pusula-onboarding-update-2';
+  const TOUR_KEY='pusula-onboarding-update-3';
 
   function injectUiFixes(){
     if(document.getElementById('pusula-ui-fixes-v5'))return;
@@ -45,9 +45,9 @@ html[data-theme="light"] .scorePill{background:var(--ui-score-bg)!important;colo
 html[data-theme="light"] .scorePill.k{background:var(--ui-score-classic-bg)!important;color:var(--ui-score-classic-text)!important;border-color:var(--ui-soft-border)!important}
 html[data-theme="light"] .limit i{background:var(--ui-status-bg)!important;color:var(--ui-status-text)!important;border:1px solid var(--ui-soft-border)!important}
 .pusulaTour{position:fixed;inset:0;z-index:170;pointer-events:none}
-.pusulaTourFog{position:fixed;z-index:1;background:rgba(7,13,22,.50);backdrop-filter:blur(7px) saturate(.9);-webkit-backdrop-filter:blur(7px) saturate(.9);pointer-events:auto}
-.pusulaTourSpot{position:fixed;z-index:2;border:1.5px dashed color-mix(in srgb,var(--brand) 75%,#fff 25%);border-radius:20px;box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 18%,transparent),0 0 34px color-mix(in srgb,var(--brand) 20%,transparent),0 16px 48px rgba(16,69,118,.16);pointer-events:auto;cursor:pointer}
-.pusulaTourCard{position:fixed;z-index:4;width:min(470px,calc(100vw - 30px));overflow:hidden;border:1px solid color-mix(in srgb,var(--line-soft) 78%,var(--brand) 22%);border-radius:25px;background:var(--panel);color:var(--text);box-shadow:0 32px 90px rgba(7,20,34,.32);pointer-events:auto}
+.pusulaTourFog{position:fixed;z-index:1;background:rgba(7,13,22,.34);backdrop-filter:blur(4px) saturate(.94);-webkit-backdrop-filter:blur(4px) saturate(.94);pointer-events:auto}
+.pusulaTourSpot{position:fixed;z-index:2;border:1.5px dashed color-mix(in srgb,var(--brand) 75%,#fff 25%);border-radius:20px;box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 18%,transparent),0 0 28px color-mix(in srgb,var(--brand) 16%,transparent),0 14px 38px rgba(16,69,118,.14);pointer-events:auto;cursor:pointer}
+.pusulaTourCard{position:fixed;z-index:4;width:min(470px,calc(100vw - 30px));overflow:hidden;border:1px solid color-mix(in srgb,var(--line-soft) 78%,var(--brand) 22%);border-radius:25px;background:var(--panel);color:var(--text);box-shadow:0 32px 90px rgba(7,20,34,.28);pointer-events:auto}
 .pusulaTourVisual{position:relative;height:190px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,color-mix(in srgb,var(--brand) 12%,var(--panel)) 0%,color-mix(in srgb,#22c7dc 13%,var(--panel)) 45%,color-mix(in srgb,#496cff 13%,var(--panel)) 100%)}
 .pusulaTourVisual:before{content:"";position:absolute;inset:-20px;background:linear-gradient(31deg,transparent 44%,color-mix(in srgb,var(--brand) 13%,transparent) 45%,color-mix(in srgb,var(--brand) 13%,transparent) 47%,transparent 48%),linear-gradient(143deg,transparent 53%,color-mix(in srgb,#2fc6df 12%,transparent) 54%,color-mix(in srgb,#2fc6df 12%,transparent) 56%,transparent 57%);background-size:92px 92px,128px 128px;opacity:.72;transform:rotate(-6deg)}
 .pusulaTourVisual:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--brand) 18%,transparent),transparent 68%);filter:blur(2px)}
@@ -168,17 +168,21 @@ html[data-theme="light"] .limit i{background:var(--ui-status-bg)!important;color
     const root=document.getElementById('pusulaTour'),target=document.getElementById('pusulaBar'),cta=document.getElementById('pusulaCta');if(!root||!target||!cta)return;
     const r=target.getBoundingClientRect(),t=cta.getBoundingClientRect(),pad=8,vw=window.innerWidth,vh=window.innerHeight;
     const x=Math.max(8,r.left-pad),y=Math.max(8,r.top-pad),w=Math.min(vw-x-8,r.width+pad*2),h=Math.min(vh-y-8,r.height+pad*2);
-    const spot=root.querySelector('.pusulaTourSpot');Object.assign(spot.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px'});
+    const radius=Math.max(18,Math.min(24,Math.round(Math.min(w,h)*.12)));
+    const spot=root.querySelector('.pusulaTourSpot');Object.assign(spot.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px',borderRadius:radius+'px'});
     const topFog=root.querySelector('[data-tourfog="top"]'),leftFog=root.querySelector('[data-tourfog="left"]'),rightFog=root.querySelector('[data-tourfog="right"]'),bottomFog=root.querySelector('[data-tourfog="bottom"]');
     Object.assign(topFog.style,{left:'0px',top:'0px',width:vw+'px',height:Math.max(0,y)+'px'});
-    Object.assign(leftFog.style,{left:'0px',top:y+'px',width:Math.max(0,x)+'px',height:h+'px'});
-    Object.assign(rightFog.style,{left:(x+w)+'px',top:y+'px',width:Math.max(0,vw-x-w)+'px',height:h+'px'});
+    Object.assign(leftFog.style,{left:'0px',top:y+'px',width:Math.max(0,x)+'px',height:h+'px',borderTopRightRadius:radius+'px',borderBottomRightRadius:radius+'px'});
+    Object.assign(rightFog.style,{left:(x+w)+'px',top:y+'px',width:Math.max(0,vw-x-w)+'px',height:h+'px',borderTopLeftRadius:radius+'px',borderBottomLeftRadius:radius+'px'});
     Object.assign(bottomFog.style,{left:'0px',top:(y+h)+'px',width:vw+'px',height:Math.max(0,vh-y-h)+'px'});
-    const card=root.querySelector('.pusulaTourCard'),cardW=card.offsetWidth,cardH=card.offsetHeight;
-    const left=Math.max(12,Math.min(vw-cardW-12,(vw-cardW)/2));card.style.left=left+'px';
+    const card=root.querySelector('.pusulaTourCard');
+    const targetW=Math.min(vw-24,Math.max(340,Math.min(560,w)));
+    card.style.width=targetW+'px';
+    const cardW=card.offsetWidth,cardH=card.offsetHeight;
+    const left=Math.max(12,Math.min(vw-cardW-12,x+(w-cardW)/2));card.style.left=left+'px';
     const canBelow=r.bottom+26+cardH<vh-12,canAbove=r.top-26-cardH>12;
     const top=canBelow?r.bottom+26:canAbove?r.top-26-cardH:Math.max(12,Math.min(vh-cardH-12,(vh-cardH)/2));card.style.top=top+'px';
-    const c=card.getBoundingClientRect(),below=c.top>=r.bottom,sx=c.left+c.width*.72,sy=below?c.top:c.bottom,ex=t.left+t.width/2,ey=below?t.bottom:t.top,dy=Math.max(38,Math.abs(ey-sy)*.38);
+    const c=card.getBoundingClientRect(),below=c.top>=r.bottom,sx=c.left+c.width*.55,sy=below?c.top:c.bottom,ex=t.left+t.width/2,ey=below?t.bottom:t.top,dy=Math.max(38,Math.abs(ey-sy)*.38);
     root.querySelector('.pusulaTourArrow path').setAttribute('d',`M ${sx} ${sy} C ${sx} ${below?sy-dy:sy+dy}, ${ex} ${below?ey+dy:ey-dy}, ${ex} ${ey}`);
   }
   function startPusulaTour(){closePusulaTour(true);setTimeout(()=>window.openIntent?.(),40)}
