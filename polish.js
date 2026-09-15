@@ -20,7 +20,7 @@
 .pusulaTourFog[data-tourfog="right"]::after{left:calc(-1 * var(--tour-r,20px));bottom:0;background:radial-gradient(circle at 0% 0%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,13,22,.28) var(--tour-r,20px))}
 .pusulaTourCard{box-sizing:border-box!important}
 @media(min-width:721px){
-  .pusulaTourCard{width:var(--tour-card-w)!important;min-width:var(--tour-card-w)!important;max-width:var(--tour-card-w)!important;left:var(--tour-card-left)!important;right:auto!important;transform:none!important}
+  .pusulaTourCard{width:var(--tour-card-w,560px)!important;max-width:none!important;min-width:0!important}
 }
 @media(max-width:720px){.pusulaTourCard{min-width:0!important;max-width:calc(100vw - 24px)!important}}
 html.pusulaTourLocked,html.pusulaTourLocked body{overflow:hidden!important;overscroll-behavior:none!important}
@@ -28,32 +28,20 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
 `;
       document.head.appendChild(st);
     }
-    let raf=0;
     const align=()=>{
-      cancelAnimationFrame(raf);
-      raf=requestAnimationFrame(()=>{
-        const root=document.getElementById('pusulaTour'),target=document.getElementById('pusulaBar'),card=root?.querySelector('.pusulaTourCard');
-        if(!root||!target||!card)return;
-        const r=target.getBoundingClientRect(),vw=window.innerWidth;
-        const radius=Math.max(18,Math.min(24,Math.round((r.height+16)*.12)));
-        root.style.setProperty('--tour-r',radius+'px');
-        const lf=root.querySelector('[data-tourfog="left"]'),rf=root.querySelector('[data-tourfog="right"]');
-        if(lf){lf.style.borderTopRightRadius='0px';lf.style.borderBottomRightRadius='0px'}
-        if(rf){rf.style.borderTopLeftRadius='0px';rf.style.borderBottomLeftRadius='0px'}
-        const desktop=window.matchMedia('(min-width:721px)').matches;
-        const spotX=Math.max(8,r.left-8);
-        const spotW=Math.min(vw-spotX-8,r.width+16);
-        if(desktop){
-          const width=Math.min(vw-24,spotW);
-          const center=spotX+spotW/2;
-          const left=Math.max(12,Math.min(vw-width-12,center-width/2));
-          root.style.setProperty('--tour-card-w',Math.round(width)+'px');
-          root.style.setProperty('--tour-card-left',Math.round(left)+'px');
-        }else{
-          root.style.removeProperty('--tour-card-w');
-          root.style.removeProperty('--tour-card-left');
-        }
-      });
+      const root=document.getElementById('pusulaTour'),target=document.getElementById('pusulaBar');
+      if(!root||!target)return;
+      const r=target.getBoundingClientRect(),vw=window.innerWidth;
+      const radius=Math.max(18,Math.min(24,Math.round((r.height+16)*.12)));
+      root.style.setProperty('--tour-r',radius+'px');
+      const desktop=window.matchMedia('(min-width:721px)').matches;
+      if(desktop){
+        const x=Math.max(8,r.left-8);
+        const w=Math.min(vw-x-8,r.width+16);
+        root.style.setProperty('--tour-card-w',Math.round(w)+'px');
+      }else{
+        root.style.removeProperty('--tour-card-w');
+      }
     };
     const syncTourState=()=>{
       const root=document.getElementById('pusulaTour');
@@ -65,7 +53,7 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
           if(e.target===f)root.querySelector('.pusulaTourSkip')?.click();
         }));
       }
-      align();setTimeout(align,80);setTimeout(align,180);
+      align();
     };
     const blockScroll=e=>{if(document.getElementById('pusulaTour'))e.preventDefault()};
     const blockKeys=e=>{
