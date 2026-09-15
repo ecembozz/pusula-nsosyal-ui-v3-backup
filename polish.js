@@ -6,7 +6,7 @@
     const s=document.createElement('script');
     s.src='/polish.base.js';
     s.async=false;
-    s.onload=()=>{installTourFix();bootCompassSelector()};
+    s.onload=()=>{installTourFix();scheduleCompassSelector()};
     document.head.appendChild(s);
   }
   function bootCompassSelector(){
@@ -16,6 +16,11 @@
     s.async=false;
     s.dataset.pusulaCompassSelector='1';
     document.head.appendChild(s);
+  }
+  function scheduleCompassSelector(){
+    const run=()=>setTimeout(bootCompassSelector,80);
+    if(document.readyState==='complete')run();
+    else window.addEventListener('load',run,{once:true});
   }
   function installTourFix(){
     if(!document.getElementById('pusula-tour-shape-fix-v4')){
