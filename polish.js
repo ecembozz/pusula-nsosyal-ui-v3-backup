@@ -19,6 +19,10 @@
 .pusulaTourFog[data-tourfog="right"]::before{left:calc(-1 * var(--tour-r,20px));top:0;background:radial-gradient(circle at 0% 100%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,13,22,.28) var(--tour-r,20px))}
 .pusulaTourFog[data-tourfog="right"]::after{left:calc(-1 * var(--tour-r,20px));bottom:0;background:radial-gradient(circle at 0% 0%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,13,22,.28) var(--tour-r,20px))}
 .pusulaTourCard{box-sizing:border-box!important}
+@media(min-width:721px){
+  .pusulaTourCard{width:var(--tour-card-w)!important;min-width:var(--tour-card-w)!important;max-width:var(--tour-card-w)!important;left:var(--tour-card-left)!important;right:auto!important;transform:none!important}
+}
+@media(max-width:720px){.pusulaTourCard{min-width:0!important;max-width:calc(100vw - 24px)!important}}
 html.pusulaTourLocked,html.pusulaTourLocked body{overflow:hidden!important;overscroll-behavior:none!important}
 html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:none!important}
 `;
@@ -39,14 +43,16 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
         const desktop=window.matchMedia('(min-width:721px)').matches;
         const spotX=Math.max(8,r.left-8);
         const spotW=Math.min(vw-spotX-8,r.width+16);
-        const width=desktop?spotW:Math.min(vw-24,r.width);
-        const center=desktop?(spotX+spotW/2):(r.left+r.width/2);
-        const left=Math.max(12,Math.min(vw-width-12,center-width/2));
-        card.style.setProperty('width',Math.round(width)+'px','important');
-        card.style.setProperty('max-width','none','important');
-        card.style.setProperty('left',Math.round(left)+'px','important');
-        card.style.setProperty('right','auto','important');
-        card.style.setProperty('transform','none','important');
+        if(desktop){
+          const width=Math.min(vw-24,spotW);
+          const center=spotX+spotW/2;
+          const left=Math.max(12,Math.min(vw-width-12,center-width/2));
+          root.style.setProperty('--tour-card-w',Math.round(width)+'px');
+          root.style.setProperty('--tour-card-left',Math.round(left)+'px');
+        }else{
+          root.style.removeProperty('--tour-card-w');
+          root.style.removeProperty('--tour-card-left');
+        }
       });
     };
     const syncTourState=()=>{
