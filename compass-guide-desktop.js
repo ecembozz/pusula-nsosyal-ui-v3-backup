@@ -67,6 +67,29 @@
   document.head.appendChild(style);
 
   let raf=0;
+
+  function fixBudgetArrow(root,card,step){
+    if(step!==4)return;
+    const arrow=root.querySelector('.pcgArrowSvg .pcgArrow');
+    const row=document.querySelector('#intentModal.show .pusulaCompassModal .budgetRow');
+    if(!arrow||!row)return;
+    const controls=[...row.querySelectorAll('[data-modalbudget],.pcCustomBudget')].filter(el=>{
+      const r=el.getBoundingClientRect();return r.width&&r.height;
+    });
+    if(!controls.length)return;
+    const rects=controls.map(el=>el.getBoundingClientRect());
+    const left=Math.min(...rects.map(r=>r.left));
+    const right=Math.max(...rects.map(r=>r.right));
+    const top=Math.min(...rects.map(r=>r.top));
+    const cr=card.getBoundingClientRect();
+    const start={x:cr.left+cr.width*.72,y:cr.bottom+8};
+    const end={x:(left+right)/2,y:top-8};
+    const c1={x:start.x+2,y:start.y+30};
+    const c2={x:end.x+58,y:end.y};
+    const d=`M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
+    if(arrow.getAttribute('d')!==d)arrow.setAttribute('d',d);
+  }
+
   function sync(){
     raf=0;
     if(!matchMedia('(min-width:721px)').matches)return;
@@ -79,6 +102,7 @@
     card.classList.toggle('pcgDesktopUpperStable',upper);
     card.classList.toggle('pcgDesktopLowerStable',!upper);
     if(changed)requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
+    requestAnimationFrame(()=>fixBudgetArrow(root,card,step));
   }
   function schedule(){if(raf)return;raf=requestAnimationFrame(sync)}
 
