@@ -121,7 +121,7 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
       if(!guide)return;
       const raw=guide.querySelector('.pcgCount')?.textContent||'';
       const step=parseInt(raw,10)-1;
-      if(step<0||step>=GUIDE_COPY.length)return;
+      if(!Number.isInteger(step)||step<0||step>=GUIDE_COPY.length)return;
       const title=guide.querySelector('.pcgTitle'),text=guide.querySelector('.pcgText');
       const copy=GUIDE_COPY[step];
       if(title&&title.textContent!==copy[0])title.textContent=copy[0];
