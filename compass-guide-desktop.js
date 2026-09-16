@@ -77,15 +77,21 @@
       const r=el.getBoundingClientRect();return r.width&&r.height;
     });
     if(!controls.length)return;
+
     const rects=controls.map(el=>el.getBoundingClientRect());
     const left=Math.min(...rects.map(r=>r.left));
     const right=Math.max(...rects.map(r=>r.right));
     const top=Math.min(...rects.map(r=>r.top));
     const cr=card.getBoundingClientRect();
-    const start={x:cr.left+cr.width*.72,y:cr.bottom+8};
-    const end={x:(left+right)/2,y:top-8};
-    const c1={x:start.x+2,y:start.y+30};
-    const c2={x:end.x+58,y:end.y};
+
+    /* Desktop step 4: descend on the right, then make one soft left turn.
+       Keeping the final control point to the right of the target guarantees
+       that the arrow head approaches the budget controls from right to left. */
+    const end={x:left+(right-left)*.52,y:top-8};
+    const preferredStart=Math.max(cr.left+cr.width*.82,end.x+72);
+    const start={x:Math.min(cr.right-18,preferredStart),y:cr.bottom+8};
+    const c1={x:start.x+2,y:start.y+34};
+    const c2={x:Math.min(start.x-16,end.x+46),y:end.y};
     const d=`M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
     if(arrow.getAttribute('d')!==d)arrow.setAttribute('d',d);
   }
