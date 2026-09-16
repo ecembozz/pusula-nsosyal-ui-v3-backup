@@ -173,3 +173,23 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
   }
   bootBase();
 })();
+
+(function(){
+  if(document.getElementById('pusula-sidebar-responsive-fix'))return;
+  const st=document.createElement('style');
+  st.id='pusula-sidebar-responsive-fix';
+  st.textContent=`
+@media (max-width:1180px) and (min-width:721px){
+  .left .navBtn>span:not(.navIcon):not(.badgeDot),
+  .left .composeLeft span,
+  .left .profileMini .who,
+  .left .miniNav .navBtn>span:not(.navIcon):not(.badgeDot){display:none!important}
+  .left .navBtn{justify-content:center!important;padding-left:0!important;padding-right:0!important;gap:0!important}
+  .left .composeLeft{width:48px!important;min-width:48px!important;padding:0!important;margin-left:auto!important;margin-right:auto!important;gap:0!important}
+  .left .brand{justify-content:center!important;padding-left:0!important;padding-right:0!important}
+  .left .brandMark{margin-left:auto!important;margin-right:auto!important}
+  .left .leftDivider{margin-left:8px!important;margin-right:8px!important}
+}
+`;
+  document.head.appendChild(st);
+})();
