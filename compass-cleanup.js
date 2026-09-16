@@ -21,7 +21,17 @@
     if(h&&h.textContent!=='PUSULA yönünü seç')h.textContent='PUSULA yönünü seç';
   }
 
+  function bootBudget(){
+    if(document.querySelector('script[data-pusula-compass-budget]'))return;
+    const s=document.createElement('script');
+    s.src='/compass-budget.js';
+    s.async=false;
+    s.dataset.pusulaCompassBudget='1';
+    document.head.appendChild(s);
+  }
+
   const mo=new MutationObserver(clean);
   mo.observe(document.body,{childList:true,subtree:true});
   clean();
+  bootBudget();
 })();
