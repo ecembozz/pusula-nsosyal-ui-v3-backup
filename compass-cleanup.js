@@ -12,49 +12,49 @@
 #intentModal .pusulaCompassModal .pcStage{margin-top:8px!important}
 #intentModal .pusulaCompassModal .budgetRow{margin-top:2px!important}
 
-/* Real frosted glass: almost-clear fill + backdrop contrast, so pale artwork still reads through. */
+/* Neutral frosted glass: no blue/gray tint, only transparency + blur. */
 #intentModal .pusulaCompassModal .pcIntent{
-  background:rgba(232,244,255,.10)!important;
-  border-color:rgba(57,145,220,.18)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.34),0 6px 18px rgba(21,52,84,.028)!important;
-  backdrop-filter:blur(26px) saturate(1.35) brightness(.96)!important;
-  -webkit-backdrop-filter:blur(26px) saturate(1.35) brightness(.96)!important;
+  background:rgba(255,255,255,.035)!important;
+  border-color:rgba(72,145,205,.18)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.30),0 6px 18px rgba(21,52,84,.025)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
 }
 #intentModal .pusulaCompassModal .pcIntent:hover{
-  background:rgba(232,244,255,.16)!important;
-  border-color:rgba(46,143,226,.28)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 22px rgba(29,126,197,.05)!important;
+  background:rgba(255,255,255,.075)!important;
+  border-color:rgba(46,143,226,.30)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.36),0 8px 22px rgba(29,126,197,.04)!important;
 }
 #intentModal .pusulaCompassModal .pcIntent.active{
-  background:rgba(75,166,255,.13)!important;
-  border-color:rgba(35,145,238,.58)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 0 0 1px rgba(39,149,243,.07),0 8px 22px rgba(31,128,206,.06)!important;
+  background:rgba(255,255,255,.065)!important;
+  border-color:rgba(35,145,238,.62)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.34),0 0 0 1px rgba(39,149,243,.08),0 8px 22px rgba(31,128,206,.05)!important;
 }
 #intentModal .pusulaCompassModal .pcIntentIcon{
-  background:rgba(224,241,255,.14)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.28)!important;
-  backdrop-filter:blur(16px) saturate(1.28) brightness(.97)!important;
-  -webkit-backdrop-filter:blur(16px) saturate(1.28) brightness(.97)!important;
+  background:rgba(255,255,255,.055)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.24)!important;
+  backdrop-filter:blur(12px)!important;
+  -webkit-backdrop-filter:blur(12px)!important;
 }
 html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntent{
-  background:rgba(15,28,46,.16)!important;
+  background:rgba(10,16,26,.055)!important;
   border-color:rgba(92,170,241,.20)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 7px 20px rgba(0,0,0,.08)!important;
-  backdrop-filter:blur(26px) saturate(1.22) brightness(1.10)!important;
-  -webkit-backdrop-filter:blur(26px) saturate(1.22) brightness(1.10)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 7px 20px rgba(0,0,0,.07)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
 }
 html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntent:hover{
-  background:rgba(20,37,60,.24)!important;
+  background:rgba(10,16,26,.10)!important;
   border-color:rgba(91,181,255,.34)!important;
 }
 html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntent.active{
-  background:rgba(28,102,177,.22)!important;
-  border-color:rgba(71,172,255,.62)!important;
+  background:rgba(10,16,26,.09)!important;
+  border-color:rgba(71,172,255,.64)!important;
 }
 html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntentIcon{
-  background:rgba(28,57,88,.20)!important;
-  backdrop-filter:blur(16px) saturate(1.18) brightness(1.08)!important;
-  -webkit-backdrop-filter:blur(16px) saturate(1.18) brightness(1.08)!important;
+  background:rgba(10,16,26,.075)!important;
+  backdrop-filter:blur(12px)!important;
+  -webkit-backdrop-filter:blur(12px)!important;
 }
 
 @media(min-width:721px){
