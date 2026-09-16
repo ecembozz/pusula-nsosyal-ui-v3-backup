@@ -65,10 +65,28 @@
 .pusulaTourFog[data-tourfog="right"]::before{left:calc(-1 * var(--tour-r,20px));top:0;background:radial-gradient(circle at 0% 100%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,15,28,.40) var(--tour-r,20px))}
 .pusulaTourFog[data-tourfog="right"]::after{left:calc(-1 * var(--tour-r,20px));bottom:0;background:radial-gradient(circle at 0% 0%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,15,28,.40) var(--tour-r,20px))}
 .pusulaTourCard{box-sizing:border-box!important}
+.pusulaTourText{line-height:1.5!important}
+.pusulaTourSteps{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:20px!important;margin-top:13px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important}
+.pusulaTourStep{gap:7px!important;font-size:11.5px!important;color:var(--text)!important}
+.pusulaTourStep .lucide{width:17px!important;height:17px!important}
+.pusulaTourStepArrow{display:none!important}
+#pusulaBar .betaChip,#pusulaBar .pusulaSub,#pusulaBar .dismiss,#pusulaBar .sessionMeta{display:none!important}
+#pusulaBar .pusulaRow{min-height:58px!important;padding:10px 12px!important;gap:10px!important}
+#pusulaBar .compassIcon{width:34px!important;height:34px!important;border-radius:11px!important}
+#pusulaBar .pusulaCopy{display:flex!important;align-items:center!important;min-width:0!important}
+#pusulaBar .pusulaTitle{font-size:14px!important;line-height:1!important;gap:0!important;white-space:nowrap!important}
+#pusulaBar .pusulaCta{margin-left:auto!important;height:36px!important;min-width:96px!important;padding:0 16px!important;border-radius:11px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}
 @media(min-width:721px){
   .pusulaTourCard{width:var(--tour-card-w,560px)!important;max-width:none!important;min-width:0!important}
+  #pusulaCompassGuide:not(.pcgPositioned) .pcgMobileCard{opacity:0!important;visibility:hidden!important;transition:none!important}
+  #pusulaCompassGuide.pcgPositioned .pcgMobileCard{opacity:1!important;visibility:visible!important}
 }
-@media(max-width:720px){.pusulaTourCard{min-width:0!important;max-width:calc(100vw - 24px)!important}}
+@media(max-width:720px){
+  .pusulaTourCard{min-width:0!important;max-width:calc(100vw - 24px)!important}
+  .pusulaTourSteps{gap:14px!important;flex-wrap:wrap!important}
+  #pusulaBar .pusulaRow{min-height:56px!important;padding:9px 10px!important}
+  #pusulaBar .pusulaCta{height:34px!important;min-width:94px!important;padding:0 14px!important}
+}
 html.pusulaTourLocked,html.pusulaTourLocked body{overflow:hidden!important;overscroll-behavior:none!important}
 html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:none!important}
 `;
@@ -89,17 +107,43 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
         root.style.removeProperty('--tour-card-w');
       }
     };
+    const syncIntroCopy=root=>{
+      if(!root||root.dataset.copyPolished)return;
+      root.dataset.copyPolished='1';
+      const text=root.querySelector('.pusulaTourText');
+      if(text)text.textContent='Bu oturumda ne görmek istediğini seç. Dilersen ne kadar kalacağını da belirle.';
+      const labels=root.querySelectorAll('.pusulaTourStep span');
+      if(labels[0])labels[0].textContent='Yönünü seç';
+      if(labels[1])labels[1].textContent='Süreni belirle';
+    };
+    const armGuidePositionGuard=()=>{
+      if(!window.matchMedia('(min-width:721px)').matches)return;
+      const guide=document.getElementById('pusulaCompassGuide');
+      if(!guide||guide.dataset.positionGuard)return;
+      const card=guide.querySelector('.pcgMobileCard');
+      if(!card)return;
+      guide.dataset.positionGuard='1';
+      const reveal=()=>{
+        if(card.style.left&&card.style.top)guide.classList.add('pcgPositioned');
+      };
+      const cardObserver=new MutationObserver(reveal);
+      cardObserver.observe(card,{attributes:true,attributeFilter:['style']});
+      requestAnimationFrame(reveal);
+    };
     const syncTourState=()=>{
       const root=document.getElementById('pusulaTour');
       document.documentElement.classList.toggle('pusulaTourLocked',!!root);
-      if(!root)return;
-      if(!root.dataset.fogDismissBound){
-        root.dataset.fogDismissBound='1';
-        root.querySelectorAll('.pusulaTourFog').forEach(f=>f.addEventListener('click',e=>{
-          if(e.target===f)root.querySelector('.pusulaTourSkip')?.click();
-        }));
+      if(root){
+        syncIntroCopy(root);
+        if(!root.dataset.fogDismissBound){
+          root.dataset.fogDismissBound='1';
+          root.querySelectorAll('.pusulaTourFog').forEach(f=>f.addEventListener('click',e=>{
+            if(e.target===f)root.querySelector('.pusulaTourSkip')?.click();
+          }));
+        }
+        align();
       }
-      align();
+      armGuidePositionGuard();
     };
     const blockScroll=e=>{if(document.getElementById('pusulaTour'))e.preventDefault()};
     const blockKeys=e=>{
@@ -111,8 +155,8 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
     document.addEventListener('keydown',blockKeys,true);
     const mo=new MutationObserver(syncTourState);
     mo.observe(document.body,{childList:true,subtree:true});
-    window.addEventListener('resize',align,{passive:true});
-    window.addEventListener('orientationchange',align,{passive:true});
+    window.addEventListener('resize',()=>{align();armGuidePositionGuard()},{passive:true});
+    window.addEventListener('orientationchange',()=>{align();armGuidePositionGuard()},{passive:true});
     syncTourState();
   }
   bootBase();
