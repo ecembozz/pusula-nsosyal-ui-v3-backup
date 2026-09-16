@@ -18,6 +18,7 @@
 @media(max-width:720px){
   #pusulaCompassGuide.pcgMobile .pcgGlow{display:none!important}
   #pusulaCompassGuide.pcgMobile .pcgMobileCard{transition:top .16s ease,bottom .16s ease}
+  #pusulaCompassGuide.pcgMobile .pcgMobileCard.pcgStableLowerCard{height:102px!important;min-height:102px!important;box-sizing:border-box!important}
 }
 `;
   document.head.appendChild(style);
@@ -36,11 +37,11 @@
       return;
     }
 
-    // 5. adımda kartı 4. adımla aynı görsel banda yerleştir.
+    // 4. ve 5. adım aynı görsel bantta ve aynı yükseklikte kalsın.
     const anchor=step===4?(modal.querySelector('.budgetRow')||target):target;
     const tr=anchor.getBoundingClientRect();
     const cr=card.getBoundingClientRect();
-    const gap=step===4?26:24;
+    const gap=24;
     const top=clamp(tr.top-cr.height-gap,76,window.innerHeight-cr.height-18);
     card.style.bottom='auto';
     card.style.top=Math.round(top)+'px';
@@ -73,7 +74,7 @@
     const bias=START_BIAS[step]||.78;
     let start,end=specialEnd(target,step);
 
-    // Özel hedefli adımlarda okun başlangıcını da yazı alanından uzak tut.
+    // Özel hedefli adımlarda okun başlangıcını yazı alanından uzak tut.
     if(step===1){
       start={x:cr.left+cr.width*.23,y:cr.top-8};
     }else if(step===3){
@@ -102,13 +103,19 @@
       }
     }
 
+    // 4. adım: önce aşağı in, kıvrımı hedefe yakın yap; dışarı doğru şişme yok.
+    if(step===3){
+      const turnY=Math.max(start.y+18,end.y-18);
+      const nearEndX=end.x+14;
+      return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} L ${start.x.toFixed(1)} ${turnY.toFixed(1)} Q ${start.x.toFixed(1)} ${(turnY+10).toFixed(1)} ${(start.x-14).toFixed(1)} ${(turnY+10).toFixed(1)} L ${nearEndX.toFixed(1)} ${(turnY+10).toFixed(1)} Q ${end.x.toFixed(1)} ${(turnY+10).toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
+    }
+
     const mx=(start.x+end.x)/2,my=(start.y+end.y)/2;
     const dx=end.x-start.x,dy=end.y-start.y,len=Math.max(1,Math.hypot(dx,dy));
     const nx=-dy/len,ny=dx/len;
 
     let bend,dir;
     if(step===1){bend=30;dir=-1}
-    else if(step===3){bend=18;dir=1}
     else if(step===4){bend=16;dir=-1}
     else{bend=34;dir=step%2===0?1:-1}
 
@@ -127,6 +134,7 @@
     const target=modal.querySelector(SELECTORS[step]);
     if(!target)return;
 
+    card.classList.toggle('pcgStableLowerCard',step>=3);
     placeCard(root,card,target,step,modal);
     requestAnimationFrame(()=>{
       const arrow=root.querySelector('.pcgArrowSvg .pcgArrow');
