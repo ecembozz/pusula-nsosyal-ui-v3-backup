@@ -12,47 +12,68 @@
 #intentModal .pusulaCompassModal .pcStage{margin-top:8px!important}
 #intentModal .pusulaCompassModal .budgetRow{margin-top:2px!important}
 
-/* Neutral frosted glass: no blue/gray tint, only transparency + blur. */
+/* Passive cards: almost clear, low blur so the compass artwork remains visible. */
 #intentModal .pusulaCompassModal .pcIntent{
-  background:rgba(255,255,255,.035)!important;
-  border-color:rgba(72,145,205,.18)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.30),0 6px 18px rgba(21,52,84,.025)!important;
-  backdrop-filter:blur(18px)!important;
-  -webkit-backdrop-filter:blur(18px)!important;
+  background:rgba(255,255,255,.025)!important;
+  border:0!important;
+  box-shadow:0 5px 16px rgba(21,52,84,.035)!important;
+  backdrop-filter:blur(6px)!important;
+  -webkit-backdrop-filter:blur(6px)!important;
 }
 #intentModal .pusulaCompassModal .pcIntent:hover{
-  background:rgba(255,255,255,.075)!important;
-  border-color:rgba(46,143,226,.30)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.36),0 8px 22px rgba(29,126,197,.04)!important;
+  background:rgba(255,255,255,.055)!important;
+  border:0!important;
+  box-shadow:0 8px 20px rgba(29,126,197,.06)!important;
+  backdrop-filter:blur(8px)!important;
+  -webkit-backdrop-filter:blur(8px)!important;
 }
+/* Active choice: blue frosted glass, no outline. */
 #intentModal .pusulaCompassModal .pcIntent.active{
-  background:rgba(255,255,255,.065)!important;
-  border-color:rgba(35,145,238,.62)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.34),0 0 0 1px rgba(39,149,243,.08),0 8px 22px rgba(31,128,206,.05)!important;
+  background:rgba(48,151,255,.18)!important;
+  border:0!important;
+  box-shadow:0 10px 26px rgba(31,128,206,.16),inset 0 1px 0 rgba(255,255,255,.22)!important;
+  backdrop-filter:blur(16px)!important;
+  -webkit-backdrop-filter:blur(16px)!important;
 }
 #intentModal .pusulaCompassModal .pcIntentIcon{
-  background:rgba(255,255,255,.055)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.24)!important;
+  background:rgba(255,255,255,.04)!important;
+  box-shadow:none!important;
+  backdrop-filter:blur(5px)!important;
+  -webkit-backdrop-filter:blur(5px)!important;
+}
+#intentModal .pusulaCompassModal .pcIntent.active .pcIntentIcon{
+  background:rgba(255,255,255,.16)!important;
   backdrop-filter:blur(12px)!important;
   -webkit-backdrop-filter:blur(12px)!important;
 }
+
 html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntent{
-  background:rgba(10,16,26,.055)!important;
-  border-color:rgba(92,170,241,.20)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 7px 20px rgba(0,0,0,.07)!important;
-  backdrop-filter:blur(18px)!important;
-  -webkit-backdrop-filter:blur(18px)!important;
+  background:rgba(8,14,24,.035)!important;
+  border:0!important;
+  box-shadow:0 6px 18px rgba(0,0,0,.08)!important;
+  backdrop-filter:blur(6px)!important;
+  -webkit-backdrop-filter:blur(6px)!important;
 }
 html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntent:hover{
-  background:rgba(10,16,26,.10)!important;
-  border-color:rgba(91,181,255,.34)!important;
+  background:rgba(8,14,24,.075)!important;
+  border:0!important;
+  backdrop-filter:blur(8px)!important;
+  -webkit-backdrop-filter:blur(8px)!important;
 }
 html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntent.active{
-  background:rgba(10,16,26,.09)!important;
-  border-color:rgba(71,172,255,.64)!important;
+  background:rgba(32,126,225,.24)!important;
+  border:0!important;
+  box-shadow:0 10px 28px rgba(0,92,190,.22),inset 0 1px 0 rgba(255,255,255,.08)!important;
+  backdrop-filter:blur(16px)!important;
+  -webkit-backdrop-filter:blur(16px)!important;
 }
 html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntentIcon{
-  background:rgba(10,16,26,.075)!important;
+  background:rgba(8,14,24,.05)!important;
+  backdrop-filter:blur(5px)!important;
+  -webkit-backdrop-filter:blur(5px)!important;
+}
+html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntent.active .pcIntentIcon{
+  background:rgba(255,255,255,.08)!important;
   backdrop-filter:blur(12px)!important;
   -webkit-backdrop-filter:blur(12px)!important;
 }
