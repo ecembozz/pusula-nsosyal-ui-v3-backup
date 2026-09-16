@@ -21,12 +21,22 @@
     if(h&&h.textContent!=='PUSULA yönünü seç')h.textContent='PUSULA yönünü seç';
   }
 
+  function bootGuideMobile(){
+    if(document.querySelector('script[data-pusula-compass-guide-mobile]'))return;
+    const s=document.createElement('script');
+    s.src='/compass-guide-mobile.js';
+    s.async=false;
+    s.dataset.pusulaCompassGuideMobile='1';
+    document.head.appendChild(s);
+  }
+
   function bootBudget(){
-    if(document.querySelector('script[data-pusula-compass-budget]'))return;
+    if(document.querySelector('script[data-pusula-compass-budget]')){bootGuideMobile();return}
     const s=document.createElement('script');
     s.src='/compass-budget.js';
     s.async=false;
     s.dataset.pusulaCompassBudget='1';
+    s.onload=bootGuideMobile;
     document.head.appendChild(s);
   }
 
