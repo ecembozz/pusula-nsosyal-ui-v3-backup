@@ -18,7 +18,7 @@
     const box=document.querySelector('#intentModal .pusulaCompassModal');
     if(!box)return;
     const h=box.querySelector('h2');
-    if(h)h.textContent='PUSULA yönünü seç';
+    if(h&&h.textContent!=='PUSULA yönünü seç')h.textContent='PUSULA yönünü seç';
   }
 
   const mo=new MutationObserver(clean);
