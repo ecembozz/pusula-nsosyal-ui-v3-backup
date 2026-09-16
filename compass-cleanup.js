@@ -78,6 +78,23 @@ html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntent.active .pcInt
   -webkit-backdrop-filter:blur(12px)!important;
 }
 
+/* Session feedback cards follow the active theme. */
+html[data-theme="light"] #sessionModal .mood{
+  background:var(--panel-2,#f5f7fa)!important;
+  border-color:var(--line-soft,#dce5ed)!important;
+  color:var(--text,#182335)!important;
+  box-shadow:0 4px 14px rgba(20,46,74,.05)!important;
+}
+html[data-theme="light"] #sessionModal .mood:hover{
+  background:#eef6ff!important;
+  border-color:#b9dcf5!important;
+}
+html[data-theme="light"] #sessionModal .mood.active{
+  background:#e4f3ff!important;
+  border-color:#2da8ff!important;
+  box-shadow:0 0 0 2px rgba(45,168,255,.12),0 8px 20px rgba(33,131,204,.10)!important;
+}
+
 @media(min-width:721px){
   #intentModal .pusulaCompassModal .pcIntent{
     width:144px!important;
