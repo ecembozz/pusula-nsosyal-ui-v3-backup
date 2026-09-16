@@ -74,7 +74,7 @@
 .pusulaTourCard{box-sizing:border-box!important}
 .pusulaTourText{line-height:1.5!important}
 .pusulaTourSteps{display:none!important}
-#pusulaBar .betaChip,#pusulaBar .pusulaSub,#pusulaBar .dismiss,#pusulaBar .sessionMeta{display:none!important}
+#pusulaBar .betaChip,#pusulaBar .pusulaSub,#pusulaBar .dismiss{display:none!important}
 #pusulaBar .pusulaRow{min-height:58px!important;padding:10px 12px!important;gap:10px!important}
 #pusulaBar .compassIcon{width:34px!important;height:34px!important;border-radius:11px!important}
 #pusulaBar .pusulaCopy{display:flex!important;align-items:center!important;min-width:0!important}
