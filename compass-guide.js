@@ -8,11 +8,11 @@
   let guideStep=0;
 
   const COPY=[
-    {title:"PUSULA’ya hoş geldin",text:"İlgi alanını seçerek akışını kişiselleştirebilirsin.",selector:'.pcIntent[data-intent="learn"]',pad:8},
-    {title:"Yönünü seç",text:"Pusulayı sürükleyerek veya seçeneklerden birine dokunarak yön belirle.",selector:'.pcArt',pad:18},
-    {title:"Kategoriler",text:"Öğrenmek, Eğlenmek, Haberdar olmak, Sosyalleşmek ve Sadece dolaşmak arasında seçim yap.",selector:'.pcIntent[data-intent="news"]',pad:8},
-    {title:"Zaman bütçesi",text:"15 dk, 30 dk veya Sınırsız seçenekleriyle oturum süreni belirle.",selector:'.budgetRow',pad:7},
-    {title:"Devam et",text:"Hazırsan Akışı düzenle ile devam et.",selector:'[data-apply]',pad:7}
+    {title:"PUSULA",text:"Bu oturumda ne görmek istediğini seç.",selector:'.pcIntent[data-intent="learn"]',pad:8},
+    {title:"Yönünü seç",text:"Pusulayı sürükle veya bir yöne dokun. Hızlı çevir; PUSULA senin için seçsin.",selector:'.pcArt',pad:18},
+    {title:"Yönler",text:"Öğrenmek, Eğlenmek, Haberdar olmak, Sosyalleşmek veya Sadece dolaşmak.",selector:'.pcIntent[data-intent="news"]',pad:8},
+    {title:"Zaman bütçesi",text:"15 dk, 30 dk, Sınırsız seç veya süreyi kendin gir.",selector:'.budgetRow',pad:7},
+    {title:"Hemen dene",text:"Akışını oluştur.",selector:'[data-apply]',pad:7}
   ];
 
   function ensureStyle(){
@@ -126,10 +126,28 @@ html.pusulaCompassGuideLocked #intentModal .pusulaCompassModal{overscroll-behavi
     card.style.top=Math.round(top)+'px';
   }
 
+  function budgetControlsRect(target){
+    const controls=[...target.querySelectorAll('[data-modalbudget],.pcCustomBudget')].filter(el=>{
+      const r=el.getBoundingClientRect();return r.width&&r.height;
+    });
+    if(!controls.length)return null;
+    const rects=controls.map(el=>el.getBoundingClientRect());
+    return {
+      left:Math.min(...rects.map(r=>r.left)),
+      right:Math.max(...rects.map(r=>r.right)),
+      top:Math.min(...rects.map(r=>r.top)),
+      bottom:Math.max(...rects.map(r=>r.bottom))
+    };
+  }
+
   function specialEnd(target,step){
     const tr=target.getBoundingClientRect();
     if(step===1)return {x:tr.left+10,y:tr.top+tr.height*.53};
-    if(step===3)return {x:tr.left+tr.width*.56,y:tr.bottom-13};
+    if(step===3){
+      const controls=budgetControlsRect(target);
+      if(controls)return {x:(controls.left+controls.right)/2,y:controls.top-8};
+      return {x:tr.left+tr.width*.62,y:tr.top+tr.height*.55};
+    }
     if(step===4)return {x:tr.left+tr.width*.58,y:tr.top-7};
     return null;
   }
@@ -169,8 +187,8 @@ html.pusulaCompassGuideLocked #intentModal .pusulaCompassModal{overscroll-behavi
     }
 
     if(step===3){
-      const c1={x:start.x+2,y:start.y+30};
-      const c2={x:end.x+58,y:end.y};
+      const c1={x:start.x+2,y:start.y+26};
+      const c2={x:end.x+42,y:end.y-12};
       return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
     }
 
