@@ -95,6 +95,52 @@ html[data-theme="light"] #sessionModal .mood.active{
   box-shadow:0 0 0 2px rgba(45,168,255,.12),0 8px 20px rgba(33,131,204,.10)!important;
 }
 
+/* Time-complete screen: product copy + compact, useful session facts. */
+#sessionModal .sessionPause h2{margin-bottom:6px!important}
+#sessionModal .sessionPause>p{margin:0!important;max-width:48ch!important;color:var(--muted,#667388)!important}
+#sessionModal .sessionFacts{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:10px!important;
+  margin:18px 0 16px!important;
+}
+#sessionModal .sessionFact{
+  min-width:0!important;
+  padding:13px 14px!important;
+  border:1px solid var(--line-soft,var(--line,#dce5ed))!important;
+  border-radius:14px!important;
+  background:var(--panel-2,#f5f7fa)!important;
+  box-shadow:none!important;
+}
+#sessionModal .sessionFact span{
+  display:block!important;
+  margin-bottom:4px!important;
+  color:var(--muted,#667388)!important;
+  font-size:10.5px!important;
+  line-height:1.25!important;
+  font-weight:500!important;
+}
+#sessionModal .sessionFact b{
+  display:block!important;
+  color:var(--text,#182335)!important;
+  font-size:14px!important;
+  line-height:1.3!important;
+  font-weight:600!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+#sessionModal .sessionPause .modalFooter{margin-top:0!important}
+html[data-theme="dark"] #sessionModal .sessionFact{
+  background:var(--panel-2,#20242b)!important;
+  border-color:var(--line-soft,#2b3139)!important;
+}
+@media(max-width:420px){
+  #sessionModal .sessionFacts{gap:8px!important}
+  #sessionModal .sessionFact{padding:12px!important}
+  #sessionModal .sessionFact b{font-size:13px!important}
+}
+
 @media(min-width:721px){
   #intentModal .pusulaCompassModal .pcIntent{
     width:144px!important;
@@ -153,6 +199,33 @@ html[data-theme="light"] #sessionModal .mood.active{
     if(h&&h.textContent!=='PUSULA yönünü seç')h.textContent='PUSULA yönünü seç';
   }
 
+  function elapsedLabel(){
+    if(window.S?.budget)return S.budget+' dk';
+    const start=Number(window.G?.st||0);
+    if(!start)return '—';
+    const seconds=Math.max(0,Math.floor((Date.now()-start)/1000));
+    if(seconds<60)return Math.max(1,seconds)+' sn';
+    return Math.max(1,Math.round(seconds/60))+' dk';
+  }
+
+  function polishSessionPause(){
+    if(typeof window.showSession!=='function'||window.__pusulaSessionPausePolished)return;
+    const baseShowSession=window.showSession;
+    window.__pusulaSessionPausePolished=true;
+    window.showSession=function(s='pause'){
+      if(s!=='pause')return baseShowSession(s);
+      const overlay=document.getElementById('sessionModal');
+      const content=document.getElementById('session');
+      if(!overlay||!content)return baseShowSession(s);
+      overlay.classList.add('show');
+      const intent=window.S?.intent&&window.I?.[S.intent]
+        ?String(I[S.intent].label||I[S.intent].short||'').replace(/^Sadece\s+/i,'')
+        :'Standart';
+      const timed=!!window.S?.budget;
+      content.innerHTML=`<div class="sessionPause"><h2>${timed?'Süren doldu':'Oturumu bitirmek ister misin?'}</h2><p>${timed?'Seçtiğin süre sona erdi. İstersen biraz daha devam edebilirsin.':'İstersen oturuma devam edebilir veya oturumu burada tamamlayabilirsin.'}</p><div class="sessionFacts"><div class="sessionFact"><span>Niyet</span><b>${intent}</b></div><div class="sessionFact"><span>Geçirilen süre</span><b>${elapsedLabel()}</b></div></div><div class="modalFooter"><button class="secondary" onclick="sessionModal.classList.remove('show')">Devam et</button><button class="primary" onclick="showSession('mood')">Oturumu bitir</button></div></div>`;
+    };
+  }
+
   function bootGuideDesktop(){
     if(document.querySelector('script[data-pusula-compass-guide-desktop]'))return;
     const s=document.createElement('script');
@@ -182,8 +255,9 @@ html[data-theme="light"] #sessionModal .mood.active{
     document.head.appendChild(s);
   }
 
-  const mo=new MutationObserver(clean);
+  const mo=new MutationObserver(()=>{clean();polishSessionPause()});
   mo.observe(document.body,{childList:true,subtree:true});
   clean();
+  polishSessionPause();
   bootBudget();
 })();
