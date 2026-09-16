@@ -103,11 +103,11 @@
       }
     }
 
-    // 4. adım: önce aşağı in, kıvrımı hedefe yakın yap; dışarı doğru şişme yok.
+    // 4. adım: diğer oklarla aynı yumuşak çizgi dili; aşağı süzülüp hedefe soldan bakan uçla yaklaşır.
     if(step===3){
-      const turnY=Math.max(start.y+18,end.y-18);
-      const nearEndX=end.x+14;
-      return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} L ${start.x.toFixed(1)} ${turnY.toFixed(1)} Q ${start.x.toFixed(1)} ${(turnY+10).toFixed(1)} ${(start.x-14).toFixed(1)} ${(turnY+10).toFixed(1)} L ${nearEndX.toFixed(1)} ${(turnY+10).toFixed(1)} Q ${end.x.toFixed(1)} ${(turnY+10).toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
+      const c1={x:start.x+2,y:start.y+30};
+      const c2={x:end.x+58,y:end.y};
+      return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
     }
 
     const mx=(start.x+end.x)/2,my=(start.y+end.y)/2;
