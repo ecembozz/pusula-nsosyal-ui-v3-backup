@@ -14,9 +14,21 @@
 .pcCustomBudget input::placeholder{color:var(--muted);opacity:.5}
 .pcCustomBudget span{font-size:10px;color:var(--muted);font-weight:600;pointer-events:none}
 @media(max-width:720px){
- #intentModal .pusulaCompassModal .budgetRow{gap:6px!important}
- #intentModal .pusulaCompassModal .budgetRow>b{flex:1 0 100%;margin:0 0 2px!important}
- .pcCustomBudget{height:32px;padding:0 9px}.pcCustomBudget input{width:42px;font-size:10.5px}
+ #intentModal .pusulaCompassModal .budgetRow{gap:7px!important;width:100%!important}
+ #intentModal .pusulaCompassModal .budgetRow>b{flex:1 0 100%;margin:0 0 3px!important}
+ #intentModal .pusulaCompassModal .budgetRow>[data-modalbudget],
+ #intentModal .pusulaCompassModal .budgetRow>.pcCustomBudget{
+   flex:1 1 0!important;
+   min-width:0!important;
+   width:auto!important;
+   justify-content:center!important;
+   box-sizing:border-box!important;
+   margin:0!important;
+ }
+ #intentModal .pusulaCompassModal .budgetRow>[data-modalbudget]{padding-left:6px!important;padding-right:6px!important}
+ .pcCustomBudget{height:32px;padding:0 7px!important;gap:3px!important}
+ .pcCustomBudget input{width:28px!important;font-size:10.5px;text-align:center}
+ .pcCustomBudget span{font-size:9.5px}
 }
 `;
   document.head.appendChild(style);
