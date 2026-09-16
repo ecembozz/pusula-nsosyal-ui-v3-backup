@@ -66,10 +66,7 @@
 .pusulaTourFog[data-tourfog="right"]::after{left:calc(-1 * var(--tour-r,20px));bottom:0;background:radial-gradient(circle at 0% 0%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,15,28,.40) var(--tour-r,20px))}
 .pusulaTourCard{box-sizing:border-box!important}
 .pusulaTourText{line-height:1.5!important}
-.pusulaTourSteps{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:20px!important;margin-top:13px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important}
-.pusulaTourStep{gap:7px!important;font-size:11.5px!important;color:var(--text)!important}
-.pusulaTourStep .lucide{width:17px!important;height:17px!important}
-.pusulaTourStepArrow{display:none!important}
+.pusulaTourSteps{display:none!important}
 #pusulaBar .betaChip,#pusulaBar .pusulaSub,#pusulaBar .dismiss,#pusulaBar .sessionMeta{display:none!important}
 #pusulaBar .pusulaRow{min-height:58px!important;padding:10px 12px!important;gap:10px!important}
 #pusulaBar .compassIcon{width:34px!important;height:34px!important;border-radius:11px!important}
@@ -83,7 +80,6 @@
 }
 @media(max-width:720px){
   .pusulaTourCard{min-width:0!important;max-width:calc(100vw - 24px)!important}
-  .pusulaTourSteps{gap:14px!important;flex-wrap:wrap!important}
   #pusulaBar .pusulaRow{min-height:56px!important;padding:9px 10px!important}
   #pusulaBar .pusulaCta{height:34px!important;min-width:94px!important;padding:0 14px!important}
 }
@@ -111,10 +107,7 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
       if(!root||root.dataset.copyPolished)return;
       root.dataset.copyPolished='1';
       const text=root.querySelector('.pusulaTourText');
-      if(text)text.textContent='Bu oturumda ne görmek istediğini seç. Dilersen ne kadar kalacağını da belirle.';
-      const labels=root.querySelectorAll('.pusulaTourStep span');
-      if(labels[0])labels[0].textContent='Yönünü seç';
-      if(labels[1])labels[1].textContent='Süreni belirle';
+      if(text)text.textContent='Bu oturumda ne görmek istediğini ve ne kadar kalacağını belirleyebilirsin.';
     };
     const armGuidePositionGuard=()=>{
       if(!window.matchMedia('(min-width:721px)').matches)return;
