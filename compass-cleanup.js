@@ -12,28 +12,49 @@
 #intentModal .pusulaCompassModal .pcStage{margin-top:8px!important}
 #intentModal .pusulaCompassModal .budgetRow{margin-top:2px!important}
 
-/* Strong frosted-glass treatment so cards merge with the compass artwork. */
+/* Real frosted glass: almost-clear fill + backdrop contrast, so pale artwork still reads through. */
 #intentModal .pusulaCompassModal .pcIntent{
-  background:color-mix(in srgb,var(--panel) 32%,transparent)!important;
-  border-color:color-mix(in srgb,var(--brand) 12%,var(--line-soft))!important;
-  box-shadow:0 6px 18px rgba(21,52,84,.03)!important;
-  backdrop-filter:blur(24px) saturate(1.14)!important;
-  -webkit-backdrop-filter:blur(24px) saturate(1.14)!important;
+  background:rgba(232,244,255,.10)!important;
+  border-color:rgba(57,145,220,.18)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.34),0 6px 18px rgba(21,52,84,.028)!important;
+  backdrop-filter:blur(26px) saturate(1.35) brightness(.96)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(1.35) brightness(.96)!important;
 }
 #intentModal .pusulaCompassModal .pcIntent:hover{
-  background:color-mix(in srgb,var(--panel) 38%,transparent)!important;
-  border-color:color-mix(in srgb,var(--brand) 30%,var(--line-soft))!important;
-  box-shadow:0 8px 22px rgba(29,126,197,.055)!important;
+  background:rgba(232,244,255,.16)!important;
+  border-color:rgba(46,143,226,.28)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 22px rgba(29,126,197,.05)!important;
 }
 #intentModal .pusulaCompassModal .pcIntent.active{
-  background:color-mix(in srgb,var(--brand) 9%,color-mix(in srgb,var(--panel) 36%,transparent))!important;
-  border-color:color-mix(in srgb,var(--brand) 52%,var(--line-soft))!important;
-  box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 8%,transparent),0 8px 22px rgba(31,128,206,.07)!important;
+  background:rgba(75,166,255,.13)!important;
+  border-color:rgba(35,145,238,.58)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 0 0 1px rgba(39,149,243,.07),0 8px 22px rgba(31,128,206,.06)!important;
 }
 #intentModal .pusulaCompassModal .pcIntentIcon{
-  background:color-mix(in srgb,var(--panel-2) 28%,transparent)!important;
-  backdrop-filter:blur(14px) saturate(1.08)!important;
-  -webkit-backdrop-filter:blur(14px) saturate(1.08)!important;
+  background:rgba(224,241,255,.14)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28)!important;
+  backdrop-filter:blur(16px) saturate(1.28) brightness(.97)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(1.28) brightness(.97)!important;
+}
+html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntent{
+  background:rgba(15,28,46,.16)!important;
+  border-color:rgba(92,170,241,.20)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 7px 20px rgba(0,0,0,.08)!important;
+  backdrop-filter:blur(26px) saturate(1.22) brightness(1.10)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(1.22) brightness(1.10)!important;
+}
+html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntent:hover{
+  background:rgba(20,37,60,.24)!important;
+  border-color:rgba(91,181,255,.34)!important;
+}
+html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntent.active{
+  background:rgba(28,102,177,.22)!important;
+  border-color:rgba(71,172,255,.62)!important;
+}
+html[data-theme="dark"] #intentModal .pusulaCompassModal .pcIntentIcon{
+  background:rgba(28,57,88,.20)!important;
+  backdrop-filter:blur(16px) saturate(1.18) brightness(1.08)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(1.18) brightness(1.08)!important;
 }
 
 @media(min-width:721px){
