@@ -200,8 +200,8 @@ html[data-theme="dark"] #sessionModal .sessionFact{
   }
 
   function elapsedLabel(){
-    if(window.S?.budget)return S.budget+' dk';
-    const start=Number(window.G?.st||0);
+    if(typeof S!=='undefined'&&S.budget)return S.budget+' dk';
+    const start=Number(typeof G!=='undefined'&&G?G.st:0);
     if(!start)return '—';
     const seconds=Math.max(0,Math.floor((Date.now()-start)/1000));
     if(seconds<60)return Math.max(1,seconds)+' sn';
@@ -218,10 +218,12 @@ html[data-theme="dark"] #sessionModal .sessionFact{
       const content=document.getElementById('session');
       if(!overlay||!content)return baseShowSession(s);
       overlay.classList.add('show');
-      const intent=window.S?.intent&&window.I?.[S.intent]
+      const hasState=typeof S!=='undefined';
+      const hasIntents=typeof I!=='undefined';
+      const intent=hasState&&hasIntents&&S.intent&&I[S.intent]
         ?String(I[S.intent].label||I[S.intent].short||'').replace(/^Sadece\s+/i,'')
         :'Standart';
-      const timed=!!window.S?.budget;
+      const timed=hasState&&!!S.budget;
       content.innerHTML=`<div class="sessionPause"><h2>${timed?'Süren doldu':'Oturumu bitirmek ister misin?'}</h2><p>${timed?'Seçtiğin süre sona erdi. İstersen biraz daha devam edebilirsin.':'İstersen oturuma devam edebilir veya oturumu burada tamamlayabilirsin.'}</p><div class="sessionFacts"><div class="sessionFact"><span>Niyet</span><b>${intent}</b></div><div class="sessionFact"><span>Geçirilen süre</span><b>${elapsedLabel()}</b></div></div><div class="modalFooter"><button class="secondary" onclick="sessionModal.classList.remove('show')">Devam et</button><button class="primary" onclick="showSession('mood')">Oturumu bitir</button></div></div>`;
     };
   }
