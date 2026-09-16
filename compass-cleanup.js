@@ -11,6 +11,31 @@
 #intentModal .pusulaCompassModal .pcFlickHint{display:none!important}
 #intentModal .pusulaCompassModal .pcStage{margin-top:8px!important}
 #intentModal .pusulaCompassModal .budgetRow{margin-top:2px!important}
+
+/* Shared glass treatment: keep the five intent choices visually attached to the compass art. */
+#intentModal .pusulaCompassModal .pcIntent{
+  background:color-mix(in srgb,var(--panel) 56%,transparent)!important;
+  border-color:color-mix(in srgb,var(--brand) 16%,var(--line-soft))!important;
+  box-shadow:0 8px 22px rgba(21,52,84,.045)!important;
+  backdrop-filter:blur(18px) saturate(1.12)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.12)!important;
+}
+#intentModal .pusulaCompassModal .pcIntent:hover{
+  background:color-mix(in srgb,var(--panel) 52%,transparent)!important;
+  border-color:color-mix(in srgb,var(--brand) 36%,var(--line-soft))!important;
+  box-shadow:0 10px 25px rgba(29,126,197,.075)!important;
+}
+#intentModal .pusulaCompassModal .pcIntent.active{
+  background:color-mix(in srgb,var(--brand) 10%,color-mix(in srgb,var(--panel) 54%,transparent))!important;
+  border-color:color-mix(in srgb,var(--brand) 58%,var(--line-soft))!important;
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 10%,transparent),0 10px 26px rgba(31,128,206,.09)!important;
+}
+#intentModal .pusulaCompassModal .pcIntentIcon{
+  background:color-mix(in srgb,var(--panel-2) 44%,transparent)!important;
+  backdrop-filter:blur(10px) saturate(1.08)!important;
+  -webkit-backdrop-filter:blur(10px) saturate(1.08)!important;
+}
+
 @media(min-width:721px){
   #intentModal .pusulaCompassModal .pcIntent{
     width:144px!important;
@@ -22,24 +47,6 @@
     padding:8px 10px!important;
     gap:8px!important;
     border-radius:15px!important;
-    background:color-mix(in srgb,var(--panel) 76%,transparent)!important;
-    border-color:color-mix(in srgb,var(--brand) 14%,var(--line-soft))!important;
-    box-shadow:0 9px 24px rgba(27,62,94,.055)!important;
-    backdrop-filter:blur(14px) saturate(1.08)!important;
-    -webkit-backdrop-filter:blur(14px) saturate(1.08)!important;
-  }
-  #intentModal .pusulaCompassModal .pcIntent:hover{
-    background:color-mix(in srgb,var(--panel) 69%,transparent)!important;
-    border-color:color-mix(in srgb,var(--brand) 34%,var(--line-soft))!important;
-    box-shadow:0 11px 27px rgba(29,126,197,.085)!important;
-  }
-  #intentModal .pusulaCompassModal .pcIntent.active{
-    background:color-mix(in srgb,var(--brand) 11%,var(--panel) 72%)!important;
-    border-color:color-mix(in srgb,var(--brand) 62%,var(--line-soft))!important;
-    box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 12%,transparent),0 12px 28px rgba(31,128,206,.11)!important;
-  }
-  #intentModal .pusulaCompassModal .pcIntentIcon{
-    background:color-mix(in srgb,var(--brand) 9%,var(--panel) 58%)!important;
   }
   #intentModal .pusulaCompassModal .pcIntentCopy{
     min-width:0!important;
