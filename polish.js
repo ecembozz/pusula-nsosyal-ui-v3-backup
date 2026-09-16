@@ -1,4 +1,11 @@
 (function(){
+  const GUIDE_COPY=[
+    ['Yönünü seç','O an ne görmek istediğini belirle.'],
+    ['Pusulayı çevir','Sürükle veya dokun. Hızlı çevirirsen PUSULA senin için seçer.'],
+    ['Beş yön','Öğren, eğlen, haberdar ol, sosyalleş veya dolaş.'],
+    ['Süreni belirle','Hazır sürelerden birini seç veya dakikayı kendin gir.'],
+    ['Hazırsın','Akışını oluştur.']
+  ];
   function bootBase(){
     // DEMO: onboarding'i her sayfa açılışında göstermek için "bir kez göster" kaydını temizle.
     // Demo sonrası bu satırı kaldırmak yeterli; polish.base.js içindeki normal localStorage davranışı geri döner.
@@ -109,6 +116,17 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
       const text=root.querySelector('.pusulaTourText');
       if(text)text.textContent='Bu oturumda ne görmek istediğini ve ne kadar kalacağını belirleyebilirsin.';
     };
+    const syncGuideCopy=()=>{
+      const guide=document.getElementById('pusulaCompassGuide');
+      if(!guide)return;
+      const raw=guide.querySelector('.pcgCount')?.textContent||'';
+      const step=parseInt(raw,10)-1;
+      if(step<0||step>=GUIDE_COPY.length)return;
+      const title=guide.querySelector('.pcgTitle'),text=guide.querySelector('.pcgText');
+      const copy=GUIDE_COPY[step];
+      if(title&&title.textContent!==copy[0])title.textContent=copy[0];
+      if(text&&text.textContent!==copy[1])text.textContent=copy[1];
+    };
     const armGuidePositionGuard=()=>{
       if(!window.matchMedia('(min-width:721px)').matches)return;
       const guide=document.getElementById('pusulaCompassGuide');
@@ -137,6 +155,7 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
         align();
       }
       armGuidePositionGuard();
+      syncGuideCopy();
     };
     const blockScroll=e=>{if(document.getElementById('pusulaTour'))e.preventDefault()};
     const blockKeys=e=>{
@@ -148,8 +167,8 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
     document.addEventListener('keydown',blockKeys,true);
     const mo=new MutationObserver(syncTourState);
     mo.observe(document.body,{childList:true,subtree:true});
-    window.addEventListener('resize',()=>{align();armGuidePositionGuard()},{passive:true});
-    window.addEventListener('orientationchange',()=>{align();armGuidePositionGuard()},{passive:true});
+    window.addEventListener('resize',()=>{align();armGuidePositionGuard();syncGuideCopy()},{passive:true});
+    window.addEventListener('orientationchange',()=>{align();armGuidePositionGuard();syncGuideCopy()},{passive:true});
     syncTourState();
   }
   bootBase();
