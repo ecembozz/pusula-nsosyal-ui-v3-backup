@@ -29,44 +29,89 @@
     return clamp(Number.isFinite(n)?n:0,0,SELECTORS.length-1);
   }
 
-  function placeCard(root,card,target,step){
+  function placeCard(root,card,target,step,modal){
     if(step<3){
       card.style.top='auto';
       card.style.bottom='calc(12px + env(safe-area-inset-bottom))';
       return;
     }
-    const tr=target.getBoundingClientRect();
+
+    // 5. adımda kartı 4. adımla aynı görsel banda yerleştir.
+    const anchor=step===4?(modal.querySelector('.budgetRow')||target):target;
+    const tr=anchor.getBoundingClientRect();
     const cr=card.getBoundingClientRect();
-    const top=clamp(tr.top-cr.height-24,76,window.innerHeight-cr.height-18);
+    const gap=step===4?26:24;
+    const top=clamp(tr.top-cr.height-gap,76,window.innerHeight-cr.height-18);
     card.style.bottom='auto';
     card.style.top=Math.round(top)+'px';
+  }
+
+  function specialEnd(target,step){
+    const tr=target.getBoundingClientRect();
+
+    // 2. adım: okun ucu pusulanın sol-orta kenarına gelsin.
+    if(step===1){
+      return {x:tr.left+10,y:tr.top+tr.height*.53};
+    }
+
+    // 4. adım: başlığa değil, 15/30/Sınırsız/özel dakika seçimlerine işaret et.
+    if(step===3){
+      return {x:tr.left+tr.width*.56,y:tr.bottom-13};
+    }
+
+    // 5. adım: Akışı düzenle butonunun üst-orta kısmına temiz bir iniş.
+    if(step===4){
+      return {x:tr.left+tr.width*.58,y:tr.top-7};
+    }
+
+    return null;
   }
 
   function arrowPath(card,target,step){
     const cr=card.getBoundingClientRect();
     const tr=target.getBoundingClientRect();
     const bias=START_BIAS[step]||.78;
-    let start,end;
+    let start,end=specialEnd(target,step);
 
-    if(cr.bottom<=tr.top){
+    // Özel hedefli adımlarda okun başlangıcını da yazı alanından uzak tut.
+    if(step===1){
+      start={x:cr.left+cr.width*.23,y:cr.top-8};
+    }else if(step===3){
+      start={x:cr.left+cr.width*.72,y:cr.bottom+8};
+    }else if(step===4){
+      start={x:cr.left+cr.width*.82,y:cr.bottom+8};
+    }else if(cr.bottom<=tr.top){
       start={x:cr.left+cr.width*bias,y:cr.bottom+8};
-      end={x:clamp(tr.left+tr.width/2,tr.left+10,tr.right-10),y:tr.top-8};
     }else if(cr.top>=tr.bottom){
       start={x:cr.left+cr.width*bias,y:cr.top-8};
-      end={x:clamp(tr.left+tr.width/2,tr.left+10,tr.right-10),y:tr.bottom+8};
     }else if(tr.left>=cr.right){
       start={x:cr.right+8,y:cr.top+cr.height*.26};
-      end={x:tr.left-8,y:clamp(tr.top+tr.height/2,tr.top+8,tr.bottom-8)};
     }else{
       start={x:cr.left-8,y:cr.top+cr.height*.26};
-      end={x:tr.right+8,y:clamp(tr.top+tr.height/2,tr.top+8,tr.bottom-8)};
+    }
+
+    if(!end){
+      if(cr.bottom<=tr.top){
+        end={x:clamp(tr.left+tr.width/2,tr.left+10,tr.right-10),y:tr.top-8};
+      }else if(cr.top>=tr.bottom){
+        end={x:clamp(tr.left+tr.width/2,tr.left+10,tr.right-10),y:tr.bottom+8};
+      }else if(tr.left>=cr.right){
+        end={x:tr.left-8,y:clamp(tr.top+tr.height/2,tr.top+8,tr.bottom-8)};
+      }else{
+        end={x:tr.right+8,y:clamp(tr.top+tr.height/2,tr.top+8,tr.bottom-8)};
+      }
     }
 
     const mx=(start.x+end.x)/2,my=(start.y+end.y)/2;
-    const dir=step%2===0?1:-1;
     const dx=end.x-start.x,dy=end.y-start.y,len=Math.max(1,Math.hypot(dx,dy));
     const nx=-dy/len,ny=dx/len;
-    const bend=step>=3?22:34;
+
+    let bend,dir;
+    if(step===1){bend=30;dir=-1}
+    else if(step===3){bend=18;dir=1}
+    else if(step===4){bend=16;dir=-1}
+    else{bend=34;dir=step%2===0?1:-1}
+
     return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} Q ${(mx+nx*bend*dir).toFixed(1)} ${(my+ny*bend*dir).toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
   }
 
@@ -82,7 +127,7 @@
     const target=modal.querySelector(SELECTORS[step]);
     if(!target)return;
 
-    placeCard(root,card,target,step);
+    placeCard(root,card,target,step,modal);
     requestAnimationFrame(()=>{
       const arrow=root.querySelector('.pcgArrowSvg .pcgArrow');
       if(!arrow)return;
