@@ -9,12 +9,21 @@
     s.onload=()=>{installTourFix();scheduleCompassSelector()};
     document.head.appendChild(s);
   }
+  function bootCompassGuide(){
+    if(document.querySelector('script[data-pusula-compass-guide]'))return;
+    const s=document.createElement('script');
+    s.src='/compass-guide.js';
+    s.async=false;
+    s.dataset.pusulaCompassGuide='1';
+    document.head.appendChild(s);
+  }
   function bootCompassPngFix(){
-    if(document.querySelector('script[data-pusula-compass-png-fix]'))return;
+    if(document.querySelector('script[data-pusula-compass-png-fix]')){bootCompassGuide();return}
     const s=document.createElement('script');
     s.src='/compass-png-fix.js';
     s.async=false;
     s.dataset.pusulaCompassPngFix='1';
+    s.onload=bootCompassGuide;
     document.head.appendChild(s);
   }
   function bootCompassSelector(){
