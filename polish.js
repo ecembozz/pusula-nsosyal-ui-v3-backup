@@ -193,3 +193,15 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
 `;
   document.head.appendChild(st);
 })();
+
+(function(){
+  if(document.getElementById('pusula-reason-light-fix'))return;
+  const st=document.createElement('style');
+  st.id='pusula-reason-light-fix';
+  st.textContent=`
+html[data-theme="light"] .jury .reason{color:var(--muted,#667388)!important;background:var(--panel-2,#f7f9fb)!important}
+html[data-theme="light"] .jury .reason b{color:var(--text,#182335)!important}
+html[data-theme="light"] .jury .reason .raw{color:var(--muted,#667388)!important;border-top-color:var(--line,#dce3ea)!important}
+`;
+  document.head.appendChild(st);
+})();
