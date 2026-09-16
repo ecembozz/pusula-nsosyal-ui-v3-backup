@@ -13,6 +13,22 @@
 .pcCustomBudget input::-webkit-outer-spin-button,.pcCustomBudget input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .pcCustomBudget input::placeholder{color:var(--muted);opacity:.5}
 .pcCustomBudget span{font-size:10px;color:var(--muted);font-weight:600;pointer-events:none}
+@media(min-width:721px){
+ #intentModal .pusulaCompassModal .budgetRow{width:100%!important;gap:9px!important;flex-wrap:nowrap!important}
+ #intentModal .pusulaCompassModal .budgetRow>b{flex:0 0 34%!important;margin:0!important;min-width:0!important}
+ #intentModal .pusulaCompassModal .budgetRow>[data-modalbudget],
+ #intentModal .pusulaCompassModal .budgetRow>.pcCustomBudget{
+   flex:1 1 0!important;
+   min-width:0!important;
+   width:auto!important;
+   justify-content:center!important;
+   box-sizing:border-box!important;
+   margin:0!important;
+ }
+ #intentModal .pusulaCompassModal .budgetRow>[data-modalbudget]{padding-left:8px!important;padding-right:8px!important}
+ #intentModal .pusulaCompassModal .budgetRow>.pcCustomBudget{padding-left:8px!important;padding-right:8px!important}
+ #intentModal .pusulaCompassModal .budgetRow>.pcCustomBudget input{width:30px!important;text-align:center!important}
+}
 @media(max-width:720px){
  #intentModal .pusulaCompassModal .budgetRow{gap:7px!important;width:100%!important}
  #intentModal .pusulaCompassModal .budgetRow>b{flex:1 0 100%;margin:0 0 3px!important}
