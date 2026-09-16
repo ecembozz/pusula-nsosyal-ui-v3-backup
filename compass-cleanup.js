@@ -12,28 +12,28 @@
 #intentModal .pusulaCompassModal .pcStage{margin-top:8px!important}
 #intentModal .pusulaCompassModal .budgetRow{margin-top:2px!important}
 
-/* Shared glass treatment: keep the five intent choices visually attached to the compass art. */
+/* Strong frosted-glass treatment so cards merge with the compass artwork. */
 #intentModal .pusulaCompassModal .pcIntent{
-  background:color-mix(in srgb,var(--panel) 56%,transparent)!important;
-  border-color:color-mix(in srgb,var(--brand) 16%,var(--line-soft))!important;
-  box-shadow:0 8px 22px rgba(21,52,84,.045)!important;
-  backdrop-filter:blur(18px) saturate(1.12)!important;
-  -webkit-backdrop-filter:blur(18px) saturate(1.12)!important;
+  background:color-mix(in srgb,var(--panel) 32%,transparent)!important;
+  border-color:color-mix(in srgb,var(--brand) 12%,var(--line-soft))!important;
+  box-shadow:0 6px 18px rgba(21,52,84,.03)!important;
+  backdrop-filter:blur(24px) saturate(1.14)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(1.14)!important;
 }
 #intentModal .pusulaCompassModal .pcIntent:hover{
-  background:color-mix(in srgb,var(--panel) 52%,transparent)!important;
-  border-color:color-mix(in srgb,var(--brand) 36%,var(--line-soft))!important;
-  box-shadow:0 10px 25px rgba(29,126,197,.075)!important;
+  background:color-mix(in srgb,var(--panel) 38%,transparent)!important;
+  border-color:color-mix(in srgb,var(--brand) 30%,var(--line-soft))!important;
+  box-shadow:0 8px 22px rgba(29,126,197,.055)!important;
 }
 #intentModal .pusulaCompassModal .pcIntent.active{
-  background:color-mix(in srgb,var(--brand) 10%,color-mix(in srgb,var(--panel) 54%,transparent))!important;
-  border-color:color-mix(in srgb,var(--brand) 58%,var(--line-soft))!important;
-  box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 10%,transparent),0 10px 26px rgba(31,128,206,.09)!important;
+  background:color-mix(in srgb,var(--brand) 9%,color-mix(in srgb,var(--panel) 36%,transparent))!important;
+  border-color:color-mix(in srgb,var(--brand) 52%,var(--line-soft))!important;
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 8%,transparent),0 8px 22px rgba(31,128,206,.07)!important;
 }
 #intentModal .pusulaCompassModal .pcIntentIcon{
-  background:color-mix(in srgb,var(--panel-2) 44%,transparent)!important;
-  backdrop-filter:blur(10px) saturate(1.08)!important;
-  -webkit-backdrop-filter:blur(10px) saturate(1.08)!important;
+  background:color-mix(in srgb,var(--panel-2) 28%,transparent)!important;
+  backdrop-filter:blur(14px) saturate(1.08)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(1.08)!important;
 }
 
 @media(min-width:721px){
