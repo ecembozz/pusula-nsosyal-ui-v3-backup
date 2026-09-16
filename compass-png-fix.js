@@ -31,6 +31,8 @@ html[data-theme="dark"] .pcCompassBody{
   background:none!important;
   transform-origin:0 0!important;
   will-change:transform!important;
+  backface-visibility:hidden!important;
+  -webkit-backface-visibility:hidden!important;
   filter:none!important;
   overflow:visible!important;
 }
@@ -60,6 +62,21 @@ html[data-theme="dark"] .pcNeedle::before{
   top:calc(43.55% + var(--pc-compass-y))!important;
 }
 
+/* Interaction performance: avoid expensive repaint work while the needle is moving. */
+.pcStage.dragging .pcArt,.pcStage.spinning .pcArt{filter:none!important}
+.pcStage.dragging .pcNeedle::before,.pcStage.spinning .pcNeedle::before{filter:none!important}
+.pcStage.dragging .pcIntent,.pcStage.spinning .pcIntent,
+.pcStage.dragging .pcIntentIcon,.pcStage.spinning .pcIntentIcon{
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.pcStage.spinning .pcDialHit{cursor:default!important}
+
+/* Reduced-motion must not leave the UI waiting with no visible response. Keep only the essential compass feedback. */
+@media(prefers-reduced-motion:reduce){
+  .pcStage.spinning .pcNeedle{transition:transform 1.85s cubic-bezier(.12,.74,.18,1)!important}
+}
+
 @media(max-width:720px){
   :root{--pc-compass-y:10px}
   .pcNeedle::before{width:120px;height:120px}
@@ -69,4 +86,27 @@ html[data-theme="dark"] .pcNeedle::before{
 }
 `;
   document.head.appendChild(st);
+
+  /* High-polling mice and some touch stacks can emit several pointermove events per frame.
+     Let the selector process at most one move per animation frame; the visual result stays
+     responsive while avoiding repeated layout/style work that cannot be displayed anyway. */
+  function bindMoveThrottle(hit){
+    if(!hit||hit.dataset.pcMoveThrottle)return;
+    hit.dataset.pcMoveThrottle='1';
+    let frameOpen=true;
+    hit.addEventListener('pointermove',e=>{
+      if(frameOpen){
+        frameOpen=false;
+        requestAnimationFrame(()=>{frameOpen=true});
+        return;
+      }
+      e.stopImmediatePropagation();
+    },true);
+  }
+  function scanHits(){
+    document.querySelectorAll('#intentModal .pcDialHit').forEach(bindMoveThrottle);
+  }
+  const mo=new MutationObserver(scanHits);
+  mo.observe(document.body,{childList:true,subtree:true});
+  scanHits();
 })();
