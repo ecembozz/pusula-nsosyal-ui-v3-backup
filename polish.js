@@ -205,3 +205,18 @@ html[data-theme="light"] .jury .reason .raw{color:var(--muted,#667388)!important
 `;
   document.head.appendChild(st);
 })();
+
+(function(){
+  if(document.getElementById('pusula-confetti-layer-fix'))return;
+  const st=document.createElement('style');
+  st.id='pusula-confetti-layer-fix';
+  st.textContent=`
+html body .pcConfetti{
+  position:fixed!important;
+  inset:0!important;
+  z-index:13050!important;
+  pointer-events:none!important;
+}
+`;
+  document.head.appendChild(st);
+})();
