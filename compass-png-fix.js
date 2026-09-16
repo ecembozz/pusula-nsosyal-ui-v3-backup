@@ -72,9 +72,14 @@ html[data-theme="dark"] .pcNeedle::before{
 }
 .pcStage.spinning .pcDialHit{cursor:default!important}
 
-/* Reduced-motion must not leave the UI waiting with no visible response. Keep only the essential compass feedback. */
+/* Confetti must remain above the onboarding guide on every viewport. */
+.pcConfetti{z-index:13050!important}
+
+/* Reduced-motion devices still get short confirmation instead of silently hiding it. */
 @media(prefers-reduced-motion:reduce){
   .pcStage.spinning .pcNeedle{transition:transform 1.85s cubic-bezier(.12,.74,.18,1)!important}
+  .pcConfetti{display:block!important}
+  .pcConfetti i{animation-duration:.9s!important}
 }
 
 @media(max-width:720px){
@@ -86,6 +91,51 @@ html[data-theme="dark"] .pcNeedle::before{
 }
 `;
   document.head.appendChild(st);
+
+  /* The selector intentionally skips its normal confetti on reduced-motion devices.
+     Detect the end of a successful flick and create a lightweight fallback only when
+     the normal layer was not created. Ordinary devices therefore never get duplicates. */
+  function fallbackConfetti(){
+    if(document.querySelector('.pcConfetti'))return;
+    const layer=document.createElement('div');
+    layer.className='pcConfetti pcConfettiFallback';
+    const colors=['#20bed5','#3974ff','#6b5cff','#ff6b6b','#ffbd3d','#44d7a8'];
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const count=reduced?24:42;
+    for(let i=0;i<count;i++){
+      const p=document.createElement('i');
+      p.style.left=(Math.random()*100)+'vw';
+      p.style.background=colors[i%colors.length];
+      p.style.setProperty('--delay',(Math.random()*(reduced?.12:.28))+'s');
+      p.style.setProperty('--dur',((reduced?.72:1.05)+Math.random()*(reduced?.18:.5))+'s');
+      p.style.setProperty('--drift',(-70+Math.random()*140)+'px');
+      p.style.setProperty('--spin',(-360+Math.random()*720)+'deg');
+      if(i%3===0){p.style.width='6px';p.style.height='6px';p.style.borderRadius='50%'}
+      layer.appendChild(p);
+    }
+    document.body.appendChild(layer);
+    setTimeout(()=>layer.remove(),reduced?1200:1900);
+  }
+
+  const spinState=new WeakMap();
+  function watchStage(stage){
+    if(!stage||stage.dataset.pcSpinFeedback)return;
+    stage.dataset.pcSpinFeedback='1';
+    spinState.set(stage,stage.classList.contains('spinning'));
+    const observer=new MutationObserver(()=>{
+      const was=spinState.get(stage)||false;
+      const now=stage.classList.contains('spinning');
+      spinState.set(stage,now);
+      if(was&&!now){
+        requestAnimationFrame(()=>{if(!document.querySelector('.pcConfetti'))fallbackConfetti()});
+      }
+    });
+    observer.observe(stage,{attributes:true,attributeFilter:['class']});
+  }
+  function scanStages(){document.querySelectorAll('#intentModal .pcStage').forEach(watchStage)}
+  const feedbackMo=new MutationObserver(scanStages);
+  feedbackMo.observe(document.body,{childList:true,subtree:true});
+  scanStages();
 
   /* High-polling mice and some touch stacks can emit several pointermove events per frame.
      Let the selector process at most one move per animation frame; the visual result stays
