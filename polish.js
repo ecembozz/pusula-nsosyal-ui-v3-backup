@@ -1,4 +1,11 @@
 (function(){
+  const GUIDE_COPY=[
+    ['Yönünü seç','O an ne görmek istediğini belirle.'],
+    ['Pusulayı çevir','Sürükle veya dokun. Hızlı çevirirsen PUSULA senin için seçer.'],
+    ['Beş yön','Öğren, eğlen, haberdar ol, sosyalleş veya dolaş.'],
+    ['Süreni belirle','Hazır sürelerden birini seç veya dakikayı kendin gir.'],
+    ['Hazırsın','Akışını oluştur.']
+  ];
   function bootBase(){
     // DEMO: onboarding'i her sayfa açılışında göstermek için "bir kez göster" kaydını temizle.
     // Demo sonrası bu satırı kaldırmak yeterli; polish.base.js içindeki normal localStorage davranışı geri döner.
@@ -54,18 +61,35 @@
       const st=document.createElement('style');
       st.id='pusula-tour-shape-fix-v4';
       st.textContent=`
-.pusulaTourFog{background:rgba(7,13,22,.28)!important;backdrop-filter:blur(3px) saturate(.97)!important;-webkit-backdrop-filter:blur(3px) saturate(.97)!important}
+.pusulaTourFog{background:rgba(7,15,28,.40)!important;backdrop-filter:blur(3px) saturate(.98)!important;-webkit-backdrop-filter:blur(3px) saturate(.98)!important}
+.pusulaTourSpot{border:0!important;box-shadow:none!important;background:transparent!important}
+.pusulaTourArrow path{stroke:#168cff!important;stroke-width:3!important;stroke-dasharray:none!important;stroke-linecap:round!important;stroke-linejoin:round!important;filter:drop-shadow(0 2px 5px rgba(22,140,255,.35))!important}
+.pusulaTourArrow marker path{stroke:#168cff!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;filter:none!important}
 .pusulaTourFog[data-tourfog="left"],.pusulaTourFog[data-tourfog="right"]{overflow:visible!important;border-radius:0!important}
 .pusulaTourFog[data-tourfog="left"]::before,.pusulaTourFog[data-tourfog="left"]::after,.pusulaTourFog[data-tourfog="right"]::before,.pusulaTourFog[data-tourfog="right"]::after{content:"";position:absolute;width:var(--tour-r,20px);height:var(--tour-r,20px);pointer-events:auto}
-.pusulaTourFog[data-tourfog="left"]::before{right:calc(-1 * var(--tour-r,20px));top:0;background:radial-gradient(circle at 100% 100%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,13,22,.28) var(--tour-r,20px))}
-.pusulaTourFog[data-tourfog="left"]::after{right:calc(-1 * var(--tour-r,20px));bottom:0;background:radial-gradient(circle at 100% 0%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,13,22,.28) var(--tour-r,20px))}
-.pusulaTourFog[data-tourfog="right"]::before{left:calc(-1 * var(--tour-r,20px));top:0;background:radial-gradient(circle at 0% 100%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,13,22,.28) var(--tour-r,20px))}
-.pusulaTourFog[data-tourfog="right"]::after{left:calc(-1 * var(--tour-r,20px));bottom:0;background:radial-gradient(circle at 0% 0%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,13,22,.28) var(--tour-r,20px))}
+.pusulaTourFog[data-tourfog="left"]::before{right:calc(-1 * var(--tour-r,20px));top:0;background:radial-gradient(circle at 100% 100%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,15,28,.40) var(--tour-r,20px))}
+.pusulaTourFog[data-tourfog="left"]::after{right:calc(-1 * var(--tour-r,20px));bottom:0;background:radial-gradient(circle at 100% 0%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,15,28,.40) var(--tour-r,20px))}
+.pusulaTourFog[data-tourfog="right"]::before{left:calc(-1 * var(--tour-r,20px));top:0;background:radial-gradient(circle at 0% 100%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,15,28,.40) var(--tour-r,20px))}
+.pusulaTourFog[data-tourfog="right"]::after{left:calc(-1 * var(--tour-r,20px));bottom:0;background:radial-gradient(circle at 0% 0%,transparent 0 calc(var(--tour-r,20px) - 1px),rgba(7,15,28,.40) var(--tour-r,20px))}
 .pusulaTourCard{box-sizing:border-box!important}
+.pusulaTourText{line-height:1.5!important}
+.pusulaTourSteps{display:none!important}
+#pusulaBar .betaChip,#pusulaBar .pusulaSub,#pusulaBar .dismiss,#pusulaBar .sessionMeta{display:none!important}
+#pusulaBar .pusulaRow{min-height:58px!important;padding:10px 12px!important;gap:10px!important}
+#pusulaBar .compassIcon{width:34px!important;height:34px!important;border-radius:11px!important}
+#pusulaBar .pusulaCopy{display:flex!important;align-items:center!important;min-width:0!important}
+#pusulaBar .pusulaTitle{font-size:14px!important;line-height:1!important;gap:0!important;white-space:nowrap!important}
+#pusulaBar .pusulaCta{margin-left:auto!important;height:36px!important;min-width:96px!important;padding:0 16px!important;border-radius:11px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}
 @media(min-width:721px){
   .pusulaTourCard{width:var(--tour-card-w,560px)!important;max-width:none!important;min-width:0!important}
+  #pusulaCompassGuide:not(.pcgPositioned) .pcgMobileCard{opacity:0!important;visibility:hidden!important;transition:none!important}
+  #pusulaCompassGuide.pcgPositioned .pcgMobileCard{opacity:1!important;visibility:visible!important}
 }
-@media(max-width:720px){.pusulaTourCard{min-width:0!important;max-width:calc(100vw - 24px)!important}}
+@media(max-width:720px){
+  .pusulaTourCard{min-width:0!important;max-width:calc(100vw - 24px)!important}
+  #pusulaBar .pusulaRow{min-height:56px!important;padding:9px 10px!important}
+  #pusulaBar .pusulaCta{height:34px!important;min-width:94px!important;padding:0 14px!important}
+}
 html.pusulaTourLocked,html.pusulaTourLocked body{overflow:hidden!important;overscroll-behavior:none!important}
 html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:none!important}
 `;
@@ -86,17 +110,52 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
         root.style.removeProperty('--tour-card-w');
       }
     };
+    const syncIntroCopy=root=>{
+      if(!root||root.dataset.copyPolished)return;
+      root.dataset.copyPolished='1';
+      const text=root.querySelector('.pusulaTourText');
+      if(text)text.textContent='Bu oturumda ne görmek istediğini ve ne kadar kalacağını belirleyebilirsin.';
+    };
+    const syncGuideCopy=()=>{
+      const guide=document.getElementById('pusulaCompassGuide');
+      if(!guide)return;
+      const raw=guide.querySelector('.pcgCount')?.textContent||'';
+      const step=parseInt(raw,10)-1;
+      if(step<0||step>=GUIDE_COPY.length)return;
+      const title=guide.querySelector('.pcgTitle'),text=guide.querySelector('.pcgText');
+      const copy=GUIDE_COPY[step];
+      if(title&&title.textContent!==copy[0])title.textContent=copy[0];
+      if(text&&text.textContent!==copy[1])text.textContent=copy[1];
+    };
+    const armGuidePositionGuard=()=>{
+      if(!window.matchMedia('(min-width:721px)').matches)return;
+      const guide=document.getElementById('pusulaCompassGuide');
+      if(!guide||guide.dataset.positionGuard)return;
+      const card=guide.querySelector('.pcgMobileCard');
+      if(!card)return;
+      guide.dataset.positionGuard='1';
+      const reveal=()=>{
+        if(card.style.left&&card.style.top)guide.classList.add('pcgPositioned');
+      };
+      const cardObserver=new MutationObserver(reveal);
+      cardObserver.observe(card,{attributes:true,attributeFilter:['style']});
+      requestAnimationFrame(reveal);
+    };
     const syncTourState=()=>{
       const root=document.getElementById('pusulaTour');
       document.documentElement.classList.toggle('pusulaTourLocked',!!root);
-      if(!root)return;
-      if(!root.dataset.fogDismissBound){
-        root.dataset.fogDismissBound='1';
-        root.querySelectorAll('.pusulaTourFog').forEach(f=>f.addEventListener('click',e=>{
-          if(e.target===f)root.querySelector('.pusulaTourSkip')?.click();
-        }));
+      if(root){
+        syncIntroCopy(root);
+        if(!root.dataset.fogDismissBound){
+          root.dataset.fogDismissBound='1';
+          root.querySelectorAll('.pusulaTourFog').forEach(f=>f.addEventListener('click',e=>{
+            if(e.target===f)root.querySelector('.pusulaTourSkip')?.click();
+          }));
+        }
+        align();
       }
-      align();
+      armGuidePositionGuard();
+      syncGuideCopy();
     };
     const blockScroll=e=>{if(document.getElementById('pusulaTour'))e.preventDefault()};
     const blockKeys=e=>{
@@ -108,8 +167,8 @@ html.pusulaTourLocked #feedBody{overflow:hidden!important;overscroll-behavior:no
     document.addEventListener('keydown',blockKeys,true);
     const mo=new MutationObserver(syncTourState);
     mo.observe(document.body,{childList:true,subtree:true});
-    window.addEventListener('resize',align,{passive:true});
-    window.addEventListener('orientationchange',align,{passive:true});
+    window.addEventListener('resize',()=>{align();armGuidePositionGuard();syncGuideCopy()},{passive:true});
+    window.addEventListener('orientationchange',()=>{align();armGuidePositionGuard();syncGuideCopy()},{passive:true});
     syncTourState();
   }
   bootBase();
