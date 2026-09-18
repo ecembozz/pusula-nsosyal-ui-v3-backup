@@ -126,36 +126,6 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   .pusulaTourVisual{height:160px}.pusulaTourCompass{width:94px;height:94px}.pusulaTourCompass .lucide{width:45px;height:45px}.pusulaTourCompass:before{height:70px}.pusulaTourCompass:after{width:70px}
   .pusulaTourBody{padding:17px 17px 16px}.pusulaTourTitle{font-size:19px}.pusulaTourSteps{margin-top:14px;padding:10px;gap:7px}.pusulaTourStep{font-size:10.5px;gap:6px}.pusulaTourActions{margin-top:14px}.pusulaTourTry,.pusulaTourSkip{height:40px}
 }
-
-  #tech-overview .overviewStat,
-  #tech-overview .overviewRanking,
-  #tech-overview .overviewChain{
-    background:var(--panel)!important;
-    border:1px solid var(--line-soft)!important;
-    box-shadow:none!important;
-  }
-  #tech-overview .overviewFormula{
-    background:var(--panel-2)!important;
-    border-color:var(--line-soft)!important;
-    box-shadow:none!important;
-  }
-  #tech-overview .pipelineNode,
-  #tech-overview .pipelineSignal{
-    background:var(--panel)!important;
-    border-color:var(--line-soft)!important;
-    box-shadow:none!important;
-  }
-  #tech-overview .pipelineSignalsBox{
-    background:color-mix(in srgb,var(--brand) 4%,var(--panel))!important;
-    border-color:color-mix(in srgb,var(--brand) 24%,var(--line-soft))!important;
-    box-shadow:none!important;
-  }
-  #tech-overview .pipelineScore{
-    background:color-mix(in srgb,var(--brand) 10%,var(--panel))!important;
-    border-color:color-mix(in srgb,var(--brand) 38%,var(--line-soft))!important;
-    box-shadow:none!important;
-  }
-
 @media(min-width:721px){.mobileDock,.mobileNavOverlay{display:none!important}}
 @media(min-width:721px){
   .postInner{width:100%!important;max-width:none!important;margin:0!important;padding:20px clamp(22px,2.2vw,36px)!important;box-sizing:border-box!important}
@@ -198,6 +168,81 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   #tech-overview .overviewSignals{grid-template-columns:1fr!important;gap:6px!important;max-width:none!important}
   #tech-overview .overviewSignals>div{grid-template-columns:5px auto minmax(0,1fr)!important;align-items:baseline!important;column-gap:7px!important}
   #tech-architecture .flow{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+
+}
+
+/* Jury Technical Center — shared visual hierarchy
+   1) section cards: soft/foggy + subtle shadow
+   2) inner cards: neutral panel + fine border
+   3) accent cards: restrained brand tint */
+#tech-overview .overviewStat,
+#tech-overview .overviewRanking,
+#tech-overview .overviewChain,
+#tech-models .techCard,
+#tech-experiment .techCard,
+#tech-architecture .techCard{
+  background:var(--panel-2)!important;
+  border:0!important;
+  box-shadow:0 7px 24px rgba(0,0,0,.055)!important;
+}
+
+#tech-compare .feedMini{
+  background:var(--panel-2)!important;
+  border:0!important;
+  border-radius:14px!important;
+  box-shadow:0 7px 24px rgba(0,0,0,.055)!important;
+  overflow:hidden!important;
+}
+#tech-compare .feedMiniHead{
+  background:color-mix(in srgb,var(--brand) 4%,var(--panel-2))!important;
+  border-color:var(--line-soft)!important;
+}
+
+#tech-overview .overviewFormula,
+#tech-overview .pipelineNode,
+#tech-overview .pipelineSignal,
+#tech-models .modelAxes span,
+#tech-models .modelMetricBox,
+#tech-experiment .experimentStat,
+#tech-architecture .architectureNode,
+#tech-architecture .architectureCheckList>div,
+#tech-architecture .architectureScopeList>div{
+  background:var(--panel)!important;
+  border:1px solid var(--line-soft)!important;
+  box-shadow:none!important;
+}
+
+#tech-overview .pipelineNode,
+#tech-overview .pipelineSignal,
+#tech-overview .pipelineNode b,
+#tech-overview .pipelineSignal b,
+#tech-overview .pipelineSignalsHead b,
+#tech-models .modelAxes span{
+  color:var(--text)!important;
+}
+#tech-overview .pipelineNode span,
+#tech-overview .pipelineSignal span{
+  color:var(--muted)!important;
+}
+#tech-overview .pipelineArrow{
+  color:var(--brand)!important;
+}
+
+#tech-overview .pipelineSignalsBox{
+  background:color-mix(in srgb,var(--brand) 4%,var(--panel-2))!important;
+  border:1px solid color-mix(in srgb,var(--brand) 22%,var(--line-soft))!important;
+  box-shadow:none!important;
+}
+#tech-overview .pipelineScore{
+  background:color-mix(in srgb,var(--brand) 10%,var(--panel))!important;
+  border-color:color-mix(in srgb,var(--brand) 36%,var(--line-soft))!important;
+  box-shadow:none!important;
+}
+#tech-models .modelMetricBox{
+  border-radius:10px!important;
+}
+#tech-models .modelAxes span{
+  border-radius:10px!important;
 }
 `;
     document.head.appendChild(style);
