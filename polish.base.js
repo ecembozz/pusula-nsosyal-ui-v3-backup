@@ -171,6 +171,379 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
 
 }
 
+/* Jury Technical Center — mobile presentation v2 */
+@media(max-width:720px){
+  .mobileTechBody{
+    padding:0 12px 14px!important;
+    overflow-x:hidden!important;
+  }
+  .mobileTechBody .techGrid{
+    gap:12px!important;
+    margin-top:12px!important;
+  }
+  .mobileTechBody .techCard{
+    padding:14px!important;
+    border-radius:14px!important;
+  }
+  .mobileTechBody .techCard>h3{
+    margin-bottom:9px!important;
+    font-size:12.5px!important;
+    line-height:1.3!important;
+  }
+  .mobileTechBody .techCard>h3+.sub,
+  .mobileTechBody .sub{
+    font-size:10.5px!important;
+    line-height:1.5!important;
+  }
+
+  /* Overview: preserve hierarchy, use a true vertical flow. */
+  .mobileTechBody #tech-overview .overviewGrid{
+    gap:10px!important;
+  }
+  .mobileTechBody #tech-overview .overviewStat{
+    min-height:78px!important;
+  }
+  .mobileTechBody #tech-overview .techStatLabel{
+    font-size:9px!important;
+    letter-spacing:.04em!important;
+  }
+  .mobileTechBody #tech-overview .techStatValue{
+    font-size:22px!important;
+  }
+  .mobileTechBody #tech-overview .modelName.techStatValue{
+    font-size:16px!important;
+  }
+  .mobileTechBody #tech-overview .overviewFormula{
+    margin-top:8px!important;
+    padding:11px 10px!important;
+    font-size:9.8px!important;
+    line-height:1.65!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+  }
+  .mobileTechBody #tech-overview .overviewSignals{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:7px!important;
+    margin-top:10px!important;
+  }
+  .mobileTechBody #tech-overview .overviewSignals>div{
+    display:grid!important;
+    grid-template-columns:5px auto minmax(0,1fr)!important;
+    align-items:baseline!important;
+    column-gap:7px!important;
+    min-width:0!important;
+  }
+  .mobileTechBody #tech-overview .overviewSignals b{
+    font-size:10px!important;
+    white-space:nowrap!important;
+  }
+  .mobileTechBody #tech-overview .overviewSignals span{
+    font-size:9.5px!important;
+    line-height:1.35!important;
+    min-width:0!important;
+  }
+  .mobileTechBody #tech-overview .pipelineMain{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:0!important;
+  }
+  .mobileTechBody #tech-overview .pipelineMain>.pipelineArrow{
+    display:grid!important;
+    place-items:center!important;
+    height:24px!important;
+    transform:none!important;
+    font-size:0!important;
+    color:var(--brand)!important;
+  }
+  .mobileTechBody #tech-overview .pipelineMain>.pipelineArrow::before{
+    content:"↓"!important;
+    font-size:16px!important;
+    line-height:1!important;
+    font-weight:800!important;
+  }
+  .mobileTechBody #tech-overview .pipelineNode{
+    width:100%!important;
+    min-height:58px!important;
+    height:auto!important;
+    max-height:none!important;
+    padding:10px 12px!important;
+  }
+  .mobileTechBody #tech-overview .pipelineSignalsBox{
+    width:100%!important;
+    min-height:0!important;
+    padding:11px!important;
+    border-radius:13px!important;
+  }
+  .mobileTechBody #tech-overview .pipelineSignalsHead{
+    margin-bottom:8px!important;
+  }
+  .mobileTechBody #tech-overview .pipelineSignalsGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:7px!important;
+  }
+  .mobileTechBody #tech-overview .pipelineSignal{
+    min-height:44px!important;
+    height:auto!important;
+    padding:8px 6px!important;
+  }
+
+  /* Live comparison: keep the two lists, improve mobile reading rhythm. */
+  .mobileTechBody #tech-compare .compareIntent{
+    margin:2px 0 9px!important;
+  }
+  .mobileTechBody #tech-compare .compareCols{
+    gap:10px!important;
+  }
+  .mobileTechBody #tech-compare .feedMini{
+    border-radius:13px!important;
+  }
+  .mobileTechBody #tech-compare .feedMiniHead{
+    padding:11px 10px!important;
+    font-size:10.5px!important;
+  }
+  .mobileTechBody #tech-compare .feedMiniItem{
+    padding:11px 10px!important;
+  }
+  .mobileTechBody #tech-compare .feedMiniItem b{
+    font-size:10.5px!important;
+    line-height:1.35!important;
+  }
+  .mobileTechBody #tech-compare .feedMiniItem p{
+    margin-top:5px!important;
+    font-size:10.5px!important;
+    line-height:1.5!important;
+  }
+
+  /* Intent analysis: examples and metrics become readable mobile cards. */
+  .mobileTechBody #tech-models .modelAxes{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:7px!important;
+    margin-bottom:15px!important;
+  }
+  .mobileTechBody #tech-models .modelAxes span{
+    min-height:38px!important;
+    font-size:10px!important;
+  }
+  .mobileTechBody #tech-models .modelExamplesLabel{
+    margin:16px 0 7px!important;
+    font-size:8.5px!important;
+  }
+  .mobileTechBody #tech-models .modelIntentRows{
+    display:grid!important;
+    gap:8px!important;
+    border:0!important;
+  }
+  .mobileTechBody #tech-models .modelIntentRow{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:4px!important;
+    padding:11px!important;
+    border:1px solid var(--tech-inner-border)!important;
+    border-radius:11px!important;
+    background:var(--tech-inner-bg)!important;
+  }
+  .mobileTechBody #tech-models .modelIntentRow+.modelIntentRow{
+    border-top:1px solid var(--tech-inner-border)!important;
+  }
+  .mobileTechBody #tech-models .modelIntentRow b{
+    font-size:10.5px!important;
+  }
+  .mobileTechBody #tech-models .modelIntentRow small{
+    font-size:9px!important;
+  }
+  .mobileTechBody #tech-models .modelIntentRow code{
+    margin:3px 0 1px!important;
+    font-size:9.5px!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+  }
+  .mobileTechBody #tech-models .modelIntentRow span{
+    font-size:9.5px!important;
+    line-height:1.45!important;
+  }
+  .mobileTechBody #tech-models .modelMetricBox{
+    padding:10px!important;
+  }
+  .mobileTechBody #tech-models .modelMetricList{
+    gap:10px!important;
+  }
+  .mobileTechBody #tech-models .modelMetricList>div{
+    padding:2px 0!important;
+  }
+
+  /* Model comparison table -> model cards on mobile. */
+  .mobileTechBody #tech-models .modelTable{
+    min-width:0!important;
+    width:100%!important;
+    display:block!important;
+  }
+  .mobileTechBody #tech-models .modelTable thead{
+    display:none!important;
+  }
+  .mobileTechBody #tech-models .modelTable tbody{
+    display:grid!important;
+    gap:8px!important;
+  }
+  .mobileTechBody #tech-models .modelTable tr{
+    display:grid!important;
+    gap:0!important;
+    padding:10px 11px!important;
+    border:1px solid var(--tech-inner-border)!important;
+    border-radius:11px!important;
+    background:var(--tech-inner-bg)!important;
+  }
+  .mobileTechBody #tech-models .modelTable tr.avg{
+    background:color-mix(in srgb,var(--brand) 7%,var(--tech-inner-bg))!important;
+    border-color:color-mix(in srgb,var(--brand) 22%,var(--tech-inner-border))!important;
+  }
+  .mobileTechBody #tech-models .modelTable td{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:10px!important;
+    align-items:center!important;
+    padding:7px 0!important;
+    border:0!important;
+    border-top:1px solid var(--line-soft)!important;
+    text-align:right!important;
+    font-size:10px!important;
+  }
+  .mobileTechBody #tech-models .modelTable td:first-child{
+    display:block!important;
+    padding:0 0 9px!important;
+    border-top:0!important;
+    text-align:left!important;
+    font-size:10.5px!important;
+    font-weight:750!important;
+  }
+  .mobileTechBody #tech-models .modelTable td:nth-child(2)::before{content:"Niyet doğruluğu ↑"!important}
+  .mobileTechBody #tech-models .modelTable td:nth-child(3)::before{content:"Macro-F1 ↑"!important}
+  .mobileTechBody #tech-models .modelTable td:nth-child(4)::before{content:"Niyet vektörü hatası ↓"!important}
+  .mobileTechBody #tech-models .modelTable td::before{
+    text-align:left!important;
+    color:var(--muted)!important;
+    font-size:9px!important;
+    font-weight:650!important;
+  }
+
+  /* Experiment comparison table -> one card per intent. */
+  .mobileTechBody #tech-experiment .experimentTableWrap{
+    overflow:visible!important;
+  }
+  .mobileTechBody #tech-experiment .experimentTable{
+    min-width:0!important;
+    width:100%!important;
+    display:block!important;
+  }
+  .mobileTechBody #tech-experiment .experimentTable thead{
+    display:none!important;
+  }
+  .mobileTechBody #tech-experiment .experimentTable tbody{
+    display:grid!important;
+    gap:8px!important;
+  }
+  .mobileTechBody #tech-experiment .experimentTable tr{
+    display:grid!important;
+    padding:10px 11px!important;
+    border:1px solid var(--tech-inner-border)!important;
+    border-radius:11px!important;
+    background:var(--tech-inner-bg)!important;
+  }
+  .mobileTechBody #tech-experiment .experimentTable td{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:10px!important;
+    align-items:center!important;
+    padding:6px 0!important;
+    border:0!important;
+    border-top:1px solid var(--line-soft)!important;
+    text-align:right!important;
+    font-size:10px!important;
+  }
+  .mobileTechBody #tech-experiment .experimentTable td:first-child{
+    display:block!important;
+    padding:0 0 9px!important;
+    border-top:0!important;
+    text-align:left!important;
+    font-size:11px!important;
+    font-weight:750!important;
+  }
+  .mobileTechBody #tech-experiment .experimentTable td:nth-child(2)::before{content:"Klasik"!important}
+  .mobileTechBody #tech-experiment .experimentTable td:nth-child(3)::before{content:"PUSULA"!important}
+  .mobileTechBody #tech-experiment .experimentTable td:nth-child(4)::before{content:"Değişim"!important}
+  .mobileTechBody #tech-experiment .experimentTable td::before{
+    text-align:left!important;
+    color:var(--muted)!important;
+    font-size:9px!important;
+    font-weight:650!important;
+  }
+  .mobileTechBody #tech-experiment .experimentTable .deltaGood{
+    color:var(--brand)!important;
+  }
+  .mobileTechBody #tech-experiment .experimentSummaryGrid{
+    gap:8px!important;
+  }
+  .mobileTechBody #tech-experiment .experimentStat{
+    min-height:88px!important;
+    padding:12px!important;
+  }
+  .mobileTechBody #tech-experiment .techStatValue{
+    font-size:24px!important;
+  }
+  .mobileTechBody #tech-experiment .experimentCategories{
+    margin-top:10px!important;
+    font-size:9.5px!important;
+    line-height:1.6!important;
+  }
+
+  /* Architecture: keep the vertical flow, make the connectors explicit. */
+  .mobileTechBody #tech-architecture .architectureStage{
+    padding-top:2px!important;
+  }
+  .mobileTechBody #tech-architecture .architectureStage+.architectureStage{
+    margin-top:16px!important;
+    padding-top:16px!important;
+  }
+  .mobileTechBody #tech-architecture .architectureStageHead{
+    margin-bottom:10px!important;
+  }
+  .mobileTechBody #tech-architecture .architectureStageHead b{
+    font-size:10.5px!important;
+  }
+  .mobileTechBody #tech-architecture .architectureStageHead span{
+    margin-top:4px!important;
+    font-size:9.5px!important;
+    line-height:1.45!important;
+  }
+  .mobileTechBody #tech-architecture .architectureFlow{
+    grid-template-columns:1fr!important;
+    gap:0!important;
+  }
+  .mobileTechBody #tech-architecture .architectureArrow{
+    height:24px!important;
+    transform:none!important;
+    font-size:0!important;
+  }
+  .mobileTechBody #tech-architecture .architectureArrow::before{
+    content:"↓"!important;
+    font-size:15px!important;
+    line-height:1!important;
+    color:var(--brand)!important;
+  }
+  .mobileTechBody #tech-architecture .architectureNode{
+    min-height:68px!important;
+    padding:11px 12px!important;
+  }
+  .mobileTechBody #tech-architecture .architectureCheckList,
+  .mobileTechBody #tech-architecture .architectureScopeList{
+    gap:7px!important;
+  }
+  .mobileTechBody #tech-architecture .architectureCheckList>div,
+  .mobileTechBody #tech-architecture .architectureScopeList>div{
+    padding:10px!important;
+  }
+}
+
 /* Jury Technical Center — theme surface tokens */
 html[data-theme="light"]{
   --tech-section-bg:#f2f5f8;
