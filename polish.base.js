@@ -17,7 +17,7 @@
     ['compare','Canlı karşılaştırma','columns-2'],
     ['models','Niyet analizi','brain-circuit'],
     ['experiment','Deney sonuçları','table-2'],
-    ['architecture','Mimari & doğrulama','workflow']
+    ['architecture','Mimari & kapsam','workflow']
   ];
   const TOUR_KEY='pusula-onboarding-update-3';
 

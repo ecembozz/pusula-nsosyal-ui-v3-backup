@@ -9,7 +9,7 @@ const TECH_META_V5={
   compare:['Canlı karşılaştırma','Klasik sıralama ile PUSULA sıralamasını karşılaştır.'],
   math:['Matematik & skor ayrıştırma','Niyet uyumu, kalite, tazelik ve etkileşim sinyallerini adım adım gör.'],
   experiment:['Deney sonuçları','PUSULA’nın farklı niyetlerde klasik sıralamaya göre nasıl davrandığını incele.'],
-  architecture:['Mimari & doğrulama','PUSULA’nın içeriği nasıl analiz ettiğini ve kullanıcı niyetine göre akışı nasıl oluşturduğunu incele.'],
+  architecture:['Mimari & kapsam','PUSULA’nın içeriği nasıl analiz ettiğini ve kullanıcı niyetine göre akışı nasıl oluşturduğunu incele.'],
 };
 
 async function A(p){let r=await fetch('/api/pusula?'+new URLSearchParams(p),{cache:'no-store'}),d=await r.json();if(!r.ok||!d.ok)throw Error(d.error||r.status);return d}
@@ -99,7 +99,7 @@ function techOverview(){
   r.innerHTML=`<div class="techGrid overviewGrid">
     <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">Semantik model</div><div class="modelName techStatValue">${E((src?.semantic_encoder||'intfloat/multilingual-e5-base').split('/').pop())}</div></div>
     <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">İçerik havuzu</div><div class="bigNum techStatValue">${src?.pool_size||320}</div></div>
-    <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">Clickbait ortalaması</div><div class="bigNum techStatValue">${pct(click.mean)}</div></div>
+    <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">Havuzda clickbait riski</div><div class="bigNum techStatValue">${pct(click.mean)}</div></div>
 
     <div class="techCard span12 overviewRanking"><h3>Sıralama modeli</h3><div class="formulaBox overviewFormula">Skor = (<b>0.70 × niyet uyumu</b> + 0.15 × tazelik + 0.15 × etkileşim) × <b>(1 − clickbait)</b></div><div class="overviewSignals"><div><i aria-hidden="true"></i><b>Niyet uyumu</b><span>Kullanıcı ne istiyor?</span></div><div><i aria-hidden="true"></i><b>Tazelik</b><span>İçerik hâlâ güncel mi?</span></div><div><i aria-hidden="true"></i><b>Etkileşim</b><span>İçerik insanlar için ilgi çekici mi?</span></div><div><i aria-hidden="true"></i><b>Clickbait</b><span>Kaliteli bir tercih mi?</span></div></div></div>
 
@@ -210,8 +210,8 @@ function techExperiment(){
           <div class="bigNum techStatValue experimentPositive">+${nf.format(avgDelta*100)} puan</div>
         </div>
         <div class="experimentStat techStatCard experimentStatDetail">
-          <div class="miniLabel techStatLabel">Clickbait riski değişimi</div>
-          <div class="bigNum techStatValue experimentPositive">${nf.format(clickDelta*100)} puan</div>
+          <div class="miniLabel techStatLabel">Clickbait riski azalması</div>
+          <div class="bigNum techStatValue experimentPositive">${nf.format(Math.abs(clickDelta)*100)} puan</div>
           <div class="experimentStatSub">Klasik ${pct(classicClick)} → PUSULA ${pct(pusulaClick)}</div>
         </div>
         <div class="experimentStat techStatCard">
@@ -241,19 +241,19 @@ function techArchitecture(){
           <div class="architectureArrow" aria-hidden="true">→</div>
           <div class="architectureNode architectureNodeWide"><b>Niyet profili + Clickbait riski</b><span>İçeriğin özelliklerini belirle</span></div>
           <div class="architectureArrow" aria-hidden="true">→</div>
-          <div class="architectureNode"><b>Hazır özellikler</b><span>Sıralama için saklanır</span></div>
+          <div class="architectureNode"><b>Analiz sonuçları</b><span>Sıralama için saklanır</span></div>
         </div>
       </div>
 
       <div class="architectureStage">
         <div class="architectureStageHead">
           <b>Akış oluşturulurken</b>
-          <span>Kullanıcının seçtiği niyet hazır içeriklerle eşleştirilir.</span>
+          <span>Kullanıcının seçtiği niyet kayıtlı analiz sonuçlarıyla eşleştirilir.</span>
         </div>
         <div class="architectureFlow">
           <div class="architectureNode"><b>Kullanıcı niyeti</b><span>Örn. Öğrenmek</span></div>
           <div class="architectureArrow" aria-hidden="true">→</div>
-          <div class="architectureNode"><b>Hazır içerik özellikleri</b><span>Niyet, kalite ve diğer sinyaller</span></div>
+          <div class="architectureNode"><b>Kayıtlı analiz sonuçları</b><span>Niyet, kalite ve diğer sinyaller</span></div>
           <div class="architectureArrow" aria-hidden="true">→</div>
           <div class="architectureNode"><b>PUSULA skoru</b><span>İçerikleri karşılaştır</span></div>
           <div class="architectureArrow" aria-hidden="true">→</div>
