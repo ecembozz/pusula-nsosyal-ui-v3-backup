@@ -48,10 +48,24 @@ async function setMode(m){if(m==='pusula'&&!S.intent){S.mode='classic';render();
 function metrics(){
   let b=document.getElementById('metrics');
   const count=G.m?.source?.pool_size||320;
-  if(!S.intent)return b.innerHTML=`<div class="judgeNote">Niyet seçildiğinde aynı ${count} Candidate V5 gönderisinin iki sıralaması karşılaştırılır. Etkileşim ve tazelik değerleri demo simülasyonudur.</div>`;
-  if(!G.c)return b.innerHTML='<div class="judgeNote">İki akış hesaplanıyor…</div>';
-  let a=G.c.classic.metrics,p=G.c.pusula.metrics,R=(n,x,y)=>`<div class="metric"><span>${n}</span><b>${Math.round(Number(x||0)*100)}%</b><b class="p">${Math.round(Number(y||0)*100)}%</b></div>`;
-  b.innerHTML='<div class="metric"><span></span><b>Klasik</b><b class="p">PUSULA</b></div>'+R('Niyet uyumu',a.niyet_uyumu,p.niyet_uyumu)+R('Niyet × kalite',a.niyet_kalite,p.niyet_kalite)+R('Ortalama kalite',a.kalite,p.kalite)+R('Clickbait ort.',a.clickbait_ortalama,p.clickbait_ortalama)+R('Etkileşim (demo)',a.etkilesim,p.etkilesim)
+  if(!S.intent)return b.innerHTML='<div class="juryMetricEmpty">Karşılaştırma için bir niyet seç.</div>';
+  if(!G.c)return b.innerHTML='<div class="juryMetricEmpty">Karşılaştırma hesaplanıyor…</div>';
+  const a=G.c.classic.metrics,p=G.c.pusula.metrics;
+  const nf=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1});
+  const pct=v=>nf.format(Number(v||0)*100)+'%';
+  const diff=(x,y)=>{
+    const d=(Number(y||0)-Number(x||0))*100;
+    return (d>0?'+':d<0?'−':'')+nf.format(Math.abs(d))+' puan';
+  };
+  const row=(name,x,y,lowerBetter=false)=>{
+    const d=Number(y||0)-Number(x||0),good=lowerBetter?d<=0:d>=0;
+    return `<div class="metric"><span>${name}</span><b>${pct(x)}</b><b class="p">${pct(y)}</b><b class="${good?'deltaGood':'deltaBad'}">${diff(x,y)}</b></div>`;
+  };
+  const budget=S.budget?S.budget+' dk':'Sınırsız';
+  b.innerHTML=`<div class="juryMetricContext"><b>${E(I[S.intent].label)} · ${budget}</b><span>Aynı ${count} içerik · Top-20</span></div><div class="metric metricHead"><span></span><b>Klasik</b><b class="p">PUSULA</b><b>Fark</b></div>`
+    +row('Ort. niyet benzerliği',a.niyet_uyumu,p.niyet_uyumu)
+    +row('Niyet × kalite',a.niyet_kalite,p.niyet_kalite)
+    +row('Ort. clickbait ↓',a.clickbait_ortalama,p.clickbait_ortalama,true)
 }
 
 function showSession(s='pause'){let o=document.getElementById('sessionModal'),c=document.getElementById('session');o.classList.add('show');if(s==='pause')c.innerHTML=`<h2>${S.budget?'Zaman bütçen tamamlandı.':'Oturumu bitirmek ister misin?'}</h2><p>Akış zorla kapanmıyor. Bu oturumda ${G.f.length} demo gönderisi getirildi.</p><div class="stats"><div class="stat"><b>${G.f.length}</b><span>gönderi</span></div><div class="stat"><b>${S.intent?I[S.intent].short:'—'}</b><span>niyet</span></div><div class="stat"><b>${S.budget?S.budget+' dk':'∞'}</b><span>bütçe</span></div></div><div class="modalFooter"><button class="secondary" onclick="sessionModal.classList.remove('show')">Devam et</button><button class="primary" onclick="showSession('mood')">Bitir</button></div>`;else if(s==='mood')c.innerHTML='<h2>Bu oturum amacına ulaştı mı?</h2><p>Mevcut demoda geri bildirim henüz sıralamayı çevrimiçi eğitmiyor.</p><div class="moods"><button class="mood" onclick="pick(3,this)">😊</button><button class="mood" onclick="pick(2,this)">😐</button><button class="mood" onclick="pick(1,this)">😞</button></div><div class="modalFooter"><button class="primary" onclick="showSession(\'summary\')">Özeti gör</button></div>';else c.innerHTML=`<h2>Oturum özeti</h2><div class="stats"><div class="stat"><b>${S.intent?I[S.intent].label:'Standart'}</b><span>niyet</span></div><div class="stat"><b>${G.f.length}</b><span>gönderi</span></div><div class="stat"><b>${G.fm?Math.round(G.fm.niyet_uyumu*100)+'%':'—'}</b><span>uyum</span></div></div><div class="modalFooter"><button class="primary" onclick="newSession()">Yeni oturum</button></div>`}
