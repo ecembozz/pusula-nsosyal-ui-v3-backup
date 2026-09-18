@@ -145,23 +145,25 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   #tech-overview .overviewSignals b{font-size:10.5px!important;color:var(--text)!important;white-space:nowrap!important}
   #tech-overview .overviewSignals span{font-size:10px!important;line-height:1.35!important;color:var(--muted)!important}
   #tech-overview .overviewFormula{white-space:nowrap!important;overflow:visible!important;font-size:10.7px!important;letter-spacing:-.025em!important;padding:12px 11px!important}
-  #tech-overview .overviewPipeline{display:grid!important;gap:9px!important}
-  #tech-overview .pipelineMain{display:grid!important;grid-template-columns:minmax(100px,.75fr) 20px minmax(125px,.9fr) 20px minmax(330px,2.2fr) 20px minmax(130px,.95fr) 20px minmax(95px,.7fr)!important;align-items:center!important;gap:6px!important}
-  #tech-overview .pipelineNode,#tech-overview .pipelineSignal{min-width:0!important}
-  #tech-overview .pipelineNode{height:68px!important;min-height:68px!important;max-height:68px!important;align-self:center!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;padding:10px 12px!important}
-  #tech-overview .pipelineNode b,#tech-overview .pipelineSignal b{display:block!important;text-align:center!important;line-height:1.2!important}
-  #tech-overview .pipelineNode span,#tech-overview .pipelineSignal span{display:block!important;margin-top:4px!important;text-align:center!important;line-height:1.3!important;color:var(--muted)!important}
-  #tech-overview .pipelineArrow{display:grid!important;place-items:center!important;align-self:center!important;color:var(--brand)!important;font-size:18px!important;font-weight:800!important}
-  #tech-overview .pipelineSignalsBox{min-width:0!important;min-height:184px!important;border:1px solid var(--line-soft)!important;border-radius:16px!important;background:color-mix(in srgb,var(--brand) 3%,var(--panel))!important;padding:12px!important;display:grid!important;align-content:center!important;gap:10px!important}
+  #tech-overview .overviewChain{background:var(--tech-diagram-canvas)!important}
+  #tech-overview .overviewPipeline{display:grid!important;gap:11px!important;width:100%!important;max-width:100%!important}
+  #tech-overview .pipelineMain{display:grid!important;grid-template-columns:minmax(82px,.75fr) 16px minmax(105px,.95fr) 16px minmax(280px,2.15fr) 16px minmax(105px,.9fr) 16px minmax(80px,.72fr)!important;align-items:center!important;gap:6px!important;width:100%!important;max-width:100%!important}
+  #tech-overview .pipelineMain>*{min-width:0!important}
+  #tech-overview .pipelineNode,#tech-overview .pipelineSignal{min-width:0!important;color:var(--tech-diagram-text)!important;background:var(--tech-diagram-node-bg)!important;border-color:var(--tech-diagram-node-border)!important}
+  #tech-overview .pipelineNode{height:68px!important;min-height:68px!important;max-height:68px!important;align-self:center!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;padding:10px 9px!important;border-radius:13px!important;box-shadow:var(--tech-diagram-node-shadow)!important}
+  #tech-overview .pipelineNode b,#tech-overview .pipelineSignal b{display:block!important;text-align:center!important;line-height:1.2!important;color:var(--tech-diagram-text)!important}
+  #tech-overview .pipelineNode span,#tech-overview .pipelineSignal span{display:block!important;margin-top:4px!important;text-align:center!important;line-height:1.3!important;color:var(--tech-diagram-muted)!important;overflow-wrap:anywhere!important}
+  #tech-overview .pipelineArrow{display:grid!important;place-items:center!important;align-self:center!important;color:var(--tech-diagram-arrow)!important;font-size:18px!important;font-weight:800!important}
+  #tech-overview .pipelineSignalsBox{min-width:0!important;min-height:184px!important;border:1px solid var(--tech-diagram-group-border)!important;border-radius:16px!important;background:var(--tech-diagram-group-bg)!important;padding:12px!important;display:grid!important;align-content:center!important;gap:10px!important;box-shadow:var(--tech-diagram-node-shadow)!important}
   #tech-overview .pipelineSignalsHead{display:grid!important;place-items:center!important;gap:3px!important;text-align:center!important}
-  #tech-overview .pipelineSignalsHead b{font-size:11px!important;color:var(--text)!important}
-  #tech-overview .pipelineSignalsHead span{font-size:9px!important;color:var(--muted)!important;text-align:center!important}
+  #tech-overview .pipelineSignalsHead b{font-size:11px!important;color:var(--tech-diagram-text)!important}
+  #tech-overview .pipelineSignalsHead span{font-size:9px!important;color:var(--tech-diagram-muted)!important;text-align:center!important}
   #tech-overview .pipelineSignalsSection{display:grid!important;gap:5px!important}
-  #tech-overview .pipelineSectionLabel{font-size:8.8px!important;font-weight:700!important;color:var(--muted)!important;text-align:center!important}
+  #tech-overview .pipelineSectionLabel{font-size:8.8px!important;font-weight:700!important;color:var(--tech-diagram-muted)!important;text-align:center!important}
   #tech-overview .pipelineSignalsGrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
-  #tech-overview .pipelineSignal{height:58px!important;min-height:58px!important;padding:8px 10px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important}
-  #tech-overview .pipelineScore{background:color-mix(in srgb,var(--brand) 7%,var(--panel-2))!important}
-  #tech-overview .pipelineNote{margin:1px 0 0!important;font-size:9.5px!important;line-height:1.4!important;color:var(--muted)!important}
+  #tech-overview .pipelineSignal{height:58px!important;min-height:58px!important;padding:8px 8px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;border-radius:11px!important;box-shadow:none!important}
+  #tech-overview .pipelineScore{background:var(--tech-diagram-score-bg)!important;border-color:var(--tech-diagram-score-border)!important;box-shadow:0 7px 20px color-mix(in srgb,var(--tech-diagram-arrow) 10%,transparent)!important}
+  #tech-overview .pipelineNote{margin:1px 0 0!important;font-size:9.5px!important;line-height:1.4!important;color:var(--tech-diagram-muted)!important}
 }
 @media(min-width:721px) and (max-width:1100px){
   #tech-overview .overviewRanking,#tech-overview .overviewIntent{grid-column:1/-1!important}
