@@ -139,8 +139,9 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   #tech-overview .flowNode,#tech-architecture .flowNode{min-width:0!important;width:auto!important;height:100%!important}
   #tech-overview .overviewCardNote{color:var(--muted)!important;font-size:10px;line-height:1.35}
   #tech-overview .overviewExplain{margin:9px 0 0;color:var(--muted)!important;font-size:10.5px;line-height:1.45}
-  #tech-overview .overviewSignals{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px 14px!important;margin-top:10px!important}
-  #tech-overview .overviewSignals>div{min-width:0!important;display:flex!important;align-items:baseline!important;gap:6px!important}
+  #tech-overview .overviewSignals{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px 28px!important;margin-top:9px!important;max-width:760px!important}
+  #tech-overview .overviewSignals>div{min-width:0!important;display:grid!important;grid-template-columns:5px auto minmax(0,1fr)!important;align-items:baseline!important;column-gap:7px!important}
+  #tech-overview .overviewSignals i{width:5px!important;height:5px!important;border-radius:50%!important;background:var(--brand)!important;align-self:center!important}
   #tech-overview .overviewSignals b{font-size:10.5px!important;color:var(--text)!important;white-space:nowrap!important}
   #tech-overview .overviewSignals span{font-size:10px!important;line-height:1.35!important;color:var(--muted)!important}
   #tech-overview .overviewFormula{white-space:nowrap!important;overflow:visible!important;font-size:10.7px!important;letter-spacing:-.025em!important;padding:12px 11px!important}
@@ -152,8 +153,8 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   #tech-overview .overviewRanking,#tech-overview .overviewIntent{grid-column:1/-1!important}
   #tech-overview .overviewFormula{white-space:normal!important}
   #tech-overview .overviewFlow{grid-template-columns:1fr!important;gap:5px!important}
-  #tech-overview .overviewSignals{grid-template-columns:1fr!important;gap:6px!important}
-  #tech-overview .overviewSignals>div{align-items:flex-start!important;flex-direction:column!important;gap:1px!important}
+  #tech-overview .overviewSignals{grid-template-columns:1fr!important;gap:6px!important;max-width:none!important}
+  #tech-overview .overviewSignals>div{grid-template-columns:5px auto minmax(0,1fr)!important;align-items:baseline!important;column-gap:7px!important}
   #tech-overview .overviewFlow>.arrow{transform:rotate(90deg)!important;height:18px!important}
   #tech-architecture .flow{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 }
