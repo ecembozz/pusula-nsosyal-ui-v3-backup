@@ -149,12 +149,14 @@ function techModels(){
       <div class="modelExamplesLabel">Örnek hedefler</div>
       <div class="modelIntentRows">
         <div class="modelIntentRow">
-          <div class="modelIntentRowHead"><b>Öğrenmek</b><small>Belirgin hedef</small></div>
+          <b>Öğrenmek</b>
+          <small>Belirgin hedef</small>
           <code>[1.00, 0.15, 0.15, 0.05]</code>
           <span>Öğretici boyut baskındır; diğer boyutlar tamamen sıfırlanmaz.</span>
         </div>
         <div class="modelIntentRow">
-          <div class="modelIntentRowHead"><b>Sadece dolaşmak</b><small>Dengeli hedef</small></div>
+          <b>Sadece dolaşmak</b>
+          <small>Dengeli hedef</small>
           <code>[0.40, 0.55, 0.40, 0.45]</code>
           <span>Tek bir boyutu baskınlaştırmaz; dört boyuta daha dengeli yaklaşır.</span>
         </div>
