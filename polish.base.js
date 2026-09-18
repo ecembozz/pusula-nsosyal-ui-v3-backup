@@ -127,56 +127,50 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   .pusulaTourVisual{height:160px}.pusulaTourCompass{width:94px;height:94px}.pusulaTourCompass .lucide{width:45px;height:45px}.pusulaTourCompass:before{height:70px}.pusulaTourCompass:after{width:70px}
   .pusulaTourBody{padding:17px 17px 16px}.pusulaTourTitle{font-size:19px}.pusulaTourSteps{margin-top:14px;padding:10px;gap:7px}.pusulaTourStep{font-size:10.5px;gap:6px}.pusulaTourActions{margin-top:14px}.pusulaTourTry,.pusulaTourSkip{height:40px}
 }
-#tech-math .mathExplain{align-items:stretch!important}
-#tech-math .mathPostCard,#tech-math .mathIntentCard{min-height:218px!important}
-#tech-math .mathEyebrow{font-size:9.5px!important;font-weight:700!important;letter-spacing:.06em!important;text-transform:uppercase!important;color:var(--muted)!important;margin-bottom:9px!important}
-#tech-math .mathPostCard h3{margin-bottom:7px!important}
-#tech-math .mathPostText{margin:14px 0 16px!important;font-size:12px!important;line-height:1.55!important;color:var(--text)!important}
-#tech-math .mathIntentChip{display:inline-flex!important;align-items:center!important;gap:7px!important;margin-top:auto!important;padding:7px 9px!important;border-radius:999px!important;background:color-mix(in srgb,var(--brand) 8%,var(--panel))!important}
+#tech-math .mathSimple{align-items:stretch!important}
+#tech-math .mathEyebrow{font-size:9.5px!important;font-weight:700!important;letter-spacing:.06em!important;text-transform:uppercase!important;color:var(--muted)!important;margin-bottom:8px!important}
+#tech-math .mathPostCompact{padding-top:14px!important;padding-bottom:14px!important}
+#tech-math .mathPostMain{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:18px!important}
+#tech-math .mathPostAuthor{display:flex!important;align-items:baseline!important;gap:5px!important}
+#tech-math .mathPostAuthor b{font-size:11px!important;color:var(--text)!important}
+#tech-math .mathPostAuthor span{font-size:10px!important;color:var(--muted)!important}
+#tech-math .mathPostCompact p{margin:8px 0 0!important;max-width:780px!important;font-size:11px!important;line-height:1.5!important;color:var(--text)!important}
+#tech-math .mathIntentChip{display:inline-flex!important;align-items:center!important;gap:7px!important;padding:7px 10px!important;border-radius:999px!important;background:color-mix(in srgb,var(--brand) 8%,var(--panel))!important;white-space:nowrap!important}
 #tech-math .mathIntentChip span{font-size:9.5px!important;color:var(--muted)!important}
 #tech-math .mathIntentChip b{font-size:10.5px!important;color:var(--brand)!important}
-#tech-math .mathSectionLead{font-size:10.5px!important;line-height:1.4!important;color:var(--muted)!important;margin:-3px 0 12px!important}
-#tech-math .mathProfile{display:grid!important;gap:7px!important}
-#tech-math .mathProfileRow{display:grid!important;grid-template-columns:74px minmax(0,1fr) 42px!important;align-items:center!important;gap:8px!important;font-size:10px!important}
-#tech-math .mathProfileRow>span{color:var(--text)!important;font-weight:650!important}
-#tech-math .mathProfileRow>strong{font:700 10px ui-monospace,SFMono-Regular,Consolas,monospace!important;color:var(--text)!important;text-align:right!important}
-#tech-math .mathProfileTrack{height:6px!important;border-radius:99px!important;background:var(--panel-3)!important;overflow:hidden!important}
-#tech-math .mathProfileTrack i{display:block!important;width:var(--math-value)!important;height:100%!important;border-radius:inherit!important;background:var(--brand)!important}
-#tech-math .mathFitResult{display:grid!important;grid-template-columns:auto auto 1fr!important;align-items:center!important;gap:8px!important;margin-top:12px!important;padding-top:10px!important;border-top:1px solid var(--line-soft)!important}
-#tech-math .mathFitResult span{font-size:10px!important;font-weight:700!important;color:var(--text)!important}
-#tech-math .mathFitResult strong{font:800 13px ui-monospace,SFMono-Regular,Consolas,monospace!important;color:var(--brand)!important}
-#tech-math .mathFitResult small{font-size:9.5px!important;color:var(--muted)!important}
-#tech-math .mathScoreCard{background:var(--tech-diagram-canvas)!important}
-#tech-math .mathContribGrid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important}
-#tech-math .mathContrib{min-width:0!important;padding:11px!important;border:1px solid var(--tech-diagram-node-border)!important;border-radius:12px!important;background:var(--tech-diagram-node-bg)!important}
-#tech-math .mathContrib>div{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important}
-#tech-math .mathContrib span{font-size:10.5px!important;font-weight:700!important;color:var(--tech-diagram-text)!important}
-#tech-math .mathContrib em{font-style:normal!important;font-size:9px!important;font-weight:800!important;color:var(--brand)!important}
-#tech-math .mathContrib code{display:block!important;margin-top:8px!important;font:600 10px ui-monospace,SFMono-Regular,Consolas,monospace!important;color:var(--tech-diagram-muted)!important}
-#tech-math .mathContrib strong{display:block!important;margin-top:4px!important;font:800 13px ui-monospace,SFMono-Regular,Consolas,monospace!important;color:var(--tech-diagram-text)!important}
-#tech-math .mathBaseRow{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;align-items:center!important;gap:12px!important;margin:10px 0!important;padding:9px 11px!important;border-radius:10px!important;background:color-mix(in srgb,var(--brand) 5%,var(--panel))!important}
-#tech-math .mathBaseRow span{font-size:9.5px!important;color:var(--muted)!important}
-#tech-math .mathBaseRow code{font:600 10px ui-monospace,SFMono-Regular,Consolas,monospace!important;color:var(--text)!important}
-#tech-math .mathBaseRow strong{font-size:10.5px!important;color:var(--text)!important;white-space:nowrap!important}
-#tech-math .mathFinalFlow{display:grid!important;grid-template-columns:minmax(120px,1fr) 26px minmax(150px,1fr) 30px minmax(140px,1fr)!important;align-items:center!important;gap:7px!important}
-#tech-math .mathFlowNode{min-height:72px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;padding:9px!important;border:1px solid var(--tech-diagram-node-border)!important;border-radius:12px!important;background:var(--tech-diagram-node-bg)!important}
-#tech-math .mathFlowNode span{font-size:9.5px!important;color:var(--tech-diagram-muted)!important}
-#tech-math .mathFlowNode strong{margin-top:4px!important;font:850 16px ui-monospace,SFMono-Regular,Consolas,monospace!important;color:var(--tech-diagram-text)!important}
-#tech-math .mathFlowNode small{margin-top:4px!important;font-size:9px!important;color:var(--tech-diagram-muted)!important}
+#tech-math .mathSignalsCard{background:var(--tech-diagram-canvas)!important}
+#tech-math .mathSignalsGrid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:9px!important}
+#tech-math .mathSignal{min-width:0!important;padding:12px!important;border:1px solid var(--tech-diagram-node-border)!important;border-radius:13px!important;background:var(--tech-diagram-node-bg)!important}
+#tech-math .mathSignalTop{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important}
+#tech-math .mathSignalTop span{font-size:10.5px!important;font-weight:750!important;color:var(--tech-diagram-text)!important}
+#tech-math .mathSignalTop em{font-style:normal!important;font-size:9px!important;font-weight:800!important;color:var(--brand)!important}
+#tech-math .mathSignal>strong{display:block!important;margin-top:9px!important;font:850 17px ui-monospace,SFMono-Regular,Consolas,monospace!important;color:var(--tech-diagram-text)!important}
+#tech-math .mathSignal>small{display:block!important;margin-top:5px!important;font-size:9px!important;font-weight:700!important;color:var(--brand)!important}
+#tech-math .mathSignal>p{margin:5px 0 0!important;font-size:9.5px!important;line-height:1.4!important;color:var(--tech-diagram-muted)!important}
+#tech-math .mathSignalQuality{background:color-mix(in srgb,var(--brand) 4%,var(--tech-diagram-node-bg))!important}
+#tech-math .mathCalcCard{background:var(--tech-diagram-canvas)!important}
+#tech-math .mathFormulaFlow{display:grid!important;grid-template-columns:minmax(220px,1.15fr) 28px minmax(210px,1fr) 32px minmax(175px,.8fr)!important;align-items:center!important;gap:8px!important}
+#tech-math .mathStep{min-width:0!important;min-height:124px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;padding:13px!important;border:1px solid var(--tech-diagram-node-border)!important;border-radius:13px!important;background:var(--tech-diagram-node-bg)!important}
+#tech-math .mathStepHead{display:flex!important;align-items:center!important;gap:7px!important}
+#tech-math .mathStepHead i{width:19px!important;height:19px!important;display:grid!important;place-items:center!important;border-radius:50%!important;background:color-mix(in srgb,var(--brand) 12%,var(--panel))!important;color:var(--brand)!important;font-style:normal!important;font-size:9px!important;font-weight:800!important}
+#tech-math .mathStepHead b{font-size:10.5px!important;color:var(--tech-diagram-text)!important}
+#tech-math .mathStep code{display:block!important;margin-top:10px!important;font:600 9.7px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace!important;color:var(--tech-diagram-muted)!important;white-space:normal!important}
+#tech-math .mathStepResult{display:flex!important;align-items:baseline!important;justify-content:space-between!important;gap:10px!important;margin-top:9px!important}
+#tech-math .mathStepResult span{font-size:9px!important;color:var(--tech-diagram-muted)!important}
+#tech-math .mathStepResult strong{font:850 16px ui-monospace,SFMono-Regular,Consolas,monospace!important;color:var(--tech-diagram-text)!important}
+#tech-math .mathStep>small{display:block!important;margin-top:7px!important;font-size:9px!important;line-height:1.35!important;color:var(--tech-diagram-muted)!important}
 #tech-math .mathFlowOp{display:grid!important;place-items:center!important;color:var(--tech-diagram-arrow)!important;font-size:18px!important;font-weight:900!important}
 #tech-math .mathFinalScore{background:var(--tech-diagram-score-bg)!important;border-color:var(--tech-diagram-score-border)!important}
-#tech-math .mathFinalScore span,#tech-math .mathFinalScore strong{color:var(--brand)!important}
-#tech-math .mathReasonCard{display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;align-items:center!important;gap:18px!important;padding-top:13px!important;padding-bottom:13px!important}
-#tech-math .mathReasonCard h3{margin:0!important;white-space:nowrap!important}
-#tech-math .mathReasonCard p{margin:0!important;font-size:10.5px!important;line-height:1.45!important;color:var(--muted)!important}
-@media(max-width:900px){
-  #tech-math .mathPostCard,#tech-math .mathIntentCard{min-height:0!important}
-  #tech-math .mathContribGrid{grid-template-columns:1fr!important}
-  #tech-math .mathBaseRow{grid-template-columns:1fr!important;gap:4px!important}
-  #tech-math .mathFinalFlow{grid-template-columns:1fr!important}
+#tech-math .mathFinalScore .mathStepHead b,#tech-math .mathFinalScore .mathStepResult strong{color:var(--brand)!important}
+@media(max-width:1050px){
+  #tech-math .mathSignalsGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #tech-math .mathFormulaFlow{grid-template-columns:1fr!important}
   #tech-math .mathFlowOp{height:18px!important;transform:rotate(90deg)!important}
-  #tech-math .mathReasonCard{grid-template-columns:1fr!important;gap:5px!important}
-  #tech-math .mathReasonCard h3{white-space:normal!important}
+}
+@media(max-width:720px){
+  #tech-math .mathPostMain{grid-template-columns:1fr!important;gap:10px!important}
+  #tech-math .mathIntentChip{justify-self:start!important}
+  #tech-math .mathSignalsGrid{grid-template-columns:1fr!important}
 }
 
 @media(min-width:721px){.mobileDock,.mobileNavOverlay{display:none!important}}

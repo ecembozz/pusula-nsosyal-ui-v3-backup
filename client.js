@@ -143,41 +143,72 @@ function techMath(){
   const fit=Number(p.fit||0),fresh=Number(p.tazelik||0),eng=Number(p.etkilesim_puani||0),click=Number(p.clickbait||0);
   const quality=Number(p.quality??Math.max(0,Math.min(1,1-click)));
   const baseScore=Number(p.base??(.70*fit+.15*fresh+.15*eng)),finalScore=Number(p.score??baseScore*quality);
-  const fitPart=.70*fit,freshPart=.15*fresh,engPart=.15*eng;
   const intentLabel=G.c?.intent_label||I[S.intent]?.label||'Öğrenmek';
-  const profileLabels=['Öğrenme','Eğlence','Haber','Sosyal'];
-  const profile=(p.tahmin_niyet||[]).map((x,i)=>`<div class="mathProfileRow"><span>${profileLabels[i]||('Boyut '+(i+1))}</span><div class="mathProfileTrack"><i style="--math-value:${Math.max(0,Math.min(100,Number(x||0)*100))}%"></i></div><strong>${F(x)}</strong></div>`).join('');
-  r.innerHTML=sourceStatus()+`<div class="techGrid mathExplain">
-    <div class="techCard span5 mathPostCard">
-      <div class="mathEyebrow">Örnek gönderi</div>
-      <h3>${E(p.yazar)}</h3>
-      <div class="sub">${E(p.kategori_adi)}</div>
-      <p class="mathPostText">${E(p.metin)}</p>
-      <div class="mathIntentChip"><span>Seçilen niyet</span><b>${E(intentLabel)}</b></div>
-    </div>
-    <div class="techCard span7 mathIntentCard">
-      <h3>Niyet analizi</h3>
-      <div class="mathSectionLead">Gönderinin semantik profili seçilen niyetle karşılaştırılır.</div>
-      <div class="mathProfile">${profile}</div>
-      <div class="mathFitResult"><span>Niyet uyumu</span><strong>${F(fit)}</strong><small>Semantik profil ile seçilen niyet arasındaki benzerlik</small></div>
-    </div>
-    <div class="techCard span12 mathScoreCard">
-      <h3>Skorun oluşumu</h3>
-      <div class="mathContribGrid">
-        <div class="mathContrib"><div><span>Niyet uyumu</span><em>%70</em></div><code>${F(fit)} × 0.70</code><strong>+${F(fitPart)}</strong></div>
-        <div class="mathContrib"><div><span>Tazelik</span><em>%15</em></div><code>${F(fresh)} × 0.15</code><strong>+${F(freshPart)}</strong></div>
-        <div class="mathContrib"><div><span>Etkileşim</span><em>%15</em></div><code>${F(eng)} × 0.15</code><strong>+${F(engPart)}</strong></div>
+  r.innerHTML=sourceStatus()+`<div class="techGrid mathSimple">
+    <div class="techCard span12 mathPostCompact">
+      <div class="mathPostMain">
+        <div>
+          <div class="mathEyebrow">Örnek gönderi</div>
+          <div class="mathPostAuthor"><b>${E(p.yazar)}</b><span>· ${E(p.kategori_adi)}</span></div>
+          <p>${E(p.metin)}</p>
+        </div>
+        <div class="mathIntentChip"><span>Seçilen niyet</span><b>${E(intentLabel)}</b></div>
       </div>
-      <div class="mathBaseRow"><span>Üç katkı toplanır</span><code>${F(fitPart)} + ${F(freshPart)} + ${F(engPart)}</code><strong>Taban skor · ${F(baseScore)}</strong></div>
-      <div class="mathFinalFlow">
-        <div class="mathFlowNode"><span>Taban skor</span><strong>${F(baseScore)}</strong></div>
+    </div>
+
+    <div class="techCard span12 mathSignalsCard">
+      <h3>Skoru oluşturan sinyaller</h3>
+      <div class="mathSignalsGrid">
+        <div class="mathSignal">
+          <div class="mathSignalTop"><span>Niyet uyumu</span><em>%70</em></div>
+          <strong>${F(fit)}</strong>
+          <small>Semantik analiz</small>
+          <p>Seçilen niyetle ne kadar örtüşüyor?</p>
+        </div>
+        <div class="mathSignal">
+          <div class="mathSignalTop"><span>Tazelik</span><em>%15</em></div>
+          <strong>${F(fresh)}</strong>
+          <small>Yayın zamanı</small>
+          <p>İçerik ne kadar güncel?</p>
+        </div>
+        <div class="mathSignal">
+          <div class="mathSignalTop"><span>Etkileşim</span><em>%15</em></div>
+          <strong>${F(eng)}</strong>
+          <small>Gönderi etkileşimleri</small>
+          <p>İçerik ne kadar ilgi görüyor?</p>
+        </div>
+        <div class="mathSignal mathSignalQuality">
+          <div class="mathSignalTop"><span>Clickbait riski</span><em>Kalite</em></div>
+          <strong>${F(click)}</strong>
+          <small>İçerik analizi</small>
+          <p>Yanıltıcı veya abartılı anlatım riski</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="techCard span12 mathCalcCard">
+      <h3>Hesaplama</h3>
+      <div class="mathFormulaFlow">
+        <div class="mathStep">
+          <div class="mathStepHead"><i>1</i><b>Taban skor</b></div>
+          <code>0.70 × niyet + 0.15 × tazelik + 0.15 × etkileşim</code>
+          <div class="mathStepResult"><span>Sonuç</span><strong>${F(baseScore)}</strong></div>
+        </div>
         <div class="mathFlowOp" aria-hidden="true">×</div>
-        <div class="mathFlowNode"><span>Kalite</span><strong>${F(quality)}</strong><small>1 − clickbait ${F(click)}</small></div>
+        <div class="mathStep">
+          <div class="mathStepHead"><i>2</i><b>Kalite kontrolü</b></div>
+          <code>1 − clickbait = kalite</code>
+          <div class="mathStepResult"><span>1 − ${F(click)}</span><strong>${F(quality)}</strong></div>
+          <small>Clickbait riski arttıkça kalite çarpanı düşer.</small>
+        </div>
         <div class="mathFlowOp" aria-hidden="true">→</div>
-        <div class="mathFlowNode mathFinalScore"><span>PUSULA skoru</span><strong>${F(finalScore)}</strong></div>
+        <div class="mathStep mathFinalScore">
+          <div class="mathStepHead"><b>PUSULA skoru</b></div>
+          <code>${F(baseScore)} × ${F(quality)}</code>
+          <div class="mathStepResult"><span>Nihai skor</span><strong>${F(finalScore)}</strong></div>
+        </div>
       </div>
     </div>
-    <div class="techCard span12 mathReasonCard"><h3>Clickbait neden çarpan?</h3><p>İçerik niyete çok uygun olsa bile clickbait riski yükseldikçe nihai skor düşer.</p></div>
   </div>`;
 }
 function techExperiment(){
