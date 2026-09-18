@@ -139,27 +139,26 @@ function techModels(){
       <h3>Niyet uzayı</h3>
       <div class="sub">Her gönderi dört boyutta temsil edilir; seçilen niyet bu uzayda bir hedef oluşturur.</div>
 
-      <div class="modelAxisList">
-        <span><i></i><b>Öğretici</b></span>
-        <span><i></i><b>Eğlendirici</b></span>
-        <span><i></i><b>Haber</b></span>
-        <span><i></i><b>Sosyal</b></span>
+      <div class="modelAxes">
+        <span>Öğretici</span>
+        <span>Eğlendirici</span>
+        <span>Haber</span>
+        <span>Sosyal</span>
       </div>
 
+      <div class="modelExamplesLabel">Örnek hedefler</div>
       <div class="modelIntentRows">
         <div class="modelIntentRow">
-          <b>Öğrenmek</b>
+          <div><b>Öğrenmek</b><small>Belirgin hedef</small></div>
           <code>[1.00, 0.15, 0.15, 0.05]</code>
           <span>Öğretici boyut baskındır; diğer boyutlar tamamen sıfırlanmaz.</span>
         </div>
         <div class="modelIntentRow">
-          <b>Sadece dolaşmak</b>
+          <div><b>Sadece dolaşmak</b><small>Dengeli hedef</small></div>
           <code>[0.40, 0.55, 0.40, 0.45]</code>
           <span>Tek bir boyutu baskınlaştırmaz; dört boyuta daha dengeli yaklaşır.</span>
         </div>
       </div>
-
-      <div class="modelSpaceNote">Diğer niyetler de aynı dört boyutta farklı ağırlıklara dönüşür.</div>
 
       <div class="modelMetricList">
         <div><i></i><b>Niyet doğruluğu ↑</b><span>Baskın niyeti doğru buluyor mu?</span></div>
