@@ -5,6 +5,7 @@ const AC=id=>['cyan','green','orange','pink'][Array.from(String(id)).reduce((s,c
 const MEDIA_CATS=new Set(['kultur_sanat','oyun_espor','spor_futbol']);
 const TECH_META_V5={
   overview:['Genel bakış','Sistemin çalışan teknik özeti.'],
+  models:['Model karşılaştırması','Semantik adayların aynı development setindeki karşılaştırması.'],
   compare:['Canlı karşılaştırma','Aynı 320 gönderide klasik ve PUSULA sıralamasını yan yana incele.'],
   math:['Matematik & skor ayrıştırma','Niyet uyumu, kalite, tazelik ve etkileşim sinyallerini adım adım gör.'],
   experiment:['Runtime davranış testi','Beş niyette aynı 320 gönderinin Klasik vs PUSULA top-20 davranışı.'],
@@ -99,13 +100,23 @@ function techOverview(){
   const pct=v=>nf.format(Number(v||0)*100)+'%';
   const point=v=>(Number(v||0)>=0?'+':'−')+nf.format(Math.abs(Number(v||0))*100)+' puan';
   r.innerHTML=`<div class="techGrid">
-    <div class="techCard span4"><div class="miniLabel">Model</div><div class="bigNum">${E(src?.semantic_candidate||'V5')}</div></div>
+    <div class="techCard span4"><div class="miniLabel">Semantik model</div><div class="modelName">${E((src?.semantic_encoder||'intfloat/multilingual-e5-base').split('/').pop())}</div><div class="sub">Development testinde seçilen encoder</div></div>
     <div class="techCard span4"><div class="miniLabel">İçerik havuzu</div><div class="bigNum">${src?.pool_size||320}</div></div>
     <div class="techCard span4"><div class="miniLabel">Clickbait ortalaması</div><div class="bigNum">${pct(click.mean)}</div></div>
     <div class="techCard span6"><h3>Sıralama modeli</h3><div class="formulaBox">taban = <b>0.70 × niyet_uyumu</b> + 0.15 × tazelik + 0.15 × etkileşim<br>nihai = taban × <b>(1 − clickbait)</b></div></div>
     <div class="techCard span6"><h3>${S.intent?'Aktif niyet · '+E(I[S.intent].label):'Aktif niyet'}</h3>${delta===null?'<div class="sub">Niyet seçildiğinde Klasik ve PUSULA sonucu burada karşılaştırılır.</div>':`<div class="calcLine"><span>Klasik niyet benzerliği</span><strong>${pct(classic.niyet_uyumu)}</strong></div><div class="calcLine"><span>PUSULA niyet benzerliği</span><strong>${pct(active.niyet_uyumu)}</strong></div><div class="calcLine"><span>Fark</span><strong class="deltaGood">${point(delta)}</strong></div>`}</div>
     <div class="techCard span12"><h3>Veri zinciri</h3><div class="flow"><div class="flowNode"><b>Metin</b><span>Türkçe içerik</span></div><div class="arrow">→</div><div class="flowNode"><b>Embedding</b><span>anlamsal temsil</span></div><div class="arrow">→</div><div class="flowNode"><b>Niyet</b><span>uyum tahmini</span></div><div class="arrow">→</div><div class="flowNode"><b>Clickbait</b><span>kalite sinyali</span></div><div class="arrow">→</div><div class="flowNode"><b>Ranking</b><span>nihai sıralama</span></div></div></div>
   </div>`
+}
+function techModels(){
+  const r=document.getElementById('tech-models');if(!r)return;
+  const rows=[
+    {name:'multilingual-e5-base',acc:.688,f1:.688,mae:.173,selected:true},
+    {name:'mDeBERTa / NLI',acc:.375,f1:.324,mae:.354},
+    {name:'Qwen2.5-0.5B-Instruct',acc:.250,f1:.100,mae:.381}
+  ];
+  const pct=v=>new Intl.NumberFormat('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1}).format(v*100)+'%';
+  r.innerHTML=`<div class="techGrid"><div class="techCard span12"><h3>Semantik aday karşılaştırması</h3><div class="sub">Aynı development seti · ortak metrikler</div><div style="overflow:auto"><table class="expTable modelTable"><thead><tr><th>Model</th><th>Baskın niyet doğruluğu</th><th>Macro-F1</th><th>4D MAE ↓</th></tr></thead><tbody>${rows.map(x=>`<tr class="${x.selected?'avg':''}"><td>${E(x.name)}${x.selected?' · seçilen':''}</td><td>${pct(x.acc)}</td><td>${x.f1.toFixed(3)}</td><td>${x.mae.toFixed(3)}</td></tr>`).join('')}</tbody></table></div><div class="modelDecision"><b>multilingual-e5-base seçildi</b><span>En yüksek doğruluk ve Macro-F1, en düşük 4D MAE.</span></div></div></div>`;
 }
 function techCompare(){let r=document.getElementById('tech-compare');if(!G.c)return r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Önce niyet seç</h2><p>Aynı Candidate V5 havuzu iki algoritmayla karşılaştırılacak.</p></div>';let C=(a,k)=>a.slice(0,5).map(p=>`<div class="feedMiniItem"><b>${p.rank}. ${E(p.yazar)}</b><span class="scorePill ${k?'k':''}">${F(p.score)}</span><p>${E(p.metin.slice(0,100))}</p></div>`).join('');r.innerHTML=sourceStatus()+`<div class="compareCols" style="margin-top:14px"><div class="feedMini"><div class="feedMiniHead">Klasik · aynı V5 havuzu</div>${C(G.c.classic.posts,1)}</div><div class="feedMini"><div class="feedMiniHead" style="color:#8fd9ff">PUSULA · aynı V5 havuzu</div>${C(G.c.pusula.posts,0)}</div></div><p class="techFootnote">İki kolon aynı 320 gönderiden gelir. Fark yalnız sıralama hedefidir; model runtime’da yeniden çalıştırılmaz.</p>`}
 function techMath(){let r=document.getElementById('tech-math'),p=G.c?.pusula?.posts?.[0]||G.f[0];if(!p)return r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Önce akışı yükle</h2></div>';r.innerHTML=sourceStatus()+`<div class="techGrid"><div class="techCard span6"><h3>Gönderi ${E(p.id)}</h3><div class="sub">${E(p.yazar)} · ${E(p.kategori_adi)}</div><div class="vector">${p.tahmin_niyet.map((x,i)=>`<span class="vec">${['Ö','E','H','S'][i]} ${F(x)}</span>`).join('')}</div></div><div class="techCard span6"><h3>API skoru</h3><div class="calcLine"><span>Niyet uyumu</span><strong>${F(p.fit)}</strong></div><div class="calcLine"><span>Tazelik (demo)</span><strong>${F(p.tazelik)}</strong></div><div class="calcLine"><span>Etkileşim (demo)</span><strong>${F(p.etkilesim_puani)}</strong></div><div class="calcLine"><span>Clickbait</span><strong>${F(p.clickbait)}</strong></div><div class="calcLine"><span>Kalite = 1 − clickbait</span><strong>${F(p.quality)}</strong></div><div class="calcLine"><span>Nihai skor</span><strong>${F(p.score)}</strong></div></div><div class="techCard span12"><h3>Neden kalite çarpan?</h3><div class="formulaBox">yüksek uyum + yüksek etkileşim tek başına yeterli değil<br>nihai = taban × <b>kalite</b><br>clickbait yükseldikçe içerik skoru orantılı biçimde aşağı çekilir</div></div></div>`}
