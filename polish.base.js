@@ -171,6 +171,22 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
 
 }
 
+/* Jury Technical Center — theme surface tokens */
+html[data-theme="light"]{
+  --tech-section-bg:#f2f5f8;
+  --tech-section-shadow:0 8px 24px rgba(31,55,88,.065);
+  --tech-section-border:rgba(31,55,88,.035);
+  --tech-inner-bg:#ffffff;
+  --tech-inner-border:#dce5ed;
+}
+html[data-theme="dark"]{
+  --tech-section-bg:var(--panel-2);
+  --tech-section-shadow:0 7px 24px rgba(0,0,0,.055);
+  --tech-section-border:transparent;
+  --tech-inner-bg:var(--panel);
+  --tech-inner-border:var(--line-soft);
+}
+
 /* Jury Technical Center — shared visual hierarchy
    1) section cards: soft/foggy + subtle shadow
    2) inner cards: neutral panel + fine border
@@ -181,20 +197,20 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
 #tech-models .techCard,
 #tech-experiment .techCard,
 #tech-architecture .techCard{
-  background:var(--panel-2)!important;
-  border:0!important;
-  box-shadow:0 7px 24px rgba(0,0,0,.055)!important;
+  background:var(--tech-section-bg)!important;
+  border:1px solid var(--tech-section-border)!important;
+  box-shadow:var(--tech-section-shadow)!important;
 }
 
 #tech-compare .feedMini{
-  background:var(--panel-2)!important;
-  border:0!important;
+  background:var(--tech-section-bg)!important;
+  border:1px solid var(--tech-section-border)!important;
   border-radius:14px!important;
-  box-shadow:0 7px 24px rgba(0,0,0,.055)!important;
+  box-shadow:var(--tech-section-shadow)!important;
   overflow:hidden!important;
 }
 #tech-compare .feedMiniHead{
-  background:color-mix(in srgb,var(--brand) 4%,var(--panel-2))!important;
+  background:color-mix(in srgb,var(--brand) 4%,var(--tech-section-bg))!important;
   border-color:var(--line-soft)!important;
 }
 
@@ -207,8 +223,8 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
 #tech-architecture .architectureNode,
 #tech-architecture .architectureCheckList>div,
 #tech-architecture .architectureScopeList>div{
-  background:var(--panel)!important;
-  border:1px solid var(--line-soft)!important;
+  background:var(--tech-inner-bg)!important;
+  border:1px solid var(--tech-inner-border)!important;
   box-shadow:none!important;
 }
 
@@ -234,7 +250,7 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   box-shadow:none!important;
 }
 #tech-overview .pipelineScore{
-  background:color-mix(in srgb,var(--brand) 10%,var(--panel))!important;
+  background:color-mix(in srgb,var(--brand) 10%,var(--tech-inner-bg))!important;
   border-color:color-mix(in srgb,var(--brand) 36%,var(--line-soft))!important;
   box-shadow:none!important;
 }
