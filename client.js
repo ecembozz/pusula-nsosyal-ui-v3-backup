@@ -216,9 +216,10 @@ function techExperiment(){
         </div>
         <div class="experimentStat techStatCard">
           <div class="miniLabel techStatLabel">İlk 20'de kategori çeşitliliği</div>
-          <div class="bigNum techStatValue">${topicMin}–${topicMax} kategori</div>
+          <div class="bigNum techStatValue">${topicMin}–${topicMax} / 10 kategori</div>
         </div>
       </div>
+      <div class="experimentCategories"><b>Kategoriler:</b> Eğitim · Yapay zekâ & teknoloji · Teknoloji & maker · Spor · Kültür & sanat · Ekonomi & bütçe · Oyun & e-spor · Kampüs & iş · Gündelik yaşam · Sosyal</div>
     </div>
   </div>`
 }
