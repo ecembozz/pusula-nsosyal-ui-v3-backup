@@ -7,7 +7,7 @@ const TECH_META_V5={
   overview:['Genel bakış','Sistemin çalışan teknik özeti.'],
   models:['Model karşılaştırması','Semantik adayların aynı development setindeki karşılaştırması.'],
   compare:['Canlı karşılaştırma','Klasik sıralama ile PUSULA sıralamasını karşılaştır.'],
-  math:['Matematik & skor','Bir gönderinin PUSULA skorunun nasıl oluştuğunu adım adım incele.'],
+  math:['Matematik & skor ayrıştırma','Niyet uyumu, kalite, tazelik ve etkileşim sinyallerini adım adım gör.'],
   experiment:['Runtime davranış testi','Beş niyette aynı 320 gönderinin Klasik vs PUSULA top-20 davranışı.'],
   architecture:['Mimari & doğrulama','Offline semantic labeling, Candidate V5 cache ve runtime ranking zinciri.'],
 };
@@ -137,80 +137,7 @@ function techModels(){
   r.innerHTML=`<div class="techGrid"><div class="techCard span12"><h3>Semantik aday karşılaştırması</h3><div class="sub">Aynı development seti · ortak metrikler</div><div style="overflow:auto"><table class="expTable modelTable"><thead><tr><th>Model</th><th>Baskın niyet doğruluğu</th><th>Macro-F1</th><th>4D MAE ↓</th></tr></thead><tbody>${rows.map(x=>`<tr class="${x.selected?'avg':''}"><td>${E(x.name)}${x.selected?' · seçilen':''}</td><td>${pct(x.acc)}</td><td>${x.f1.toFixed(3)}</td><td>${x.mae.toFixed(3)}</td></tr>`).join('')}</tbody></table></div><div class="modelDecision"><b>multilingual-e5-base seçildi</b><span>En yüksek doğruluk ve Macro-F1, en düşük 4D MAE.</span></div></div></div>`;
 }
 function techCompare(){let r=document.getElementById('tech-compare');if(!G.c)return r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Önce niyet seç</h2><p>Bir niyet seçildiğinde Klasik ve PUSULA sıralaması aynı içerik havuzunda karşılaştırılır.</p></div>';let C=a=>a.slice(0,5).map(p=>`<div class="feedMiniItem"><b>${p.rank}. ${E(p.yazar)}</b><p>${E(p.metin.slice(0,100))}</p></div>`).join('');const intent=I[S.intent]?.label||'Seçilmedi';r.innerHTML=sourceStatus()+`<div class="compareIntent"><span>Aktif niyet</span><b>${E(intent)}</b></div><div class="compareCols"><div class="feedMini"><div class="feedMiniHead">Klasik sıralama</div>${C(G.c.classic.posts)}</div><div class="feedMini"><div class="feedMiniHead pusulaHead">PUSULA sıralaması</div>${C(G.c.pusula.posts)}</div></div>`}
-function techMath(){
-  let r=document.getElementById('tech-math'),p=G.c?.pusula?.posts?.[0]||G.f[0];
-  if(!p)return r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Önce akışı yükle</h2></div>';
-  const fit=Number(p.fit||0),fresh=Number(p.tazelik||0),eng=Number(p.etkilesim_puani||0),click=Number(p.clickbait||0);
-  const quality=Number(p.quality??Math.max(0,Math.min(1,1-click)));
-  const baseScore=Number(p.base??(.70*fit+.15*fresh+.15*eng)),finalScore=Number(p.score??baseScore*quality);
-  const intentLabel=G.c?.intent_label||I[S.intent]?.label||'Öğrenmek';
-  r.innerHTML=sourceStatus()+`<div class="techGrid mathSimple">
-    <div class="techCard span12 mathPostCompact">
-      <div class="mathPostMain">
-        <div>
-          <div class="mathEyebrow">Örnek gönderi</div>
-          <div class="mathPostAuthor"><b>${E(p.yazar)}</b><span>· ${E(p.kategori_adi)}</span></div>
-          <p>${E(p.metin)}</p>
-        </div>
-        <div class="mathIntentChip"><span>Seçilen niyet</span><b>${E(intentLabel)}</b></div>
-      </div>
-    </div>
-
-    <div class="techCard span12 mathSignalsCard">
-      <h3>Skoru oluşturan sinyaller</h3>
-      <div class="mathSignalsGrid">
-        <div class="mathSignal">
-          <div class="mathSignalTop"><span>Niyet uyumu</span><em>%70</em></div>
-          <strong>${F(fit)}</strong>
-          <small>Semantik analiz</small>
-          <p>Seçilen niyetle ne kadar örtüşüyor?</p>
-        </div>
-        <div class="mathSignal">
-          <div class="mathSignalTop"><span>Tazelik</span><em>%15</em></div>
-          <strong>${F(fresh)}</strong>
-          <small>Yayın zamanı</small>
-          <p>İçerik ne kadar güncel?</p>
-        </div>
-        <div class="mathSignal">
-          <div class="mathSignalTop"><span>Etkileşim</span><em>%15</em></div>
-          <strong>${F(eng)}</strong>
-          <small>Gönderi etkileşimleri</small>
-          <p>İçerik ne kadar ilgi görüyor?</p>
-        </div>
-        <div class="mathSignal mathSignalQuality">
-          <div class="mathSignalTop"><span>Clickbait riski</span><em>Kalite</em></div>
-          <strong>${F(click)}</strong>
-          <small>İçerik analizi</small>
-          <p>Yanıltıcı veya abartılı anlatım riski</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="techCard span12 mathCalcCard">
-      <h3>Hesaplama</h3>
-      <div class="mathFormulaFlow">
-        <div class="mathStep">
-          <div class="mathStepHead"><i>1</i><b>Taban skor</b></div>
-          <code>0.70 × niyet + 0.15 × tazelik + 0.15 × etkileşim</code>
-          <div class="mathStepResult"><span>Sonuç</span><strong>${F(baseScore)}</strong></div>
-        </div>
-        <div class="mathFlowOp" aria-hidden="true">×</div>
-        <div class="mathStep">
-          <div class="mathStepHead"><i>2</i><b>Kalite kontrolü</b></div>
-          <code>1 − clickbait = kalite</code>
-          <div class="mathStepResult"><span>1 − ${F(click)}</span><strong>${F(quality)}</strong></div>
-          <small>Clickbait riski arttıkça kalite çarpanı düşer.</small>
-        </div>
-        <div class="mathFlowOp" aria-hidden="true">→</div>
-        <div class="mathStep mathFinalScore">
-          <div class="mathStepHead"><b>PUSULA skoru</b></div>
-          <code>${F(baseScore)} × ${F(quality)}</code>
-          <div class="mathStepResult"><span>Nihai skor</span><strong>${F(finalScore)}</strong></div>
-        </div>
-      </div>
-    </div>
-  </div>`;
-}
+function techMath(){let r=document.getElementById('tech-math'),p=G.c?.pusula?.posts?.[0]||G.f[0];if(!p)return r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Önce akışı yükle</h2></div>';r.innerHTML=sourceStatus()+`<div class="techGrid"><div class="techCard span6"><h3>Gönderi ${E(p.id)}</h3><div class="sub">${E(p.yazar)} · ${E(p.kategori_adi)}</div><div class="vector">${p.tahmin_niyet.map((x,i)=>`<span class="vec">${['Ö','E','H','S'][i]} ${F(x)}</span>`).join('')}</div></div><div class="techCard span6"><h3>API skoru</h3><div class="calcLine"><span>Niyet uyumu</span><strong>${F(p.fit)}</strong></div><div class="calcLine"><span>Tazelik (demo)</span><strong>${F(p.tazelik)}</strong></div><div class="calcLine"><span>Etkileşim (demo)</span><strong>${F(p.etkilesim_puani)}</strong></div><div class="calcLine"><span>Clickbait</span><strong>${F(p.clickbait)}</strong></div><div class="calcLine"><span>Kalite = 1 − clickbait</span><strong>${F(p.quality)}</strong></div><div class="calcLine"><span>Nihai skor</span><strong>${F(p.score)}</strong></div></div><div class="techCard span12"><h3>Neden kalite çarpan?</h3><div class="formulaBox">yüksek uyum + yüksek etkileşim tek başına yeterli değil<br>nihai = taban × <b>kalite</b><br>clickbait yükseldikçe içerik skoru orantılı biçimde aşağı çekilir</div></div></div>`}
 function techExperiment(){
   const r=document.getElementById('tech-experiment');if(!r)return;
   if(!G.b){r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Runtime davranış tablosu hesaplanıyor</h2><p>Aynı 320 gönderi, beş niyet ve top-20.</p></div>';return}
