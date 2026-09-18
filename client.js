@@ -134,7 +134,38 @@ function techModels(){
     {name:'Qwen2.5-0.5B-Instruct',acc:.250,f1:.100,mae:.381}
   ];
   const pct=v=>new Intl.NumberFormat('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1}).format(v*100)+'%';
-  r.innerHTML=`<div class="techGrid"><div class="techCard span12"><h3>Niyet analizi için model seçimi</h3><div class="sub">Aynı değerlendirme koşullarında üç model karşılaştırıldı.</div><div style="overflow:auto"><table class="expTable modelTable"><thead><tr><th>Model</th><th>Niyet doğruluğu ↑</th><th>Macro-F1 ↑</th><th>Niyet vektörü hatası ↓</th></tr></thead><tbody>${rows.map(x=>`<tr class="${x.selected?'avg':''}"><td>${E(x.name)}${x.selected?' · seçilen':''}</td><td>${pct(x.acc)}</td><td>${x.f1.toFixed(3)}</td><td>${x.mae.toFixed(3)}</td></tr>`).join('')}</tbody></table></div></div></div>`;
+  r.innerHTML=`<div class="techGrid modelCompareGrid">
+    <div class="techCard span12 modelSpaceCard">
+      <h3>Niyet uzayı</h3>
+      <div class="sub">Model, her gönderiyi dört boyutlu bir anlamsal profille temsil eder.</div>
+      <div class="modelAxes">
+        <span>Öğretici</span><span>Eğlendirici</span><span>Haber</span><span>Sosyal</span>
+      </div>
+      <div class="modelIntentExamples">
+        <div class="modelIntentExample">
+          <div class="modelIntentHead"><b>Öğrenmek</b><span>Belirgin hedef</span></div>
+          <code>[1.00, 0.15, 0.15, 0.05]</code>
+          <p>Öğretici boyut baskındır; diğer boyutlar tamamen sıfırlanmaz.</p>
+        </div>
+        <div class="modelIntentExample modelIntentBalanced">
+          <div class="modelIntentHead"><b>Sadece dolaşmak</b><span>Dengeli hedef</span></div>
+          <code>[0.40, 0.55, 0.40, 0.45]</code>
+          <p>Tek bir boyutu baskınlaştırmaz; dört boyuta daha dengeli yaklaşır.</p>
+        </div>
+      </div>
+      <div class="modelSpaceNote">Diğer niyetler de aynı dört boyutta farklı ağırlıklara dönüşür.</div>
+      <div class="modelMetricGuide">
+        <div><b>Niyet doğruluğu ↑</b><span>Baskın niyeti doğru buluyor mu?</span></div>
+        <div><b>Macro-F1 ↑</b><span>Tüm niyetlerde dengeli başarı gösteriyor mu?</span></div>
+        <div><b>Niyet vektörü hatası ↓</b><span>Dört boyutlu profil hedefe ne kadar yakın?</span></div>
+      </div>
+    </div>
+    <div class="techCard span12">
+      <h3>Niyet analizi için model seçimi</h3>
+      <div class="sub">Aynı değerlendirme koşullarında üç model karşılaştırıldı.</div>
+      <div style="overflow:auto"><table class="expTable modelTable"><thead><tr><th>Model</th><th>Niyet doğruluğu ↑</th><th>Macro-F1 ↑</th><th>Niyet vektörü hatası ↓</th></tr></thead><tbody>${rows.map(x=>`<tr class="${x.selected?'avg':''}"><td>${E(x.name)}${x.selected?' · seçilen':''}</td><td>${pct(x.acc)}</td><td>${x.f1.toFixed(3)}</td><td>${x.mae.toFixed(3)}</td></tr>`).join('')}</tbody></table></div>
+    </div>
+  </div>`;
 }
 function techCompare(){let r=document.getElementById('tech-compare');if(!G.c)return r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Önce niyet seç</h2><p>Bir niyet seçildiğinde Klasik ve PUSULA sıralaması aynı içerik havuzunda karşılaştırılır.</p></div>';let C=a=>a.slice(0,5).map(p=>`<div class="feedMiniItem"><b>${p.rank}. ${E(p.yazar)}</b><p>${E(p.metin.slice(0,100))}</p></div>`).join('');const intent=I[S.intent]?.label||'Seçilmedi';r.innerHTML=sourceStatus()+`<div class="compareIntent"><span>Aktif niyet</span><b>${E(intent)}</b></div><div class="compareCols"><div class="feedMini"><div class="feedMiniHead">Klasik sıralama</div>${C(G.c.classic.posts)}</div><div class="feedMini"><div class="feedMiniHead pusulaHead">PUSULA sıralaması</div>${C(G.c.pusula.posts)}</div></div>`}
 function techMath(){let r=document.getElementById('tech-math'),p=G.c?.pusula?.posts?.[0]||G.f[0];if(!p)return r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Önce akışı yükle</h2></div>';r.innerHTML=sourceStatus()+`<div class="techGrid"><div class="techCard span6"><h3>Gönderi ${E(p.id)}</h3><div class="sub">${E(p.yazar)} · ${E(p.kategori_adi)}</div><div class="vector">${p.tahmin_niyet.map((x,i)=>`<span class="vec">${['Ö','E','H','S'][i]} ${F(x)}</span>`).join('')}</div></div><div class="techCard span6"><h3>API skoru</h3><div class="calcLine"><span>Niyet uyumu</span><strong>${F(p.fit)}</strong></div><div class="calcLine"><span>Tazelik (demo)</span><strong>${F(p.tazelik)}</strong></div><div class="calcLine"><span>Etkileşim (demo)</span><strong>${F(p.etkilesim_puani)}</strong></div><div class="calcLine"><span>Clickbait</span><strong>${F(p.clickbait)}</strong></div><div class="calcLine"><span>Kalite = 1 − clickbait</span><strong>${F(p.quality)}</strong></div><div class="calcLine"><span>Nihai skor</span><strong>${F(p.score)}</strong></div></div><div class="techCard span12"><h3>Neden kalite çarpan?</h3><div class="formulaBox">yüksek uyum + yüksek etkileşim tek başına yeterli değil<br>nihai = taban × <b>kalite</b><br>clickbait yükseldikçe içerik skoru orantılı biçimde aşağı çekilir</div></div></div>`}
