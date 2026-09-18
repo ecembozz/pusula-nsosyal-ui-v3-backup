@@ -4,7 +4,7 @@ const F=x=>Number(x||0).toFixed(3);
 const AC=id=>['cyan','green','orange','pink'][Array.from(String(id)).reduce((s,c)=>s+c.codePointAt(0),0)%4];
 const MEDIA_CATS=new Set(['kultur_sanat','oyun_espor','spor_futbol']);
 const TECH_META_V5={
-  overview:['Teknik genel bakış','Candidate V5 veri zinciri, çalışan sıralama ve ölçülebilir sınırlar.'],
+  overview:['Genel bakış','Sistemin çalışan teknik özeti.'],
   compare:['Canlı karşılaştırma','Aynı 320 gönderide klasik ve PUSULA sıralamasını yan yana incele.'],
   math:['Matematik & skor ayrıştırma','Niyet uyumu, kalite, tazelik ve etkileşim sinyallerini adım adım gör.'],
   experiment:['Runtime davranış testi','Beş niyette aynı 320 gönderinin Klasik vs PUSULA top-20 davranışı.'],
@@ -76,10 +76,7 @@ function composerTool(k){toast(k+' · demo')}
 function toggleTheme(){toast('Final demo koyu temada')}
 function openPage(p,b){document.querySelectorAll('.navBtn[data-page]').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');toast(({home:'Ana Sayfa',notifications:'Bildirimler',messages:'Mesajlar',explore:'Keşfet',game:'Nod Oyna',communities:'Topluluklar',saved:'Kaydedilenler',likes:'Beğeniler',settings:'Ayarlar',profile:'Profil'})[p]||p)}
 
-function syncTechChrome(){
-  const note=document.querySelector('.techSideNote');
-  if(note)note.innerHTML='Candidate <b>V5</b> · multilingual-e5-base · offline cache. Runtime’da LLM/embedding inference yok. Etkileşim ve tazelik demo simülasyonudur.';
-}
+function syncTechChrome(){}
 function techTab(name,btn){
   document.querySelectorAll('.techPane').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.techTab').forEach(x=>x.classList.remove('active'));
@@ -91,14 +88,24 @@ function techTab(name,btn){
   renderTech(name)
 }
 async function syncBackend(){await LM();if(S.intent)await LC();if(matchMedia('(max-width:720px)').matches&&!G.b)await LB();syncTechChrome();renderTech(document.querySelector('.techPane.active')?.id?.replace('tech-','')||'overview')}
-function sourceStatus(){let c=G.m?.source?.pool_size||320,v=G.m?.source?.semantic_candidate||'V5';return `<span class="sourceBadge">${c} gizlilik güvenli gönderi</span> <span class="backendStatus ${BACKEND.ok?'':'off'}"><i class="statusDot"></i>${BACKEND.ok?'API + Candidate '+E(v)+' offline cache':'API bağlantısı bekleniyor'}</span>`}
+function sourceStatus(){return ''}
 function techOverview(){
   const r=document.getElementById('tech-overview');if(!r)return;
   const meta=G.m?.runtime_meta,src=G.m?.source;
   const click=meta?.clickbait||{};
   const active=G.c?.pusula?.metrics,classic=G.c?.classic?.metrics;
   const delta=active&&classic?active.niyet_uyumu-classic.niyet_uyumu:null;
-  r.innerHTML=sourceStatus()+`<div class="techGrid"><div class="techCard span4"><div class="miniLabel">Semantic aday</div><div class="bigNum">${E(src?.semantic_candidate||'V5')}</div><div class="sub">offline cache · runtime inference yok</div></div><div class="techCard span4"><div class="miniLabel">Runtime havuzu</div><div class="bigNum">${src?.pool_size||320}</div><div class="sub">gizlilik güvenli sentetik gönderi</div></div><div class="techCard span4"><div class="miniLabel">Clickbait ort.</div><div class="bigNum">${Math.round(Number(click.mean||0)*100)}%</div><div class="sub">max ${Math.round(Number(click.max||0)*100)}% · ≥50%: ${click.ge_0_50??0}</div></div><div class="techCard span6"><h3>Çalışan sıralama</h3><div class="formulaBox">taban = <b>0.70 × niyet_uyumu</b> + 0.15 × tazelik + 0.15 × etkileşim<br>nihai = taban × <b>(1 − clickbait)</b></div><p class="techFootnote">Tazelik ve etkileşim bu demoda deterministik simülasyon sinyalidir; platform telemetrisi değildir.</p></div><div class="techCard span6"><h3>${S.intent?'Aktif niyet: '+E(I[S.intent].label):'Canlı karşılaştırma'}</h3>${delta===null?'<div class="sub">Niyet seçildiğinde aynı havuzdaki Klasik ve PUSULA top-20 farkı burada ölçülür.</div>':`<div class="calcLine"><span>Klasik niyet uyumu</span><strong>${F(classic.niyet_uyumu)}</strong></div><div class="calcLine"><span>PUSULA niyet uyumu</span><strong>${F(active.niyet_uyumu)}</strong></div><div class="calcLine"><span>Fark</span><strong class="deltaGood">+${F(delta)}</strong></div><div class="calcLine"><span>PUSULA ort. kalite</span><strong>${F(active.kalite)}</strong></div>`}</div><div class="techCard span12"><h3>V5 veri zinciri</h3><div class="flow"><div class="flowNode"><b>Türkçe metin</b><span>320 privacy-safe post</span></div><div class="arrow">→</div><div class="flowNode"><b>E5 embedding</b><span>offline tek geçiş</span></div><div class="arrow">→</div><div class="flowNode"><b>Niyet head</b><span>k-NN · 352 training row</span></div><div class="arrow">→</div><div class="flowNode"><b>Clickbait head</b><span>Ridge · 192 training row</span></div><div class="arrow">→</div><div class="flowNode"><b>Cache + ranking</b><span>runtime hafif ve açıklanabilir</span></div></div></div></div>`
+  const nf=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1});
+  const pct=v=>nf.format(Number(v||0)*100)+'%';
+  const point=v=>(Number(v||0)>=0?'+':'−')+nf.format(Math.abs(Number(v||0))*100)+' puan';
+  r.innerHTML=`<div class="techGrid">
+    <div class="techCard span4"><div class="miniLabel">Model</div><div class="bigNum">${E(src?.semantic_candidate||'V5')}</div></div>
+    <div class="techCard span4"><div class="miniLabel">İçerik havuzu</div><div class="bigNum">${src?.pool_size||320}</div></div>
+    <div class="techCard span4"><div class="miniLabel">Clickbait ortalaması</div><div class="bigNum">${pct(click.mean)}</div></div>
+    <div class="techCard span6"><h3>Sıralama modeli</h3><div class="formulaBox">taban = <b>0.70 × niyet_uyumu</b> + 0.15 × tazelik + 0.15 × etkileşim<br>nihai = taban × <b>(1 − clickbait)</b></div></div>
+    <div class="techCard span6"><h3>${S.intent?'Aktif niyet · '+E(I[S.intent].label):'Aktif niyet'}</h3>${delta===null?'<div class="sub">Niyet seçildiğinde Klasik ve PUSULA sonucu burada karşılaştırılır.</div>':`<div class="calcLine"><span>Klasik niyet benzerliği</span><strong>${pct(classic.niyet_uyumu)}</strong></div><div class="calcLine"><span>PUSULA niyet benzerliği</span><strong>${pct(active.niyet_uyumu)}</strong></div><div class="calcLine"><span>Fark</span><strong class="deltaGood">${point(delta)}</strong></div>`}</div>
+    <div class="techCard span12"><h3>Veri zinciri</h3><div class="flow"><div class="flowNode"><b>Metin</b><span>Türkçe içerik</span></div><div class="arrow">→</div><div class="flowNode"><b>Embedding</b><span>anlamsal temsil</span></div><div class="arrow">→</div><div class="flowNode"><b>Niyet</b><span>uyum tahmini</span></div><div class="arrow">→</div><div class="flowNode"><b>Clickbait</b><span>kalite sinyali</span></div><div class="arrow">→</div><div class="flowNode"><b>Ranking</b><span>nihai sıralama</span></div></div></div>
+  </div>`
 }
 function techCompare(){let r=document.getElementById('tech-compare');if(!G.c)return r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Önce niyet seç</h2><p>Aynı Candidate V5 havuzu iki algoritmayla karşılaştırılacak.</p></div>';let C=(a,k)=>a.slice(0,5).map(p=>`<div class="feedMiniItem"><b>${p.rank}. ${E(p.yazar)}</b><span class="scorePill ${k?'k':''}">${F(p.score)}</span><p>${E(p.metin.slice(0,100))}</p></div>`).join('');r.innerHTML=sourceStatus()+`<div class="compareCols" style="margin-top:14px"><div class="feedMini"><div class="feedMiniHead">Klasik · aynı V5 havuzu</div>${C(G.c.classic.posts,1)}</div><div class="feedMini"><div class="feedMiniHead" style="color:#8fd9ff">PUSULA · aynı V5 havuzu</div>${C(G.c.pusula.posts,0)}</div></div><p class="techFootnote">İki kolon aynı 320 gönderiden gelir. Fark yalnız sıralama hedefidir; model runtime’da yeniden çalıştırılmaz.</p>`}
 function techMath(){let r=document.getElementById('tech-math'),p=G.c?.pusula?.posts?.[0]||G.f[0];if(!p)return r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Önce akışı yükle</h2></div>';r.innerHTML=sourceStatus()+`<div class="techGrid"><div class="techCard span6"><h3>Gönderi ${E(p.id)}</h3><div class="sub">${E(p.yazar)} · ${E(p.kategori_adi)}</div><div class="vector">${p.tahmin_niyet.map((x,i)=>`<span class="vec">${['Ö','E','H','S'][i]} ${F(x)}</span>`).join('')}</div></div><div class="techCard span6"><h3>API skoru</h3><div class="calcLine"><span>Niyet uyumu</span><strong>${F(p.fit)}</strong></div><div class="calcLine"><span>Tazelik (demo)</span><strong>${F(p.tazelik)}</strong></div><div class="calcLine"><span>Etkileşim (demo)</span><strong>${F(p.etkilesim_puani)}</strong></div><div class="calcLine"><span>Clickbait</span><strong>${F(p.clickbait)}</strong></div><div class="calcLine"><span>Kalite = 1 − clickbait</span><strong>${F(p.quality)}</strong></div><div class="calcLine"><span>Nihai skor</span><strong>${F(p.score)}</strong></div></div><div class="techCard span12"><h3>Neden kalite çarpan?</h3><div class="formulaBox">yüksek uyum + yüksek etkileşim tek başına yeterli değil<br>nihai = taban × <b>kalite</b><br>clickbait yükseldikçe içerik skoru orantılı biçimde aşağı çekilir</div></div></div>`}
