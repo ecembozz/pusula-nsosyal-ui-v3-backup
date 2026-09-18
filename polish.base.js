@@ -99,6 +99,14 @@ html[data-theme="light"] .limit i{background:var(--ui-status-bg)!important;color
   .mobileModeBtn{height:38px!important;border:0!important;border-radius:10px!important;background:var(--panel-2)!important;color:var(--muted)!important;font-weight:650!important;touch-action:manipulation!important;transition:.12s ease!important}
   .mobileModeBtn.active{background:var(--nav-icon-bg)!important;color:var(--brand)!important}
   .mobileModeBtn.busy{opacity:.65!important}
+  .mobileJuryMetrics{margin:0 0 10px!important;border-radius:12px!important;background:var(--jury-surface)!important;overflow:hidden!important}
+  .mobileJuryMetricContext{display:grid!important;grid-template-columns:minmax(0,1fr) 52px 56px 68px!important;gap:5px!important;padding:10px 10px 5px!important;background:linear-gradient(180deg,rgba(45,168,255,.045),rgba(45,168,255,0))!important}
+  .mobileJuryMetricContext b{grid-column:2/5!important;text-align:center!important;font-size:11px!important;font-weight:800!important;color:var(--text)!important;white-space:nowrap!important}
+  .mobileMetric{display:grid!important;grid-template-columns:minmax(0,1fr) 52px 56px 68px!important;gap:5px!important;align-items:center!important;padding:8px 10px!important;border-top:1px solid var(--line-soft)!important;font-size:10px!important}
+  .mobileMetric>span{min-width:0!important;line-height:1.25!important}.mobileMetric>b{text-align:right!important;white-space:nowrap!important;font-variant-numeric:tabular-nums!important;font-size:10px!important}
+  .mobileMetric .p{color:var(--brand)!important}.mobileMetric .deltaGood{color:#35b86f!important}.mobileMetric .deltaBad{color:#e26670!important}
+  .mobileMetricHead{padding-top:4px!important;border-top:0!important;color:var(--muted)!important}.mobileMetricHead>b{font-size:9px!important;font-weight:700!important}
+  .mobileJuryMetricEmpty{padding:10px 12px!important;color:var(--muted)!important;font-size:10.5px!important}
   .mobileJuryActions{display:grid!important;gap:8px!important}
   .mobileJuryAction.primaryMobile{background:var(--brand)!important;color:#fff!important}.mobileJuryAction.primaryMobile .lucide{color:#fff!important}
   .mobileTechSection{margin-top:14px!important;padding-top:12px!important;border-top:1px solid var(--line-soft)!important}
@@ -212,9 +220,25 @@ html[data-theme="light"] .limit i{background:var(--ui-status-bg)!important;color
   function mobileTechAccordion(){
     return '<div class="mobileTechSection"><div class="mobileTechTitle"><b>Teknik Merkez</b><small>Başlığa dokunarak aç / kapat</small></div><div class="mobileTechAccordion">'+MOBILE_TECH.map(x=>'<div class="mobileTechItem"><button type="button" class="mobileTechAccordionBtn" data-mtech="'+x[0]+'">'+icon(x[2],'i')+'<span>'+x[1]+'</span>'+icon('chevron-down','i')+'</button><div class="mobileTechBody" data-mtechbody="'+x[0]+'" hidden></div></div>').join('')+'</div></div>';
   }
+  function mobileJuryMetrics(){
+    const st=typeof S!=='undefined'?S:null;
+    if(!st?.intent)return '';
+    if(typeof G==='undefined'||!G.c)return '<div class="mobileJuryMetrics"><div class="mobileJuryMetricEmpty">Karşılaştırma hesaplanıyor…</div></div>';
+    const a=G.c.classic.metrics,p=G.c.pusula.metrics;
+    const nf=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1});
+    const pct=v=>nf.format(Number(v||0)*100)+'%';
+    const diff=(x,y)=>{const d=(Number(y||0)-Number(x||0))*100;return (d>0?'+':d<0?'−':'')+nf.format(Math.abs(d))+' puan'};
+    const row=(name,x,y,lowerBetter)=>{const d=Number(y||0)-Number(x||0),good=lowerBetter?d<=0:d>=0;return '<div class="mobileMetric"><span>'+name+'</span><b>'+pct(x)+'</b><b class="p">'+pct(y)+'</b><b class="'+(good?'deltaGood':'deltaBad')+'">'+diff(x,y)+'</b></div>'};
+    const budget=st.budget?st.budget+' dk':'Sınırsız';
+    return '<div class="mobileJuryMetrics"><div class="mobileJuryMetricContext"><b>'+I[st.intent].label+' · '+budget+'</b></div><div class="mobileMetric mobileMetricHead"><span></span><b>Klasik</b><b class="p">PUSULA</b><b>Fark</b></div>'+row('Niyet benzerliği',a.niyet_uyumu,p.niyet_uyumu,false)+row('Niyet-kalite skoru',a.niyet_kalite,p.niyet_kalite,false)+row('Clickbait ortalaması ↓',a.clickbait_ortalama,p.clickbait_ortalama,true)+'</div>';
+  }
+  function syncMobileJuryMetrics(){
+    const q=document.getElementById('mobileNavModal'),slot=q?.querySelector('[data-mmetrics]');if(!slot)return;
+    slot.innerHTML=mobileJuryMetrics();
+  }
   function mobileJury(){
     const st=typeof S!=='undefined'?S:null,j=!!st?.jury,m=st?.mode||'classic';
-    return mobileHead('Jüri')+'<div class="mobileJuryState"><span><b>Jüri görünümü</b><small data-mjurysub>'+(j?'Teknik kontroller açık':'Kullanıcı görünümü açık')+'</small></span><button class="mobileJuryToggle '+(j?'on':'')+'" type="button" data-mjury>'+(j?'Açık':'Kapalı')+'</button></div><div class="mobileModeGrid"><button class="mobileModeBtn '+(m==='classic'?'active':'')+'" data-mmode="classic">Klasik</button><button class="mobileModeBtn '+(m==='pusula'?'active':'')+'" data-mmode="pusula">PUSULA</button></div><div class="mobileJuryActions"><button class="mobileJuryAction" data-mintent>'+icon('compass','i')+'<span>Yön / niyet seç</span></button><button class="mobileJuryAction" data-msession>'+icon('clock','i')+'<span>Oturum sonunu göster</span></button></div>'+mobileTechAccordion();
+    return mobileHead('Jüri')+'<div class="mobileJuryState"><span><b>Jüri görünümü</b><small data-mjurysub>'+(j?'Teknik kontroller açık':'Kullanıcı görünümü açık')+'</small></span><button class="mobileJuryToggle '+(j?'on':'')+'" type="button" data-mjury>'+(j?'Açık':'Kapalı')+'</button></div><div class="mobileModeGrid"><button class="mobileModeBtn '+(m==='classic'?'active':'')+'" data-mmode="classic">Klasik</button><button class="mobileModeBtn '+(m==='pusula'?'active':'')+'" data-mmode="pusula">PUSULA</button></div><div data-mmetrics>'+mobileJuryMetrics()+'</div><div class="mobileJuryActions"><button class="mobileJuryAction" data-mintent>'+icon('compass','i')+'<span>Yön / niyet seç</span></button><button class="mobileJuryAction" data-msession>'+icon('clock','i')+'<span>Oturum sonunu göster</span></button></div>'+mobileTechAccordion();
   }
   function syncMobileJuryState(){
     const q=document.getElementById('mobileNavModal');if(!q)return;
@@ -236,7 +260,7 @@ html[data-theme="light"] .limit i{background:var(--ui-status-bg)!important;color
   let mobileTechWarm=false;
   function warmMobileTech(){
     if(mobileTechWarm)return;mobileTechWarm=true;
-    try{const p=typeof window.syncBackend==='function'?window.syncBackend():null;if(p&&typeof p.then==='function')p.then(refreshOpenMobileTech).catch(()=>{})}catch(e){}
+    try{const p=typeof window.syncBackend==='function'?window.syncBackend():null;if(p&&typeof p.then==='function')p.then(()=>{syncMobileJuryMetrics();refreshOpenMobileTech()}).catch(()=>{})}catch(e){}
   }
   function toggleMobileTech(btn){
     const name=btn.dataset.mtech,body=document.querySelector('[data-mtechbody="'+name+'"]'),wasOpen=btn.classList.contains('open');
@@ -260,7 +284,7 @@ html[data-theme="light"] .limit i{background:var(--ui-status-bg)!important;color
       q.querySelector('[data-mjury]')?.addEventListener('click',()=>{window.toggleJury?.();syncMobileJuryState()});
       q.querySelectorAll('[data-mmode]').forEach(b=>b.onclick=()=>{
         const mode=b.dataset.mmode;q.querySelectorAll('[data-mmode]').forEach(x=>{x.classList.toggle('active',x===b);x.classList.toggle('busy',x===b)});
-        Promise.resolve(window.setMode?.(mode)).finally(()=>{q.querySelectorAll('[data-mmode]').forEach(x=>x.classList.remove('busy'));syncMobileJuryState();refreshOpenMobileTech()});
+        Promise.resolve(window.setMode?.(mode)).finally(()=>{q.querySelectorAll('[data-mmode]').forEach(x=>x.classList.remove('busy'));syncMobileJuryState();syncMobileJuryMetrics();refreshOpenMobileTech()});
       });
       q.querySelector('[data-mintent]')?.addEventListener('click',()=>{mobileClose();window.openIntent?.()});
       q.querySelector('[data-msession]')?.addEventListener('click',()=>{mobileClose();window.showSession?.()});
