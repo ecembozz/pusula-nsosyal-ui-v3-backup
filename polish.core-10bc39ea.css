@@ -2,16 +2,16 @@
 .modelSpaceCard{background:var(--panel-2)!important}
 .modelAxes{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important;margin:2px 0 14px!important}
 .modelAxes span{display:grid!important;place-items:center!important;min-height:34px!important;padding:7px 9px!important;border:1px solid var(--tech-diagram-node-border)!important;border-radius:10px!important;background:var(--tech-diagram-node-bg)!important;color:var(--tech-diagram-text)!important;font-size:10px!important;font-weight:700!important}
-.modelExamplesLabel{margin:0 0 5px!important;font-size:9px!important;font-weight:800!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:var(--muted)!important}
+.modelExamplesLabel{margin:20px 0 6px!important;font-size:9px!important;font-weight:800!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:var(--muted)!important}
 .modelIntentRows{border-top:1px solid var(--line-soft)!important;border-bottom:1px solid var(--line-soft)!important}
-.modelIntentRow{display:grid!important;grid-template-columns:138px 190px minmax(0,1fr)!important;align-items:center!important;gap:12px!important;padding:10px 0!important}
+.modelIntentRow{display:grid!important;grid-template-columns:112px 92px 190px minmax(0,1fr)!important;align-items:center!important;gap:12px!important;padding:10px 0!important}
 .modelIntentRow+.modelIntentRow{border-top:1px solid var(--line-soft)!important}
-.modelIntentRow>div{display:flex!important;align-items:baseline!important;gap:6px!important;min-width:0!important}
 .modelIntentRow b{font-size:10px!important;color:var(--text)!important}
 .modelIntentRow small{font-size:8.5px!important;font-weight:700!important;color:var(--brand)!important;white-space:nowrap!important}
 .modelIntentRow code{font:700 10px ui-monospace,SFMono-Regular,Consolas,monospace!important;color:var(--text)!important}
 .modelIntentRow span{font-size:9.5px!important;line-height:1.4!important;color:var(--muted)!important}
-.modelMetricList{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px 18px!important;margin-top:11px!important;padding-top:11px!important;border-top:1px solid var(--line-soft)!important}
+.modelMetricBox{margin-top:14px!important;padding:11px 12px!important;border:1px solid var(--line-soft)!important;border-radius:10px!important;background:transparent!important}
+.modelMetricList{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px 18px!important;margin:0!important;padding:0!important;border:0!important}
 .modelMetricList>div{display:grid!important;grid-template-columns:5px auto!important;align-items:start!important;column-gap:7px!important;row-gap:2px!important;min-width:0!important}
 .modelMetricList i{grid-row:1/span 2!important;margin-top:4px!important}
 .modelMetricList b{font-size:9.5px!important;color:var(--text)!important}

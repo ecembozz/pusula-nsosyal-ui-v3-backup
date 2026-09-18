@@ -149,21 +149,25 @@ function techModels(){
       <div class="modelExamplesLabel">Örnek hedefler</div>
       <div class="modelIntentRows">
         <div class="modelIntentRow">
-          <div><b>Öğrenmek</b><small>Belirgin hedef</small></div>
+          <b>Öğrenmek</b>
+          <small>Belirgin hedef</small>
           <code>[1.00, 0.15, 0.15, 0.05]</code>
           <span>Öğretici boyut baskındır; diğer boyutlar tamamen sıfırlanmaz.</span>
         </div>
         <div class="modelIntentRow">
-          <div><b>Sadece dolaşmak</b><small>Dengeli hedef</small></div>
+          <b>Sadece dolaşmak</b>
+          <small>Dengeli hedef</small>
           <code>[0.40, 0.55, 0.40, 0.45]</code>
           <span>Tek bir boyutu baskınlaştırmaz; dört boyuta daha dengeli yaklaşır.</span>
         </div>
       </div>
 
-      <div class="modelMetricList">
-        <div><i></i><b>Niyet doğruluğu ↑</b><span>Baskın niyeti doğru buluyor mu?</span></div>
-        <div><i></i><b>Macro-F1 ↑</b><span>Tüm niyetlerde dengeli başarı gösteriyor mu?</span></div>
-        <div><i></i><b>Niyet vektörü hatası ↓</b><span>Dört boyutlu profil hedefe ne kadar yakın?</span></div>
+      <div class="modelMetricBox">
+        <div class="modelMetricList">
+          <div><i></i><b>Niyet doğruluğu ↑</b><span>Baskın niyeti doğru buluyor mu?</span></div>
+          <div><i></i><b>Macro-F1 ↑</b><span>Tüm niyetlerde dengeli başarı gösteriyor mu?</span></div>
+          <div><i></i><b>Niyet vektörü hatası ↓</b><span>Dört boyutlu profil hedefe ne kadar yakın?</span></div>
+        </div>
       </div>
     </div>
 
