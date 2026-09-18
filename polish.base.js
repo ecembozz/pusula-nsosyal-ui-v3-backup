@@ -160,7 +160,6 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   #tech-overview .pipelineSignalsGrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
   #tech-overview .pipelineSignal{height:46px!important;min-height:46px!important;padding:7px 8px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;border-radius:11px!important;box-shadow:none!important}
   #tech-overview .pipelineScore{background:var(--tech-diagram-score-bg)!important;border-color:var(--tech-diagram-score-border)!important;box-shadow:0 7px 20px color-mix(in srgb,var(--tech-diagram-arrow) 10%,transparent)!important}
-  #tech-overview .pipelineNote{margin:1px 0 0!important;font-size:9.5px!important;line-height:1.4!important;color:var(--tech-diagram-muted)!important}
 }
 @media(min-width:721px) and (max-width:1100px){
   #tech-overview .overviewRanking,#tech-overview .overviewIntent{grid-column:1/-1!important}

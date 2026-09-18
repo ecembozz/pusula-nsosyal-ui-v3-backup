@@ -123,7 +123,6 @@ function techOverview(){
         <div class="arrow pipelineArrow" aria-hidden="true">→</div>
         <div class="flowNode pipelineNode"><b>Akış</b><span>İçerikleri sırala</span></div>
       </div>
-      <p class="pipelineNote">İçerik analizi önceden hazırlanır; akış sıralaması seçilen niyete göre anlık yapılır.</p>
     </div></div>
   </div>`
 }
