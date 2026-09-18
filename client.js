@@ -8,7 +8,7 @@ const TECH_META_V5={
   models:['Niyet analizi','PUSULA’nın içerikleri niyet uzayında nasıl temsil ettiğini ve model seçimini incele.'],
   compare:['Canlı karşılaştırma','Klasik sıralama ile PUSULA sıralamasını karşılaştır.'],
   math:['Matematik & skor ayrıştırma','Niyet uyumu, kalite, tazelik ve etkileşim sinyallerini adım adım gör.'],
-  experiment:['Runtime davranış testi','Beş niyette aynı 320 gönderinin Klasik vs PUSULA top-20 davranışı.'],
+  experiment:['Deney sonuçları','PUSULA’nın farklı niyetlerde klasik sıralamaya göre nasıl davrandığını incele.'],
   architecture:['Mimari & doğrulama','Offline semantic labeling, Candidate V5 cache ve runtime ranking zinciri.'],
 };
 
@@ -182,9 +182,43 @@ function techCompare(){let r=document.getElementById('tech-compare');if(!G.c)ret
 function techMath(){let r=document.getElementById('tech-math'),p=G.c?.pusula?.posts?.[0]||G.f[0];if(!p)return r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Önce akışı yükle</h2></div>';r.innerHTML=sourceStatus()+`<div class="techGrid"><div class="techCard span6"><h3>Gönderi ${E(p.id)}</h3><div class="sub">${E(p.yazar)} · ${E(p.kategori_adi)}</div><div class="vector">${p.tahmin_niyet.map((x,i)=>`<span class="vec">${['Ö','E','H','S'][i]} ${F(x)}</span>`).join('')}</div></div><div class="techCard span6"><h3>API skoru</h3><div class="calcLine"><span>Niyet uyumu</span><strong>${F(p.fit)}</strong></div><div class="calcLine"><span>Tazelik (demo)</span><strong>${F(p.tazelik)}</strong></div><div class="calcLine"><span>Etkileşim (demo)</span><strong>${F(p.etkilesim_puani)}</strong></div><div class="calcLine"><span>Clickbait</span><strong>${F(p.clickbait)}</strong></div><div class="calcLine"><span>Kalite = 1 − clickbait</span><strong>${F(p.quality)}</strong></div><div class="calcLine"><span>Nihai skor</span><strong>${F(p.score)}</strong></div></div><div class="techCard span12"><h3>Neden kalite çarpan?</h3><div class="formulaBox">yüksek uyum + yüksek etkileşim tek başına yeterli değil<br>nihai = taban × <b>kalite</b><br>clickbait yükseldikçe içerik skoru orantılı biçimde aşağı çekilir</div></div></div>`}
 function techExperiment(){
   const r=document.getElementById('tech-experiment');if(!r)return;
-  if(!G.b){r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Runtime davranış tablosu hesaplanıyor</h2><p>Aynı 320 gönderi, beş niyet ve top-20.</p></div>';return}
-  const rows=(G.b.rows||[]).map(x=>`<tr><td>${E(x.intent_label)}</td><td>${F(x.classic.niyet_uyumu)}</td><td>${F(x.pusula.niyet_uyumu)}</td><td class="deltaGood">+${F(x.delta.niyet_uyumu)}</td><td>${F(x.classic.niyet_kalite)}</td><td>${F(x.pusula.niyet_kalite)}</td><td>${F(x.pusula.kalite)}</td><td>${F(x.pusula.clickbait_ortalama)}</td><td>${x.pusula.konu_sayisi}</td></tr>`).join('');
-  r.innerHTML=sourceStatus()+`<div class="techGrid"><div class="techCard span12"><h3>Candidate V5 runtime davranış testi</h3><div class="sub">Aynı 320 gönderi · her niyette top-20 · aynı kategori başına en fazla 5 kuralı</div><div style="overflow:auto"><table class="expTable"><thead><tr><th>Niyet</th><th>Uyum K</th><th>Uyum P</th><th>Δ uyum</th><th>Niyet×kalite K</th><th>Niyet×kalite P</th><th>Kalite P</th><th>CB ort. P</th><th>Konu</th></tr></thead><tbody>${rows}</tbody></table></div><p class="techFootnote"><b>Bu tablo final doğruluk ölçümü değildir.</b> İnsan-gold bağımsız test yerine çalışan ranking davranışını gösterir. Etkileşim/tazelik deterministik demo sinyalidir.</p></div><div class="techCard span6"><h3>Semantic development sonuçları</h3><div class="calcLine"><span>Intent head</span><strong>k-NN · 352</strong></div><div class="calcLine"><span>Clickbait head</span><strong>Ridge α=0.05 · 192</strong></div><div class="calcLine"><span>Clickbait dev MAE</span><strong>0.101</strong></div><div class="calcLine"><span>Clickbait dev F1@.50</span><strong>0.968</strong></div><div class="calcLine"><span>5-fold OOF MAE</span><strong>0.138</strong></div><p class="techFootnote">Development setleri model seçimi için kullanıldı; yarışma/final insan-gold doğruluğu olarak sunulmamalı.</p></div><div class="techCard span6"><h3>Background sanity</h3><div class="calcLine"><span>Ortalama clickbait</span><strong>${F(G.m?.runtime_meta?.clickbait?.mean)}</strong></div><div class="calcLine"><span>Maksimum</span><strong>${F(G.m?.runtime_meta?.clickbait?.max)}</strong></div><div class="calcLine"><span>≥ 0.50</span><strong>${G.m?.runtime_meta?.clickbait?.ge_0_50??0} / 320</strong></div><div class="calcLine"><span>Cache reject</span><strong>0 / 320</strong></div></div></div>`
+  if(!G.b){r.innerHTML=sourceStatus()+'<div class="pageEmpty"><h2>Deney sonuçları hazırlanıyor</h2><p>Beş niyet için Klasik ve PUSULA sıralaması karşılaştırılıyor.</p></div>';return}
+  const data=G.b.rows||[];
+  const nf=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1});
+  const pct=v=>nf.format(Number(v||0)*100)+'%';
+  const point=v=>'+'+nf.format(Number(v||0)*100)+' puan';
+  const avg=a=>a.length?a.reduce((s,v)=>s+Number(v||0),0)/a.length:0;
+  const rows=data.map(x=>`<tr><td>${E(x.intent_label)}</td><td>${pct(x.classic.niyet_uyumu)}</td><td><b>${pct(x.pusula.niyet_uyumu)}</b></td><td class="deltaGood">${point(x.delta.niyet_uyumu)}</td></tr>`).join('');
+  const avgDelta=avg(data.map(x=>x.delta.niyet_uyumu));
+  const avgClick=avg(data.map(x=>x.pusula.clickbait_ortalama));
+  const topics=data.map(x=>Number(x.pusula.konu_sayisi||0)).filter(Boolean);
+  const topicMin=topics.length?Math.min(...topics):0,topicMax=topics.length?Math.max(...topics):0;
+  r.innerHTML=sourceStatus()+`<div class="techGrid experimentGrid">
+    <div class="techCard span12 experimentMain">
+      <h3>Niyet uyumu karşılaştırması</h3>
+      <div class="sub">Her niyet için aynı 320 içeriklik havuzdan ilk 20 sonuç karşılaştırıldı.</div>
+      <div class="experimentTableWrap"><table class="expTable experimentTable"><thead><tr><th>Niyet</th><th>Klasik</th><th>PUSULA</th><th>Değişim</th></tr></thead><tbody>${rows}</tbody></table></div>
+      <p class="experimentNote">Bu karşılaştırma sıralama davranışını gösterir; kullanıcı memnuniyeti ölçümü değildir.</p>
+    </div>
+
+    <div class="techCard span12 experimentSummary">
+      <h3>Sonuç özeti</h3>
+      <div class="experimentSummaryGrid">
+        <div class="experimentStat techStatCard">
+          <div class="miniLabel techStatLabel">Ortalama niyet uyumu artışı</div>
+          <div class="bigNum techStatValue experimentPositive">+${nf.format(avgDelta*100)} puan</div>
+        </div>
+        <div class="experimentStat techStatCard">
+          <div class="miniLabel techStatLabel">PUSULA clickbait riski</div>
+          <div class="bigNum techStatValue">${pct(avgClick)}</div>
+        </div>
+        <div class="experimentStat techStatCard">
+          <div class="miniLabel techStatLabel">İlk 20'de konu çeşitliliği</div>
+          <div class="bigNum techStatValue">${topicMin}–${topicMax} konu</div>
+        </div>
+      </div>
+    </div>
+  </div>`
 }
 function techArchitecture(){
   const r=document.getElementById('tech-architecture');if(!r)return;
