@@ -109,22 +109,21 @@ function techOverview(){
         <div class="arrow pipelineArrow" aria-hidden="true">→</div>
         <div class="flowNode pipelineNode"><b>Semantik analiz</b><span>Anlamını çıkar</span></div>
         <div class="arrow pipelineArrow" aria-hidden="true">→</div>
-        <div class="pipelineBranch">
-          <div class="flowNode pipelineSignal"><b>Niyet uyumu</b><span>Kullanıcının amacıyla karşılaştır</span></div>
-          <div class="flowNode pipelineSignal"><b>Clickbait riski</b><span>Kalite riskini ölç</span></div>
+        <div class="pipelineSignalsBox">
+          <div class="pipelineSignalsHead"><b>Sıralama sinyalleri</b><span>PUSULA skorunu oluşturan dört sinyal</span></div>
+          <div class="pipelineSignalsSection"><span class="pipelineSectionLabel">Semantik analizden</span><div class="pipelineSignalsGrid">
+            <div class="flowNode pipelineSignal"><b>Niyet uyumu</b><span>Kullanıcının amacıyla karşılaştır</span></div>
+            <div class="flowNode pipelineSignal"><b>Clickbait riski</b><span>Kalite riskini ölç</span></div>
+          </div></div>
+          <div class="pipelineSignalsSection"><span class="pipelineSectionLabel">Ek sıralama sinyalleri</span><div class="pipelineSignalsGrid">
+            <div class="flowNode pipelineSignal"><b>Tazelik</b><span>Ne kadar güncel?</span></div>
+            <div class="flowNode pipelineSignal"><b>Etkileşim</b><span>Ne kadar ilgi çekici?</span></div>
+          </div></div>
         </div>
         <div class="arrow pipelineArrow" aria-hidden="true">→</div>
         <div class="flowNode pipelineNode pipelineScore"><b>PUSULA skoru</b><span>Tüm sinyalleri birleştir</span></div>
         <div class="arrow pipelineArrow" aria-hidden="true">→</div>
         <div class="flowNode pipelineNode"><b>Akış</b><span>İçerikleri sırala</span></div>
-      </div>
-      <div class="pipelineAux">
-        <span class="pipelineAuxLabel">Ek sıralama sinyalleri</span>
-        <div class="pipelineAuxSignals">
-          <div class="flowNode pipelineSignal"><b>Tazelik</b><span>Ne kadar güncel?</span></div>
-          <div class="flowNode pipelineSignal"><b>Etkileşim</b><span>Ne kadar ilgi çekici?</span></div>
-        </div>
-        <span class="pipelineAuxArrow" aria-hidden="true">↗</span>
       </div>
       <p class="pipelineNote">İçerik analizi önceden hazırlanır; akış sıralaması seçilen niyete göre anlık yapılır.</p>
     </div></div>
