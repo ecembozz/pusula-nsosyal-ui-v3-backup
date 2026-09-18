@@ -9,7 +9,7 @@ const TECH_META_V5={
   compare:['Canlı karşılaştırma','Klasik sıralama ile PUSULA sıralamasını karşılaştır.'],
   math:['Matematik & skor ayrıştırma','Niyet uyumu, kalite, tazelik ve etkileşim sinyallerini adım adım gör.'],
   experiment:['Deney sonuçları','PUSULA’nın farklı niyetlerde klasik sıralamaya göre nasıl davrandığını incele.'],
-  architecture:['Mimari & doğrulama','Offline semantic labeling, Candidate V5 cache ve runtime ranking zinciri.'],
+  architecture:['Mimari & doğrulama','PUSULA’nın içeriği nasıl analiz ettiğini ve kullanıcı niyetine göre akışı nasıl oluşturduğunu incele.'],
 };
 
 async function A(p){let r=await fetch('/api/pusula?'+new URLSearchParams(p),{cache:'no-store'}),d=await r.json();if(!r.ok||!d.ok)throw Error(d.error||r.status);return d}
@@ -225,7 +225,62 @@ function techExperiment(){
 }
 function techArchitecture(){
   const r=document.getElementById('tech-architecture');if(!r)return;
-  r.innerHTML=sourceStatus()+`<div class="techGrid"><div class="techCard span12"><h3>Teknik zincir</h3><div class="flow"><div class="flowNode"><b>1 · Corpus</b><span>privacy-safe sentetik Türkçe feed</span></div><div class="arrow">→</div><div class="flowNode"><b>2 · E5 encoder</b><span>multilingual-e5-base · offline</span></div><div class="arrow">→</div><div class="flowNode"><b>3A · Niyet</b><span>4D k-NN · 352 örnek</span></div><div class="arrow">+</div><div class="flowNode"><b>3B · Clickbait</b><span>continuous Ridge · 192 örnek</span></div><div class="arrow">→</div><div class="flowNode"><b>4 · Cache</b><span>runtime model çağrısı yok</span></div><div class="arrow">→</div><div class="flowNode"><b>5 · Ranking</b><span>şeffaf formül + çeşitlilik</span></div></div></div><div class="techCard span6"><h3>Bugün gerçekten çalışan</h3><div class="limitList"><div class="limit"><i>✓</i><div><b>Candidate V5 semantic cache</b><span>320/320 kayıt, reject yok.</span></div><em>çalışıyor</em></div><div class="limit"><i>✓</i><div><b>Offline E5 semantic pipeline</b><span>Niyet ve clickbait ayrı head’lerde.</span></div><em>çalışıyor</em></div><div class="limit"><i>✓</i><div><b>Runtime ranking API</b><span>Model yüklemeden aynı cache’i sıralıyor.</span></div><em>çalışıyor</em></div><div class="limit"><i>✓</i><div><b>Açıklanabilir skor</b><span>Uyum, kalite, tazelik ve etkileşim kullanıcıya gösterilebilir.</span></div><em>çalışıyor</em></div></div></div><div class="techCard span6"><h3>Sınırlar / dürüst kapsam</h3><div class="limitList"><div class="limit"><i>!</i><div><b>Corpus sentetik</b><span>Gerçek kullanıcı postları kopyalanmadı; insan-gold bağımsız test hâlâ gerekli.</span></div><em>sınır</em></div><div class="limit"><i>!</i><div><b>Etkileşim ve tazelik simüle</b><span>NSosyal/X telemetrisi olarak raporlanmamalı.</span></div><em>sınır</em></div><div class="limit"><i>!</i><div><b>Online öğrenme yok</b><span>Oturum sonu geri bildirim prototipte modeli yeniden eğitmiyor.</span></div><em>Faz 3</em></div><div class="limit"><i>!</i><div><b>Final accuracy iddiası yok</b><span>Development benchmark ve runtime behavior testleri ayrı tutuluyor.</span></div><em>metodoloji</em></div></div></div></div>`
+  r.innerHTML=sourceStatus()+`<div class="techGrid architectureGrid">
+    <div class="techCard span12 architectureFlowCard">
+      <h3>Sistem mimarisi</h3>
+
+      <div class="architectureStage">
+        <div class="architectureStageHead">
+          <b>İçerik hazırlanırken</b>
+          <span>Her gönderinin anlamı bir kez analiz edilir.</span>
+        </div>
+        <div class="architectureFlow">
+          <div class="architectureNode"><b>Gönderi</b><span>İçerik metni</span></div>
+          <div class="architectureArrow" aria-hidden="true">→</div>
+          <div class="architectureNode"><b>Semantik analiz</b><span>Metnin anlamını çıkar</span></div>
+          <div class="architectureArrow" aria-hidden="true">→</div>
+          <div class="architectureNode architectureNodeWide"><b>Niyet profili + Clickbait riski</b><span>İçeriğin özelliklerini belirle</span></div>
+          <div class="architectureArrow" aria-hidden="true">→</div>
+          <div class="architectureNode"><b>Hazır özellikler</b><span>Sıralama için saklanır</span></div>
+        </div>
+      </div>
+
+      <div class="architectureStage">
+        <div class="architectureStageHead">
+          <b>Akış oluşturulurken</b>
+          <span>Kullanıcının seçtiği niyet hazır içeriklerle eşleştirilir.</span>
+        </div>
+        <div class="architectureFlow">
+          <div class="architectureNode"><b>Kullanıcı niyeti</b><span>Örn. Öğrenmek</span></div>
+          <div class="architectureArrow" aria-hidden="true">→</div>
+          <div class="architectureNode"><b>Hazır içerik özellikleri</b><span>Niyet, kalite ve diğer sinyaller</span></div>
+          <div class="architectureArrow" aria-hidden="true">→</div>
+          <div class="architectureNode"><b>PUSULA skoru</b><span>İçerikleri karşılaştır</span></div>
+          <div class="architectureArrow" aria-hidden="true">→</div>
+          <div class="architectureNode"><b>Sıralanmış akış</b><span>En uygun içerikleri göster</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="techCard span7 architectureReady">
+      <h3>Hazır ve çalışan</h3>
+      <div class="architectureCheckList">
+        <div><i>✓</i><span><b>320 içerik analiz edildi</b><small>Tüm demo havuzunun semantik özellikleri hazır.</small></span></div>
+        <div><i>✓</i><span><b>Niyet analizi çalışıyor</b><small>İçerikler dört boyutlu niyet profiline dönüştürülüyor.</small></span></div>
+        <div><i>✓</i><span><b>Clickbait analizi çalışıyor</b><small>Her içerik için clickbait riski bulunuyor.</small></span></div>
+        <div><i>✓</i><span><b>Niyete göre sıralama çalışıyor</b><small>Seçilen niyete göre ilk içerikler yeniden sıralanıyor.</small></span></div>
+      </div>
+    </div>
+
+    <div class="techCard span5 architectureScope">
+      <h3>Demo kapsamı</h3>
+      <div class="architectureScopeList">
+        <div><i aria-hidden="true"></i><span><b>İçerik havuzu</b><small>Sentetik Türkçe gönderiler</small></span></div>
+        <div><i aria-hidden="true"></i><span><b>Tazelik ve etkileşim</b><small>Demo verileriyle temsil ediliyor</small></span></div>
+        <div><i aria-hidden="true"></i><span><b>Geri bildirimle öğrenme</b><small>Sonraki geliştirme aşaması</small></span></div>
+      </div>
+    </div>
+  </div>`
 }
 
 (async()=>{
