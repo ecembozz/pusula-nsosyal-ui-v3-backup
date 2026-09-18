@@ -190,7 +190,9 @@ function techExperiment(){
   const avg=a=>a.length?a.reduce((s,v)=>s+Number(v||0),0)/a.length:0;
   const rows=data.map(x=>`<tr><td>${E(x.intent_label)}</td><td>${pct(x.classic.niyet_uyumu)}</td><td><b>${pct(x.pusula.niyet_uyumu)}</b></td><td class="deltaGood">${point(x.delta.niyet_uyumu)}</td></tr>`).join('');
   const avgDelta=avg(data.map(x=>x.delta.niyet_uyumu));
-  const avgClick=avg(data.map(x=>x.pusula.clickbait_ortalama));
+  const classicClick=avg(data.map(x=>x.classic.clickbait_ortalama));
+  const pusulaClick=avg(data.map(x=>x.pusula.clickbait_ortalama));
+  const clickDelta=pusulaClick-classicClick;
   const topics=data.map(x=>Number(x.pusula.konu_sayisi||0)).filter(Boolean);
   const topicMin=topics.length?Math.min(...topics):0,topicMax=topics.length?Math.max(...topics):0;
   r.innerHTML=sourceStatus()+`<div class="techGrid experimentGrid">
@@ -198,7 +200,6 @@ function techExperiment(){
       <h3>Niyet uyumu karşılaştırması</h3>
       <div class="sub">Her niyet için aynı 320 içeriklik havuzdan ilk 20 sonuç karşılaştırıldı.</div>
       <div class="experimentTableWrap"><table class="expTable experimentTable"><thead><tr><th>Niyet</th><th>Klasik</th><th>PUSULA</th><th>Değişim</th></tr></thead><tbody>${rows}</tbody></table></div>
-      <p class="experimentNote">Bu karşılaştırma sıralama davranışını gösterir; kullanıcı memnuniyeti ölçümü değildir.</p>
     </div>
 
     <div class="techCard span12 experimentSummary">
@@ -208,13 +209,14 @@ function techExperiment(){
           <div class="miniLabel techStatLabel">Ortalama niyet uyumu artışı</div>
           <div class="bigNum techStatValue experimentPositive">+${nf.format(avgDelta*100)} puan</div>
         </div>
-        <div class="experimentStat techStatCard">
-          <div class="miniLabel techStatLabel">PUSULA clickbait riski</div>
-          <div class="bigNum techStatValue">${pct(avgClick)}</div>
+        <div class="experimentStat techStatCard experimentStatDetail">
+          <div class="miniLabel techStatLabel">Clickbait riski değişimi</div>
+          <div class="bigNum techStatValue experimentPositive">${nf.format(clickDelta*100)} puan</div>
+          <div class="experimentStatSub">Klasik ${pct(classicClick)} → PUSULA ${pct(pusulaClick)}</div>
         </div>
         <div class="experimentStat techStatCard">
-          <div class="miniLabel techStatLabel">İlk 20'de konu çeşitliliği</div>
-          <div class="bigNum techStatValue">${topicMin}–${topicMax} konu</div>
+          <div class="miniLabel techStatLabel">İlk 20'de kategori çeşitliliği</div>
+          <div class="bigNum techStatValue">${topicMin}–${topicMax} kategori</div>
         </div>
       </div>
     </div>
