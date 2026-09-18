@@ -99,13 +99,21 @@ function techOverview(){
   const nf=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1});
   const pct=v=>nf.format(Number(v||0)*100)+'%';
   const point=v=>(Number(v||0)>=0?'+':'−')+nf.format(Math.abs(Number(v||0))*100)+' puan';
-  r.innerHTML=`<div class="techGrid">
-    <div class="techCard span4"><div class="miniLabel">Semantik model</div><div class="modelName">${E((src?.semantic_encoder||'intfloat/multilingual-e5-base').split('/').pop())}</div><div class="sub">Development testinde seçilen encoder</div></div>
-    <div class="techCard span4"><div class="miniLabel">İçerik havuzu</div><div class="bigNum">${src?.pool_size||320}</div></div>
-    <div class="techCard span4"><div class="miniLabel">Clickbait ortalaması</div><div class="bigNum">${pct(click.mean)}</div></div>
-    <div class="techCard span6"><h3>Sıralama modeli</h3><div class="formulaBox">taban = <b>0.70 × niyet_uyumu</b> + 0.15 × tazelik + 0.15 × etkileşim<br>nihai = taban × <b>(1 − clickbait)</b></div></div>
-    <div class="techCard span6"><h3>${S.intent?'Aktif niyet · '+E(I[S.intent].label):'Aktif niyet'}</h3>${delta===null?'<div class="sub">Niyet seçildiğinde Klasik ve PUSULA sonucu burada karşılaştırılır.</div>':`<div class="calcLine"><span>Klasik niyet benzerliği</span><strong>${pct(classic.niyet_uyumu)}</strong></div><div class="calcLine"><span>PUSULA niyet benzerliği</span><strong>${pct(active.niyet_uyumu)}</strong></div><div class="calcLine"><span>Fark</span><strong class="deltaGood">${point(delta)}</strong></div>`}</div>
-    <div class="techCard span12"><h3>Veri zinciri</h3><div class="flow"><div class="flowNode"><b>Metin</b><span>Türkçe içerik</span></div><div class="arrow">→</div><div class="flowNode"><b>Embedding</b><span>anlamsal temsil</span></div><div class="arrow">→</div><div class="flowNode"><b>Niyet</b><span>uyum tahmini</span></div><div class="arrow">→</div><div class="flowNode"><b>Clickbait</b><span>kalite sinyali</span></div><div class="arrow">→</div><div class="flowNode"><b>Ranking</b><span>nihai sıralama</span></div></div></div>
+  r.innerHTML=`<div class="techGrid overviewGrid">
+    <div class="techCard span4 overviewStat"><div class="miniLabel">Semantik model</div><div class="modelName">${E((src?.semantic_encoder||'intfloat/multilingual-e5-base').split('/').pop())}</div><div class="overviewCardNote">Gönderilerin anlamını ve seçilen niyetle benzerliğini ölçer.</div></div>
+    <div class="techCard span4 overviewStat"><div class="miniLabel">İçerik havuzu</div><div class="bigNum">${src?.pool_size||320}</div><div class="overviewCardNote">Sıralamada kullanılan gönderi havuzu.</div></div>
+    <div class="techCard span4 overviewStat"><div class="miniLabel">Clickbait ortalaması</div><div class="bigNum">${pct(click.mean)}</div><div class="overviewCardNote">İçeriklerin ortalama clickbait riski.</div></div>
+
+    <div class="techCard span8 overviewRanking"><h3>Sıralama modeli</h3><div class="formulaBox overviewFormula">Skor = (<b>0.70 × niyet uyumu</b> + 0.15 × tazelik + 0.15 × etkileşim) × <b>(1 − clickbait)</b></div><p class="overviewExplain">Niyet uyumu ana sinyaldir; clickbait yükseldikçe skor düşer.</p></div>
+    <div class="techCard span4 overviewIntent"><h3>${S.intent?'Aktif niyet · '+E(I[S.intent].label):'Aktif niyet'}</h3>${delta===null?'<div class="overviewExplain">Niyet seçildiğinde Klasik ve PUSULA sonucu burada karşılaştırılır.</div>':`<div class="calcLine"><span>Klasik niyet benzerliği</span><strong>${pct(classic.niyet_uyumu)}</strong></div><div class="calcLine"><span>PUSULA niyet benzerliği</span><strong>${pct(active.niyet_uyumu)}</strong></div><div class="calcLine"><span>Fark</span><strong class="deltaGood">${point(delta)}</strong></div>`}</div>
+
+    <div class="techCard span12 overviewChain"><h3>Veri zinciri</h3><div class="overviewFlow">
+      <div class="flowNode"><b>Gönderi</b><span>Metni al</span></div><div class="arrow" aria-hidden="true">→</div>
+      <div class="flowNode"><b>Semantik model</b><span>Anlamını çıkar</span></div><div class="arrow" aria-hidden="true">→</div>
+      <div class="flowNode"><b>Niyet uyumu</b><span>Niyetle karşılaştır</span></div><div class="arrow" aria-hidden="true">→</div>
+      <div class="flowNode"><b>Clickbait kontrolü</b><span>Kaliteyi kontrol et</span></div><div class="arrow" aria-hidden="true">→</div>
+      <div class="flowNode"><b>Sıralama</b><span>Akışı sırala</span></div>
+    </div></div>
   </div>`
 }
 function techModels(){

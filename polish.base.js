@@ -121,7 +121,7 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   .mobileTechBody{padding:0 10px 11px!important;border-top:1px solid var(--line-soft)!important;background:var(--panel)!important;overflow-x:hidden!important}
   .mobileTechBody[hidden]{display:none!important}
   .mobileTechBody .techGrid{grid-template-columns:1fr!important;gap:8px!important;margin-top:10px!important}.mobileTechBody .span4,.mobileTechBody .span5,.mobileTechBody .span6,.mobileTechBody .span7,.mobileTechBody .span8,.mobileTechBody .span12{grid-column:1/-1!important}
-  .mobileTechBody .techCard{padding:12px!important}.mobileTechBody .compareCols{grid-template-columns:1fr!important}.mobileTechBody .flow{grid-template-columns:1fr!important}.mobileTechBody .arrow{display:none!important}.mobileTechBody .sourceBadge,.mobileTechBody .backendStatus{margin-top:10px!important}.mobileTechBody .expTable{min-width:720px!important}
+  .mobileTechBody .techCard{padding:12px!important}.mobileTechBody .compareCols{grid-template-columns:1fr!important}.mobileTechBody .flow{grid-template-columns:1fr!important}.mobileTechBody .arrow{display:none!important}.mobileTechBody #tech-overview .overviewFlow{grid-template-columns:1fr!important;gap:5px!important}.mobileTechBody #tech-overview .overviewFlow>.arrow{display:grid!important;place-items:center!important;transform:rotate(90deg)!important;height:18px!important;color:var(--brand)!important}.mobileTechBody #tech-overview .overviewFormula{white-space:normal!important}.mobileTechBody .sourceBadge,.mobileTechBody .backendStatus{margin-top:10px!important}.mobileTechBody .expTable{min-width:720px!important}
   .mobileTechLoading{padding:14px 4px!important;color:var(--muted)!important;font-size:11px!important}
   .pusulaTourCard{width:calc(100vw - 24px);border-radius:22px}
   .pusulaTourVisual{height:160px}.pusulaTourCompass{width:94px;height:94px}.pusulaTourCompass .lucide{width:45px;height:45px}.pusulaTourCompass:before{height:70px}.pusulaTourCompass:after{width:70px}
@@ -135,10 +135,22 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   .postActions .act{flex:1 1 0!important;justify-content:center!important}
   #tech-overview .flow,#tech-architecture .flow{display:grid!important;align-items:stretch!important;gap:10px!important;overflow:visible!important;padding-bottom:0!important}
   #tech-overview .flow{grid-template-columns:repeat(5,minmax(0,1fr))!important}#tech-architecture .flow{grid-template-columns:repeat(6,minmax(0,1fr))!important}
-  #tech-overview .flow>.arrow,#tech-architecture .flow>.arrow{display:none!important}
+  #tech-architecture .flow>.arrow{display:none!important}
   #tech-overview .flowNode,#tech-architecture .flowNode{min-width:0!important;width:auto!important;height:100%!important}
+  #tech-overview .overviewCardNote{margin-top:5px;color:var(--muted)!important;font-size:10px;line-height:1.35}
+  #tech-overview .overviewExplain{margin:9px 0 0;color:var(--muted)!important;font-size:10.5px;line-height:1.45}
+  #tech-overview .overviewFormula{white-space:nowrap!important;overflow:visible!important;font-size:10.7px!important;letter-spacing:-.025em!important;padding:12px 11px!important}
+  #tech-overview .overviewFlow{display:grid!important;grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr) 24px minmax(0,1fr) 24px minmax(0,1fr) 24px minmax(0,1fr)!important;align-items:center!important;gap:6px!important}
+  #tech-overview .overviewFlow>.arrow{display:grid!important;place-items:center!important;color:var(--brand)!important;font-size:18px!important;font-weight:800!important}
+  #tech-overview .overviewFlow>.flowNode{min-width:0!important;height:100%!important}
 }
-@media(min-width:721px) and (max-width:1100px){#tech-overview .flow,#tech-architecture .flow{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(min-width:721px) and (max-width:1100px){
+  #tech-overview .overviewRanking,#tech-overview .overviewIntent{grid-column:1/-1!important}
+  #tech-overview .overviewFormula{white-space:normal!important}
+  #tech-overview .overviewFlow{grid-template-columns:1fr!important;gap:5px!important}
+  #tech-overview .overviewFlow>.arrow{transform:rotate(90deg)!important;height:18px!important}
+  #tech-architecture .flow{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
 `;
     document.head.appendChild(style);
   }
