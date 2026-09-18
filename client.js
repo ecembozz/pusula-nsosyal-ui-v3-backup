@@ -103,12 +103,30 @@ function techOverview(){
 
     <div class="techCard span12 overviewRanking"><h3>Sıralama modeli</h3><div class="formulaBox overviewFormula">Skor = (<b>0.70 × niyet uyumu</b> + 0.15 × tazelik + 0.15 × etkileşim) × <b>(1 − clickbait)</b></div><div class="overviewSignals"><div><i aria-hidden="true"></i><b>Niyet uyumu</b><span>Kullanıcı ne istiyor?</span></div><div><i aria-hidden="true"></i><b>Tazelik</b><span>İçerik hâlâ güncel mi?</span></div><div><i aria-hidden="true"></i><b>Etkileşim</b><span>İçerik insanlar için ilgi çekici mi?</span></div><div><i aria-hidden="true"></i><b>Clickbait</b><span>Kaliteli bir tercih mi?</span></div></div></div>
 
-    <div class="techCard span12 overviewChain"><h3>Veri zinciri</h3><div class="overviewFlow">
-      <div class="flowNode"><b>Gönderi</b><span>Metni al</span></div><div class="arrow" aria-hidden="true">→</div>
-      <div class="flowNode"><b>Semantik model</b><span>Anlamını çıkar</span></div><div class="arrow" aria-hidden="true">→</div>
-      <div class="flowNode"><b>Niyet uyumu</b><span>Niyetle karşılaştır</span></div><div class="arrow" aria-hidden="true">→</div>
-      <div class="flowNode"><b>Clickbait kontrolü</b><span>Kaliteyi kontrol et</span></div><div class="arrow" aria-hidden="true">→</div>
-      <div class="flowNode"><b>Sıralama</b><span>Akışı sırala</span></div>
+    <div class="techCard span12 overviewChain"><h3>Veri zinciri</h3><div class="overviewPipeline">
+      <div class="pipelineMain">
+        <div class="flowNode pipelineNode"><b>Gönderi</b><span>Metni al</span></div>
+        <div class="arrow pipelineArrow" aria-hidden="true">→</div>
+        <div class="flowNode pipelineNode"><b>Semantik analiz</b><span>Anlamını çıkar</span></div>
+        <div class="arrow pipelineArrow" aria-hidden="true">→</div>
+        <div class="pipelineBranch">
+          <div class="flowNode pipelineSignal"><b>Niyet uyumu</b><span>Kullanıcının amacıyla karşılaştır</span></div>
+          <div class="flowNode pipelineSignal"><b>Clickbait riski</b><span>Kalite riskini ölç</span></div>
+        </div>
+        <div class="arrow pipelineArrow" aria-hidden="true">→</div>
+        <div class="flowNode pipelineNode pipelineScore"><b>PUSULA skoru</b><span>Tüm sinyalleri birleştir</span></div>
+        <div class="arrow pipelineArrow" aria-hidden="true">→</div>
+        <div class="flowNode pipelineNode"><b>Akış</b><span>İçerikleri sırala</span></div>
+      </div>
+      <div class="pipelineAux">
+        <span class="pipelineAuxLabel">Ek sıralama sinyalleri</span>
+        <div class="pipelineAuxSignals">
+          <div class="flowNode pipelineSignal"><b>Tazelik</b><span>Ne kadar güncel?</span></div>
+          <div class="flowNode pipelineSignal"><b>Etkileşim</b><span>Ne kadar ilgi çekici?</span></div>
+        </div>
+        <span class="pipelineAuxArrow" aria-hidden="true">↗</span>
+      </div>
+      <p class="pipelineNote">İçerik analizi önceden hazırlanır; akış sıralaması seçilen niyete göre anlık yapılır.</p>
     </div></div>
   </div>`
 }
