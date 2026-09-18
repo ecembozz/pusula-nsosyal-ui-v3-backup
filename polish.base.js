@@ -120,7 +120,7 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   .mobileTechBody{padding:0 10px 11px!important;border-top:1px solid var(--line-soft)!important;background:var(--panel)!important;overflow-x:hidden!important}
   .mobileTechBody[hidden]{display:none!important}
   .mobileTechBody .techGrid{grid-template-columns:1fr!important;gap:8px!important;margin-top:10px!important}.mobileTechBody .span4,.mobileTechBody .span5,.mobileTechBody .span6,.mobileTechBody .span7,.mobileTechBody .span8,.mobileTechBody .span12{grid-column:1/-1!important}
-  .mobileTechBody .techCard{padding:12px!important}.mobileTechBody .compareCols{grid-template-columns:1fr!important}.mobileTechBody .flow{grid-template-columns:1fr!important}.mobileTechBody .arrow{display:none!important}.mobileTechBody #tech-overview .pipelineMain{grid-template-columns:1fr!important;gap:5px!important}.mobileTechBody #tech-overview .pipelineMain>.pipelineArrow{display:grid!important;place-items:center!important;transform:rotate(90deg)!important;height:18px!important;color:var(--brand)!important}.mobileTechBody #tech-overview .pipelineNode{height:auto!important;min-height:64px!important;max-height:none!important}.mobileTechBody #tech-overview .pipelineSignalsBox{min-height:0!important}.mobileTechBody #tech-overview .pipelineSignalsGrid{grid-template-columns:1fr!important}.mobileTechBody #tech-overview .pipelineSignalsHead{display:grid!important;place-items:center!important}.mobileTechBody #tech-overview .overviewFormula{white-space:normal!important}.mobileTechBody .sourceBadge,.mobileTechBody .backendStatus{margin-top:10px!important}.mobileTechBody .expTable{min-width:720px!important}
+  .mobileTechBody .techCard{padding:12px!important}.mobileTechBody .compareCols{grid-template-columns:1fr!important}.mobileTechBody .flow{grid-template-columns:1fr!important}.mobileTechBody .arrow{display:none!important}.mobileTechBody[data-mtechbody="overview"] .pipelineMain{grid-template-columns:1fr!important;gap:5px!important}.mobileTechBody[data-mtechbody="overview"] .pipelineMain>.pipelineArrow{display:grid!important;place-items:center!important;transform:rotate(90deg)!important;height:18px!important;color:var(--brand)!important}.mobileTechBody[data-mtechbody="overview"] .pipelineNode{height:auto!important;min-height:64px!important;max-height:none!important}.mobileTechBody[data-mtechbody="overview"] .pipelineSignalsBox{min-height:0!important}.mobileTechBody[data-mtechbody="overview"] .pipelineSignalsGrid{grid-template-columns:1fr!important}.mobileTechBody[data-mtechbody="overview"] .pipelineSignalsHead{display:grid!important;place-items:center!important}.mobileTechBody[data-mtechbody="overview"] .overviewFormula{white-space:normal!important}.mobileTechBody .sourceBadge,.mobileTechBody .backendStatus{margin-top:10px!important}.mobileTechBody .expTable{min-width:720px!important}
   .mobileTechLoading{padding:14px 4px!important;color:var(--muted)!important;font-size:11px!important}
   .pusulaTourCard{width:calc(100vw - 24px);border-radius:22px}
   .pusulaTourVisual{height:160px}.pusulaTourCompass{width:94px;height:94px}.pusulaTourCompass .lucide{width:45px;height:45px}.pusulaTourCompass:before{height:70px}.pusulaTourCompass:after{width:70px}
@@ -197,23 +197,23 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   }
 
   /* Overview: preserve hierarchy, use a true vertical flow. */
-  .mobileTechBody #tech-overview .overviewGrid{
+  .mobileTechBody[data-mtechbody="overview"] .overviewGrid{
     gap:10px!important;
   }
-  .mobileTechBody #tech-overview .overviewStat{
+  .mobileTechBody[data-mtechbody="overview"] .overviewStat{
     min-height:78px!important;
   }
-  .mobileTechBody #tech-overview .techStatLabel{
+  .mobileTechBody[data-mtechbody="overview"] .techStatLabel{
     font-size:9px!important;
     letter-spacing:.04em!important;
   }
-  .mobileTechBody #tech-overview .techStatValue{
+  .mobileTechBody[data-mtechbody="overview"] .techStatValue{
     font-size:22px!important;
   }
-  .mobileTechBody #tech-overview .modelName.techStatValue{
+  .mobileTechBody[data-mtechbody="overview"] .modelName.techStatValue{
     font-size:16px!important;
   }
-  .mobileTechBody #tech-overview .overviewFormula{
+  .mobileTechBody[data-mtechbody="overview"] .overviewFormula{
     margin-top:8px!important;
     padding:11px 10px!important;
     font-size:9.8px!important;
@@ -221,34 +221,34 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
     white-space:normal!important;
     overflow-wrap:anywhere!important;
   }
-  .mobileTechBody #tech-overview .overviewSignals{
+  .mobileTechBody[data-mtechbody="overview"] .overviewSignals{
     display:grid!important;
     grid-template-columns:1fr!important;
     gap:7px!important;
     margin-top:10px!important;
   }
-  .mobileTechBody #tech-overview .overviewSignals>div{
+  .mobileTechBody[data-mtechbody="overview"] .overviewSignals>div{
     display:grid!important;
     grid-template-columns:5px auto minmax(0,1fr)!important;
     align-items:baseline!important;
     column-gap:7px!important;
     min-width:0!important;
   }
-  .mobileTechBody #tech-overview .overviewSignals b{
+  .mobileTechBody[data-mtechbody="overview"] .overviewSignals b{
     font-size:10px!important;
     white-space:nowrap!important;
   }
-  .mobileTechBody #tech-overview .overviewSignals span{
+  .mobileTechBody[data-mtechbody="overview"] .overviewSignals span{
     font-size:9.5px!important;
     line-height:1.35!important;
     min-width:0!important;
   }
-  .mobileTechBody #tech-overview .pipelineMain{
+  .mobileTechBody[data-mtechbody="overview"] .pipelineMain{
     display:grid!important;
     grid-template-columns:1fr!important;
     gap:0!important;
   }
-  .mobileTechBody #tech-overview .pipelineMain>.pipelineArrow{
+  .mobileTechBody[data-mtechbody="overview"] .pipelineMain>.pipelineArrow{
     display:grid!important;
     place-items:center!important;
     height:24px!important;
@@ -256,85 +256,85 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
     font-size:0!important;
     color:var(--brand)!important;
   }
-  .mobileTechBody #tech-overview .pipelineMain>.pipelineArrow::before{
+  .mobileTechBody[data-mtechbody="overview"] .pipelineMain>.pipelineArrow::before{
     content:"↓"!important;
     font-size:16px!important;
     line-height:1!important;
     font-weight:800!important;
   }
-  .mobileTechBody #tech-overview .pipelineNode{
+  .mobileTechBody[data-mtechbody="overview"] .pipelineNode{
     width:100%!important;
     min-height:58px!important;
     height:auto!important;
     max-height:none!important;
     padding:10px 12px!important;
   }
-  .mobileTechBody #tech-overview .pipelineSignalsBox{
+  .mobileTechBody[data-mtechbody="overview"] .pipelineSignalsBox{
     width:100%!important;
     min-height:0!important;
     padding:11px!important;
     border-radius:13px!important;
   }
-  .mobileTechBody #tech-overview .pipelineSignalsHead{
+  .mobileTechBody[data-mtechbody="overview"] .pipelineSignalsHead{
     margin-bottom:8px!important;
   }
-  .mobileTechBody #tech-overview .pipelineSignalsGrid{
+  .mobileTechBody[data-mtechbody="overview"] .pipelineSignalsGrid{
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
     gap:7px!important;
   }
-  .mobileTechBody #tech-overview .pipelineSignal{
+  .mobileTechBody[data-mtechbody="overview"] .pipelineSignal{
     min-height:44px!important;
     height:auto!important;
     padding:8px 6px!important;
   }
 
   /* Live comparison: keep the two lists, improve mobile reading rhythm. */
-  .mobileTechBody #tech-compare .compareIntent{
+  .mobileTechBody[data-mtechbody="compare"] .compareIntent{
     margin:2px 0 9px!important;
   }
-  .mobileTechBody #tech-compare .compareCols{
+  .mobileTechBody[data-mtechbody="compare"] .compareCols{
     gap:10px!important;
   }
-  .mobileTechBody #tech-compare .feedMini{
+  .mobileTechBody[data-mtechbody="compare"] .feedMini{
     border-radius:13px!important;
   }
-  .mobileTechBody #tech-compare .feedMiniHead{
+  .mobileTechBody[data-mtechbody="compare"] .feedMiniHead{
     padding:11px 10px!important;
     font-size:10.5px!important;
   }
-  .mobileTechBody #tech-compare .feedMiniItem{
+  .mobileTechBody[data-mtechbody="compare"] .feedMiniItem{
     padding:11px 10px!important;
   }
-  .mobileTechBody #tech-compare .feedMiniItem b{
+  .mobileTechBody[data-mtechbody="compare"] .feedMiniItem b{
     font-size:10.5px!important;
     line-height:1.35!important;
   }
-  .mobileTechBody #tech-compare .feedMiniItem p{
+  .mobileTechBody[data-mtechbody="compare"] .feedMiniItem p{
     margin-top:5px!important;
     font-size:10.5px!important;
     line-height:1.5!important;
   }
 
   /* Intent analysis: examples and metrics become readable mobile cards. */
-  .mobileTechBody #tech-models .modelAxes{
+  .mobileTechBody[data-mtechbody="models"] .modelAxes{
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
     gap:7px!important;
     margin-bottom:15px!important;
   }
-  .mobileTechBody #tech-models .modelAxes span{
+  .mobileTechBody[data-mtechbody="models"] .modelAxes span{
     min-height:38px!important;
     font-size:10px!important;
   }
-  .mobileTechBody #tech-models .modelExamplesLabel{
+  .mobileTechBody[data-mtechbody="models"] .modelExamplesLabel{
     margin:16px 0 7px!important;
     font-size:8.5px!important;
   }
-  .mobileTechBody #tech-models .modelIntentRows{
+  .mobileTechBody[data-mtechbody="models"] .modelIntentRows{
     display:grid!important;
     gap:8px!important;
     border:0!important;
   }
-  .mobileTechBody #tech-models .modelIntentRow{
+  .mobileTechBody[data-mtechbody="models"] .modelIntentRow{
     display:grid!important;
     grid-template-columns:1fr!important;
     gap:4px!important;
@@ -343,49 +343,49 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
     border-radius:11px!important;
     background:var(--tech-inner-bg)!important;
   }
-  .mobileTechBody #tech-models .modelIntentRow+.modelIntentRow{
+  .mobileTechBody[data-mtechbody="models"] .modelIntentRow+.modelIntentRow{
     border-top:1px solid var(--tech-inner-border)!important;
   }
-  .mobileTechBody #tech-models .modelIntentRow b{
+  .mobileTechBody[data-mtechbody="models"] .modelIntentRow b{
     font-size:10.5px!important;
   }
-  .mobileTechBody #tech-models .modelIntentRow small{
+  .mobileTechBody[data-mtechbody="models"] .modelIntentRow small{
     font-size:9px!important;
   }
-  .mobileTechBody #tech-models .modelIntentRow code{
+  .mobileTechBody[data-mtechbody="models"] .modelIntentRow code{
     margin:3px 0 1px!important;
     font-size:9.5px!important;
     white-space:normal!important;
     overflow-wrap:anywhere!important;
   }
-  .mobileTechBody #tech-models .modelIntentRow span{
+  .mobileTechBody[data-mtechbody="models"] .modelIntentRow span{
     font-size:9.5px!important;
     line-height:1.45!important;
   }
-  .mobileTechBody #tech-models .modelMetricBox{
+  .mobileTechBody[data-mtechbody="models"] .modelMetricBox{
     padding:10px!important;
   }
-  .mobileTechBody #tech-models .modelMetricList{
+  .mobileTechBody[data-mtechbody="models"] .modelMetricList{
     gap:10px!important;
   }
-  .mobileTechBody #tech-models .modelMetricList>div{
+  .mobileTechBody[data-mtechbody="models"] .modelMetricList>div{
     padding:2px 0!important;
   }
 
   /* Model comparison table -> model cards on mobile. */
-  .mobileTechBody #tech-models .modelTable{
+  .mobileTechBody[data-mtechbody="models"] .modelTable{
     min-width:0!important;
     width:100%!important;
     display:block!important;
   }
-  .mobileTechBody #tech-models .modelTable thead{
+  .mobileTechBody[data-mtechbody="models"] .modelTable thead{
     display:none!important;
   }
-  .mobileTechBody #tech-models .modelTable tbody{
+  .mobileTechBody[data-mtechbody="models"] .modelTable tbody{
     display:grid!important;
     gap:8px!important;
   }
-  .mobileTechBody #tech-models .modelTable tr{
+  .mobileTechBody[data-mtechbody="models"] .modelTable tr{
     display:grid!important;
     gap:0!important;
     padding:10px 11px!important;
@@ -393,11 +393,11 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
     border-radius:11px!important;
     background:var(--tech-inner-bg)!important;
   }
-  .mobileTechBody #tech-models .modelTable tr.avg{
+  .mobileTechBody[data-mtechbody="models"] .modelTable tr.avg{
     background:color-mix(in srgb,var(--brand) 7%,var(--tech-inner-bg))!important;
     border-color:color-mix(in srgb,var(--brand) 22%,var(--tech-inner-border))!important;
   }
-  .mobileTechBody #tech-models .modelTable td{
+  .mobileTechBody[data-mtechbody="models"] .modelTable td{
     display:grid!important;
     grid-template-columns:minmax(0,1fr) auto!important;
     gap:10px!important;
@@ -408,7 +408,7 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
     text-align:right!important;
     font-size:10px!important;
   }
-  .mobileTechBody #tech-models .modelTable td:first-child{
+  .mobileTechBody[data-mtechbody="models"] .modelTable td:first-child{
     display:block!important;
     padding:0 0 9px!important;
     border-top:0!important;
@@ -416,10 +416,10 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
     font-size:10.5px!important;
     font-weight:750!important;
   }
-  .mobileTechBody #tech-models .modelTable td:nth-child(2)::before{content:"Niyet doğruluğu ↑"!important}
-  .mobileTechBody #tech-models .modelTable td:nth-child(3)::before{content:"Macro-F1 ↑"!important}
-  .mobileTechBody #tech-models .modelTable td:nth-child(4)::before{content:"Niyet vektörü hatası ↓"!important}
-  .mobileTechBody #tech-models .modelTable td::before{
+  .mobileTechBody[data-mtechbody="models"] .modelTable td:nth-child(2)::before{content:"Niyet doğruluğu ↑"!important}
+  .mobileTechBody[data-mtechbody="models"] .modelTable td:nth-child(3)::before{content:"Macro-F1 ↑"!important}
+  .mobileTechBody[data-mtechbody="models"] .modelTable td:nth-child(4)::before{content:"Niyet vektörü hatası ↓"!important}
+  .mobileTechBody[data-mtechbody="models"] .modelTable td::before{
     text-align:left!important;
     color:var(--muted)!important;
     font-size:9px!important;
@@ -427,29 +427,29 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   }
 
   /* Experiment comparison table -> one card per intent. */
-  .mobileTechBody #tech-experiment .experimentTableWrap{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTableWrap{
     overflow:visible!important;
   }
-  .mobileTechBody #tech-experiment .experimentTable{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTable{
     min-width:0!important;
     width:100%!important;
     display:block!important;
   }
-  .mobileTechBody #tech-experiment .experimentTable thead{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTable thead{
     display:none!important;
   }
-  .mobileTechBody #tech-experiment .experimentTable tbody{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTable tbody{
     display:grid!important;
     gap:8px!important;
   }
-  .mobileTechBody #tech-experiment .experimentTable tr{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTable tr{
     display:grid!important;
     padding:10px 11px!important;
     border:1px solid var(--tech-inner-border)!important;
     border-radius:11px!important;
     background:var(--tech-inner-bg)!important;
   }
-  .mobileTechBody #tech-experiment .experimentTable td{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTable td{
     display:grid!important;
     grid-template-columns:minmax(0,1fr) auto!important;
     gap:10px!important;
@@ -460,7 +460,7 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
     text-align:right!important;
     font-size:10px!important;
   }
-  .mobileTechBody #tech-experiment .experimentTable td:first-child{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTable td:first-child{
     display:block!important;
     padding:0 0 9px!important;
     border-top:0!important;
@@ -468,78 +468,78 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
     font-size:11px!important;
     font-weight:750!important;
   }
-  .mobileTechBody #tech-experiment .experimentTable td:nth-child(2)::before{content:"Klasik"!important}
-  .mobileTechBody #tech-experiment .experimentTable td:nth-child(3)::before{content:"PUSULA"!important}
-  .mobileTechBody #tech-experiment .experimentTable td:nth-child(4)::before{content:"Değişim"!important}
-  .mobileTechBody #tech-experiment .experimentTable td::before{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTable td:nth-child(2)::before{content:"Klasik"!important}
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTable td:nth-child(3)::before{content:"PUSULA"!important}
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTable td:nth-child(4)::before{content:"Değişim"!important}
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTable td::before{
     text-align:left!important;
     color:var(--muted)!important;
     font-size:9px!important;
     font-weight:650!important;
   }
-  .mobileTechBody #tech-experiment .experimentTable .deltaGood{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentTable .deltaGood{
     color:var(--brand)!important;
   }
-  .mobileTechBody #tech-experiment .experimentSummaryGrid{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentSummaryGrid{
     gap:8px!important;
   }
-  .mobileTechBody #tech-experiment .experimentStat{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentStat{
     min-height:88px!important;
     padding:12px!important;
   }
-  .mobileTechBody #tech-experiment .techStatValue{
+  .mobileTechBody[data-mtechbody="experiment"] .techStatValue{
     font-size:24px!important;
   }
-  .mobileTechBody #tech-experiment .experimentCategories{
+  .mobileTechBody[data-mtechbody="experiment"] .experimentCategories{
     margin-top:10px!important;
     font-size:9.5px!important;
     line-height:1.6!important;
   }
 
   /* Architecture: keep the vertical flow, make the connectors explicit. */
-  .mobileTechBody #tech-architecture .architectureStage{
+  .mobileTechBody[data-mtechbody="architecture"] .architectureStage{
     padding-top:2px!important;
   }
-  .mobileTechBody #tech-architecture .architectureStage+.architectureStage{
+  .mobileTechBody[data-mtechbody="architecture"] .architectureStage+.architectureStage{
     margin-top:16px!important;
     padding-top:16px!important;
   }
-  .mobileTechBody #tech-architecture .architectureStageHead{
+  .mobileTechBody[data-mtechbody="architecture"] .architectureStageHead{
     margin-bottom:10px!important;
   }
-  .mobileTechBody #tech-architecture .architectureStageHead b{
+  .mobileTechBody[data-mtechbody="architecture"] .architectureStageHead b{
     font-size:10.5px!important;
   }
-  .mobileTechBody #tech-architecture .architectureStageHead span{
+  .mobileTechBody[data-mtechbody="architecture"] .architectureStageHead span{
     margin-top:4px!important;
     font-size:9.5px!important;
     line-height:1.45!important;
   }
-  .mobileTechBody #tech-architecture .architectureFlow{
+  .mobileTechBody[data-mtechbody="architecture"] .architectureFlow{
     grid-template-columns:1fr!important;
     gap:0!important;
   }
-  .mobileTechBody #tech-architecture .architectureArrow{
+  .mobileTechBody[data-mtechbody="architecture"] .architectureArrow{
     height:24px!important;
     transform:none!important;
     font-size:0!important;
   }
-  .mobileTechBody #tech-architecture .architectureArrow::before{
+  .mobileTechBody[data-mtechbody="architecture"] .architectureArrow::before{
     content:"↓"!important;
     font-size:15px!important;
     line-height:1!important;
     color:var(--brand)!important;
   }
-  .mobileTechBody #tech-architecture .architectureNode{
+  .mobileTechBody[data-mtechbody="architecture"] .architectureNode{
     min-height:68px!important;
     padding:11px 12px!important;
   }
-  .mobileTechBody #tech-architecture .architectureCheckList,
-  .mobileTechBody #tech-architecture .architectureScopeList{
+  .mobileTechBody[data-mtechbody="architecture"] .architectureCheckList,
+  .mobileTechBody[data-mtechbody="architecture"] .architectureScopeList{
     gap:7px!important;
   }
-  .mobileTechBody #tech-architecture .architectureCheckList>div,
-  .mobileTechBody #tech-architecture .architectureScopeList>div{
+  .mobileTechBody[data-mtechbody="architecture"] .architectureCheckList>div,
+  .mobileTechBody[data-mtechbody="architecture"] .architectureScopeList>div{
     padding:10px!important;
   }
 }
