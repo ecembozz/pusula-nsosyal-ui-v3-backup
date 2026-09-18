@@ -14,9 +14,9 @@
   ];
   const MOBILE_TECH=[
     ['overview','Genel bakış','layout-dashboard'],
-    ['models','Model karşılaştırması','brain-circuit'],
     ['compare','Canlı karşılaştırma','columns-2'],
     ['math','Matematik & skor','sigma'],
+    ['models','Model karşılaştırması','brain-circuit'],
     ['experiment','Deney sonuçları','table-2'],
     ['architecture','Mimari & doğrulama','workflow']
   ];
