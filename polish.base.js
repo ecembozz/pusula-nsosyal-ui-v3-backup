@@ -137,7 +137,8 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   #tech-overview .flow{grid-template-columns:repeat(5,minmax(0,1fr))!important}#tech-architecture .flow{grid-template-columns:repeat(6,minmax(0,1fr))!important}
   #tech-architecture .flow>.arrow{display:none!important}
   #tech-overview .flowNode,#tech-architecture .flowNode{min-width:0!important;width:auto!important;height:100%!important}
-  #tech-overview .overviewCardNote{margin-top:5px;color:var(--muted)!important;font-size:10px;line-height:1.35}
+  #tech-overview .overviewStat{display:flex!important;flex-direction:column!important}
+  #tech-overview .overviewCardNote{margin-top:auto!important;padding-top:5px!important;color:var(--muted)!important;font-size:10px;line-height:1.35}
   #tech-overview .overviewExplain{margin:9px 0 0;color:var(--muted)!important;font-size:10.5px;line-height:1.45}
   #tech-overview .overviewSignals{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px 14px!important;margin-top:10px!important}
   #tech-overview .overviewSignals>div{min-width:0!important;display:flex!important;align-items:baseline!important;gap:6px!important}
