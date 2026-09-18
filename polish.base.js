@@ -15,7 +15,7 @@
   const MOBILE_TECH=[
     ['overview','Genel bakış','layout-dashboard'],
     ['compare','Canlı karşılaştırma','columns-2'],
-    ['models','Model karşılaştırması','brain-circuit'],
+    ['models','Niyet analizi','brain-circuit'],
     ['experiment','Deney sonuçları','table-2'],
     ['architecture','Mimari & doğrulama','workflow']
   ];

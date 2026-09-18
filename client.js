@@ -5,7 +5,7 @@ const AC=id=>['cyan','green','orange','pink'][Array.from(String(id)).reduce((s,c
 const MEDIA_CATS=new Set(['kultur_sanat','oyun_espor','spor_futbol']);
 const TECH_META_V5={
   overview:['Genel bakış','Sistemin çalışan teknik özeti.'],
-  models:['Model karşılaştırması','PUSULA’nın niyet analizi için değerlendirilen modelleri karşılaştır.'],
+  models:['Niyet analizi','PUSULA’nın içerikleri niyet uzayında nasıl temsil ettiğini ve model seçimini incele.'],
   compare:['Canlı karşılaştırma','Klasik sıralama ile PUSULA sıralamasını karşılaştır.'],
   math:['Matematik & skor ayrıştırma','Niyet uyumu, kalite, tazelik ve etkileşim sinyallerini adım adım gör.'],
   experiment:['Runtime davranış testi','Beş niyette aynı 320 gönderinin Klasik vs PUSULA top-20 davranışı.'],
@@ -137,29 +137,37 @@ function techModels(){
   r.innerHTML=`<div class="techGrid modelCompareGrid">
     <div class="techCard span12 modelSpaceCard">
       <h3>Niyet uzayı</h3>
-      <div class="sub">Model, her gönderiyi dört boyutlu bir anlamsal profille temsil eder.</div>
-      <div class="modelAxes">
-        <span>Öğretici</span><span>Eğlendirici</span><span>Haber</span><span>Sosyal</span>
+      <div class="sub">Her gönderi dört boyutta temsil edilir; seçilen niyet bu uzayda bir hedef oluşturur.</div>
+
+      <div class="modelAxisList">
+        <span><i></i><b>Öğretici</b></span>
+        <span><i></i><b>Eğlendirici</b></span>
+        <span><i></i><b>Haber</b></span>
+        <span><i></i><b>Sosyal</b></span>
       </div>
-      <div class="modelIntentExamples">
-        <div class="modelIntentExample">
-          <div class="modelIntentHead"><b>Öğrenmek</b><span>Belirgin hedef</span></div>
+
+      <div class="modelIntentRows">
+        <div class="modelIntentRow">
+          <b>Öğrenmek</b>
           <code>[1.00, 0.15, 0.15, 0.05]</code>
-          <p>Öğretici boyut baskındır; diğer boyutlar tamamen sıfırlanmaz.</p>
+          <span>Öğretici boyut baskındır; diğer boyutlar tamamen sıfırlanmaz.</span>
         </div>
-        <div class="modelIntentExample modelIntentBalanced">
-          <div class="modelIntentHead"><b>Sadece dolaşmak</b><span>Dengeli hedef</span></div>
+        <div class="modelIntentRow">
+          <b>Sadece dolaşmak</b>
           <code>[0.40, 0.55, 0.40, 0.45]</code>
-          <p>Tek bir boyutu baskınlaştırmaz; dört boyuta daha dengeli yaklaşır.</p>
+          <span>Tek bir boyutu baskınlaştırmaz; dört boyuta daha dengeli yaklaşır.</span>
         </div>
       </div>
+
       <div class="modelSpaceNote">Diğer niyetler de aynı dört boyutta farklı ağırlıklara dönüşür.</div>
-      <div class="modelMetricGuide">
-        <div><b>Niyet doğruluğu ↑</b><span>Baskın niyeti doğru buluyor mu?</span></div>
-        <div><b>Macro-F1 ↑</b><span>Tüm niyetlerde dengeli başarı gösteriyor mu?</span></div>
-        <div><b>Niyet vektörü hatası ↓</b><span>Dört boyutlu profil hedefe ne kadar yakın?</span></div>
+
+      <div class="modelMetricList">
+        <div><i></i><b>Niyet doğruluğu ↑</b><span>Baskın niyeti doğru buluyor mu?</span></div>
+        <div><i></i><b>Macro-F1 ↑</b><span>Tüm niyetlerde dengeli başarı gösteriyor mu?</span></div>
+        <div><i></i><b>Niyet vektörü hatası ↓</b><span>Dört boyutlu profil hedefe ne kadar yakın?</span></div>
       </div>
     </div>
+
     <div class="techCard span12">
       <h3>Niyet analizi için model seçimi</h3>
       <div class="sub">Aynı değerlendirme koşullarında üç model karşılaştırıldı.</div>
