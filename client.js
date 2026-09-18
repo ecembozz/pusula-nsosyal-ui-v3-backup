@@ -6,7 +6,7 @@ const MEDIA_CATS=new Set(['kultur_sanat','oyun_espor','spor_futbol']);
 const TECH_META_V5={
   overview:['Genel bakış','Sistemin çalışan teknik özeti.'],
   models:['Model karşılaştırması','Semantik adayların aynı development setindeki karşılaştırması.'],
-  compare:['Canlı karşılaştırma','Aynı içerik havuzunda Klasik ve PUSULA sıralamasını karşılaştır.'],
+  compare:['Canlı karşılaştırma','Klasik sıralama ile PUSULA sıralamasını karşılaştır.'],
   math:['Matematik & skor ayrıştırma','Niyet uyumu, kalite, tazelik ve etkileşim sinyallerini adım adım gör.'],
   experiment:['Runtime davranış testi','Beş niyette aynı 320 gönderinin Klasik vs PUSULA top-20 davranışı.'],
   architecture:['Mimari & doğrulama','Offline semantic labeling, Candidate V5 cache ve runtime ranking zinciri.'],
