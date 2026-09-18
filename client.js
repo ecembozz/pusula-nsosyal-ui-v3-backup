@@ -94,18 +94,14 @@ function techOverview(){
   const r=document.getElementById('tech-overview');if(!r)return;
   const meta=G.m?.runtime_meta,src=G.m?.source;
   const click=meta?.clickbait||{};
-  const active=G.c?.pusula?.metrics,classic=G.c?.classic?.metrics;
-  const delta=active&&classic?active.niyet_uyumu-classic.niyet_uyumu:null;
   const nf=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1});
   const pct=v=>nf.format(Number(v||0)*100)+'%';
-  const point=v=>(Number(v||0)>=0?'+':'−')+nf.format(Math.abs(Number(v||0))*100)+' puan';
   r.innerHTML=`<div class="techGrid overviewGrid">
     <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">Semantik model</div><div class="modelName techStatValue">${E((src?.semantic_encoder||'intfloat/multilingual-e5-base').split('/').pop())}</div><div class="overviewCardNote techStatNote">Gönderilerin anlamını ve seçilen niyetle benzerliğini ölçer.</div></div>
     <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">İçerik havuzu</div><div class="bigNum techStatValue">${src?.pool_size||320}</div><div class="overviewCardNote techStatNote">Sıralamada kullanılan gönderi havuzu.</div></div>
     <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">Clickbait ortalaması</div><div class="bigNum techStatValue">${pct(click.mean)}</div><div class="overviewCardNote techStatNote">İçeriklerin ortalama clickbait riski.</div></div>
 
-    <div class="techCard span8 overviewRanking"><h3>Sıralama modeli</h3><div class="formulaBox overviewFormula">Skor = (<b>0.70 × niyet uyumu</b> + 0.15 × tazelik + 0.15 × etkileşim) × <b>(1 − clickbait)</b></div><div class="overviewSignals"><div><b>Niyet uyumu</b><span>Kullanıcı ne istiyor?</span></div><div><b>Tazelik</b><span>İçerik hâlâ güncel mi?</span></div><div><b>Etkileşim</b><span>İçerik insanlar için ilgi çekici mi?</span></div><div><b>Clickbait</b><span>İçeriği yukarı taşımak kaliteli bir tercih mi?</span></div></div></div>
-    <div class="techCard span4 overviewIntent"><h3>${S.intent?'Aktif niyet · '+E(I[S.intent].label):'Aktif niyet'}</h3>${delta===null?'<div class="overviewExplain">Niyet seçildiğinde Klasik ve PUSULA sonucu burada karşılaştırılır.</div>':`<div class="calcLine"><span>Klasik niyet benzerliği</span><strong>${pct(classic.niyet_uyumu)}</strong></div><div class="calcLine"><span>PUSULA niyet benzerliği</span><strong>${pct(active.niyet_uyumu)}</strong></div><div class="calcLine"><span>Fark</span><strong class="deltaGood">${point(delta)}</strong></div>`}</div>
+    <div class="techCard span12 overviewRanking"><h3>Sıralama modeli</h3><div class="formulaBox overviewFormula">Skor = (<b>0.70 × niyet uyumu</b> + 0.15 × tazelik + 0.15 × etkileşim) × <b>(1 − clickbait)</b></div><div class="overviewSignals"><div><b>Niyet uyumu</b><span>Kullanıcı ne istiyor?</span></div><div><b>Tazelik</b><span>İçerik hâlâ güncel mi?</span></div><div><b>Etkileşim</b><span>İçerik insanlar için ilgi çekici mi?</span></div><div><b>Clickbait</b><span>İçeriği yukarı taşımak kaliteli bir tercih mi?</span></div></div></div>
 
     <div class="techCard span12 overviewChain"><h3>Veri zinciri</h3><div class="overviewFlow">
       <div class="flowNode"><b>Gönderi</b><span>Metni al</span></div><div class="arrow" aria-hidden="true">→</div>
