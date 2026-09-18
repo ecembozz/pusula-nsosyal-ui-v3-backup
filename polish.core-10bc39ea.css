@@ -13,7 +13,7 @@
 .modelMetricBox{margin-top:14px!important;padding:11px 12px!important;border:1px solid var(--line-soft)!important;border-radius:10px!important;background:transparent!important}
 .modelMetricList{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px 18px!important;margin:0!important;padding:0!important;border:0!important}
 .modelMetricList>div{display:grid!important;grid-template-columns:5px auto!important;align-items:start!important;column-gap:7px!important;row-gap:2px!important;min-width:0!important}
-.modelMetricList i{grid-row:1/span 2!important;margin-top:4px!important}
+.modelMetricList i{grid-row:1/span 2!important;margin-top:4px!important;width:5px!important;height:5px!important;border-radius:50%!important;background:var(--brand)!important;display:block!important}
 .modelMetricList b{font-size:9.5px!important;color:var(--text)!important}
 .modelMetricList span{grid-column:2!important;font-size:9px!important;line-height:1.35!important;color:var(--muted)!important}
 @media(max-width:900px){
