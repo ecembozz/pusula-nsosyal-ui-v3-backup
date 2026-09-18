@@ -45,6 +45,7 @@ html[data-theme="light"] .backendStatus .statusDot{box-shadow:none!important}
 html[data-theme="light"] .scorePill{background:var(--ui-score-bg)!important;color:var(--ui-score-text)!important;border:1px solid var(--ui-badge-blue-border)!important}
 html[data-theme="light"] .scorePill.k{background:var(--ui-score-classic-bg)!important;color:var(--ui-score-classic-text)!important;border-color:var(--ui-soft-border)!important}
 html[data-theme="light"] .limit i{background:var(--ui-status-bg)!important;color:var(--ui-status-text)!important;border:1px solid var(--ui-soft-border)!important}
+html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!important}
 .pusulaTour{position:fixed;inset:0;z-index:170;pointer-events:none}
 .pusulaTourFog{position:fixed;z-index:1;background:rgba(7,13,22,.34);backdrop-filter:blur(4px) saturate(.94);-webkit-backdrop-filter:blur(4px) saturate(.94);pointer-events:auto}
 .pusulaTourSpot{position:fixed;z-index:2;border:1.5px dashed color-mix(in srgb,var(--brand) 75%,#fff 25%);border-radius:20px;box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 18%,transparent),0 0 28px color-mix(in srgb,var(--brand) 16%,transparent),0 14px 38px rgba(16,69,118,.14);pointer-events:auto;cursor:pointer}
