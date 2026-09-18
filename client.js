@@ -97,9 +97,9 @@ function techOverview(){
   const nf=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1});
   const pct=v=>nf.format(Number(v||0)*100)+'%';
   r.innerHTML=`<div class="techGrid overviewGrid">
-    <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">Semantik model</div><div class="modelName techStatValue">${E((src?.semantic_encoder||'intfloat/multilingual-e5-base').split('/').pop())}</div><div class="overviewCardNote techStatNote">Gönderilerin anlamını ve seçilen niyetle benzerliğini ölçer.</div></div>
-    <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">İçerik havuzu</div><div class="bigNum techStatValue">${src?.pool_size||320}</div><div class="overviewCardNote techStatNote">Sıralamada kullanılan gönderi havuzu.</div></div>
-    <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">Clickbait ortalaması</div><div class="bigNum techStatValue">${pct(click.mean)}</div><div class="overviewCardNote techStatNote">İçeriklerin ortalama clickbait riski.</div></div>
+    <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">Semantik model</div><div class="modelName techStatValue">${E((src?.semantic_encoder||'intfloat/multilingual-e5-base').split('/').pop())}</div></div>
+    <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">İçerik havuzu</div><div class="bigNum techStatValue">${src?.pool_size||320}</div></div>
+    <div class="techCard span4 overviewStat techStatCard"><div class="miniLabel techStatLabel">Clickbait ortalaması</div><div class="bigNum techStatValue">${pct(click.mean)}</div></div>
 
     <div class="techCard span12 overviewRanking"><h3>Sıralama modeli</h3><div class="formulaBox overviewFormula">Skor = (<b>0.70 × niyet uyumu</b> + 0.15 × tazelik + 0.15 × etkileşim) × <b>(1 − clickbait)</b></div><div class="overviewSignals"><div><i aria-hidden="true"></i><b>Niyet uyumu</b><span>Kullanıcı ne istiyor?</span></div><div><i aria-hidden="true"></i><b>Tazelik</b><span>İçerik hâlâ güncel mi?</span></div><div><i aria-hidden="true"></i><b>Etkileşim</b><span>İçerik insanlar için ilgi çekici mi?</span></div><div><i aria-hidden="true"></i><b>Clickbait</b><span>Kaliteli bir tercih mi?</span></div></div></div>
 
