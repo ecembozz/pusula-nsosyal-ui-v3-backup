@@ -69,7 +69,7 @@
   let raf=0;
 
   function fixBudgetArrow(root,card,step){
-    if(step!==4)return;
+    if(step!==5)return;
     const arrow=root.querySelector('.pcgArrowSvg .pcgArrow');
     const row=document.querySelector('#intentModal.show .pusulaCompassModal .budgetRow');
     if(!arrow||!row)return;
@@ -102,7 +102,7 @@
     const root=document.getElementById('pusulaCompassGuide');
     const card=root?.querySelector('.pcgMobileCard');
     if(!root||!card||root.classList.contains('pcgMobile'))return;
-    const step=Math.max(1,Math.min(5,parseInt(card.querySelector('.pcgNum')?.textContent||'1',10)||1));
+    const step=Math.max(1,Math.min(6,parseInt(card.querySelector('.pcgNum')?.textContent||'1',10)||1));
     const upper=step<=3;
     const changed=card.classList.contains('pcgDesktopUpperStable')!==upper;
     card.classList.toggle('pcgDesktopUpperStable',upper);

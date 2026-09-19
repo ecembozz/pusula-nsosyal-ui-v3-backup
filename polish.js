@@ -3,6 +3,7 @@
     ['Yönünü seç','O an ne görmek istediğini belirle.'],
     ['Pusulayı çevir','Sürükle veya dokun. Hızlı çevirirsen PUSULA senin için seçer.'],
     ['Beş yön','Öğren, eğlen, haberdar ol, sosyalleş veya dolaş.'],
+    ['Kategori seç','İstersen bir kategori seç; varsayılan olarak tüm kategoriler açıktır.'],
     ['Süreni belirle','Hazır sürelerden birini seç veya dakikayı kendin gir.'],
     ['Hazırsın','Akışını oluştur.']
   ];

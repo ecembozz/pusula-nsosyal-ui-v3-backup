@@ -6,10 +6,11 @@
     '.pcIntent[data-intent="learn"]',
     '.pcArt',
     '.pcIntent[data-intent="news"]',
+    '.pcCategoryRow',
     '.budgetRow',
     '[data-apply]'
   ];
-  const START_BIAS=[.82,.18,.82,.76,.82];
+  const START_BIAS=[.82,.18,.82,.76,.76,.82];
   let raf=0;
 
   const style=document.createElement('style');
@@ -37,7 +38,7 @@
       return;
     }
 
-    const anchor=step===4?(modal.querySelector('.budgetRow')||target):target;
+    const anchor=step===5?(modal.querySelector('.budgetRow')||target):target;
     const tr=anchor.getBoundingClientRect();
     const cr=card.getBoundingClientRect();
     const gap=24;
@@ -68,12 +69,16 @@
     }
 
     if(step===3){
+      return {x:tr.left+tr.width*.58,y:tr.top-7};
+    }
+
+    if(step===4){
       const controls=budgetControlsRect(target);
       if(controls)return {x:(controls.left+controls.right)/2,y:controls.top-8};
       return {x:tr.left+tr.width*.62,y:tr.top+tr.height*.55};
     }
 
-    if(step===4){
+    if(step===5){
       return {x:tr.left+tr.width*.58,y:tr.top-7};
     }
 
@@ -89,8 +94,10 @@
     if(step===1){
       start={x:cr.left+cr.width*.23,y:cr.top-8};
     }else if(step===3){
-      start={x:cr.left+cr.width*.72,y:cr.bottom+8};
+      start={x:cr.left+cr.width*.74,y:cr.bottom+8};
     }else if(step===4){
+      start={x:cr.left+cr.width*.72,y:cr.bottom+8};
+    }else if(step===5){
       start={x:cr.left+cr.width*.82,y:cr.bottom+8};
     }else if(cr.bottom<=tr.top){
       start={x:cr.left+cr.width*bias,y:cr.bottom+8};
@@ -114,7 +121,7 @@
       }
     }
 
-    if(step===3){
+    if(step===4){
       const c1={x:start.x+2,y:start.y+26};
       const c2={x:end.x+42,y:end.y-12};
       return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
@@ -126,7 +133,7 @@
 
     let bend,dir;
     if(step===1){bend=30;dir=-1}
-    else if(step===4){bend=16;dir=-1}
+    else if(step===3||step===5){bend=16;dir=-1}
     else{bend=34;dir=step%2===0?1:-1}
 
     return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} Q ${(mx+nx*bend*dir).toFixed(1)} ${(my+ny*bend*dir).toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
