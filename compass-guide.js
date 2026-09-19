@@ -195,10 +195,11 @@ html.pusulaCompassGuideLocked #intentModal .pusulaCompassModal{overscroll-behavi
     }
 
     if(step>=3&&step<=5){
-      const side=step===4?-1:1;
-      const c1={x:start.x+side*18,y:start.y};
-      const c2={x:end.x,y:end.y-24};
-      return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
+      const dy=end.y-start.y;
+      const toward=dy>=0?1:-1;
+      const curve=Math.min(42,Math.max(24,Math.abs(dy)*.28));
+      const control={x:end.x,y:end.y-toward*curve};
+      return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} Q ${control.x.toFixed(1)} ${control.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
     }
 
     const mx=(start.x+end.x)/2,my=(start.y+end.y)/2;
