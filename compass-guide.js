@@ -98,7 +98,7 @@ html.pusulaCompassGuideLocked #intentModal .pusulaCompassModal{overscroll-behavi
         card.style.bottom='calc(12px + env(safe-area-inset-bottom))';
         return;
       }
-      const anchor=guideStep===4?(modal.querySelector('.budgetRow')||target):target;
+      const anchor=guideStep>=3?(modal.querySelector('.pcCategoryRow')||target):target;
       const tr=anchor.getBoundingClientRect();
       const cr=card.getBoundingClientRect();
       const top=clamp(tr.top-cr.height-24,76,window.innerHeight-cr.height-18);
@@ -119,7 +119,7 @@ html.pusulaCompassGuideLocked #intentModal .pusulaCompassModal{overscroll-behavi
       return;
     }
 
-    const anchor=guideStep===4?(modal.querySelector('.budgetRow')||target):target;
+    const anchor=guideStep>=3?(modal.querySelector('.pcCategoryRow')||target):target;
     const ar=anchor.getBoundingClientRect();
     const left=clamp(mr.left+(mr.width-cr.width)/2,18,window.innerWidth-cr.width-18);
     const top=clamp(ar.top-cr.height-26,24,window.innerHeight-cr.height-20);

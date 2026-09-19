@@ -38,7 +38,7 @@
       return;
     }
 
-    const anchor=step===5?(modal.querySelector('.budgetRow')||target):target;
+    const anchor=step>=3?(modal.querySelector('.pcCategoryRow')||target):target;
     const tr=anchor.getBoundingClientRect();
     const cr=card.getBoundingClientRect();
     const gap=24;
