@@ -171,6 +171,24 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
 
 }
 
+/* Interaction polish: prevent rectangular mobile tap flash without removing keyboard focus */
+a,button,[role="button"],[tabindex],input,select,textarea,label{
+  -webkit-tap-highlight-color:transparent!important;
+}
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible),
+[tabindex]:focus:not(:focus-visible){
+  outline:none!important;
+}
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible{
+  outline:2px solid color-mix(in srgb,var(--brand) 55%,transparent)!important;
+  outline-offset:2px!important;
+}
+
 /* Jury Technical Center — mobile presentation v2 */
 @media(max-width:720px){
   .mobileTechBody{
@@ -541,6 +559,39 @@ html[data-theme="light"] .calcLine{border-bottom-color:var(--ui-soft-border)!imp
   .mobileTechBody[data-mtechbody="architecture"] .architectureCheckList>div,
   .mobileTechBody[data-mtechbody="architecture"] .architectureScopeList>div{
     padding:10px!important;
+  }
+  /* Overview mobile uses the exact same diagram tokens as desktop. */
+  .mobileTechBody[data-mtechbody="overview"] .overviewChain{
+    background:var(--tech-diagram-canvas)!important;
+  }
+  .mobileTechBody[data-mtechbody="overview"] .pipelineNode,
+  .mobileTechBody[data-mtechbody="overview"] .pipelineSignal{
+    background:var(--tech-diagram-node-bg)!important;
+    border-color:var(--tech-diagram-node-border)!important;
+    box-shadow:var(--tech-diagram-node-shadow)!important;
+    color:var(--tech-diagram-text)!important;
+  }
+  .mobileTechBody[data-mtechbody="overview"] .pipelineNode b,
+  .mobileTechBody[data-mtechbody="overview"] .pipelineSignal b,
+  .mobileTechBody[data-mtechbody="overview"] .pipelineSignalsHead b{
+    color:var(--tech-diagram-text)!important;
+  }
+  .mobileTechBody[data-mtechbody="overview"] .pipelineNode span{
+    color:var(--tech-diagram-muted)!important;
+  }
+  .mobileTechBody[data-mtechbody="overview"] .pipelineSignalsBox{
+    background:var(--tech-diagram-group-bg)!important;
+    border-color:var(--tech-diagram-group-border)!important;
+    box-shadow:none!important;
+  }
+  .mobileTechBody[data-mtechbody="overview"] .pipelineScore{
+    background:var(--tech-diagram-score-bg)!important;
+    border-color:var(--tech-diagram-score-border)!important;
+    box-shadow:none!important;
+  }
+  .mobileTechBody[data-mtechbody="overview"] .pipelineMain>.pipelineArrow,
+  .mobileTechBody[data-mtechbody="overview"] .pipelineMain>.pipelineArrow::before{
+    color:var(--tech-diagram-arrow)!important;
   }
 }
 
