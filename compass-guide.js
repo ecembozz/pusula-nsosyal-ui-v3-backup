@@ -194,20 +194,14 @@ html.pusulaCompassGuideLocked #intentModal .pusulaCompassModal{overscroll-behavi
       }
     }
 
-    if(step>=3&&step<=5){
-      const dy=end.y-start.y;
-      const toward=dy>=0?1:-1;
-      const curve=Math.min(42,Math.max(24,Math.abs(dy)*.28));
-      const control={x:end.x,y:end.y-toward*curve};
-      return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} Q ${control.x.toFixed(1)} ${control.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
-    }
-
     const mx=(start.x+end.x)/2,my=(start.y+end.y)/2;
     const dx=end.x-start.x,dy=end.y-start.y,len=Math.max(1,Math.hypot(dx,dy));
     const nx=-dy/len,ny=dx/len;
     let bend,dir;
     if(step===1){bend=30;dir=-1}
-    else if(step===3||step===5){bend=16;dir=-1}
+    else if(step===3){bend=28;dir=-1}
+    else if(step===4){bend=30;dir=1}
+    else if(step===5){bend=26;dir=-1}
     else{bend=34;dir=step%2===0?1:-1}
     return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} Q ${(mx+nx*bend*dir).toFixed(1)} ${(my+ny*bend*dir).toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
   }
