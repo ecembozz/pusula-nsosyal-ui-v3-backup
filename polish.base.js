@@ -332,7 +332,7 @@ a:focus-visible,
 
   /* Live comparison: keep the two lists, improve mobile reading rhythm. */
   .mobileTechBody[data-mtechbody="compare"] .compareIntent{
-    margin:2px 0 9px!important;
+    margin:10px 0 10px!important;
   }
   .mobileTechBody[data-mtechbody="compare"] .compareCols{
     gap:10px!important;
