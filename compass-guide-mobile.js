@@ -10,7 +10,7 @@
     '.budgetRow',
     '[data-apply]'
   ];
-  const START_BIAS=[.82,.18,.82,.76,.76,.82];
+  const START_BIAS=[.82,.18,.82,.64,.82,.72];
   let raf=0;
 
   const style=document.createElement('style');
@@ -95,8 +95,6 @@
 
     if(step===1){
       start={x:cr.left+cr.width*.23,y:cr.top-8};
-    }else if(step>=3&&step<=5){
-      start={x:Math.min(window.innerWidth-8,cr.right+6),y:cr.top+cr.height*.68};
     }else if(cr.bottom<=tr.top){
       start={x:cr.left+cr.width*bias,y:cr.bottom+8};
     }else if(cr.top>=tr.bottom){
@@ -117,13 +115,6 @@
       }else{
         end={x:tr.right+8,y:clamp(tr.top+tr.height/2,tr.top+8,tr.bottom-8)};
       }
-    }
-
-    if(step>=3&&step<=5){
-      const vertical=Math.max(26,(end.y-start.y)*.58);
-      const c1={x:start.x,y:start.y+vertical};
-      const c2={x:end.x+30,y:end.y-7};
-      return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
     }
 
     const mx=(start.x+end.x)/2,my=(start.y+end.y)/2;
