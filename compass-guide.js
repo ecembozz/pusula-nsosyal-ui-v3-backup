@@ -12,7 +12,7 @@
     {title:"Yönünü seç",text:"Pusulayı sürükle veya bir yöne dokun. Hızlı çevir; PUSULA senin için seçsin.",selector:'.pcArt',pad:18},
     {title:"Yönler",text:"Öğrenmek, Eğlenmek, Haberdar olmak, Sosyalleşmek veya Sadece dolaşmak.",selector:'.pcIntent[data-intent="news"]',pad:8},
     {title:"Kategori seç",text:"İstersen akışı tek bir kategoriyle sınırla; varsayılan olarak tüm kategoriler seçilir.",selector:'.pcCategoryRow',pad:7},
-    {title:"Zaman bütçesi",text:"15 dk, 30 dk, Sınırsız seç veya süreyi kendin gir.",selector:'.budgetRow',pad:7},
+    {title:"Süre",text:"15 dk, 30 dk, Sınırsız seç veya süreyi kendin gir.",selector:'.budgetRow',pad:7},
     {title:"Hemen dene",text:"Akışını oluştur.",selector:'[data-apply]',pad:7}
   ];
 
