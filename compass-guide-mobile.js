@@ -126,7 +126,7 @@
     if(step>=3&&step<=5){
       const side=step===4?-1:1;
       const c1={x:start.x+side*14,y:start.y};
-      const c2={x:end.x-side*22,y:end.y-5};
+      const c2={x:end.x,y:end.y-20};
       return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
     }
 
