@@ -40,6 +40,8 @@ const SOURCE = {
 };
 
 function canonicalIntent(v){ return ALIASES[String(v || 'learn').toLocaleLowerCase('tr-TR')] || 'ogrenmek'; }
+function canonicalCategory(v){ const key=String(v||'all'); return key==='all'||Object.prototype.hasOwnProperty.call(CATEGORY_LABELS,key)?key:'all'; }
+function filterPoolByCategory(pool,category){ return category==='all'?pool:pool.filter(p=>p.kategori===category); }
 function clamp(n,min,max){ return Math.max(min,Math.min(max,n)); }
 function cosine(a=[],b=[]){
   let dot=0,na=0,nb=0;
@@ -156,19 +158,22 @@ module.exports = async function handler(req,res){
   try{
     const action=String(req.query?.action || 'meta');
     const intent=canonicalIntent(req.query?.intent);
+    const category=canonicalCategory(req.query?.category);
     const limit=clamp(parseInt(req.query?.limit || '20',10)||20,1,50);
     if(action==='meta'){
       return res.status(200).json({ok:true,source:SOURCE,intents:INTENTS,runtime_meta:RUNTIME_META});
     }
-    const pool=loadPool();
+    const fullPool=loadPool();
+    const pool=filterPoolByCategory(fullPool,category);
+    const responseSource={...SOURCE,category,category_label:category==='all'?'Tüm kategoriler':CATEGORY_LABELS[category],filtered_pool_size:pool.length};
     if(action==='feed'){
       const mode=String(req.query?.mode)==='pusula'?'pusula':'classic';
       const posts=ranked(pool,intent,mode,limit);
-      return res.status(200).json({ok:true,source:SOURCE,mode,intent,intent_label:INTENT_LABELS[intent],posts,metrics:metrics(posts,intent)});
+      return res.status(200).json({ok:true,source:responseSource,mode,intent,intent_label:INTENT_LABELS[intent],category,category_label:responseSource.category_label,posts,metrics:metrics(posts,intent)});
     }
     if(action==='compare'){
       const classic=ranked(pool,intent,'classic',limit), pusula=ranked(pool,intent,'pusula',limit);
-      return res.status(200).json({ok:true,source:SOURCE,intent,intent_label:INTENT_LABELS[intent],classic:{posts:classic,metrics:metrics(classic,intent)},pusula:{posts:pusula,metrics:metrics(pusula,intent)}});
+      return res.status(200).json({ok:true,source:responseSource,intent,intent_label:INTENT_LABELS[intent],category,category_label:responseSource.category_label,classic:{posts:classic,metrics:metrics(classic,intent)},pusula:{posts:pusula,metrics:metrics(pusula,intent)}});
     }
     if(action==='benchmark'){
       return res.status(200).json({
@@ -176,7 +181,7 @@ module.exports = async function handler(req,res){
         status:'runtime_behavior_smoke_not_final_human_gold_accuracy',
         source:SOURCE,
         limit,
-        rows:behaviorBenchmark(pool,limit),
+        rows:behaviorBenchmark(fullPool,limit),
       });
     }
     return res.status(400).json({ok:false,error:'Bilinmeyen action'});
@@ -186,4 +191,4 @@ module.exports = async function handler(req,res){
   }
 };
 
-module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,cosine,classicScore,pusulaParts,diverse,enrich,metrics,loadPool,ranked,behaviorBenchmark};
+module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,canonicalCategory,filterPoolByCategory,cosine,classicScore,pusulaParts,diverse,enrich,metrics,loadPool,ranked,behaviorBenchmark};

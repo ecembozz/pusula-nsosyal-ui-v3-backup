@@ -3,6 +3,7 @@ const E=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt
 const F=x=>Number(x||0).toFixed(3);
 const AC=id=>['cyan','green','orange','pink'][Array.from(String(id)).reduce((s,c)=>s+c.codePointAt(0),0)%4];
 const MEDIA_CATS=new Set(['kultur_sanat','oyun_espor','spor_futbol']);
+const CATEGORY_FILTERS={all:'Tüm kategoriler',egitim_yks:'Eğitim',teknoloji_ai:'Yapay zekâ & teknoloji',teknofest_maker:'Teknoloji & maker',spor_futbol:'Spor',kultur_sanat:'Kültür & sanat',ekonomi_butce:'Ekonomi & bütçe',oyun_espor:'Oyun & e-spor',kampus_is:'Kampüs & iş',gundelik_yasam:'Gündelik yaşam',sosyal_sohbet:'Sosyal'};
 const TECH_META_V5={
   overview:['Genel bakış','Sistemin çalışan teknik özeti.'],
   models:['Niyet analizi','PUSULA’nın içerikleri niyet uzayında nasıl temsil ettiğini ve model seçimini incele.'],
@@ -13,8 +14,8 @@ const TECH_META_V5={
 };
 
 async function A(p){let r=await fetch('/api/pusula?'+new URLSearchParams(p),{cache:'no-store'}),d=await r.json();if(!r.ok||!d.ok)throw Error(d.error||r.status);return d}
-async function LF(m){G.l=true;if(G.f.length)render();try{let d=await A({action:'feed',intent:S.intent||'learn',mode:m||(!S.intent?'classic':S.mode),limit:G.n});G.f=d.posts;G.src=d.source;G.fm=d.metrics;G.e=null;if(S.intent)LC()}catch(e){G.e=e.message;G.f=[]}G.l=false;render()}
-async function LC(){try{G.c=await A({action:'compare',intent:S.intent,limit:20});BACKEND.ok=true}catch(e){G.c=null}metrics();let a=document.querySelector('.techPane.active');if(a)renderTech(a.id.replace('tech-',''))}
+async function LF(m){G.l=true;if(G.f.length)render();try{let d=await A({action:'feed',intent:S.intent||'learn',category:S.category||'all',mode:m||(!S.intent?'classic':S.mode),limit:G.n});G.f=d.posts;G.src=d.source;G.fm=d.metrics;G.e=null;if(S.intent)LC()}catch(e){G.e=e.message;G.f=[]}G.l=false;render()}
+async function LC(){try{G.c=await A({action:'compare',intent:S.intent,category:S.category||'all',limit:20});BACKEND.ok=true}catch(e){G.c=null}metrics();let a=document.querySelector('.techPane.active');if(a)renderTech(a.id.replace('tech-',''))}
 async function LM(){try{G.m=await A({action:'meta'});BACKEND.ok=true}catch(e){BACKEND.ok=false}}
 async function LB(){try{G.b=await A({action:'benchmark',limit:20});BACKEND.ok=true}catch(e){G.b=null;BACKEND.ok=false}return G.b}
 
@@ -29,9 +30,9 @@ function render(){
   document.getElementById('juryLabel').textContent=S.jury?'Kullanıcı modu':'Jüri modu';
   let b=document.getElementById('pusulaBar');b.style.display=S.dismissed&&!S.intent?'none':'block';b.classList.toggle('active',!!S.intent);b.classList.toggle('compact',!!S.intent);
   document.getElementById('pusulaCta').textContent=S.intent?'Değiştir':'Yönünü seç';document.getElementById('dismissPusula').style.display=S.intent?'none':'grid';
-  const count=G.src?.pool_size||G.m?.source?.pool_size||320;
+  const count=G.src?.filtered_pool_size||G.src?.pool_size||G.m?.source?.pool_size||320;
   const candidate=G.src?.semantic_candidate||G.m?.source?.semantic_candidate||'V5';
-  document.getElementById('pusulaSub').textContent=S.intent?`${I[S.intent].label} · Candidate ${candidate} ile offline etiketlenmiş ${count} gizlilik güvenli gönderi sıralanıyor.`:`PUSULA kapalı · ${count} gizlilik güvenli gönderi klasik demo sıralamasında.`;
+  const categoryLabel=CATEGORY_FILTERS[S.category||'all']||CATEGORY_FILTERS.all;document.getElementById('pusulaSub').textContent=S.intent?`${I[S.intent].label} · ${categoryLabel} · ${count} gönderi içinden sıralanıyor.`:`PUSULA kapalı · ${count} gizlilik güvenli gönderi klasik demo sıralamasında.`;
   if(S.intent){document.getElementById('intentStatus').textContent=I[S.intent].label;UB()}
   let r=document.getElementById('posts');
   if(G.l){r.innerHTML='<div class="pageEmpty"><h2>PUSULA havuzu sıralanıyor</h2><p>Candidate V5 offline etiketleri hazırlanıyor…</p></div>';metrics();return}
@@ -42,8 +43,8 @@ function render(){
 function why(p){if(!S.intent)return`Klasik demo sıralamasında #${p.rank}. Etkileşim ve tazelik sentetik test sinyalidir; skor ${F(p.score)}.`;if(S.mode==='classic')return`Klasik sıralama açık; ${I[S.intent].label} niyeti skora dahil değil. Skor ${F(p.score)}.`;return`${I[S.intent].label} niyetinle %${Math.round(p.fit*100)} uyumlu. Tazelik ve etkileşim demo sinyali olarak %15'er; kalite çarpanı ${F(p.quality)}.`}
 function UB(){let e=document.getElementById('budgetStatus');if(!S.budget){e.textContent='Sınırsız';document.querySelector('.progressTrack i').style.width='0%';return}let x=Math.floor((Date.now()-G.st)/1000),t=S.budget*60,z=Math.max(0,t-x);e.textContent=Math.floor(z/60)+':'+String(z%60).padStart(2,'0');document.querySelector('.progressTrack i').style.width=Math.min(100,x/t*100)+'%';if(!z&&!G.end){G.end=1;showSession()}}
 function clock(){clearInterval(G.tm);G.st=Date.now();G.end=0;UB();if(S.budget)G.tm=setInterval(UB,1000)}
-function clearIntent(){clearInterval(G.tm);S.intent=null;S.budget=0;S.modalIntent=null;S.dismissed=false;S.mode='classic';G.c=null;document.getElementById('intentModal').classList.remove('show');LF('classic');toast('Standart demo akışı')}
-async function applyIntent(){if(!S.modalIntent)return toast('Önce bir yön seç');S.intent=S.modalIntent;S.budget=S.modalBudget;S.mode='pusula';S.dismissed=false;document.getElementById('intentModal').classList.remove('show');clock();toast(`${I[S.intent].label} · ${S.budget?S.budget+' dk':'sınırsız'}`);await LF('pusula')}
+function clearIntent(){clearInterval(G.tm);S.intent=null;S.budget=0;S.modalIntent=null;S.category='all';S.modalCategory='all';S.dismissed=false;S.mode='classic';G.c=null;const category=document.getElementById('intentCategory');if(category)category.value='all';document.getElementById('intentModal').classList.remove('show');LF('classic');toast('Standart demo akışı')}
+async function applyIntent(){if(!S.modalIntent)return toast('Önce bir yön seç');S.intent=S.modalIntent;S.budget=S.modalBudget;S.category=S.modalCategory||'all';S.mode='pusula';S.dismissed=false;document.getElementById('intentModal').classList.remove('show');clock();const category=CATEGORY_FILTERS[S.category]||CATEGORY_FILTERS.all;toast(`${I[S.intent].label} · ${category} · ${S.budget?S.budget+' dk':'sınırsız'}`);await LF('pusula')}
 async function setMode(m){if(m==='pusula'&&!S.intent){S.mode='classic';render();return toast('Önce bir yön seç')}S.mode=m;await LF(m);toast(m==='classic'?'Klasik sıralama':'PUSULA sıralaması')}
 
 function metrics(){
@@ -61,8 +62,8 @@ function metrics(){
     const d=Number(y||0)-Number(x||0),good=lowerBetter?d<=0:d>=0;
     return `<div class="metric"><span>${name}</span><b>${pct(x)}</b><b class="p">${pct(y)}</b><b class="${good?'deltaGood':'deltaBad'}">${diff(x,y)}</b></div>`;
   };
-  const budget=S.budget?S.budget+' dk':'Sınırsız';
-  b.innerHTML=`<div class="juryMetricContext"><b>${E(I[S.intent].label)} · ${budget}</b></div><div class="metric metricHead"><span></span><b>Klasik</b><b class="p">PUSULA</b><b>Fark</b></div>`
+  const budget=S.budget?S.budget+' dk':'Sınırsız',category=CATEGORY_FILTERS[S.category||'all']||CATEGORY_FILTERS.all;
+  b.innerHTML=`<div class="juryMetricContext"><b>${E(I[S.intent].label)} · ${E(category)} · ${budget}</b></div><div class="metric metricHead"><span></span><b>Klasik</b><b class="p">PUSULA</b><b>Fark</b></div>`
     +row('Niyet benzerliği',a.niyet_uyumu,p.niyet_uyumu)
     +row('Niyet-kalite skoru',a.niyet_kalite,p.niyet_kalite)
     +row('Clickbait ortalaması ↓',a.clickbait_ortalama,p.clickbait_ortalama,true)
