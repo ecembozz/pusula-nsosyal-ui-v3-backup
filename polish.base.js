@@ -297,13 +297,37 @@ a:focus-visible,
     margin-bottom:8px!important;
   }
   .mobileTechBody[data-mtechbody="overview"] .pipelineSignalsGrid{
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    gap:7px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:6px!important;
+    padding:2px 3px 1px!important;
   }
   .mobileTechBody[data-mtechbody="overview"] .pipelineSignal{
-    min-height:44px!important;
+    min-height:0!important;
     height:auto!important;
-    padding:8px 6px!important;
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:8px!important;
+    padding:3px 0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  .mobileTechBody[data-mtechbody="overview"] .pipelineSignal::before{
+    content:""!important;
+    width:5px!important;
+    height:5px!important;
+    flex:0 0 5px!important;
+    border-radius:50%!important;
+    background:var(--tech-diagram-arrow)!important;
+  }
+  .mobileTechBody[data-mtechbody="overview"] .pipelineSignal b{
+    font-size:10px!important;
+    line-height:1.35!important;
+    font-weight:700!important;
   }
 
   /* Live comparison: keep the two lists, improve mobile reading rhythm. */
