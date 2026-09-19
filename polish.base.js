@@ -588,8 +588,7 @@ a:focus-visible,
   .mobileTechBody[data-mtechbody="overview"] .overviewChain{
     background:var(--tech-diagram-canvas)!important;
   }
-  .mobileTechBody[data-mtechbody="overview"] .pipelineNode,
-  .mobileTechBody[data-mtechbody="overview"] .pipelineSignal{
+  .mobileTechBody[data-mtechbody="overview"] .pipelineNode{
     background:var(--tech-diagram-node-bg)!important;
     border-color:var(--tech-diagram-node-border)!important;
     box-shadow:var(--tech-diagram-node-shadow)!important;
