@@ -81,7 +81,7 @@
     }
 
     if(step===5){
-      return {x:tr.left+tr.width*.58,y:tr.top-7};
+      return {x:tr.left+tr.width*.70,y:tr.top-7};
     }
 
     return null;
@@ -95,12 +95,8 @@
 
     if(step===1){
       start={x:cr.left+cr.width*.23,y:cr.top-8};
-    }else if(step===3){
-      start={x:Math.min(window.innerWidth-8,cr.right+6),y:cr.top+cr.height*.66};
-    }else if(step===4){
+    }else if(step>=3&&step<=5){
       start={x:Math.min(window.innerWidth-8,cr.right+6),y:cr.top+cr.height*.68};
-    }else if(step===5){
-      start={x:Math.min(window.innerWidth-8,cr.right+6),y:cr.top+cr.height*.70};
     }else if(cr.bottom<=tr.top){
       start={x:cr.left+cr.width*bias,y:cr.bottom+8};
     }else if(cr.top>=tr.bottom){
@@ -123,9 +119,10 @@
       }
     }
 
-    if(step===3||step===4){
-      const c1={x:start.x+2,y:start.y+28};
-      const c2={x:end.x+34,y:end.y-9};
+    if(step>=3&&step<=5){
+      const vertical=Math.max(26,(end.y-start.y)*.58);
+      const c1={x:start.x,y:start.y+vertical};
+      const c2={x:end.x+30,y:end.y-7};
       return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
     }
 

@@ -154,7 +154,7 @@ html.pusulaCompassGuideLocked #intentModal .pusulaCompassModal{overscroll-behavi
       if(controls)return {x:controls.left+(controls.right-controls.left)*.72,y:controls.top-8};
       return {x:tr.left+tr.width*.70,y:tr.top-7};
     }
-    if(step===5)return {x:tr.left+tr.width*.58,y:tr.top-7};
+    if(step===5)return {x:tr.left+tr.width*.72,y:tr.top-7};
     return null;
   }
 
@@ -166,12 +166,8 @@ html.pusulaCompassGuideLocked #intentModal .pusulaCompassModal{overscroll-behavi
 
     if(step===1){
       start={x:cr.left+cr.width*.23,y:cr.top-8};
-    }else if(step===3){
-      start={x:cr.right+8,y:cr.top+cr.height*.66};
-    }else if(step===4){
+    }else if(step>=3&&step<=5){
       start={x:cr.right+8,y:cr.top+cr.height*.68};
-    }else if(step===5){
-      start={x:cr.right+8,y:cr.top+cr.height*.70};
     }else if(cr.bottom<=tr.top){
       start={x:cr.left+cr.width*bias,y:cr.bottom+8};
     }else if(cr.top>=tr.bottom){
@@ -194,9 +190,10 @@ html.pusulaCompassGuideLocked #intentModal .pusulaCompassModal{overscroll-behavi
       }
     }
 
-    if(step===3||step===4){
-      const c1={x:start.x+4,y:start.y+34};
-      const c2={x:end.x+42,y:end.y-10};
+    if(step>=3&&step<=5){
+      const vertical=Math.max(30,(end.y-start.y)*.58);
+      const c1={x:start.x,y:start.y+vertical};
+      const c2={x:end.x+38,y:end.y-8};
       return `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
     }
 

@@ -68,28 +68,42 @@
 
   let raf=0;
 
-  function fixBudgetArrow(root,card,step){
-    if(step!==5)return;
+  function fixLowerArrow(root,card,step){
+    if(step<4||step>6)return;
     const arrow=root.querySelector('.pcgArrowSvg .pcgArrow');
-    const row=document.querySelector('#intentModal.show .pusulaCompassModal .budgetRow');
-    if(!arrow||!row)return;
-    const controls=[...row.querySelectorAll('[data-modalbudget],.pcCustomBudget')].filter(el=>{
-      const r=el.getBoundingClientRect();return r.width&&r.height;
-    });
-    if(!controls.length)return;
+    const modal=document.querySelector('#intentModal.show .pusulaCompassModal');
+    if(!arrow||!modal)return;
 
-    const rects=controls.map(el=>el.getBoundingClientRect());
-    const left=Math.min(...rects.map(r=>r.left));
-    const right=Math.max(...rects.map(r=>r.right));
-    const top=Math.min(...rects.map(r=>r.top));
+    let end=null;
+    if(step===4){
+      const trigger=modal.querySelector('.pcCategoryTrigger');
+      if(!trigger)return;
+      const r=trigger.getBoundingClientRect();
+      end={x:r.left+r.width*.72,y:r.top-7};
+    }else if(step===5){
+      const row=modal.querySelector('.budgetRow');
+      if(!row)return;
+      const controls=[...row.querySelectorAll('[data-modalbudget],.pcCustomBudget')].filter(el=>{
+        const r=el.getBoundingClientRect();return r.width&&r.height;
+      });
+      if(!controls.length)return;
+      const rects=controls.map(el=>el.getBoundingClientRect());
+      const left=Math.min(...rects.map(r=>r.left));
+      const right=Math.max(...rects.map(r=>r.right));
+      const top=Math.min(...rects.map(r=>r.top));
+      end={x:left+(right-left)*.72,y:top-8};
+    }else{
+      const apply=modal.querySelector('[data-apply]');
+      if(!apply)return;
+      const r=apply.getBoundingClientRect();
+      end={x:r.left+r.width*.72,y:r.top-7};
+    }
+
     const cr=card.getBoundingClientRect();
-
-    /* Exit from the card's right edge, descend, then turn gently left.
-       This keeps the arrow clear of the "Süre" label. */
-    const end={x:left+(right-left)*.72,y:top-8};
     const start={x:cr.right+8,y:cr.top+cr.height*.68};
-    const c1={x:start.x+4,y:start.y+36};
-    const c2={x:end.x+44,y:end.y-10};
+    const vertical=Math.max(30,(end.y-start.y)*.58);
+    const c1={x:start.x,y:start.y+vertical};
+    const c2={x:end.x+38,y:end.y-8};
     const d=`M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
     if(arrow.getAttribute('d')!==d)arrow.setAttribute('d',d);
   }
@@ -106,7 +120,7 @@
     card.classList.toggle('pcgDesktopUpperStable',upper);
     card.classList.toggle('pcgDesktopLowerStable',!upper);
     if(changed)requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
-    requestAnimationFrame(()=>fixBudgetArrow(root,card,step));
+    requestAnimationFrame(()=>fixLowerArrow(root,card,step));
   }
   function schedule(){if(raf)return;raf=requestAnimationFrame(sync)}
 
