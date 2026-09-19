@@ -439,6 +439,9 @@ a:focus-visible,
     background:color-mix(in srgb,var(--brand) 7%,var(--tech-inner-bg))!important;
     border-color:color-mix(in srgb,var(--brand) 22%,var(--tech-inner-border))!important;
   }
+  .mobileTechBody[data-mtechbody="models"] .modelTable tr.avg td{
+    background:transparent!important;
+  }
   .mobileTechBody[data-mtechbody="models"] .modelTable td{
     display:grid!important;
     grid-template-columns:minmax(0,1fr) auto!important;
