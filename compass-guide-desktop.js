@@ -84,14 +84,12 @@
     const top=Math.min(...rects.map(r=>r.top));
     const cr=card.getBoundingClientRect();
 
-    /* Desktop step 4: descend on the right, then make one soft left turn.
-       Keeping the final control point to the right of the target guarantees
-       that the arrow head approaches the budget controls from right to left. */
-    const end={x:left+(right-left)*.52,y:top-8};
-    const preferredStart=Math.max(cr.left+cr.width*.82,end.x+72);
-    const start={x:Math.min(cr.right-18,preferredStart),y:cr.bottom+8};
-    const c1={x:start.x+2,y:start.y+34};
-    const c2={x:Math.min(start.x-16,end.x+46),y:end.y};
+    /* Exit from the card's right edge, descend, then turn gently left.
+       This keeps the arrow clear of the "Süre" label. */
+    const end={x:left+(right-left)*.72,y:top-8};
+    const start={x:cr.right+8,y:cr.top+cr.height*.68};
+    const c1={x:start.x+4,y:start.y+36};
+    const c2={x:end.x+44,y:end.y-10};
     const d=`M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${c1.x.toFixed(1)} ${c1.y.toFixed(1)} ${c2.x.toFixed(1)} ${c2.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`;
     if(arrow.getAttribute('d')!==d)arrow.setAttribute('d',d);
   }
