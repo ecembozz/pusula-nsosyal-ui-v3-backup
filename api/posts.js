@@ -1,8 +1,10 @@
 const crypto=require('crypto');
+const RUNTIME_POOL=require('../data/runtime/feed_v5.json');
 const {
   dbConfigured,ensureSchema,createPendingPost,saveAnalysis,markAnalysisFailed,getPost,
-  listRecentPosts,updateEngagement
+  listRecentPosts,updateEngagement,updateInteraction
 }=require('../lib/db');
+const {engagementScore,mergeCounts}=require('../lib/engagement');
 const {analyzePost,DEFAULT_MODEL}=require('../lib/gemini');
 
 function jsonBody(req){
@@ -125,8 +127,48 @@ module.exports=async function handler(req,res){
       const body=jsonBody(req);
       const id=safeText(body.id||req.query?.id,120);
       const event=safeText(body.event||req.query?.event,20);
-      const delta=Number(body.delta??req.query?.delta??1)<0?-1:1;
       if(!id)return res.status(400).json({ok:false,error:'Post id gerekli'});
+      if(action==='interact'){
+        const actorId=safeText(body.actor_id,120);
+        if(!actorId)return res.status(400).json({ok:false,error:'Anonim kullanıcı kimliği gerekli'});
+        if(!['like','comment','share'].includes(event))return res.status(400).json({ok:false,error:'Geçersiz etkileşim türü'});
+        const live=await getPost(id);
+        const seeded=RUNTIME_POOL.find(p=>String(p.id)===id);
+        if(!live&&!seeded)return res.status(404).json({ok:false,error:'Gönderi bulunamadı'});
+        const interaction=await updateInteraction({
+          postId:id,
+          actorId,
+          event,
+          active:body.active!==false,
+          comment:safeText(body.comment,240),
+          sessionId:safeText(body.session_id,120),
+          intent:safeText(body.intent,30),
+          mode:safeText(body.mode,20),
+          rank:Number.isFinite(Number(body.rank))?Math.max(1,Math.min(500,Number(body.rank))):null
+        });
+        const source=live?{
+          id:live.id,
+          content_provenance:'live_user_post',
+          like_count:live.like_count,
+          comment_count:live.comment_count,
+          share_count:live.share_count
+        }:seeded;
+        const counts=mergeCounts(source,interaction.totals);
+        return res.status(200).json({
+          ok:true,
+          id,
+          event,
+          changed:interaction.changed,
+          counts,
+          engagement_score:engagementScore(counts),
+          viewer:{
+            liked:interaction.viewer.liked,
+            shared:interaction.viewer.reposted,
+            comment_count:interaction.viewer.comment_count
+          }
+        });
+      }
+      const delta=Number(body.delta??req.query?.delta??1)<0?-1:1;
       const row=await updateEngagement(id,event,delta);
       if(!row)return res.status(404).json({ok:false,error:'Gönderi bulunamadı'});
       return res.status(200).json({ok:true,post:publicPost(row)});

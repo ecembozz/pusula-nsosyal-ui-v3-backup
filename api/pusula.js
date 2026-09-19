@@ -1,6 +1,7 @@
 const RUNTIME_POOL = require('../data/runtime/feed_v5.json');
 const RUNTIME_META = require('../data/runtime/feed_v5_meta.json');
-const { dbConfigured, listReadyRuntimePosts } = require('../lib/db');
+const { dbConfigured, listReadyRuntimePosts, listInteractionSnapshot } = require('../lib/db');
+const { engagementScore, mergeCounts } = require('../lib/engagement');
 
 const INTENTS = {
   ogrenmek: [1.00, 0.15, 0.15, 0.05],
@@ -83,6 +84,18 @@ function initials(name=''){
   const parts=String(name).trim().split(/\s+/).filter(Boolean);
   return (parts.length>1?parts[0][0]+parts[1][0]:(parts[0]||'?').slice(0,2)).toLocaleUpperCase('tr-TR');
 }
+function attachEngagement(post,snapshot={totals:{},viewer:{}}){
+  const counts=mergeCounts(post,snapshot.totals?.[post.id]);
+  const viewer=snapshot.viewer?.[post.id]||{};
+  return {
+    ...post,
+    ...counts,
+    etkilesim_puani:engagementScore(counts),
+    viewer_liked:Boolean(viewer.liked),
+    viewer_shared:Boolean(viewer.reposted),
+    viewer_comment_count:Number(viewer.comment_count||0),
+  };
+}
 function enrich(p,rank,intent,mode){
   const target=INTENTS[intent];
   const parts=pusulaParts(p,target);
@@ -94,6 +107,9 @@ function enrich(p,rank,intent,mode){
     mixed_intent:Boolean(p.mixed_intent), semantic_confidence:p.semantic_confidence ?? null,
     semantic_method:p.semantic_method || 'pusula-semantic-candidate-v5',
     etkilesim_puani:Number(p.etkilesim_puani||0), tazelik:Number(p.tazelik||0), clickbait:Number(p.clickbait||0),
+    like_count:Number(p.like_count||0),comment_count:Number(p.comment_count||0),share_count:Number(p.share_count||0),
+    viewer_liked:Boolean(p.viewer_liked),viewer_shared:Boolean(p.viewer_shared),
+    viewer_comment_count:Number(p.viewer_comment_count||0),
     score, fit:parts.fit, quality:parts.quality, base:mode==='pusula'?parts.base:0,
     metadata_simulated:p.ranking_metadata_provenance==='deterministic_demo_simulation_not_platform_telemetry',
   };
@@ -124,15 +140,18 @@ function loadPool(){
   if(!Array.isArray(RUNTIME_POOL) || RUNTIME_POOL.length!==320)throw new Error('Geçersiz Candidate V5 runtime havuzu');
   return RUNTIME_POOL;
 }
-async function loadFeedPool(){
+async function loadFeedPool(viewerId=''){
   const base=loadPool();
-  if(!dbConfigured())return {pool:base,liveCount:0};
+  if(!dbConfigured())return {pool:base.map(p=>attachEngagement(p)),liveCount:0};
   try{
-    const live=await listReadyRuntimePosts(500);
-    return {pool:[...live,...base],liveCount:live.length};
+    const [live,snapshot]=await Promise.all([
+      listReadyRuntimePosts(500),
+      listInteractionSnapshot(viewerId)
+    ]);
+    return {pool:[...live,...base].map(p=>attachEngagement(p,snapshot)),liveCount:live.length};
   }catch(err){
     console.error('PUSULA live pool error',err);
-    return {pool:base,liveCount:0};
+    return {pool:base.map(p=>attachEngagement(p)),liveCount:0};
   }
 }
 function ranked(pool,intent,mode,limit){
@@ -172,6 +191,7 @@ module.exports = async function handler(req,res){
     const intent=canonicalIntent(req.query?.intent);
     const category=canonicalCategory(req.query?.category);
     const limit=clamp(parseInt(req.query?.limit || '20',10)||20,1,50);
+    const viewerId=String(req.query?.viewer_id||'').trim().slice(0,120);
     if(action==='meta'){
       return res.status(200).json({
         ok:true,
@@ -180,7 +200,7 @@ module.exports = async function handler(req,res){
         runtime_meta:RUNTIME_META
       });
     }
-    const loaded=await loadFeedPool();
+    const loaded=await loadFeedPool(viewerId);
     const fullPool=loaded.pool;
     const pool=filterPoolByCategory(fullPool,category);
     const responseSource={
@@ -219,4 +239,4 @@ module.exports = async function handler(req,res){
   }
 };
 
-module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,canonicalCategory,filterPoolByCategory,cosine,classicScore,pusulaParts,diverse,enrich,metrics,loadPool,loadFeedPool,ranked,behaviorBenchmark};
+module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,canonicalCategory,filterPoolByCategory,cosine,classicScore,pusulaParts,diverse,attachEngagement,enrich,metrics,loadPool,loadFeedPool,ranked,behaviorBenchmark};

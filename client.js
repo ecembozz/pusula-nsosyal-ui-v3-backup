@@ -1,4 +1,11 @@
-window.G={f:[],c:null,m:null,b:null,l:true,e:null,n:30,q:'',tab:'feed',tm:null,st:0};
+function persistentId(key,prefix){
+  try{
+    let value=localStorage.getItem(key);
+    if(!value){value=prefix+(globalThis.crypto?.randomUUID?globalThis.crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2));localStorage.setItem(key,value)}
+    return value;
+  }catch(e){return prefix+Date.now().toString(36)+Math.random().toString(36).slice(2)}
+}
+window.G={f:[],c:null,m:null,b:null,l:true,e:null,n:30,q:'',tab:'feed',tm:null,st:0,actor:persistentId('pusula_actor_id','anon_'),session:persistentId('pusula_session_id','session_')};
 const E=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]||c));
 const F=x=>Number(x||0).toFixed(3);
 const AC=id=>['cyan','green','orange','pink'][Array.from(String(id)).reduce((s,c)=>s+c.codePointAt(0),0)%4];
@@ -13,14 +20,50 @@ const TECH_META_V5={
   architecture:['Mimari & kapsam','PUSULA’nın içeriği nasıl analiz ettiğini ve kullanıcı niyetine göre akışı nasıl oluşturduğunu incele.'],
 };
 
-async function A(p){let r=await fetch('/api/pusula?'+new URLSearchParams(p),{cache:'no-store'}),d=await r.json();if(!r.ok||!d.ok)throw Error(d.error||r.status);return d}
+async function A(p){let r=await fetch('/api/pusula?'+new URLSearchParams({...p,viewer_id:G.actor}),{cache:'no-store'}),d=await r.json();if(!r.ok||!d.ok)throw Error(d.error||r.status);return d}
 async function LF(m){G.l=true;if(G.f.length)render();try{let d=await A({action:'feed',intent:S.intent||'learn',category:S.category||'all',mode:m||(!S.intent?'classic':S.mode),limit:G.n});G.f=d.posts;G.src=d.source;G.fm=d.metrics;G.e=null;if(S.intent)LC()}catch(e){G.e=e.message;G.f=[]}G.l=false;render()}
 async function LC(){try{G.c=await A({action:'compare',intent:S.intent,category:S.category||'all',limit:20});BACKEND.ok=true}catch(e){G.c=null}metrics();let a=document.querySelector('.techPane.active');if(a)renderTech(a.id.replace('tech-',''))}
 async function LM(){try{G.m=await A({action:'meta'});BACKEND.ok=true}catch(e){BACKEND.ok=false}}
 async function LB(){try{G.b=await A({action:'benchmark',limit:20});BACKEND.ok=true}catch(e){G.b=null;BACKEND.ok=false}return G.b}
 
 function ff(){let a=G.f,q=G.q.trim().toLocaleLowerCase('tr-TR');if(G.tab==='media')a=a.filter(p=>MEDIA_CATS.has(p.kategori));if(q)a=a.filter(p=>(p.metin+' '+p.yazar+' '+p.kategori_adi).toLocaleLowerCase('tr-TR').includes(q.replace(/^#/,'')));return a}
-function pc(p){let fit=S.intent&&S.mode==='pusula'?Math.round(p.fit*100)+'% niyet uyumu':'';let id=E(p.id);return `<article class="post"><div class="postInner"><div class="avatar ${AC(p.id)}">${E(p.initials)}</div><div class="postMain"><div class="head"><span class="name">${E(p.yazar)}</span><span class="handle">· ${E(p.kategori_adi)}</span><button class="moreBtn" onclick="toast('Gönderi ${id}')">${svg('more')}</button></div><div class="postText">${E(p.metin)}</div><div class="postMeta">${fit?`<span class="fitTag">${fit}</span>`:''}<button class="why" onclick="reason('${id}')">Neden bunu görüyorum?</button></div><div class="reason" id="r${id}"><b>${E(why(p))}</b><div class="raw">sıra #${p.rank} · skor ${F(p.score)} · uyum ${F(p.fit)} · kalite ${F(p.quality)} · tazelik ${F(p.tazelik)} · etkileşim ${F(p.etkilesim_puani)} · clickbait ${F(p.clickbait)}</div></div><div class="postActions"><button class="act" onclick="this.classList.toggle('on')">${svg('comment')}<span>Yanıtla</span></button><button class="act" onclick="this.classList.toggle('on')">${svg('repeat')}<span>Paylaş</span></button><button class="act" onclick="this.classList.toggle('on');this.querySelector('span').textContent=this.classList.contains('on')?'Beğenildi':'Beğen'">${svg('heart')}<span>Beğen</span></button><button class="act" onclick="toast('Bağlantı kopyalandı · demo')">${svg('share')}</button></div></div></div></article>`}
+function pc(p){let fit=S.intent&&S.mode==='pusula'?Math.round(p.fit*100)+'% niyet uyumu':'';let id=E(p.id);return `<article class="post" data-post-id="${id}"><div class="postInner"><div class="avatar ${AC(p.id)}">${E(p.initials)}</div><div class="postMain"><div class="head"><span class="name">${E(p.yazar)}</span><span class="handle">· ${E(p.kategori_adi)}</span><button class="moreBtn" onclick="toast('Gönderi ${id}')">${svg('more')}</button></div><div class="postText">${E(p.metin)}</div><div class="postMeta">${fit?`<span class="fitTag">${fit}</span>`:''}<button class="why" onclick="reason('${id}')">Neden bunu görüyorum?</button></div><div class="reason" id="r${id}"><b>${E(why(p))}</b><div class="raw">sıra #${p.rank} · skor ${F(p.score)} · uyum ${F(p.fit)} · kalite ${F(p.quality)} · tazelik ${F(p.tazelik)} · etkileşim ${F(p.etkilesim_puani)} · clickbait ${F(p.clickbait)}</div></div><div class="postActions"><button class="act" aria-label="Yorum yap" onclick="toggleComment('${id}')">${svg('comment')}<span>${p.comment_count}</span></button><button class="act ${p.viewer_shared?'on':''}" aria-label="Yeniden paylaş" onclick="interact('${id}','share',this)">${svg('repeat')}<span>${p.share_count}</span></button><button class="act ${p.viewer_liked?'on liked':''}" aria-label="Beğen" onclick="interact('${id}','like',this)">${svg('heart')}<span>${p.like_count}</span></button><button class="act" aria-label="Bağlantıyı paylaş" onclick="copyPost('${id}')">${svg('share')}</button></div><div class="commentComposer" id="comment-${id}"><input maxlength="240" placeholder="Yorumunu yaz…" onkeydown="if(event.key==='Enter'){event.preventDefault();submitComment('${id}',this)}"><button onclick="submitComment('${id}',this.previousElementSibling)">Gönder</button></div></div></div></article>`}
+
+function updatePostScore(p){
+  if(S.mode==='pusula'){
+    p.base=.70*Number(p.fit||0)+.15*Number(p.tazelik||0)+.15*Number(p.etkilesim_puani||0);
+    p.score=p.base*Number(p.quality||0);
+  }else p.score=.70*Number(p.etkilesim_puani||0)+.20*Number(p.tazelik||0)+.10*(1-Number(p.clickbait||0));
+}
+async function interact(id,event,button,commentText=''){
+  const p=G.f.find(x=>String(x.id)===String(id));
+  if(!p||button?.disabled)return;
+  const active=event==='like'?!p.viewer_liked:event==='share'?!p.viewer_shared:true;
+  if(button)button.disabled=true;
+  try{
+    const r=await fetch('/api/posts?action=interact',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      id,event,active,actor_id:G.actor,session_id:G.session,intent:S.intent||'classic',mode:S.mode||'classic',rank:p.rank,comment:commentText
+    })});
+    const d=await r.json();
+    if(!r.ok||!d.ok)throw Error(d.error||'Etkileşim kaydedilemedi');
+    p.like_count=d.counts.like_count;p.comment_count=d.counts.comment_count;p.share_count=d.counts.share_count;
+    p.viewer_liked=Boolean(d.viewer.liked);p.viewer_shared=Boolean(d.viewer.shared);p.viewer_comment_count=Number(d.viewer.comment_count||0);
+    p.etkilesim_puani=Number(d.engagement_score||0);updatePostScore(p);render();
+    toast(event==='like'?(p.viewer_liked?'Beğenildi':'Beğeni kaldırıldı'):event==='share'?(p.viewer_shared?'Yeniden paylaşıldı':'Paylaşım geri alındı'):'Yorum eklendi');return true;
+  }catch(e){toast(e.message||'Etkileşim kaydedilemedi');if(button)button.disabled=false;return false}
+}
+function toggleComment(id){
+  const box=document.getElementById('comment-'+id);if(!box)return;
+  box.classList.toggle('show');if(box.classList.contains('show'))box.querySelector('input')?.focus();
+}
+async function submitComment(id,input){
+  const text=String(input?.value||'').trim();if(!text)return toast('Yorumunu yaz');
+  input.disabled=true;const saved=await interact(id,'comment',null,text);if(saved)input.value='';input.disabled=false;
+}
+async function copyPost(id){
+  const url=location.origin+location.pathname+'#post-'+encodeURIComponent(id);
+  try{await navigator.clipboard.writeText(url);toast('Bağlantı kopyalandı')}catch(e){toast('Bağlantı kopyalanamadı')}
+}
 
 function render(){
   document.getElementById('app').classList.toggle('jury',S.jury);
@@ -40,7 +83,7 @@ function render(){
   let a=ff();r.innerHTML=(a.length?a.map(pc).join(''):'<div class="pageEmpty"><h2>Sonuç yok</h2><p>Arama veya sekmeyi değiştir.</p></div>')+(!G.q&&G.tab==='feed'&&G.n<50?'<div style="padding:16px;text-align:center"><button class="simpleBack" onclick="G.n=Math.min(50,G.n+10);LF()">Daha fazla göster</button></div>':'');metrics()
 }
 
-function why(p){if(!S.intent)return`Klasik demo sıralamasında #${p.rank}. Etkileşim ve tazelik sentetik test sinyalidir; skor ${F(p.score)}.`;if(S.mode==='classic')return`Klasik sıralama açık; ${I[S.intent].label} niyeti skora dahil değil. Skor ${F(p.score)}.`;return`${I[S.intent].label} niyetinle %${Math.round(p.fit*100)} uyumlu. Tazelik ve etkileşim demo sinyali olarak %15'er; kalite çarpanı ${F(p.quality)}.`}
+function why(p){const interaction=p.metadata_simulated?'Başlangıç etkileşimi simüle; kullanıcı hareketleri canlı güncellenir.':'Etkileşim canlı sayaçlardan hesaplanır.';if(!S.intent)return`Klasik sıralamada #${p.rank}. ${interaction} Skor ${F(p.score)}.`;if(S.mode==='classic')return`Klasik sıralama açık; ${I[S.intent].label} niyeti skora dahil değil. ${interaction} Skor ${F(p.score)}.`;return`${I[S.intent].label} niyetinle %${Math.round(p.fit*100)} uyumlu. ${interaction} Kalite çarpanı ${F(p.quality)}.`}
 function UB(){let e=document.getElementById('budgetStatus');if(!S.budget){e.textContent='Sınırsız';document.querySelector('.progressTrack i').style.width='0%';return}let x=Math.floor((Date.now()-G.st)/1000),t=S.budget*60,z=Math.max(0,t-x);e.textContent=Math.floor(z/60)+':'+String(z%60).padStart(2,'0');document.querySelector('.progressTrack i').style.width=Math.min(100,x/t*100)+'%';if(!z&&!G.end){G.end=1;showSession()}}
 function clock(){clearInterval(G.tm);G.st=Date.now();G.end=0;UB();if(S.budget)G.tm=setInterval(UB,1000)}
 function clearIntent(){clearInterval(G.tm);S.intent=null;S.budget=0;S.modalIntent=null;S.category='all';S.modalCategory='all';S.dismissed=false;S.mode='classic';G.c=null;const category=document.getElementById('intentCategory');if(category)category.value='all';document.getElementById('intentModal').classList.remove('show');LF('classic');toast('Standart demo akışı')}

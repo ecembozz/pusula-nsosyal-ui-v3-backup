@@ -142,6 +142,41 @@ html,body{
   line-height:1.35!important;
   font-weight:400!important;
 }
+.postActions .act span{min-width:18px;text-align:left;font-variant-numeric:tabular-nums}
+.postActions .act.liked{color:#ff5f86!important}
+.postActions .act.liked svg{fill:currentColor!important}
+.postActions .act:disabled{opacity:.55;cursor:wait}
+.commentComposer{
+  display:none;
+  align-items:center;
+  gap:9px;
+  margin-top:8px;
+  padding:9px 10px;
+  border:1px solid var(--line-soft);
+  border-radius:12px;
+  background:color-mix(in srgb,var(--panel) 86%,transparent);
+}
+.commentComposer.show{display:flex}
+.commentComposer input{
+  flex:1;
+  min-width:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:var(--text);
+  font:inherit;
+  font-size:13px;
+}
+.commentComposer input::placeholder{color:var(--muted)}
+.commentComposer button{
+  border:0;
+  border-radius:9px;
+  padding:7px 11px;
+  background:var(--brand,#2e9cff);
+  color:white;
+  font-size:12px;
+  font-weight:700;
+}
 .pusulaTitle{
   font-size:14.5px!important;
   line-height:1.35!important;
