@@ -166,6 +166,12 @@ html.pusulaCompassGuideLocked #intentModal .pusulaCompassModal{overscroll-behavi
 
     if(step===1){
       start={x:cr.left+cr.width*.23,y:cr.top-8};
+    }else if(step===3){
+      start={x:cr.right+8,y:cr.top+cr.height*.38};
+    }else if(step===4){
+      start={x:cr.left-8,y:cr.top+cr.height*.62};
+    }else if(step===5){
+      start={x:cr.right+8,y:cr.top+cr.height*.72};
     }else if(cr.bottom<=tr.top){
       start={x:cr.left+cr.width*bias,y:cr.bottom+8};
     }else if(cr.top>=tr.bottom){

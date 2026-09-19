@@ -95,6 +95,12 @@
 
     if(step===1){
       start={x:cr.left+cr.width*.23,y:cr.top-8};
+    }else if(step===3){
+      start={x:Math.min(window.innerWidth-8,cr.right+6),y:cr.top+cr.height*.38};
+    }else if(step===4){
+      start={x:Math.max(8,cr.left-6),y:cr.top+cr.height*.62};
+    }else if(step===5){
+      start={x:Math.min(window.innerWidth-8,cr.right+6),y:cr.top+cr.height*.72};
     }else if(cr.bottom<=tr.top){
       start={x:cr.left+cr.width*bias,y:cr.bottom+8};
     }else if(cr.top>=tr.bottom){
