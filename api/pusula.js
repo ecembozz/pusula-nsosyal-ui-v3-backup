@@ -1,5 +1,6 @@
 const RUNTIME_POOL = require('../data/runtime/feed_v5.json');
 const RUNTIME_META = require('../data/runtime/feed_v5_meta.json');
+const { dbConfigured, listReadyRuntimePosts } = require('../lib/db');
 
 const INTENTS = {
   ogrenmek: [1.00, 0.15, 0.15, 0.05],
@@ -123,6 +124,17 @@ function loadPool(){
   if(!Array.isArray(RUNTIME_POOL) || RUNTIME_POOL.length!==320)throw new Error('Geçersiz Candidate V5 runtime havuzu');
   return RUNTIME_POOL;
 }
+async function loadFeedPool(){
+  const base=loadPool();
+  if(!dbConfigured())return {pool:base,liveCount:0};
+  try{
+    const live=await listReadyRuntimePosts(500);
+    return {pool:[...live,...base],liveCount:live.length};
+  }catch(err){
+    console.error('PUSULA live pool error',err);
+    return {pool:base,liveCount:0};
+  }
+}
 function ranked(pool,intent,mode,limit){
   const target=INTENTS[intent];
   const scoreFn=mode==='pusula'?(p)=>pusulaParts(p,target).score:classicScore;
@@ -161,11 +173,27 @@ module.exports = async function handler(req,res){
     const category=canonicalCategory(req.query?.category);
     const limit=clamp(parseInt(req.query?.limit || '20',10)||20,1,50);
     if(action==='meta'){
-      return res.status(200).json({ok:true,source:SOURCE,intents:INTENTS,runtime_meta:RUNTIME_META});
+      return res.status(200).json({
+        ok:true,
+        source:{...SOURCE,live_posts_enabled:dbConfigured(),ingestion_semantics:'analyze_once_then_cache'},
+        intents:INTENTS,
+        runtime_meta:RUNTIME_META
+      });
     }
-    const fullPool=loadPool();
+    const loaded=await loadFeedPool();
+    const fullPool=loaded.pool;
     const pool=filterPoolByCategory(fullPool,category);
-    const responseSource={...SOURCE,category,category_label:category==='all'?'Tüm kategoriler':CATEGORY_LABELS[category],filtered_pool_size:pool.length};
+    const responseSource={
+      ...SOURCE,
+      pool_size:fullPool.length,
+      static_pool_size:RUNTIME_POOL.length,
+      live_pool_size:loaded.liveCount,
+      live_posts_enabled:dbConfigured(),
+      semantic_inference:loaded.liveCount?'cached_static_plus_gemini_ingest':'offline_cached',
+      category,
+      category_label:category==='all'?'Tüm kategoriler':CATEGORY_LABELS[category],
+      filtered_pool_size:pool.length
+    };
     if(action==='feed'){
       const mode=String(req.query?.mode)==='pusula'?'pusula':'classic';
       const posts=ranked(pool,intent,mode,limit);
@@ -181,7 +209,7 @@ module.exports = async function handler(req,res){
         status:'runtime_behavior_smoke_not_final_human_gold_accuracy',
         source:SOURCE,
         limit,
-        rows:behaviorBenchmark(fullPool,limit),
+        rows:behaviorBenchmark(loadPool(),limit),
       });
     }
     return res.status(400).json({ok:false,error:'Bilinmeyen action'});
@@ -191,4 +219,4 @@ module.exports = async function handler(req,res){
   }
 };
 
-module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,canonicalCategory,filterPoolByCategory,cosine,classicScore,pusulaParts,diverse,enrich,metrics,loadPool,ranked,behaviorBenchmark};
+module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,canonicalCategory,filterPoolByCategory,cosine,classicScore,pusulaParts,diverse,enrich,metrics,loadPool,loadFeedPool,ranked,behaviorBenchmark};
