@@ -69,12 +69,15 @@ function pusulaParts(p,target){
 }
 function diverse(items,scoreFn,limit){
   const sorted=[...items].sort((a,b)=>scoreFn(b)-scoreFn(a));
-  const out=[], counts={};
+  const out=[], counts={}, newsCounts={};
   for(const p of sorted){
     if(out.length>=limit)break;
     const key=p.kategori||p.topic_family||'diger';
     if((counts[key]||0)>=5)continue;
+    const newsKey=p.style==='verified_news'?p.news_kind:null;
+    if(newsKey&&(newsCounts[newsKey]||0)>=8)continue;
     out.push(p); counts[key]=(counts[key]||0)+1;
+    if(newsKey)newsCounts[newsKey]=(newsCounts[newsKey]||0)+1;
   }
   if(out.length<limit){
     for(const p of sorted){

@@ -29,4 +29,7 @@ test('Haberdar olmak feed is dominated by verified news rather than casual posts
   const ranked=pusula.ranked(pusula.loadPool(),'haberdar','pusula',20);
   assert.ok(ranked.filter(post=>post.style==='verified_news').length>=16);
   assert.ok(ranked.filter(post=>post.source_url).length>=16);
+  for(const kind of ['teknofest','ai','software']){
+    assert.ok(ranked.filter(post=>post.news_kind===kind).length>=4,kind);
+  }
 });
