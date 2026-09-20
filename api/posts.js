@@ -1,6 +1,7 @@
 const crypto=require('crypto');
 const RUNTIME_POOL=require('../data/runtime/feed_v5.json');
 const CURATED_POOL=require('../data/runtime/curated_competition_posts_v1');
+const NEWS_POOL=require('../data/runtime/curated_news_posts_v1');
 const {
   dbConfigured,ensureSchema,createPendingPost,saveAnalysis,markAnalysisFailed,getPost,
   listRecentPosts,updateEngagement,updateInteraction
@@ -134,7 +135,7 @@ module.exports=async function handler(req,res){
         if(!actorId)return res.status(400).json({ok:false,error:'Anonim kullanıcı kimliği gerekli'});
         if(!['like','comment','share'].includes(event))return res.status(400).json({ok:false,error:'Geçersiz etkileşim türü'});
         const live=await getPost(id);
-        const seeded=[...CURATED_POOL,...RUNTIME_POOL].find(p=>String(p.id)===id);
+        const seeded=[...NEWS_POOL,...CURATED_POOL,...RUNTIME_POOL].find(p=>String(p.id)===id);
         if(!live&&!seeded)return res.status(404).json({ok:false,error:'Gönderi bulunamadı'});
         const interaction=await updateInteraction({
           postId:id,
