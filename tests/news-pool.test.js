@@ -33,21 +33,3 @@ test('Haberdar olmak feed is dominated by verified news rather than casual posts
     assert.ok(ranked.filter(post=>post.news_kind===kind).length>=4,kind);
   }
 });
-
-test('newest sort uses known publish times and keeps undated fallback posts last',()=>{
-  const pool=[
-    {...posts[0],id:'older',news_date:'2026-01-04',tazelik:.99},
-    {...posts[1],id:'newer',news_date:'2026-02-10',tazelik:.20},
-    {...posts[2],id:'undated-fresh',news_date:null,tazelik:1},
-    {...posts[3],id:'undated-old',news_date:null,tazelik:.1},
-  ];
-  const sorted=pusula.newest(pool,'haberdar','pusula',4);
-  assert.deepEqual(sorted.map(post=>post.id),['newer','older','undated-fresh','undated-old']);
-  assert.deepEqual(sorted.map(post=>post.rank),[1,2,3,4]);
-});
-
-test('sort query accepts only newest as the chronological override',()=>{
-  assert.equal(pusula.canonicalSort('newest'),'newest');
-  assert.equal(pusula.canonicalSort('NEWEST'),'newest');
-  assert.equal(pusula.canonicalSort('anything-else'),'ranked');
-});

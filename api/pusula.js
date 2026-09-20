@@ -47,7 +47,6 @@ const SOURCE = {
 
 function canonicalIntent(v){ return ALIASES[String(v || 'learn').toLocaleLowerCase('tr-TR')] || 'ogrenmek'; }
 function canonicalCategory(v){ const key=String(v||'all'); return key==='all'||Object.prototype.hasOwnProperty.call(CATEGORY_LABELS,key)?key:'all'; }
-function canonicalSort(v){ return String(v||'ranked').toLocaleLowerCase('tr-TR')==='newest'?'newest':'ranked'; }
 function filterPoolByCategory(pool,category){ return category==='all'?pool:pool.filter(p=>p.kategori===category); }
 function clamp(n,min,max){ return Math.max(min,Math.min(max,n)); }
 function cosine(a=[],b=[]){
@@ -175,23 +174,6 @@ function ranked(pool,intent,mode,limit){
   const selected=diverse(pool,scoreFn,limit);
   return selected.map((p,i)=>enrich(p,i+1,intent,mode));
 }
-function recencyParts(post){
-  const raw=post.created_at||post.news_date||'';
-  const normalized=/^\d{4}-\d{2}-\d{2}$/.test(String(raw))?`${raw}T00:00:00Z`:raw;
-  const timestamp=Date.parse(normalized);
-  return {
-    dated:Number.isFinite(timestamp)?1:0,
-    timestamp:Number.isFinite(timestamp)?timestamp:0,
-    freshness:Number(post.tazelik||0),
-  };
-}
-function newest(pool,intent,mode,limit){
-  const selected=[...pool].sort((a,b)=>{
-    const ar=recencyParts(a),br=recencyParts(b);
-    return br.dated-ar.dated || br.timestamp-ar.timestamp || br.freshness-ar.freshness || String(a.id).localeCompare(String(b.id),'tr');
-  }).slice(0,limit);
-  return selected.map((p,i)=>enrich(p,i+1,intent,mode));
-}
 function behaviorBenchmark(pool,limit=20){
   return Object.keys(INTENTS).map(intent=>{
     const classic=ranked(pool,intent,'classic',limit);
@@ -222,7 +204,6 @@ module.exports = async function handler(req,res){
     const action=String(req.query?.action || 'meta');
     const intent=canonicalIntent(req.query?.intent);
     const category=canonicalCategory(req.query?.category);
-    const sort=canonicalSort(req.query?.sort);
     const limit=clamp(parseInt(req.query?.limit || '20',10)||20,1,50);
     const viewerId=String(req.query?.viewer_id||'').trim().slice(0,120);
     if(action==='meta'){
@@ -249,13 +230,12 @@ module.exports = async function handler(req,res){
       semantic_inference:loaded.liveCount?'cached_static_plus_gemini_ingest':'offline_cached',
       category,
       category_label:category==='all'?'Tüm kategoriler':CATEGORY_LABELS[category],
-      filtered_pool_size:pool.length,
-      sort
+      filtered_pool_size:pool.length
     };
     if(action==='feed'){
       const mode=String(req.query?.mode)==='pusula'?'pusula':'classic';
-      const posts=sort==='newest'?newest(pool,intent,mode,limit):ranked(pool,intent,mode,limit);
-      return res.status(200).json({ok:true,source:responseSource,mode,sort,sort_label:sort==='newest'?'Yeniden eskiye':'PUSULA sırası',intent,intent_label:INTENT_LABELS[intent],category,category_label:responseSource.category_label,posts,metrics:metrics(posts,intent)});
+      const posts=ranked(pool,intent,mode,limit);
+      return res.status(200).json({ok:true,source:responseSource,mode,intent,intent_label:INTENT_LABELS[intent],category,category_label:responseSource.category_label,posts,metrics:metrics(posts,intent)});
     }
     if(action==='compare'){
       const classic=ranked(pool,intent,'classic',limit), pusula=ranked(pool,intent,'pusula',limit);
@@ -277,4 +257,4 @@ module.exports = async function handler(req,res){
   }
 };
 
-module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,canonicalCategory,canonicalSort,filterPoolByCategory,cosine,classicScore,pusulaParts,diverse,attachEngagement,enrich,metrics,loadPool,loadFeedPool,ranked,recencyParts,newest,behaviorBenchmark};
+module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,canonicalCategory,filterPoolByCategory,cosine,classicScore,pusulaParts,diverse,attachEngagement,enrich,metrics,loadPool,loadFeedPool,ranked,behaviorBenchmark};

@@ -6,9 +6,6 @@ function persistentId(key,prefix){
   }catch(e){return prefix+Date.now().toString(36)+Math.random().toString(36).slice(2)}
 }
 window.G={f:[],c:null,m:null,b:null,l:true,e:null,n:30,q:'',tab:'feed',tm:null,st:0,actor:persistentId('pusula_actor_id','anon_'),session:persistentId('pusula_session_id','session_')};
-S.sort=S.sort==='newest'?'newest':'ranked';
-const sessionMeta=document.querySelector('.sessionMeta');
-if(sessionMeta&&!document.getElementById('feedSort'))sessionMeta.insertAdjacentHTML('beforeend','<select class="feedSort" id="feedSort" aria-label="Akış sıralaması" onchange="changeSort(this.value)"><option value="ranked">PUSULA sırası</option><option value="newest">Yeniden eskiye</option></select>');
 const E=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]||c));
 const F=x=>Number(x||0).toFixed(3);
 const AC=id=>['cyan','green','orange','pink'][Array.from(String(id)).reduce((s,c)=>s+c.codePointAt(0),0)%4];
@@ -24,7 +21,7 @@ const TECH_META_V5={
 };
 
 async function A(p){let r=await fetch('/api/pusula?'+new URLSearchParams({...p,viewer_id:G.actor}),{cache:'no-store'}),d=await r.json();if(!r.ok||!d.ok)throw Error(d.error||r.status);return d}
-async function LF(m){G.l=true;if(G.f.length)render();try{let d=await A({action:'feed',intent:S.intent||'learn',category:S.category||'all',mode:m||(!S.intent?'classic':S.mode),sort:S.sort||'ranked',limit:G.n});G.f=d.posts;G.src=d.source;G.fm=d.metrics;G.e=null;if(S.intent)LC()}catch(e){G.e=e.message;G.f=[]}G.l=false;render()}
+async function LF(m){G.l=true;if(G.f.length)render();try{let d=await A({action:'feed',intent:S.intent||'learn',category:S.category||'all',mode:m||(!S.intent?'classic':S.mode),limit:G.n});G.f=d.posts;G.src=d.source;G.fm=d.metrics;G.e=null;if(S.intent)LC()}catch(e){G.e=e.message;G.f=[]}G.l=false;render()}
 async function LC(){try{G.c=await A({action:'compare',intent:S.intent,category:S.category||'all',limit:20});BACKEND.ok=true}catch(e){G.c=null}metrics();let a=document.querySelector('.techPane.active');if(a)renderTech(a.id.replace('tech-',''))}
 async function LM(){try{G.m=await A({action:'meta'});BACKEND.ok=true}catch(e){BACKEND.ok=false}}
 async function LB(){try{G.b=await A({action:'benchmark',limit:20});BACKEND.ok=true}catch(e){G.b=null;BACKEND.ok=false}return G.b}
@@ -85,8 +82,7 @@ function render(){
   document.getElementById('pusulaCta').textContent=S.intent?'Değiştir':'Yönünü seç';document.getElementById('dismissPusula').style.display=S.intent?'none':'grid';
   const count=G.src?.filtered_pool_size||G.src?.pool_size||G.m?.source?.pool_size||320;
   const candidate=G.src?.semantic_candidate||G.m?.source?.semantic_candidate||'V5';
-  const categoryLabel=CATEGORY_FILTERS[S.category||'all']||CATEGORY_FILTERS.all;const orderLabel=S.sort==='newest'?'Yeniden eskiye':(S.mode==='pusula'?'PUSULA sırası':'Klasik sıra');document.getElementById('pusulaSub').textContent=S.intent?`${I[S.intent].label} · ${categoryLabel} · ${orderLabel} · ${count} gönderi.`:`PUSULA kapalı · ${count} gizlilik güvenli gönderi klasik demo sıralamasında.`;
-  const feedSort=document.getElementById('feedSort');if(feedSort)feedSort.value=S.sort||'ranked';
+  const categoryLabel=CATEGORY_FILTERS[S.category||'all']||CATEGORY_FILTERS.all;document.getElementById('pusulaSub').textContent=S.intent?`${I[S.intent].label} · ${categoryLabel} · ${count} gönderi içinden sıralanıyor.`:`PUSULA kapalı · ${count} gizlilik güvenli gönderi klasik demo sıralamasında.`;
   if(S.intent){document.getElementById('intentStatus').textContent=I[S.intent].label;UB()}
   let r=document.getElementById('posts');
   if(G.l){r.innerHTML='<div class="pageEmpty"><h2>PUSULA havuzu sıralanıyor</h2><p>Candidate V5 offline etiketleri hazırlanıyor…</p></div>';metrics();return}
@@ -94,13 +90,12 @@ function render(){
   let a=ff();r.innerHTML=(a.length?a.map(pc).join(''):'<div class="pageEmpty"><h2>Sonuç yok</h2><p>Arama veya sekmeyi değiştir.</p></div>')+(!G.q&&G.tab==='feed'&&G.n<50?'<div style="padding:16px;text-align:center"><button class="simpleBack" onclick="G.n=Math.min(50,G.n+10);LF()">Daha fazla göster</button></div>':'');metrics()
 }
 
-function why(p){const interaction=p.metadata_simulated?'Başlangıç etkileşimi simüle; kullanıcı hareketleri canlı güncellenir.':'Etkileşim canlı sayaçlardan hesaplanır.';if(S.sort==='newest')return`Yayın zamanına göre yeniden eskiye sıralamada #${p.rank}. ${interaction}`;if(!S.intent)return`Klasik sıralamada #${p.rank}. ${interaction} Skor ${F(p.score)}.`;if(S.mode==='classic')return`Klasik sıralama açık; ${I[S.intent].label} niyeti skora dahil değil. ${interaction} Skor ${F(p.score)}.`;return`${I[S.intent].label} niyetinle %${Math.round(p.fit*100)} uyumlu. ${interaction} Kalite çarpanı ${F(p.quality)}.`}
+function why(p){const interaction=p.metadata_simulated?'Başlangıç etkileşimi simüle; kullanıcı hareketleri canlı güncellenir.':'Etkileşim canlı sayaçlardan hesaplanır.';if(!S.intent)return`Klasik sıralamada #${p.rank}. ${interaction} Skor ${F(p.score)}.`;if(S.mode==='classic')return`Klasik sıralama açık; ${I[S.intent].label} niyeti skora dahil değil. ${interaction} Skor ${F(p.score)}.`;return`${I[S.intent].label} niyetinle %${Math.round(p.fit*100)} uyumlu. ${interaction} Kalite çarpanı ${F(p.quality)}.`}
 function UB(){let e=document.getElementById('budgetStatus');if(!S.budget){e.textContent='Sınırsız';document.querySelector('.progressTrack i').style.width='0%';return}let x=Math.floor((Date.now()-G.st)/1000),t=S.budget*60,z=Math.max(0,t-x);e.textContent=Math.floor(z/60)+':'+String(z%60).padStart(2,'0');document.querySelector('.progressTrack i').style.width=Math.min(100,x/t*100)+'%';if(!z&&!G.end){G.end=1;showSession()}}
 function clock(){clearInterval(G.tm);G.st=Date.now();G.end=0;UB();if(S.budget)G.tm=setInterval(UB,1000)}
-function clearIntent(){clearInterval(G.tm);S.intent=null;S.budget=0;S.modalIntent=null;S.category='all';S.modalCategory='all';S.dismissed=false;S.mode='classic';S.sort='ranked';G.c=null;const category=document.getElementById('intentCategory');if(category)category.value='all';document.getElementById('intentModal').classList.remove('show');LF('classic');toast('Standart demo akışı')}
+function clearIntent(){clearInterval(G.tm);S.intent=null;S.budget=0;S.modalIntent=null;S.category='all';S.modalCategory='all';S.dismissed=false;S.mode='classic';G.c=null;const category=document.getElementById('intentCategory');if(category)category.value='all';document.getElementById('intentModal').classList.remove('show');LF('classic');toast('Standart demo akışı')}
 async function applyIntent(){if(!S.modalIntent)return toast('Önce bir yön seç');S.intent=S.modalIntent;S.budget=S.modalBudget;S.category=S.modalCategory||'all';S.mode='pusula';S.dismissed=false;document.getElementById('intentModal').classList.remove('show');clock();const category=CATEGORY_FILTERS[S.category]||CATEGORY_FILTERS.all;toast(`${I[S.intent].label} · ${category} · ${S.budget?S.budget+' dk':'sınırsız'}`);await LF('pusula')}
 async function setMode(m){if(m==='pusula'&&!S.intent){S.mode='classic';render();return toast('Önce bir yön seç')}S.mode=m;await LF(m);toast(m==='classic'?'Klasik sıralama':'PUSULA sıralaması')}
-async function changeSort(value){S.sort=value==='newest'?'newest':'ranked';G.n=30;await LF();toast(S.sort==='newest'?'Yeniden eskiye sıralandı':'PUSULA sırasına dönüldü')}
 
 function metrics(){
   let b=document.getElementById('metrics');
@@ -125,7 +120,7 @@ function metrics(){
 }
 
 function showSession(s='pause'){let o=document.getElementById('sessionModal'),c=document.getElementById('session');o.classList.add('show');if(s==='pause')c.innerHTML=`<h2>${S.budget?'Zaman bütçen tamamlandı.':'Oturumu bitirmek ister misin?'}</h2><p>Akış zorla kapanmıyor. Bu oturumda ${G.f.length} demo gönderisi getirildi.</p><div class="stats"><div class="stat"><b>${G.f.length}</b><span>gönderi</span></div><div class="stat"><b>${S.intent?I[S.intent].short:'—'}</b><span>niyet</span></div><div class="stat"><b>${S.budget?S.budget+' dk':'∞'}</b><span>bütçe</span></div></div><div class="modalFooter"><button class="secondary" onclick="sessionModal.classList.remove('show')">Devam et</button><button class="primary" onclick="showSession('mood')">Bitir</button></div>`;else if(s==='mood')c.innerHTML='<h2>Bu oturum amacına ulaştı mı?</h2><p>Mevcut demoda geri bildirim henüz sıralamayı çevrimiçi eğitmiyor.</p><div class="moods"><button class="mood" onclick="pick(3,this)">😊</button><button class="mood" onclick="pick(2,this)">😐</button><button class="mood" onclick="pick(1,this)">😞</button></div><div class="modalFooter"><button class="primary" onclick="showSession(\'summary\')">Özeti gör</button></div>';else c.innerHTML=`<h2>Oturum özeti</h2><div class="stats"><div class="stat"><b>${S.intent?I[S.intent].label:'Standart'}</b><span>niyet</span></div><div class="stat"><b>${G.f.length}</b><span>gönderi</span></div><div class="stat"><b>${G.fm?Math.round(G.fm.niyet_uyumu*100)+'%':'—'}</b><span>uyum</span></div></div><div class="modalFooter"><button class="primary" onclick="newSession()">Yeni oturum</button></div>`}
-function newSession(){clearInterval(G.tm);S.intent=null;S.budget=0;S.mode='classic';S.sort='ranked';G.c=null;document.getElementById('sessionModal').classList.remove('show');LF('classic')}
+function newSession(){clearInterval(G.tm);S.intent=null;S.budget=0;S.mode='classic';G.c=null;document.getElementById('sessionModal').classList.remove('show');LF('classic')}
 function switchTab(t){G.tab=t;tabFeed.classList.toggle('active',t==='feed');tabMedia.classList.toggle('active',t==='media');render()}
 function searchFeed(q){G.q=q;render()}
 function selectTrend(t){searchInput.value=t;G.q=t;render()}
