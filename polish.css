@@ -36,6 +36,7 @@ html,body{letter-spacing:-.008em!important;text-rendering:optimizeLegibility!imp
 .pusulaBar .compassIcon{background:rgba(255,255,255,.16)!important;color:#fff!important;box-shadow:none!important}.pusulaBar .statusChip{background:rgba(255,255,255,.14)!important;border:0!important}.pusulaBar .progressTrack{background:rgba(255,255,255,.20)!important}.pusulaBar .progressTrack i{background:#fff!important;opacity:.9!important}
 .feedSort{height:28px;max-width:148px;border:0;border-radius:999px;padding:0 28px 0 11px;background:rgba(255,255,255,.14);color:#fff;font-size:11px;font-weight:700;outline:none;cursor:pointer}.feedSort:hover,.feedSort:focus-visible{background:rgba(255,255,255,.22)}.feedSort option{background:#20242b;color:#f3f6fa}.feedSort:focus-visible{box-shadow:0 0 0 2px rgba(255,255,255,.38)}
 @media(max-width:720px){.feedSort{max-width:132px;padding-left:9px}.sessionMeta .progressTrack{display:none}}
+.verifiedSource{display:inline-flex;align-items:center;margin-left:auto;border:1px solid color-mix(in srgb,var(--brand) 28%,var(--line));border-radius:999px;padding:3px 8px;color:var(--brand);background:color-mix(in srgb,var(--brand) 7%,transparent);font-size:10.5px;font-weight:700;text-decoration:none}.verifiedSource:hover{background:color-mix(in srgb,var(--brand) 13%,transparent)}
 
 .navBtn.active .navIcon{background:transparent!important;border:0!important;box-shadow:none!important}
 html:not([data-theme]) .navBtn.active{background:#292e38!important;color:#fff!important}
