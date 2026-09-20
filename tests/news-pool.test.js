@@ -33,3 +33,15 @@ test('Haberdar olmak feed is dominated by verified news rather than casual posts
     assert.ok(ranked.filter(post=>post.news_kind===kind).length>=4,kind);
   }
 });
+
+test('PUSULA breaks equal final scores by freshness and then stable post id',()=>{
+  const vector=[1,.15,.15,.05];
+  const base={yazar:'Test',kategori:'teknoloji_ai',tahmin_niyet:vector,clickbait:0};
+  const ranked=pusula.ranked([
+    {...base,id:'post_b',tazelik:.6,etkilesim_puani:.4},
+    {...base,id:'post_c',tazelik:.9,etkilesim_puani:.1},
+    {...base,id:'post_a',tazelik:.6,etkilesim_puani:.4},
+  ],'ogrenmek','pusula',3);
+  assert.equal(new Set(ranked.map(post=>post.score)).size,1);
+  assert.deepEqual(ranked.map(post=>post.id),['post_c','post_a','post_b']);
+});

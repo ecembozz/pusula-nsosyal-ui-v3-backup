@@ -67,8 +67,17 @@ function pusulaParts(p,target){
   const base=.70*fit+.15*Number(p.tazelik||0)+.15*Number(p.etkilesim_puani||0);
   return {fit,quality,base,score:base*quality};
 }
-function diverse(items,scoreFn,limit){
-  const sorted=[...items].sort((a,b)=>scoreFn(b)-scoreFn(a));
+function pusulaTieBreak(a,b){
+  const freshnessDelta=Number(b.tazelik||0)-Number(a.tazelik||0);
+  if(freshnessDelta!==0)return freshnessDelta;
+  const aId=String(a.id),bId=String(b.id);
+  return aId<bId?-1:aId>bId?1:0;
+}
+function diverse(items,scoreFn,limit,tieBreak=null){
+  const sorted=[...items].sort((a,b)=>{
+    const scoreDelta=scoreFn(b)-scoreFn(a);
+    return scoreDelta!==0?scoreDelta:(tieBreak?tieBreak(a,b):0);
+  });
   const out=[], counts={}, newsCounts={};
   for(const p of sorted){
     if(out.length>=limit)break;
@@ -171,7 +180,7 @@ async function loadFeedPool(viewerId=''){
 function ranked(pool,intent,mode,limit){
   const target=INTENTS[intent];
   const scoreFn=mode==='pusula'?(p)=>pusulaParts(p,target).score:classicScore;
-  const selected=diverse(pool,scoreFn,limit);
+  const selected=diverse(pool,scoreFn,limit,mode==='pusula'?pusulaTieBreak:null);
   return selected.map((p,i)=>enrich(p,i+1,intent,mode));
 }
 function behaviorBenchmark(pool,limit=20){
@@ -257,4 +266,4 @@ module.exports = async function handler(req,res){
   }
 };
 
-module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,canonicalCategory,filterPoolByCategory,cosine,classicScore,pusulaParts,diverse,attachEngagement,enrich,metrics,loadPool,loadFeedPool,ranked,behaviorBenchmark};
+module.exports._test={SOURCE,RUNTIME_META,canonicalIntent,canonicalCategory,filterPoolByCategory,cosine,classicScore,pusulaParts,pusulaTieBreak,diverse,attachEngagement,enrich,metrics,loadPool,loadFeedPool,ranked,behaviorBenchmark};
