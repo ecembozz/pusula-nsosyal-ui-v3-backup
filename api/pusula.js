@@ -108,8 +108,7 @@ function enrich(p,rank,intent,mode){
   const parts=pusulaParts(p,target);
   const score=mode==='pusula'?parts.score:classicScore(p);
   return {
-    id:String(p.id), rank, yazar:p.yazar, author_id:p.author_id, initials:initials(p.yazar),
-    metin:p.style==='verified_news'?`${p.headline} — ${p.metin}`:p.metin,
+    id:String(p.id), rank, yazar:p.yazar, author_id:p.author_id, initials:initials(p.yazar), metin:p.metin,
     kategori:p.kategori, kategori_adi:p.kategori_adi || CATEGORY_LABELS[p.kategori] || String(p.kategori||'Diğer').replaceAll('_',' '),
     tahmin_niyet:p.tahmin_niyet || p.intent_vector || [0,0,0,0],
     mixed_intent:Boolean(p.mixed_intent), semantic_confidence:p.semantic_confidence ?? null,
