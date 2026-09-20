@@ -1,4 +1,5 @@
 const RUNTIME_POOL = require('../data/runtime/feed_v5.json');
+const CURATED_POOL = require('../data/runtime/curated_competition_posts_v1');
 const RUNTIME_META = require('../data/runtime/feed_v5_meta.json');
 const { dbConfigured, listReadyRuntimePosts, listInteractionSnapshot } = require('../lib/db');
 const { engagementScore, mergeCounts } = require('../lib/engagement');
@@ -29,15 +30,16 @@ const CATEGORY_LABELS = {
 };
 const SOURCE = {
   repo:'ecembozz/pusula-nsosyal-ui-v3-backup',
-  path:'data/runtime/feed_v5.json',
-  pool_size:RUNTIME_POOL.length,
+  path:'data/runtime/feed_v5.json + curated_competition_posts_v1.js',
+  pool_size:RUNTIME_POOL.length+CURATED_POOL.length,
+  curated_pool_size:CURATED_POOL.length,
   ranking:'PUSULA transparent ranking v5',
   semantic_candidate:RUNTIME_META?.semantic_architecture?.candidate || 'V5',
   semantic_encoder:RUNTIME_META?.semantic_architecture?.encoder || 'intfloat/multilingual-e5-base',
   semantic_inference:'offline_cached',
-  text_provenance:RUNTIME_META?.text_provenance,
+  text_provenance:'synthetic_original_plus_human_curated_competition_demo',
   author_provenance:RUNTIME_META?.author_provenance,
-  ranking_metadata_provenance:RUNTIME_META?.engagement_freshness_provenance,
+  ranking_metadata_provenance:'deterministic_seed_counts_plus_live_interaction_events',
   external_runtime_dependency:false,
 };
 
@@ -111,7 +113,8 @@ function enrich(p,rank,intent,mode){
     viewer_liked:Boolean(p.viewer_liked),viewer_shared:Boolean(p.viewer_shared),
     viewer_comment_count:Number(p.viewer_comment_count||0),
     score, fit:parts.fit, quality:parts.quality, base:mode==='pusula'?parts.base:0,
-    metadata_simulated:p.ranking_metadata_provenance==='deterministic_demo_simulation_not_platform_telemetry',
+    metadata_simulated:p.content_provenance!=='live_user_post',
+    content_provenance:p.content_provenance||null,
   };
 }
 function metrics(posts,intent){
@@ -138,7 +141,10 @@ function metrics(posts,intent){
 }
 function loadPool(){
   if(!Array.isArray(RUNTIME_POOL) || RUNTIME_POOL.length!==320)throw new Error('Geçersiz Candidate V5 runtime havuzu');
-  return RUNTIME_POOL;
+  if(!Array.isArray(CURATED_POOL) || CURATED_POOL.length!==50)throw new Error('Geçersiz yarışma demo havuzu');
+  const combined=[...CURATED_POOL,...RUNTIME_POOL];
+  if(new Set(combined.map(p=>p.id)).size!==combined.length)throw new Error('İçerik havuzunda yinelenen id');
+  return combined;
 }
 async function loadFeedPool(viewerId=''){
   const base=loadPool();
@@ -206,7 +212,10 @@ module.exports = async function handler(req,res){
     const responseSource={
       ...SOURCE,
       pool_size:fullPool.length,
-      static_pool_size:RUNTIME_POOL.length,
+      static_pool_size:RUNTIME_POOL.length+CURATED_POOL.length,
+      synthetic_pool_size:RUNTIME_POOL.length,
+      curated_pool_size:CURATED_POOL.length,
+      total_static_pool_size:RUNTIME_POOL.length+CURATED_POOL.length,
       live_pool_size:loaded.liveCount,
       live_posts_enabled:dbConfigured(),
       semantic_inference:loaded.liveCount?'cached_static_plus_gemini_ingest':'offline_cached',
