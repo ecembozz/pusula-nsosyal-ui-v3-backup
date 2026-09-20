@@ -113,7 +113,7 @@ function metrics(){
     return `<div class="metric"><span>${name}</span><b>${pct(x)}</b><b class="p">${pct(y)}</b><b class="${good?'deltaGood':'deltaBad'}">${diff(x,y)}</b></div>`;
   };
   const budget=S.budget?S.budget+' dk':'Sınırsız',category=CATEGORY_FILTERS[S.category||'all']||CATEGORY_FILTERS.all;
-  b.innerHTML=`<div class="juryMetricContext"><b>${E(I[S.intent].label)} · ${E(category)} · ${budget}</b></div><div class="metric metricHead"><span></span><b>Klasik</b><b class="p">PUSULA</b><b>Fark</b></div>`
+  b.innerHTML=`<div class="juryMetricContext" aria-label="Aktif oturum seçimleri"><div class="juryContextItem intent"><span>Niyet</span><b>${E(I[S.intent].label)}</b></div><div class="juryContextItem"><span>Kategori</span><b>${E(category)}</b></div><div class="juryContextItem"><span>Süre</span><b>${budget}</b></div></div><div class="metric metricHead"><span></span><b>Klasik</b><b class="p">PUSULA</b><b>Fark</b></div>`
     +row('Niyet benzerliği',a.niyet_uyumu,p.niyet_uyumu)
     +row('Niyet-kalite skoru',a.niyet_kalite,p.niyet_kalite)
     +row('Clickbait ortalaması ↓',a.clickbait_ortalama,p.clickbait_ortalama,true)
